@@ -1,0 +1,16 @@
+.carousel .slider-wrapper {
+  transition: opacity 1s ease-in-out !important;
+}
+
+.carousel .slider {
+  transition: opacity 1s ease-in-out !important;
+}
+
+.carousel .slide {
+  opacity: 0 !important;
+  transition: opacity 1s ease-in-out !important;
+}
+
+.carousel .slide.selected {
+  opacity: 1 !important;
+}

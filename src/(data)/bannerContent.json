@@ -1,0 +1,44 @@
+[
+  {
+    "slideId": 1,
+"heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Resort Experience Designed for Tranquility & Indulgence",
+    "buttonText": "Book Now"
+  },
+  {
+    "slideId": 2,
+    "heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Resort Experience Designed for Tranquility & Indulgence",
+    "buttonText": "Discover More"
+  },
+  {
+    "slideId": 3,
+   "heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Seaview Residence Designed for Wellness, Comfort & Spa Access",
+    "buttonText": "Reserve Today"
+  },
+  {
+    "slideId": 4,
+"heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Resort Experience Designed for Tranquility & Indulgence",
+    "buttonText": "Book Your Stay"
+  },
+  {
+    "slideId": 5,
+   "heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Resort Experience Designed for Tranquility & Indulgence",
+    "buttonText": "Explore Now"
+  },
+  {
+    "slideId": 6,
+"heading": "Slice of Paradise",
+    "subheading": "In Cyprus",
+    "description": "Your Private 5-Star Seaview Residence Designed for Wellness, Comfort & Spa Access",
+    "buttonText": "Plan Your Trip"
+  }
+]

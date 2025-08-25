@@ -1,0 +1,147 @@
+@import "tailwindcss";
+*{
+  /* border: 1px solid red; */
+
+}
+html,body{
+  /* background-color: #E8E4D9; */
+  /* min-height: 300vh; */
+  overflow-x: hidden !important;
+  /* overflow-y: hidden; */
+}
+
+@theme inline{
+  --color-app-yellow:#f3b700;
+}
+.center{
+  @apply flex items-center justify-center;
+}
+.center-column{
+  @apply flex items-center justify-center flex-col;
+}
+.max-width{
+  @apply max-w-[120em] mx-auto;
+}
+
+button,a{
+  @apply cursor-pointer;
+}
+.font-crimson-text{
+  font-family: var(--font-crimson-text) !important;
+}
+.font-cormorant{
+  font-family: var(--font-cormorant) !important;
+}
+.font-playfair{
+  font-family: var(--font-playfair) !important;
+}
+.font-outfit{
+  font-family: var(--font-outfit) !important;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media (min-width: 769px) {
+  .modal-content {
+    width: 50%;
+  }
+}
+
+/* Center the box in the viewport */
+.rolling-box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height for centering */
+  perspective: 1000px; /* Moved perspective here for better 3D effect */
+}
+
+/* Style the rolling box container */
+.rolling-box-container {
+  width: 40rem; /* Explicit width to ensure visibility */
+  height: 20rem; /* Explicit height to ensure visibility */
+}
+
+/* Style the outer wrapper of the box */
+.rolling-box-outer {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  display: flex; /* Use flex to center the content */
+  justify-content: center;
+  align-items: center;
+  line-height: inherit;
+  text-align: center;
+  font-size: 7em; /* Font size for the letters */
+  color: white;
+}
+
+/* Style the 3D rectangular box */
+.rolling-box-rectangular {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d; /* Enables 3D transformations */
+  transform: rotateX(-20deg); /* Initial rotation for better visibility */
+}
+
+/* Style each face of the 3D rectangular box */
+.rolling-box-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  overflow: hidden;
+  box-shadow: inset 0 0 250px rgba(0, 0, 0, 0.5), 0 0 2px #000000;
+  background-color: #2563eb; /* Matches bg-blue-600 */
+}
+
+/* Position each face to form a 3D rectangular prism */
+.rolling-box-front {
+  transform: translateZ(5rem); /* Depth/2 = 10rem/2 */
+}
+
+.rolling-box-back {
+  transform: rotateY(180deg) translateZ(5rem); /* Depth/2 = 10rem/2 */
+}
+
+.rolling-box-left {
+  transform: rotateY(-90deg) translateZ(20rem); /* Width/2 = 40rem/2 */
+}
+
+.rolling-box-right {
+  transform: rotateY(90deg) translateZ(20rem); /* Width/2 = 40rem/2 */
+}
+
+.rolling-box-top {
+  transform: rotateX(90deg) translateZ(10rem); /* Height/2 = 20rem/2 */
+}
+
+.rolling-box-bottom {
+  transform: rotateX(-90deg) translateZ(10rem); /* Height/2 = 20rem/2 */
+}
+
+.poster-wrapper-1{
+  @apply bg-amber-300;
+}
+.poster-wrapper-2{
+  @apply bg-red-300;
+}
+.poster-wrapper-3{
+  @apply bg-blue-800;
+}

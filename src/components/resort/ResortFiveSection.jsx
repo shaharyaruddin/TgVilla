@@ -1,7 +1,10 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import ResortImageMarqee from "./ResortImageMarqee";
+import GalleryModal from "../models/GalleryModal";
 
 const ResortFiveSection = () => {
+  const [open, setOpen] = useState(false);
   return (
     <div className="space-y-3 px-20 max-xl:px-10 max-md:px-5 text-[#514941] mt-10">
       <h3 className="text-xl max-md:text-base">A Glimpse into Paradise</h3>
@@ -18,7 +21,7 @@ const ResortFiveSection = () => {
         nightlife.
       </p>
       <div className="w-full flex justify-center">
-        <button className="text-[#26180F] w-fit mt-5 capitalize border-2 px-4 py-2 rounded-full font-medium border-[#26180F]">
+        <button onClick={() => setOpen(true)}className="text-[#26180F] w-fit mt-5 capitalize border-2 px-4 py-2 rounded-full font-medium border-[#26180F]">
           see more
         </button>
       </div>
@@ -26,6 +29,8 @@ const ResortFiveSection = () => {
         <ResortImageMarqee />
         <ResortImageMarqee direction={"right"} />
       </div>
+      <GalleryModal open={open} setOpen={setOpen} />
+
     </div>
   );
 };

@@ -4,6 +4,7 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
 import ResortTestimonialCard from "./widgets/ResortTestimonialCard";
+import TestimonialLoopSection from "../home/testimonials/widgets/Testimonial/TestimonialLoopSection";
 
 const ResortTestimonials = () => {
   // Separate JSON data for top and bottom marquees
@@ -71,30 +72,9 @@ const ResortTestimonials = () => {
       }}
     >
       <div className="w-full min-h-screen bg-black/30 bg-opacity-50 flex flex-col items-center justify-center p-10 max-md:p-0">
-        {/* Top Marquee (Left) */}
-        <Marquee
-          className="w-1/2 max-md:w-full mr-5 max-md:mr-0"
-          speed={50}
-          gradient={false}
-          pauseOnHover={true}
-        >
-          {topTestimonials.map((testimonial, index) => (
-           <ResortTestimonialCard key={index} rating={testimonial.rating} name={testimonial.name} testimonial={testimonial.text}/>
-          ))}
-        </Marquee>
+      
+      <TestimonialLoopSection/>
 
-        {/* Bottom Marquee (Right) */}
-        <Marquee
-          className="w-1/2 max-md:w-full ml-5 mt-5 max-md:ml-0 max-md:mt-3"
-          speed={50}
-          direction="right"
-          gradient={false}
-          pauseOnHover={true}
-        >
-          {bottomTestimonials.map((testimonial, index) => (
-            <ResortTestimonialCard key={index} rating={testimonial.rating} name={testimonial.name} testimonial={testimonial.text}/>
-          ))}
-        </Marquee>
 
         {/* View All Button */}
         <button className="mt-10 border border-white text-white font-outfit font-semibold py-3 px-10 rounded-full hover:bg-opacity-100 transition duration-300">

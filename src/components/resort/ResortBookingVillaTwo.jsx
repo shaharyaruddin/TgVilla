@@ -4,16 +4,18 @@ import React from "react";
 
 const ResortBookingVillaTwo = () => {
   const images = [
-    { src: "/assets/images/beach/2.jpg", alt: "Pool Area" },
-    { src: "/assets/images/beach/6.jpg", alt: "Bedroom" },
-    { src: "/assets/images/beach/7.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/9.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/10.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/2.jpg", alt: "Pool Area" },
-    { src: "/assets/images/beach/6.jpg", alt: "Bedroom" },
-    { src: "/assets/images/beach/7.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/9.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/10.jpg", alt: "Outdoor Seating" },
+    { src: "/assets/images/bedroomVilla/bedroom1.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom9.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom10.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom11.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom12.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom14.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom13.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom15.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom16.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom17.jpg", alt: "2 Bedroom Villa" },
+
+
   ];
 
   return (
@@ -27,7 +29,7 @@ const ResortBookingVillaTwo = () => {
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              className="w-72 h-52  object-cover"
             />
           </div>
         ))}

@@ -4,11 +4,16 @@ import Marquee from "react-fast-marquee";
 
 const ResidenceLife = () => {
   const images = [
-    { src: "/assets/images/beach/2.jpg", alt: "Pool Area" },
-    { src: "/assets/images/beach/6.jpg", alt: "Bedroom" },
-    { src: "/assets/images/beach/7.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/9.jpg", alt: "Outdoor Seating" },
-    { src: "/assets/images/beach/10.jpg", alt: "Outdoor Seating" },
+    { src: "/assets/images/resort/section2/image-5.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-6.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-7.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-8.jpeg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-9.jpeg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-10.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-11.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-12.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-13.jpeg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-15.jpg", alt: "resort" },
   ];
 
   return (

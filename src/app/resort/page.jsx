@@ -1,3 +1,4 @@
+import Testimonials from '@/components/home/testimonials/Testimonials'
 import AmenitiesSection from '@/components/resort/ResortAmenitiesSection'
 import ResortBookingVillaThree from '@/components/resort/ResortBookingVillaThree'
 import ResortBookingVillaTwo from '@/components/resort/ResortBookingVillaTwo'
@@ -21,6 +22,7 @@ const Resort = () => {
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
      <ResortTestimonials/>
+     <Testimonials/>
      <AmenitiesSection/>
      <ResortButtonSection/>
     </div>

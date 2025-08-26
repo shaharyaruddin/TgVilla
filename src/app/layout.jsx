@@ -1,4 +1,10 @@
-import { Poppins, Crimson_Text, Cormorant, Playfair, Outfit } from "next/font/google";
+import {
+  Poppins,
+  Crimson_Text,
+  Cormorant,
+  Playfair,
+  Outfit,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar/Navbar";
 import Footer from "@/components/Footer/Footer";
@@ -41,11 +47,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} ${crimsonText.variable} ${cormorant.variable} ${playFair.variable} ${outfit.variable} antialiased relative `}
       >
-        <SmoothScrollProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </SmoothScrollProvider>
+        {/* <SmoothScrollProvider> */}
+        <Navbar />
+        {children}
+        <Footer />
+        {/* </SmoothScrollProvider> */}
       </body>
     </html>
   );

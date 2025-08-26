@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const ResortFourthSection = () => {
@@ -56,6 +57,20 @@ const ResortFourthSection = () => {
     },
   ];
 
+  // Prevent scroll event from bubbling to parent/page
+  const handleWheel = (e) => {
+    e.stopPropagation();
+    const container = e.currentTarget;
+    const maxScroll = container.scrollHeight - container.clientHeight;
+    // Prevent default only if we're not at the scroll boundaries
+    if (
+      (e.deltaY > 0 && container.scrollTop < maxScroll) ||
+      (e.deltaY < 0 && container.scrollTop > 0)
+    ) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="grid grid-cols-3 max-md:grid-cols-1 min-h-screen px-20 max-xl:px-10 max-md:px-5 mt-20 bg-[#FFFFFF]">
       {/* left */}
@@ -66,30 +81,32 @@ const ResortFourthSection = () => {
           className="max-md:max-w-[15rem] object-cover max-sm:max-w-full"
         />
         <div className="max-md:ml-3 max-sm:ml-0 max-sm:mt-3">
- <h3 className="text-xl font-[600] max-lg:text-lg  max-md:text-base max-sm:text-lg">
-          Book your stay today and experience the best private villa rental in
-          Cyprus.
-        </h3>
-        <p className="text-lg max-lg:text-base max-md:text-sm max-md:mt-2">
-          Indulge in a fully private, high-end villa experience where every
-          detail is designed for your comfort and relaxation. Whether you're
-          seeking a romantic retreat, a wellness getaway, or a luxurious family
-          escape, TG Luxury Villas offers a refined setting for unforgettable
-          moments.
-        </p>
+          <h3 className="text-xl font-[600] max-lg:text-lg max-md:text-base max-sm:text-lg">
+            Book your stay today and experience the best private villa rental in
+            Cyprus.
+          </h3>
+          <p className="text-lg max-lg:text-base max-md:text-sm max-md:mt-2">
+            Indulge in a fully private, high-end villa experience where every
+            detail is designed for your comfort and relaxation. Whether you're
+            seeking a romantic retreat, a wellness getaway, or a luxurious
+            family escape, TG Luxury Villas offers a refined setting for
+            unforgettable moments.
+          </p>
         </div>
-       
       </div>
       {/* right */}
       <div className="col-span-2 pl-10 max-lg:pl-5 max-md:pl-0 max-md:col-span-1 max-md:mt-10">
         <h2 className="text-5xl max-md:text-4xl font-bold font-cormorant mb-5 max-md:mb-2 text-[#514941]">
           Villa Details at a Glance
         </h2>
-        <div className="space-y-4 max-h-[80vh] w-full overflow-y-auto mt-10 max-md:mt-5">
+        <div
+          className="space-y-4 h-[80vh] w-full overflow-y-scroll scroll-smooth mt-10 max-md:mt-5"
+          onWheel={handleWheel}
+        >
           {villaDetails.map((item, index) => (
             <div
               key={index}
-              className="flex text-xl max-lg:text-lg justify-between border-b-2 text-[#514941]  border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col max-md:text-base"
+              className="flex text-base max-2xl:text-lg max-lg:text-lg justify-between border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col max-md:text-base"
             >
               <span>{item.title}</span>
               <span>{item.desc}</span>

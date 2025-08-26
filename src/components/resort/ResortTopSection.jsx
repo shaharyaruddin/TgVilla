@@ -5,12 +5,18 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 const ResortTopSection = () => {
   const images = [
-    "/assets/images/beach/2.jpg",
-    "/assets/images/beach/6.jpg",
-    "/assets/images/beach/7.jpg",
-    "/assets/images/beach/9.jpg",
-    "/assets/images/beach/10.jpg",
-    "/assets/images/beach/11.jpg",
+    "/assets/images/resort/section2/image-5.jpg",
+    "/assets/images/resort/section2/image-6.jpg",
+    "/assets/images/resort/section2/image-7.jpg",
+    "/assets/images/resort/section2/image-8.jpeg",
+    "/assets/images/resort/section2/image-9.jpeg",
+    "/assets/images/resort/section2/image-10.jpg",
+    "/assets/images/resort/section2/image-11.jpg",
+    "/assets/images/resort/section2/image-12.jpg",
+    "/assets/images/resort/section2/image-13.jpeg",
+    "/assets/images/resort/section2/image-14.jpeg",
+    "/assets/images/resort/section2/image-15.jpg",
+
     "/assets/images/bedroomVilla/bedroom1.jpg",
     "/assets/images/bedroomVilla/bedroom2.jpg",
     "/assets/images/bedroomVilla/bedroom4.jpg",

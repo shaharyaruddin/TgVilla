@@ -66,7 +66,7 @@ const ResortTopSection = () => {
     <div
       ref={containerRef}
       className="w-full min-h-screen bg-no-repeat bg-cover flex justify-center items-center relative"
-      style={{ backgroundImage: "url(/assets/images/posters/poster-5.jpg)" }}
+      style={{ backgroundImage: "url(/assets/images/posters/mainhero.jpg)" }}
       onMouseMove={MouseMoveHandle}
     >
       <h3 className="text-[12vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-2.jpg)]">

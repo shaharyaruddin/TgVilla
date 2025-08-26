@@ -22,7 +22,7 @@ const ResortBookingVillaTwo = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen px-20 max-xl:px-10 max-md:px-5 flex flex-col bg-[#EBE7DC] space-y-5 py-10">
+    <div className="w-full min-h-screen px-20 max-xl:px-10 max-md:px-5 flex flex-col bg-[#EBE7DC] space-y-5 pt-10">
       <h2 className="text-6xl font-[600] text-[#514941] font-cormorant max-md:text-4xl ">
         2 Bedroom Villa
       </h2>

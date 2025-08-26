@@ -2,15 +2,15 @@ import React from 'react'
 import Marquee from "react-fast-marquee";
 const ResortImageMarqee = ({direction}) => {
     const images = [
-      { src: "/assets/resort2/1.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/2.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/3.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/4.jpeg", alt: "Pool Area" },
-      { src: "/assets/resort2/5.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/6.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/7.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/8.jpg", alt: "Pool Area" },
-      { src: "/assets/resort2/9.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/10.jpg", alt: "Pool Area1" },
+      { src: "/assets/resort2/11.jpg", alt: "Pool Area2" },
+      { src: "/assets/resort2/12.jpg", alt: "Pool Area3" },
+      { src: "/assets/resort2/13.jpg", alt: "Pool Area 4" },
+      { src: "/assets/resort2/14.jpg", alt: "Pool Area 5" },
+      { src: "/assets/resort2/15.jpg", alt: "Pool Area 6" },
+      { src: "/assets/resort2/16.jpg", alt: "Pool Area 7" },
+      { src: "/assets/resort2/17.jpg", alt: "Pool Area 8" },
+      { src: "/assets/resort2/18.jpg", alt: "Pool Area 9" },
 
    
     ];

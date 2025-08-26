@@ -3,16 +3,25 @@ import Marquee from "react-fast-marquee";
 
 const ResortButtonSection = () => {
   const images = [
-    { src: "/assets/images/resort/section2/image-5.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-6.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-7.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-8.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-9.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-10.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-11.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-12.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-13.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-15.jpg", alt: "resort" },
+    { src: "/assets/resort2/10.jpg", alt: "resort" },
+    { src: "/assets/resort2/15.jpg", alt: "resort" },
+    { src: "/assets/resort2/16.jpg", alt: "resort" },
+    { src: "/assets/resort2/17.jpg", alt: "resort" },
+    { src: "/assets/resort2/18.jpg", alt: "resort" },
+    { src: "/assets/resort2/20.jpg", alt: "resort" },
+    { src: "/assets/resort2/19.jpg", alt: "resort" },
+    { src: "/assets/resort2/21.jpg", alt: "resort" },
+    { src: "/assets/resort2/22.jpg", alt: "resort" },
+    { src: "/assets/resort2/23.jpg", alt: "resort" },
+    { src: "/assets/resort2/24.jpg", alt: "resort" },
+    { src: "/assets/resort2/25.jpg", alt: "resort" },
+    { src: "/assets/resort2/26.jpg", alt: "resort" },
+    { src: "/assets/resort2/27.jpg", alt: "resort" },
+    { src: "/assets/resort2/28.jpg", alt: "resort" },
+    { src: "/assets/resort2/29.jpg", alt: "resort" },
+    { src: "/assets/resort2/30.jpg", alt: "resort" },
+
+
   ];
 
   return (

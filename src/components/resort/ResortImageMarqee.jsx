@@ -2,16 +2,17 @@ import React from 'react'
 import Marquee from "react-fast-marquee";
 const ResortImageMarqee = ({direction}) => {
     const images = [
-      { src: "/assets/images/beach/2.jpg", alt: "Pool Area" },
-      { src: "/assets/images/beach/6.jpg", alt: "Bedroom" },
-      { src: "/assets/images/beach/7.jpg", alt: "Outdoor Seating" },
-      { src: "/assets/images/beach/9.jpg", alt: "Outdoor Seating" },
-      { src: "/assets/images/beach/10.jpg", alt: "Outdoor Seating" },
-      { src: "/assets/images/beach/2.jpg", alt: "Pool Area" },
-      { src: "/assets/images/beach/6.jpg", alt: "Bedroom" },
-      { src: "/assets/images/beach/7.jpg", alt: "Outdoor Seating" },
-      { src: "/assets/images/beach/9.jpg", alt: "Outdoor Seating" },
-      { src: "/assets/images/beach/10.jpg", alt: "Outdoor Seating" },
+      { src: "/assets/resort2/1.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/2.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/3.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/4.jpeg", alt: "Pool Area" },
+      { src: "/assets/resort2/5.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/6.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/7.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/8.jpg", alt: "Pool Area" },
+      { src: "/assets/resort2/9.jpg", alt: "Pool Area" },
+
+   
     ];
   
     return (

@@ -49,7 +49,7 @@ const Navbar = () => {
         {/* logo */}
         <div>
           <Image
-            src="/assets/logo/TG-villas-46.svg"
+            src="/assets/logo/TG-villas-48.png"
             alt="logo"
             width={80}
             height={50}

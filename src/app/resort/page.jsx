@@ -11,9 +11,6 @@ import ResortThirdSection from '@/components/resort/ResortThirdSection'
 import ResortTopSection from '@/components/resort/ResortTopSection'
 import React from 'react'
 
-
-
-
 const Resort = () => {
   return (
     <div>
@@ -25,7 +22,7 @@ const Resort = () => {
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
      <ResortTestimonials/>
-     <Testimonials/>
+     {/* <Testimonials/> */}
      <AmenitiesSection/>
      <ResortButtonSection/>
     </div>

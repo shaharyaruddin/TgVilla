@@ -64,7 +64,7 @@ export default function GalleryModal({ open, setOpen }) {
       >
         <DialogContent className="flex flex-col max-w-[calc(100vw-100px)] h-[calc(100vh-100px)] pr-1">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold">Photo Tour</DialogTitle>
+            <DialogTitle className="text-2xl font-bold ">Photo Tour</DialogTitle>
             <div className="flex px-8 gap-8">
               {GALLERY_IMAGES.map((category) => (
                 <Button
@@ -74,8 +74,8 @@ export default function GalleryModal({ open, setOpen }) {
                   className={cn(
                     "w-full h-10 text-lg",
                     selectedCategory.name === category.name &&
-                      "bg-cyan-500 text-white",
-                    "hover:bg-cyan-500 hover:text-white"
+                      "bg-app-yellow text-white",
+                    " hover:text-white"
                   )}
                 >
                   {category.name}

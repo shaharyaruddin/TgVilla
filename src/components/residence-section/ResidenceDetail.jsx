@@ -4,7 +4,7 @@ const ResidenceDetail = () => {
   return (
     <div className=""> 
       {/* Section 1 (Text Left - Image Right) */}
-      <div className="flex flex-col-reverse md:flex-row items-center md:items-center p-3 md:py-20  bg-[#E8E4D9] rounded-lg">
+      <div className="flex flex-col-reverse md:flex-row items-center md:items-center p-3   bg-[#E8E4D9] rounded-lg">
         {/* Left: Text */}
         <div className="flex-1 p-5 flex flex-col justify-center">
           <h1 className="font-cormorant  text-4xl md:text-5xl font-medium text-brown-900">Our Vision</h1>
@@ -20,19 +20,19 @@ const ResidenceDetail = () => {
           <img
             src="/assets/images/vision.avif"
             alt="TG Residence Interior"
-            className="w-full md:w-[90%] h-72 object-cover rounded-lg"
+            className="w-full md:w-[90%] h-[25rem] max-2xl:h-[10rem] object-cover rounded-lg"
           />
         </div>
       </div>
 
       {/* Section 2 (Image Left - Text Right) */}
-      <div className="flex flex-col md:flex-row items-center md:items-center p-3 md:py-20  bg-[#E8E4D9] rounded-lg">
+      <div className="flex flex-col md:flex-row items-center md:items-center p-3 md:py-10  bg-[#E8E4D9] rounded-lg">
         {/* Left: Image */}
         <div className="flex-1 flex justify-start md:justify-center mb-6 md:mb-0">
           <img
             src="/assets/images/vision.avif"
             alt="TG Residence Mission"
-            className="w-full md:w-[90%] h-72 object-cover rounded-lg"
+            className="w-full md:w-[90%] h-[25rem] max-2xl:h-[10rem] object-cover rounded-lg"
           />
         </div>
         {/* Right: Text */}

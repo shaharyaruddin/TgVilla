@@ -21,7 +21,7 @@ const ResidenceLife = () => {
       <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 py-8">
         {/* Title */}
         <div className="text-center mb-10 ">
-          <h1 className="text-4xl md:text-5xl font-medium font-cormorant text-black mt-20">
+          <h1 className="text-4xl md:text-5xl font-medium font-cormorant text-black max-xxl:mt-20">
             Your life in the beach
           </h1>
         </div>

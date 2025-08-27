@@ -7,7 +7,7 @@ const AmenitiesSection = () => {
     {
       text: "Heated Saltwater Pool",
       icon: "/assets/icon/heatedicon.avif",
-      image: "/images/amenities/heated.webp",
+      image: "/images/amenities/heated.jpg",
     },
     {
       text: "Ultra-Luxurious Outdoor Living",
@@ -22,7 +22,7 @@ const AmenitiesSection = () => {
     {
       text: "Private & Secure Stay",
       icon: "/assets/icon/securestay-icon.avif",
-      image: "/images/amenities/private.webp",
+      image: "/images/amenities/private.jpeg",
     },
     {
       text: "Exclusive 5-Star Hotel Services",
@@ -37,7 +37,7 @@ const AmenitiesSection = () => {
     {
       text: "Prime Location – Beach & City Access",
       icon: "/assets/icon/prime-icon.avif",
-      image: "/images/amenities/prime.avif",
+      image: "/images/amenities/prime.jpg",
     },
     {
       text: "Private Spa & Wellness",

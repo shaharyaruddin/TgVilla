@@ -118,10 +118,10 @@ const WaterSection = () => {
   ];
 
   return (
-    <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 py-8">
+    <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 ">
       {/* Heading */}
-      <div className="text-center mb-10">
-        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black mb-5">
+      <div className="text-center">
+        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black">
           Enjoy the Water Sport 
         </h1>
       </div>

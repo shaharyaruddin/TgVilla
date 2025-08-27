@@ -94,7 +94,7 @@ const ResortSecondSection = () => {
             <h2 className="font-medium text-2xl mb-2">
               Luxury Villas in Limassol – A Private Wellness & Spa Retreat
             </h2>
-            <p className="text-2xl max-2xl:text-xl max-xl:text-base">
+            <p className="text-lg max-2xl:text-xl max-xl:text-base">
               Welcome to TG Luxury Villas, your exclusive escape in Limassol,
               Cyprus. Experience five-star luxury, wellness, and tranquility in
               a private, high-end villa designed for discerning travelers.

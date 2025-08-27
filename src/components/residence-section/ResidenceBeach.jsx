@@ -16,9 +16,9 @@ const ResidenceBeach = () => {
 
   return (
     <>
-      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 py-8">
+      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4">
         {/* Title */}
-        <div className="text-center md:mt-28">
+        <div className="text-center md:mt-10">
           <h1 className="font-cormorant  text-3xl md:text-5xl font-medium text-black mt-20">
             TG Residence by the Beach
           </h1>

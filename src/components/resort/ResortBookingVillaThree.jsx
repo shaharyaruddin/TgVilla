@@ -38,7 +38,7 @@ const ResortBookingVillaThree = () => {
           </div>
         ))}
       </div>
-      <div className="text-[#514941] mt-10">
+      <div className="text-[#514941] my-10">
          <h3 className="text-xl max-md:text-base">What Our Guests Say</h3>
       <h2 className="text-[3.5vw] font-cormorant font-bold max-md:text-[7vw]">
         {" "}

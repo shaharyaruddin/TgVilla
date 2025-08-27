@@ -106,7 +106,7 @@ const ResortFourthSection = () => {
           {villaDetails.map((item, index) => (
             <div
               key={index}
-              className="flex text-base max-2xl:text-lg max-lg:text-lg justify-between border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col max-md:text-base"
+              className="flex text-sm max-2xl:text-lg max-lg:text-lg justify-between border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col max-md:text-base"
             >
               <span>{item.title}</span>
               <span>{item.desc}</span>

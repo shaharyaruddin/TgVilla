@@ -17,7 +17,7 @@ const ResidenceSection = () => {
       </div>
 
       {/* Centered Text */}
-      <h3 className="relative z-10 text-[12vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-4.jpg)] text-center">
+      <h3 className="relative z-10 text-[12vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/text-residence.jpg)] text-center">
         tg residence
       </h3>
     </div>

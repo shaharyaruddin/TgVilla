@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 import { Star } from "lucide-react";
 import ResortTestimonialCard from "./widgets/ResortTestimonialCard";
 import TestimonialLoopSection from "../home/testimonials/widgets/Testimonial/TestimonialLoopSection";
+import TestimonialReviewSection from "../home/testimonials/widgets/Testimonial/TestimonialReviewSection";
 
 const ResortTestimonials = () => {
   // Separate JSON data for top and bottom marquees
@@ -73,7 +74,7 @@ const ResortTestimonials = () => {
     >
       <div className="w-full min-h-screen bg-black/30 bg-opacity-50 flex flex-col items-center justify-center p-10 max-md:p-0">
       
-      <TestimonialLoopSection/>
+      <TestimonialReviewSection/>
 
 
         {/* View All Button */}

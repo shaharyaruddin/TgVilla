@@ -121,8 +121,8 @@ const WaterSection = () => {
     <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 py-8">
       {/* Heading */}
       <div className="text-center mb-10">
-        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black my-20">
-          Enjoy the Water Sport
+        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black mb-5">
+          Enjoy the Water Sport 
         </h1>
       </div>
 

@@ -23,6 +23,7 @@ const Resort = () => {
      <ResortBookingVillaThree/>
      <ResortTestimonials/>
      {/* <Testimonials/> */}
+
      <AmenitiesSection/>
      <ResortButtonSection/>
     </div>

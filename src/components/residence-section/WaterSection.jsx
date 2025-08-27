@@ -118,10 +118,10 @@ const WaterSection = () => {
   ];
 
   return (
-    <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 ">
+    <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 pt-8 ">
       {/* Heading */}
-      <div className="text-center">
-        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black">
+      <div className="text-center ">
+        <h1 className="text-5xl md:text-6xl font-semibold font-cormorant text-black ">
           Enjoy the Water Sport 
         </h1>
       </div>
@@ -137,7 +137,7 @@ const WaterSection = () => {
             style={{
               zIndex: cardsData.length - index,
               top: isDesktop
-                ? `${index * 500 + window.innerHeight * 0.2}px`
+                ? `${index * 500 + window.innerHeight * 0.1}px`
                 : `${index * 520}px`,
               height: "520px",
             }}

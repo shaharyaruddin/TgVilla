@@ -16,13 +16,13 @@ const ResidenceBeach = () => {
 
   return (
     <>
-      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4">
+      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 ">
         {/* Title */}
-        <div className="text-center md:mt-10">
-          <h1 className="font-cormorant  text-3xl md:text-5xl font-medium text-black mt-20">
+        <div className="text-center mt-5">
+          <h1 className="font-cormorant  text-3xl md:text-5xl font-medium text-black mt-5">
             TG Residence by the Beach
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl pt-4 pb-10 mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl pt-4 pb-15 mx-auto">
             Your Private 5-Star Seaview Residence – Coming Soon!
           </p>
         </div>
@@ -43,7 +43,7 @@ const ResidenceBeach = () => {
         </Marquee>
 
         {/* Bottom Text with Paragraph */}
-        <div className="text-center mt-10 md:mt-24 max-w-4xl mx-auto px-4">
+        <div className="text-center mt-10 md:my-15 max-w-4xl mx-auto px-4">
           <h2 className="font-cormorant  text-4xl md:text-5xl font-medium text-black">
             Coming Soon to Limassol
           </h2>

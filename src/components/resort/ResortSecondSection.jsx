@@ -8,7 +8,6 @@ const ResortSecondSection = () => {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-
   const villaDetails = [
     {
       title: "5-Star Hotel Services & Facilities",
@@ -83,9 +82,9 @@ const ResortSecondSection = () => {
           <div className="flex justify-end">
             <div className="w-[80%] max-2xl:w-[90%] max-xl:w-full">
               <img
-                src="/assets/images/resort/section2/image-1.avif"
+                src="/assets/images/resort/section2/image2.jpg"
                 className="object-cover"
-                alt="image 1"
+                alt="image 2"
               />
             </div>
           </div>
@@ -124,10 +123,14 @@ const ResortSecondSection = () => {
         }`}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/20 backdrop-blur-xs bg-opacity-50"></div>
+        <div
+          className="absolute inset-0 bg-black/20 backdrop-blur-xs bg-opacity-50"
+          onClick={closeModal} // 👈 overlay click = close modal
+        ></div>
 
         {/* Modal Box */}
         <div
+          onClick={(e) => e.stopPropagation()} // 👈 andar click karne pe close na ho
           className={`relative bg-[#FFFFFF] max-w-[60%] max-lg:max-w-[80%] max-sm:max-w-[90%] max-md:px-5 max-md:py-5 w-full px-10 py-10 rounded-lg shadow-lg transform transition-transform duration-300 ease-out ${
             isModalOpen ? "scale-100" : "scale-0"
           }`}

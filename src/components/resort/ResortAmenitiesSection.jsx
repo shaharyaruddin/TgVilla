@@ -7,17 +7,17 @@ const AmenitiesSection = () => {
     {
       text: "Heated Saltwater Pool",
       icon: "/assets/icon/heatedicon.avif",
-      image: "/images/amenities/heated.jpg",
+      image: "/images/amenities/heated1.webp",
     },
     {
       text: "Ultra-Luxurious Outdoor Living",
       icon: "/assets/icon/ultraluxuryicon.avif",
-      image: "/images/amenities/ultra.jpeg",
+      image: "/images/amenities/ultra.webp",
     },
     {
       text: "Fully Equipped Gourmet Kitchen",
       icon: "/assets/icon/kitchen-icon.avif",
-      image: "/images/amenities/full-equipped.avif",
+      image: "/images/amenities/full-equipped.webp",
     },
     {
       text: "Private & Secure Stay",
@@ -32,7 +32,7 @@ const AmenitiesSection = () => {
     {
       text: "High-Tech Smart Home & Entertainment",
       icon: "/assets/icon/high-tech-icon.avif",
-      image: "/images/amenities/high-tech.avif",
+      image: "/images/amenities/high-tech.webp",
     },
     {
       text: "Prime Location – Beach & City Access",

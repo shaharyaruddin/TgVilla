@@ -53,13 +53,13 @@ const Navbar = () => {
             alt="logo"
             width={80}
             height={50}
-            className="max-md:w-[3.5rem]"
+            className="max-md:w-[4.5rem] "
           />
         </div>
 
         {/* desktop links */}
         <div className="hidden lg:block">
-          <ul className="flex justify-center items-center gap-10 text-lg max-xl:text-sm max-xl:gap-5 font-medium text-gray-700">
+          <ul className="flex justify-center items-center gap-10 text-lg  max-xl:gap-5 font-medium text-gray-700">
             {LINKS.map((link, i) => (
               <NavLinks key={i} href={link.href} name={link.name} />
             ))}
@@ -83,7 +83,7 @@ const Navbar = () => {
 
       {/* mobile dropdown */}
       <div
-        className={`lg:hidden transition-all duration-300 ease-in-out max-md:px-3 overflow-hidden ${
+        className={`lg:hidden transition-all duration-300 ease-in-out px-3 overflow-hidden ${
           isOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
         }`}
       >

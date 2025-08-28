@@ -5,11 +5,11 @@ export const LINKS = [
   },
   {
     name: "tg resort",
-    href: "/tg-resort",
+    href: "/resort",
   },
   {
     name: "tg residence",
-    href: "/tg-residence",
+    href: "/residence",
   },
   {
     name: "tg spa facilities and wellness",

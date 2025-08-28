@@ -29,8 +29,8 @@ const Home = () => {
       <ImageZoomAnimation />
       <FeelingsBalance />
       <HomePosters />
-      {/* <ExperienceHarmony /> */}
-      {/* <BeachSection/> */}
+      <ExperienceHarmony />
+      <BeachSection/>
       <Testimonials />
       <PremiumAmenities />
     </div>

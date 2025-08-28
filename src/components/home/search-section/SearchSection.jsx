@@ -61,7 +61,7 @@ const SearchSection = () => {
   return (
     <>
       <style>{styles}</style>
-      <div className="min-h-[15rem] sm:py-10 bg-[#E8E4D9] mt-6 sm:mt-0 px-4 sm:px-0">
+      <div className="min-h-[15rem] py-10 max-md:py-5 bg-[#E8E4D9]  sm:mt-0 px-4 sm:px-0">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl border-2 border-[#D4A017] p-4 sm:p-6 max-md:flex-col max-md:space-y-4">
             <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">

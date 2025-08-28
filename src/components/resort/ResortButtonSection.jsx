@@ -20,8 +20,6 @@ const ResortButtonSection = () => {
     { src: "/assets/resort2/28.jpg", alt: "resort" },
     { src: "/assets/resort2/29.jpg", alt: "resort" },
     { src: "/assets/resort2/30.jpg", alt: "resort" },
-
-
   ];
 
   return (
@@ -35,7 +33,7 @@ const ResortButtonSection = () => {
                 <img
                   src={img.src}
                   alt={img.alt}
-                  className="w-[25rem] h-[20rem] max-md:w-[20rem] max-md:h-[15rem] object-cover"
+                  className="w-[25rem] h-[20rem] max-xl:h-[15rem] max-xl:w-[16rem] max-lg:h-[13rem] max-md:h-[10rem] max-md:w-[12rem]  object-cover"
                 />
               </div>
             ))}

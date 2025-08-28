@@ -127,7 +127,7 @@ const WaterSection = () => {
       </div>
 
       {/* Card Stack Section */}
-      <div className="water-card-stack-container relative w-[90%] md:w-[70%] min-h-[90vh]">
+      <div className="water-card-stack-container relative w-[90%] md:w-[70%] min-h-[90vh] max-md:min-h-[70vh]">
         {cardsData.map((card, index) => (
           <div
             key={index}

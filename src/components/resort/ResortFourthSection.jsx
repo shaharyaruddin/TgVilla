@@ -76,8 +76,8 @@ const ResortFourthSection = () => {
       {/* left */}
       <div className="text-[#514941] space-y-5 border-r-2 pr-10 max-lg:pr-5 border-[#DCDAD0] max-md:border-r-transparent max-md:flex max-md:pr-0 max-md:items-center max-md:justify-center max-md:space-y-0 max-sm:flex-col">
         <img
-          src="/assets/images/resort/section2/image-3.avif"
-          alt="image-3.avif"
+          src="/assets/images/resort/section2/image-3.webp"
+          alt="image-3"
           className="max-md:max-w-[15rem] object-cover max-sm:max-w-full"
         />
         <div className="max-md:ml-3 max-sm:ml-0 max-sm:mt-3">
@@ -104,10 +104,7 @@ const ResortFourthSection = () => {
           onWheel={handleWheel}
         >
           {villaDetails.map((item, index) => (
-            <div
-              key={index}
-              className="flex text-lg max-[1520px]:text-base max-2xl:text-sm  justify-between border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col"
-            >
+            <div className="grid grid-cols-[1fr_2fr] gap-5 text-lg max-[1520px]:text-base max-2xl:text-sm border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:grid-cols-1">
               <span>{item.title}</span>
               <span>{item.desc}</span>
             </div>

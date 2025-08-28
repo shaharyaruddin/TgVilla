@@ -23,7 +23,7 @@ const importImages = (path, count) => {
   );
 };
 
-import bedroom1_1 from "../../public/assets/images/bedroomVilla/bedroom29.jpg";
+import bedroom1_1 from "../../public/assets/images/bedroomVilla/bedroom29.webp";
 import bedroom1_10 from "../../public/images/villa/bedroom1/bedroom1 (10).jpeg";
 import bedroom1_11 from "../../public/images/villa/bedroom1/bedroom1 (11).jpeg";
 import bedroom1_12 from "../../public/images/villa/bedroom1/bedroom1 (12).jpeg";
@@ -98,7 +98,7 @@ import toilet_shower_6 from "../../public/images/villa/toilet-shower/toilet-show
 import toilet_shower_7 from "../../public/images/villa/toilet-shower/toilet-shower (7).jpeg";
 import toilet_shower_8 from "../../public/images/villa/toilet-shower/toilet-shower (8).jpeg";
 
-import pool_garden_1 from "../../public/assets/images/bedroomVilla/bedroom29.jpg";
+import pool_garden_1 from "../../public/assets/images/bedroomVilla/bedroom29.webp";
 import pool_garden_2 from "../../public/assets/images/bedroomVilla/bedroom32.jpg";
 import pool_garden_3 from "../../public/assets/images/bedroomVilla/bedroom33.jpg";
 import pool_garden_4 from "../../public/assets/images/bedroomVilla/bedroom4.jpg";
@@ -1234,14 +1234,14 @@ export const BOOKING_REVIEWS = [
 
 export const AIRBNB_REVIEWS = [
   {
-    "name": "Mel",
-    "country": "Switzerland",
-    "city": "Zürich",
-    "reviewDate": "3 weeks ago",
-    "stayDuration": "a few nights",
-    "rating": 5,
-    "title": "",
-    "body": "The home is very beautiful, we enjoyed using all the amazing facilities. Theo is a great host, even getting us surprise ice cream! Thank you so much for everything, we would love to come back!"
+    name: "Mel",
+    country: "Switzerland",
+    city: "Zürich",
+    reviewDate: "3 weeks ago",
+    stayDuration: "a few nights",
+    rating: 5,
+    title: "",
+    body: "The home is very beautiful, we enjoyed using all the amazing facilities. Theo is a great host, even getting us surprise ice cream! Thank you so much for everything, we would love to come back!",
   },
   {
     name: "Yunus",

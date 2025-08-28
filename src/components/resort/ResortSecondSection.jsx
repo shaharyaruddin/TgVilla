@@ -69,7 +69,7 @@ const ResortSecondSection = () => {
           {/* image */}
           <div className="w-full">
             <img
-              src="/assets/images/resort/section2/image-2.avif"
+              src="/assets/images/resort/section2/image-2.webp"
               className="w-[80%] max-2xl:w-[90%] h-[40rem] max-md:h-[20rem] object-cover max-xl:w-full"
               alt="image 1"
             />
@@ -82,7 +82,7 @@ const ResortSecondSection = () => {
           <div className="flex justify-end">
             <div className="w-[80%] max-2xl:w-[90%] max-xl:w-full">
               <img
-                src="/assets/images/resort/section2/image2.jpg"
+                src="/assets/images/resort/section2/image2.webp"
                 className="object-cover"
                 alt="image 2"
               />

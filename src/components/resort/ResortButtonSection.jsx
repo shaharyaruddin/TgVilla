@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const ResortButtonSection = () => {
   const images = [
-    { src: "/assets/resort2/10.jpg", alt: "resort" },
+    { src: "/assets/resort2/10.webp", alt: "resort" },
     { src: "/assets/resort2/15.jpg", alt: "resort" },
     { src: "/assets/resort2/16.jpg", alt: "resort" },
     { src: "/assets/resort2/17.jpg", alt: "resort" },

@@ -12,7 +12,7 @@ const ResortBookingVillaTwo = () => {
       { src: "/assets/images/bedroomVilla/bedroom11.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom12.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom14.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom13.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom28.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom15.jpg", alt: "2 Bedroom Villa" },
   ];
 

@@ -97,12 +97,12 @@ const Banner = () => {
   }, []);
 
   const backgroundImages = [
-    "/assets/resort/1.jpg",
-    "/assets/resort/2.jpg",
-    "/assets/resort/66.jpg",
-    "/assets/resort/3resort.jpg",
-    "/assets/resort/4resort.jpg",
-    "/assets/resort/67.jpg",
+    "/assets/resort/1.webp",
+    "/assets/resort/2.webp",
+    "/assets/resort/66.webp",
+    "/assets/resort/3resort.webp",
+    "/assets/resort/4resort.webp",
+    "/assets/resort/67.webp",
   ];
 
   return (

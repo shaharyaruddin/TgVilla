@@ -64,12 +64,12 @@ const TgDetails = () => {
   }, []);
 
   const images = [
-    "/assets/resort/4.jpg",
+    "/assets/resort/4.webp",
     "/assets/resort/5.jpg",
-    "/assets/resort/6.jpg",
-    "/assets/resort/7.jpg",
+    "/assets/resort/6.webp",
+    "/assets/resort/7.webp",
     "/assets/resort/8.jpg",
-    "/assets/resort/9.jpg",
+    "/assets/resort/9.webp",
   ];
 
   const modalContent = {
@@ -165,38 +165,40 @@ const TgDetails = () => {
         </div>
 
         {/* Right Side - Swiper Slider */}
-     <div className="w-full mt-0 md:mt-26 md:w-1/2 relative" ref={imageContainer}>
-  {/* Gray Background Box */}
-  <div
-    ref={bgImageRef}
-    className="bg-[#9A9A9A] absolute w-full h-[61%] top-[25%] -translate-y-1/2 right-5 z-0 rounded-lg max-lg:right-5 max-[51.25em]:hidden"
-  ></div>
+        <div
+          className="w-full mt-0 md:mt-26 md:w-1/2 relative"
+          ref={imageContainer}
+        >
+          {/* Gray Background Box */}
+          <div
+            ref={bgImageRef}
+            className="bg-[#9A9A9A] absolute w-full h-[61%] top-[25%] -translate-y-1/2 right-5 z-0 rounded-lg max-lg:right-5 max-[51.25em]:hidden"
+          ></div>
 
-  {/* Swiper on top of the gray background */}
-  <Swiper
-    modules={[Autoplay]}
-    spaceBetween={10}
-    slidesPerView={1}
-    autoplay={{
-      delay: 3000,
-      disableOnInteraction: false,
-    }}
-    className="w-full h-96 rounded-lg shadow-md relative z-10"
-  >
-    {images.map((image, index) => (
-      <SwiperSlide key={index}>
-        <div className="w-full h-96 overflow-hidden rounded-lg">
-          <img
-            src={image}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover zoom-image"
-          />
+          {/* Swiper on top of the gray background */}
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={10}
+            slidesPerView={1}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            className="w-full h-96 rounded-lg shadow-md relative z-10"
+          >
+            {images.map((image, index) => (
+              <SwiperSlide key={index}>
+                <div className="w-full h-96 overflow-hidden rounded-lg">
+                  <img
+                    src={image}
+                    alt={`Slide ${index + 1}`}
+                    className="w-full h-full object-cover zoom-image"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
-
       </div>
 
       {/* Zoom Animation Styles */}

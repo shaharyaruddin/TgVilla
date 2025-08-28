@@ -34,7 +34,7 @@ const ResidenceDetail = () => {
         {/* Left: Image */}
         <div className="flex-1 flex justify-center  md:mt-0 max-md:w-full">
           <img
-            src="/assets/images/vision.webp"
+            src="/assets/images/services.webp"
             alt="TG Residence Interior"
             className="w-full md:w-[90%] h-[25rem] max-2xl:h-[10rem] max-md:h-full object-cover rounded-lg"
           />

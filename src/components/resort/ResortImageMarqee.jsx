@@ -4,7 +4,7 @@ const ResortImageMarqee = ({direction}) => {
     const images = [
       { src: "/assets/resort2/10.webp", alt: "Pool Area1" },
       { src: "/assets/resort2/11.webp", alt: "Pool Area2" },
-      { src: "/assets/resort2/12.jpg", alt: "Pool Area3" },
+      { src: "/assets/resort2/12.webp", alt: "Pool Area3" },
       { src: "/assets/resort2/13.webp", alt: "Pool Area 4" },
       { src: "/assets/resort2/14.webp", alt: "Pool Area 5" },
       { src: "/assets/resort2/15.webp", alt: "Pool Area 6" },

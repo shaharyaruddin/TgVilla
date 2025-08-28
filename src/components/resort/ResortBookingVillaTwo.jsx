@@ -4,14 +4,10 @@ import React from "react";
 
 const ResortBookingVillaTwo = () => {
   const images = [
-    { src: "/assets/images/bedroomVilla/bedroom29.jpg", alt: "2 Bedroom Villa" },
-
+      { src: "/assets/images/bedroomVilla/bedroom29.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom32.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom33.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom34.jpg", alt: "2 Bedroom Villa" },
-      
-
-      
       { src: "/assets/images/bedroomVilla/bedroom4.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom35.jpg", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom10.jpg", alt: "2 Bedroom Villa" },

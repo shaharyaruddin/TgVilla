@@ -57,12 +57,12 @@ const ResortSecondSection = () => {
 
   return (
     <div className="">
-      <div className="min-h-screen flex max-md:flex-col-reverse w-full bg-[#F4F4EA] p-20 max-2xl:p-10 max-md:p-10 max-sm:p-5">
+      <div className="min-h-screen flex max-md:flex-col-reverse w-full bg-[#F4F4EA] p-20 max-2xl:p-10  max-sm:p-5">
         {/* left */}
         <div className="flex flex-col w-1/2 pr-5 max-md:w-full max-md:pr-0">
           {/* content */}
-          <div className="w-[80%] font-cormorant mb-10 max-md:text-center max-md:w-full">
-            <h3 className="font-bold text-[3.5vw] text-[#26180F] max-md:text-4xl leading-none">
+          <div className="w-[80%] font-cormorant mb-10 max-md:mb-5 max-md:text-center max-md:w-full">
+            <h3 className="font-bold text-[3.5vw] text-[#26180F] max-md:text-3xl  leading-none">
               Welcome to TG Luxury Villas – Exclusive Private Retreats
             </h3>
           </div>
@@ -89,11 +89,11 @@ const ResortSecondSection = () => {
             </div>
           </div>
           {/* text */}
-          <div className="flex justify-center flex-col my-5">
-            <h2 className="font-medium text-2xl mb-2">
+          <div className="flex justify-center flex-col my-5 max-sm:mt-3">
+            <h2 className="font-medium text-2xl mb-2 max-sm:text-xl">
               Luxury Villas in Limassol – A Private Wellness & Spa Retreat
             </h2>
-            <p className="text-lg max-2xl:text-xl max-xl:text-base">
+            <p className="text-lg max-2xl:text-xl max-xl:text-base max-md:text-sm">
               Welcome to TG Luxury Villas, your exclusive escape in Limassol,
               Cyprus. Experience five-star luxury, wellness, and tranquility in
               a private, high-end villa designed for discerning travelers.
@@ -108,7 +108,7 @@ const ResortSecondSection = () => {
             </p>
             <button
               onClick={openModal}
-              className="text-[#26180F] w-fit mt-5 capitalize border-2 px-3 py-2 rounded-full font-medium border-[#26180F]"
+              className="text-[#26180F] w-fit max-md:w-full max-md:text-xs max-md:mt-3 mt-5 capitalize border-2 px-3 py-2 rounded-full font-medium border-[#26180F]"
             >
               read more
             </button>

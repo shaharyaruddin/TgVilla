@@ -65,11 +65,11 @@ const ResortTopSection = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen bg-no-repeat bg-cover flex justify-center items-center relative"
+      className="w-full min-h-screen max-xl:min-h-[40vh] max-md:min-h-[10rem] max-md:items-end bg-no-repeat bg-cover flex justify-center items-center relative"
       style={{ backgroundImage: "url(/assets/images/posters/mainhero.jpg)" }}
       onMouseMove={MouseMoveHandle}
     >
-      <h3 className="text-[12vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-2.jpg)]">
+      <h3 className="text-[12vw] max-xl:text-[15vw] max-md:text-[17vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-2.jpg)]">
         tg resort
       </h3>
     </div>

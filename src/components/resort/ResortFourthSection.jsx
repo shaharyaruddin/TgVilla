@@ -72,7 +72,7 @@ const ResortFourthSection = () => {
   };
 
   return (
-    <div className="grid grid-cols-3 max-md:grid-cols-1 min-h-screen px-20 max-2xl:px-10 max-md:px-5 mt-20 bg-[#FFFFFF]">
+    <div className="grid grid-cols-3 max-md:grid-cols-1 min-h-screen px-20 max-2xl:px-10 max-md:px-5 mt-20 max-md:mt-7 bg-[#FFFFFF]">
       {/* left */}
       <div className="text-[#514941] space-y-5 border-r-2 pr-10 max-lg:pr-5 border-[#DCDAD0] max-md:border-r-transparent max-md:flex max-md:pr-0 max-md:items-center max-md:justify-center max-md:space-y-0 max-sm:flex-col">
         <img

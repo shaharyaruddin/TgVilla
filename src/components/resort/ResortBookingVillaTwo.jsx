@@ -8,12 +8,12 @@ const ResortBookingVillaTwo = () => {
       { src: "/assets/images/bedroomVilla/bedroom32.webp", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom33.webp", alt: "2 Bedroom Villa" },
       { src: "/assets/images/bedroomVilla/bedroom34.webp", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom4.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom35.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom10.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom12.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom14.jpg", alt: "2 Bedroom Villa" },
-      { src: "/assets/images/bedroomVilla/bedroom28.jpg", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom4.webp", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom35.webp", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom10.webp", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom12.webp", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom14.webp", alt: "2 Bedroom Villa" },
+      { src: "/assets/images/bedroomVilla/bedroom28.webp", alt: "2 Bedroom Villa" },
   ];
 
   return (

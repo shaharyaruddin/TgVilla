@@ -8,7 +8,7 @@ const ResortTestimonials = () => {
     <div
       className="relative w-full min-h-screen bg-cover bg-center max-md:min-h-[20vh]"
       style={{
-        backgroundImage: "url('/assets/images/resort/section2/image-4.avif')",
+        backgroundImage: "url('/assets/images/resort/section2/image-4.webp')",
       }}
     >
       {/* Overlay */}

@@ -5,43 +5,43 @@ import React from "react";
 const ResortBookingVillaThree = () => {
   const images = [
     {
-      src: "/assets/images/bedroomvilla-3/bedroom15.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom15.webp",
       alt: "3 Bedroom villa ",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom16.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom16.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom17.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom17.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom18.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom18.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom5.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom5.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom6.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom6.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom25.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom25.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom26.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom26.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom12.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom12.webp",
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom27.jpg",
+      src: "/assets/images/bedroomvilla-3/bedroom27.webp",
       alt: "3 Bedroom villa",
     },
   ];

@@ -4,16 +4,16 @@ import Marquee from "react-fast-marquee";
 
 const ResidenceLife = () => {
   const images = [
-    { src: "/assets/images/resort/section2/image-5.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-6.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-7.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-8.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-9.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-10.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-11.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-12.jpg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-13.jpeg", alt: "resort" },
-    { src: "/assets/images/resort/section2/image-15.jpg", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-5.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-6.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-7.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-8.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-9.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-10.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-11.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-12.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-13.webp", alt: "resort" },
+    { src: "/assets/images/resort/section2/image-15.webp", alt: "resort" },
   ];
 
   return (

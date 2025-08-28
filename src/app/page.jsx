@@ -29,7 +29,6 @@ const Home = () => {
       <ImageZoomAnimation />
       <FeelingsBalance />
       <HomePosters />
-      <ExperienceHarmony />
       <BeachSection/>
       <Testimonials />
       <PremiumAmenities />

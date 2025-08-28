@@ -62,17 +62,17 @@ export default function GalleryModal({ open, setOpen }) {
         modal={false}
         className="px-4"
       >
-        <DialogContent className="flex flex-col max-w-[calc(100vw-100px)] h-[calc(100vh-100px)] pr-1">
+        <DialogContent className="flex flex-col max-w-[calc(100vw-100px)] max-md:max-w-[90%] h-[calc(100vh-100px)] pr-1 max-md:pr-0 max-md:items-center">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold ">Photo Tour</DialogTitle>
-            <div className="flex px-8 gap-8">
+            <div className="flex px-8 gap-8 max-md:px-0 max-md:gap-2 max-md:-ml-5">
               {GALLERY_IMAGES.map((category) => (
                 <Button
                   key={category.name}
                   variant="outline"
                   onClick={() => setSelectedCategory(category)}
                   className={cn(
-                    "w-full h-10 text-lg",
+                    "w-full h-10 max-xl:text-sm text-lg ",
                     selectedCategory.name === category.name &&
                       "bg-app-yellow text-white",
                     " hover:text-white"

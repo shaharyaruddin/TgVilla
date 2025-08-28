@@ -6,13 +6,13 @@ import GalleryModal from "../models/GalleryModal";
 const ResortFiveSection = () => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="space-y-3 px-20 max-xl:px-10 max-md:px-5 text-[#514941] mt-10">
-      <h3 className="text-xl max-md:text-base">A Glimpse into Paradise</h3>
-      <h2 className="text-[3.5vw] font-cormorant font-bold max-md:text-[7vw]">
+    <div className="space-y-3 px-20 max-xl:px-10 max-md:px-5 max-md:text-center text-[#514941] mt-10">
+      <h3 className="text-xl max-md:text-base ">A Glimpse into Paradise</h3>
+      <h2 className="text-[3.5vw] font-cormorant font-bold max-md:text-[8vw] max-md:leading-normal">
         {" "}
         Visual Journey Through Our 5-Star TG Luxury Resort
       </h2>
-      <p className="text-xl max-md:text-base">
+      <p className="text-xl max-md:text-sm">
         Step inside a world of private luxury and wellness at TG Luxury Villas,
         where high-end interiors, stunning outdoor spaces, and private
         facilities create an unforgettable experience. Nestled in Limassol's
@@ -21,7 +21,7 @@ const ResortFiveSection = () => {
         nightlife.
       </p>
       <div className="w-full flex justify-center">
-        <button onClick={() => setOpen(true)}className="text-[#26180F] w-fit mt-5 capitalize border-2 px-4 py-2 rounded-full font-medium border-[#26180F]">
+        <button onClick={() => setOpen(true)}className="text-[#26180F] w-fit max-md:w-full max-md:text-xs max-md:mt-3 mt-5 capitalize border-2 px-3 py-2 rounded-full font-medium border-[#26180F]">
           see more
         </button>
       </div>

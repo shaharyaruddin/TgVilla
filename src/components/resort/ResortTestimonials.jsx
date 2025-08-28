@@ -6,7 +6,7 @@ import TestimonialReviewSection from "../home/testimonials/widgets/Testimonial/T
 const ResortTestimonials = () => {
   return (
     <div
-      className="relative w-full min-h-screen bg-cover bg-center"
+      className="relative w-full min-h-screen bg-cover bg-center max-md:min-h-[20vh]"
       style={{
         backgroundImage: "url('/assets/images/resort/section2/image-4.avif')",
       }}
@@ -17,7 +17,7 @@ const ResortTestimonials = () => {
       {/* <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div> */}
 
       {/* Content */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center p-10 max-md:p-4">
+      <div className="relative z-10 w-full min-h-screen max-md:min-h-[20vh] flex flex-col items-center justify-center p-10 max-md:p-4">
         <TestimonialReviewSection />
 
         {/* View All Button */}

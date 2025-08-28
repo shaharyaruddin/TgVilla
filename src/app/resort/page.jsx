@@ -22,8 +22,6 @@ const Resort = () => {
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
      <ResortTestimonials/>
-     {/* <Testimonials/> */}
-
      <AmenitiesSection/>
      <ResortButtonSection/>
     </div>

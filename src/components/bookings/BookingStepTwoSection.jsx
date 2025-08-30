@@ -1,30 +1,66 @@
-import React from 'react'
-import SelectBookingDate from './SelectBookingDate'
-import SelectBookingGuest from './SelectBookingGuest'
-import BookingOverlayedContent from './BookingOverlayedContent'
+import React from "react";
+import SelectBookingDate from "./SelectBookingDate";
+import SelectBookingGuest from "./SelectBookingGuest";
+import BookingOverlayedContent from "./BookingOverlayedContent";
+import BookingCard from "./BookingCard";
+import DreamVillaSection from "./DreamVillaSection";
+import BookingBetweenSection from "./BookingBetweenSection";
+import BookingReview from "./BookingReview";
+
+const villaData = [
+  {
+    type: "Standard",
+    name: "TG NEW LUXURY 3-BEDROOM VILLA",
+    bedrooms: "All Bedrooms: King Bed",
+    price: "€750.00",
+    nights: 1,
+    guests: 2,
+    image: "/assets/booking/villa1.avif",
+    services: [
+      { name: "Bed & Breakfast Rate", price: "€10" },
+      { name: "Scooters Electric x2", price: "€30" },
+      { name: "Daily Indoor Cleaning", price: "€50" },
+      { name: "Daily Laundry, Linen & Amenities Refresh", price: "€30" },
+      { name: "Trips & Tours & Jet Ski", price: "€300" }
+    ],
+  },
+  {
+    type: "Standard",
+    name: "TG NEW LUXURY 3-BEDROOM VILLA",
+    bedrooms: "All Bedrooms: King Bed",
+    price: "€750.00",
+    nights: 1,
+    guests: 2,
+    image: "/assets/booking/villa1.avif",
+    services: [
+      { name: "Bed & Breakfast Rate", price: "€10" },
+      { name: "Scooters Electric x2", price: "€30" },
+      { name: "Daily Indoor Cleaning", price: "€50" },
+      { name: "Daily Laundry, Linen & Amenities Refresh", price: "€30" },
+      { name: "Trips & Tours & Jet Ski", price: "€300" }
+    ],
+  },
+];
 
 const BookingStepTwoSection = () => {
   return (
-    <div className='relative w-full min-h-[15rem] flex justify-center items-center flex-col overflow-hidden'>
-      
-      {/* Background with opacity */}
-      <div className="absolute inset-0 bg-[url('/assets/booking/texture.webp')] bg-center bg-cover bg-no-repeat opacity-10"></div>
-      
-      {/* Overlayed Content */}
-     <BookingOverlayedContent/>
-      <h2 className='font-cormorant text-3xl mt-5 max-md:text-2xl font-medium'>CHOOSE YOUR ROOM</h2>
-      <div className="w-full min-h-[6rem] max-md:flex-col max-md:space-x-0 max-md:space-y-6 flex items-center justify-center space-x-10 mt-7 z-10">
-       {/* list */}
-      <SelectBookingDate/>
-       {/* list */}
-      <SelectBookingGuest/>
-      </div>
-      {/* villas */}
-      <div className="w-full relative bg-[#F4F4EA] min-h-[20rem]">
-          <div className="absolute inset-0 bg-[url('/assets/booking/texture.webp')] bg-center bg-cover bg-no-repeat opacity-10"></div>
-      </div>
-    </div>
-  )
-}
+    <div className="relative w-full min-h-[15rem] flex justify-center items-center flex-col overflow-hidden pt-5">
+      {/* Background with repeat */}
+      <div className="absolute inset-0 bg-[url('/assets/booking/texture.webp')] bg-center bg-repeat opacity-10"></div>
 
-export default BookingStepTwoSection
+      {/* Overlayed Content */}
+     <BookingBetweenSection/>
+
+      {/* villas */}
+      <div className="w-full relative   my-10 flex flex-col items-center max-md:px-4">
+        {villaData.map((item, index) => (
+          <BookingCard key={index} villa={item} />
+        ))}
+      </div>
+      <DreamVillaSection/>
+      <BookingReview/>
+    </div>
+  );
+};
+
+export default BookingStepTwoSection;

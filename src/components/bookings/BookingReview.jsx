@@ -54,7 +54,7 @@ const bookingData = [
 
 const BookingReview = () => {
   return (
-    <div className="relative w-full py-10 flex  flex-col items-center text-white bg-[#F4F4EA]/50 mt-10 max-md:py-5 px-10 max-md:px-5">
+    <div className="relative w-full py-10 flex  flex-col items-center text-white bg-[#F4F4EA] mt-10 max-md:py-5 px-10 max-md:px-5">
      <h3 className='text-black font-cormorant text-[3vw] max-2xl:text-[3.5vw] max-xl:text-[5vw]  max-md:text-[6vw] max-sm:text-[9vw] mb-4'>Reviews</h3>
       <Swiper
        loop={true}

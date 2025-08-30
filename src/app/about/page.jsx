@@ -5,6 +5,7 @@ import WhoWeAre from "@/components/About/WhoWeAre";
 import AchievementSection from "@/components/About/AchievementSection";
 import AboutDetailSection from "@/components/About/AboutDetailSection";
 import GuestSection from "@/components/About/GuestSection";
+import BottomSection from "@/components/About/BottomSection";
 
 const About = () => {
   return (
@@ -14,6 +15,7 @@ const About = () => {
       <AchievementSection />
       <AboutDetailSection />
       <GuestSection />
+      <BottomSection />
     </div>
   );
 };

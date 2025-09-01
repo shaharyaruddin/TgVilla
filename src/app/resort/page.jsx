@@ -18,12 +18,12 @@ const Resort = () => {
      <ResortSecondSection/>
      <ResortThirdSection/>
      <ResortFourthSection/>
-     {/* <ResortFiveSection/>
+     <ResortFiveSection/>
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
      <ResortTestimonials/>
      <AmenitiesSection/>
-     <ResortButtonSection/> */}
+     <ResortButtonSection/>
     </div>
   )
 }

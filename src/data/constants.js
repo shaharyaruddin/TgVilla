@@ -23,7 +23,7 @@ const importImages = (path, count) => {
   );
 };
 
-import bedroom1_1 from "../../public/assets/images/bedroomVilla/bedroom29.webp";
+import bedroom1_1 from "../../public/assets/images/bedroomVilla/bedroom29.jpg";
 import bedroom1_10 from "../../public/images/villa/bedroom1/bedroom1 (10).jpeg";
 import bedroom1_11 from "../../public/images/villa/bedroom1/bedroom1 (11).jpeg";
 import bedroom1_12 from "../../public/images/villa/bedroom1/bedroom1 (12).jpeg";
@@ -98,18 +98,18 @@ import toilet_shower_6 from "../../public/images/villa/toilet-shower/toilet-show
 import toilet_shower_7 from "../../public/images/villa/toilet-shower/toilet-shower (7).jpeg";
 import toilet_shower_8 from "../../public/images/villa/toilet-shower/toilet-shower (8).jpeg";
 
-import pool_garden_1 from "../../public/assets/images/bedroomVilla/bedroom29.webp";
-import pool_garden_2 from "../../public/assets/images/bedroomVilla/bedroom32.webp";
-import pool_garden_3 from "../../public/assets/images/bedroomVilla/bedroom33.webp";
+import pool_garden_1 from "../../public/assets/images/bedroomVilla/bedroom29.jpg";
+import pool_garden_2 from "../../public/assets/images/bedroomVilla/bedroom32.jpg";
+import pool_garden_3 from "../../public/assets/images/bedroomVilla/bedroom33.jpg";
 import pool_garden_4 from "../../public/assets/images/bedroomVilla/bedroom4.webp";
-import pool_garden_5 from "../../public/assets/images/bedroomVilla/bedroom35.webp";
-import pool_garden_6 from "../../public/assets/images/bedroomVilla/bedroom10.webp";
+import pool_garden_5 from "../../public/assets/images/bedroomVilla/bedroom35.jpg";
+import pool_garden_6 from "../../public/assets/images/bedroomVilla/bedroom10.jpg";
 import pool_garden_7 from "../../public/assets/images/bedroomVilla/bedroom12.webp";
-import pool_garden_8 from "../../public/assets/images/bedroomVilla/bedroom14.webp";
+import pool_garden_8 from "../../public/assets/images/bedroomVilla/bedroom14.jpg";
 import pool_garden_9 from "../../public/assets/images/bedroomVilla/bedroom28.webp";
-import pool_garden_10 from "../../public/assets/images/bedroomVilla/bedroom33.webp";
-import pool_garden_11 from "../../public/assets/images/bedroomVilla/bedroom34.webp";
-import pool_garden_12 from "../../public/assets/images/bedroomVilla/bedroom35.webp";
+import pool_garden_10 from "../../public/assets/images/bedroomVilla/bedroom33.jpg";
+import pool_garden_11 from "../../public/assets/images/bedroomVilla/bedroom34.jpg";
+import pool_garden_12 from "../../public/assets/images/bedroomVilla/bedroom35.jpg";
 import pool_garden_13 from "../../public/assets/images/bedroomVilla/bedroom28.webp";
 // import pool_garden_14 from "../../public/images/villa/pool-garden/pool-garden (14).jpg";
 // import pool_garden_15 from "../../public/images/villa/pool-garden/pool-garden (15).jpg";

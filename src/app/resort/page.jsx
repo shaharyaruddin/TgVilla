@@ -18,7 +18,7 @@ const Resort = () => {
      <ResortSecondSection/>
      <ResortThirdSection/>
      <ResortFourthSection/>
-     <ResortFiveSection/>
+     {/* <ResortFiveSection/> */}
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
      <ResortTestimonials/>

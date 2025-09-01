@@ -25,7 +25,9 @@ import SwimmingPoolIcon from "../../public/icons/amenities/swimming-pool.svg";
 
 // Dynamic imports for images
 const importImages = (path, count) => {
-  return Array.from({ length: count }, (_, i) => require(`${path} (${i + 1}).jpeg`));
+  return Array.from({ length: count }, (_, i) =>
+    require(`${path} (${i + 1}).jpeg`)
+  );
 };
 
 import bedroom1_1 from "../../public/images/villa2/bedroom1/bedroom1 (1).jpg";
@@ -127,25 +129,25 @@ import toilet_shower_3 from "../../public/images/villa2/toilet-shower/toilet-sho
 import toilet_shower_4 from "../../public/images/villa2/toilet-shower/toilet-shower (4).jpg";
 // import toilet_shower_5 from "../../public/images/villa2/toilet-shower/toilet-shower (5).jpg";
 
-import pool_garden_1 from "../../public/assets/images/bedroomvilla-3/bedroom15.webp";
-import pool_garden_2 from "../../public/assets/images/bedroomvilla-3/bedroom16.webp";
+import pool_garden_1 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
+import pool_garden_2 from "../../public/assets/images/bedroomvilla-3/bedroom16.jpg";
 import pool_garden_3 from "../../public/assets/images/bedroomvilla-3/bedroom17.webp";
-import pool_garden_4 from "../../public/assets/images/bedroomvilla-3/bedroom18.webp";
+import pool_garden_4 from "../../public/assets/images/bedroomvilla-3/bedroom18.jpg";
 import pool_garden_5 from "../../public/assets/images/bedroomvilla-3/bedroom5.webp";
 import pool_garden_6 from "../../public/assets/images/bedroomvilla-3/bedroom6.webp";
-import pool_garden_7 from "../../public/assets/images/bedroomvilla-3/bedroom25.webp";
+import pool_garden_7 from "../../public/assets/images/bedroomvilla-3/bedroom25.jpg";
 import pool_garden_8 from "../../public/assets/images/bedroomvilla-3/bedroom26.webp";
 import pool_garden_9 from "../../public/assets/images/bedroomvilla-3/bedroom12.webp";
-import pool_garden_10 from "../../public/assets/images/bedroomvilla-3/bedroom27.webp";
+import pool_garden_10 from "../../public/assets/images/bedroomvilla-3/bedroom27.jpg";
 import pool_garden_11 from "../../public/assets/images/bedroomvilla-3/bedroom14.jpg";
 import pool_garden_12 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
 import pool_garden_13 from "../../public/assets/images/bedroomvilla-3/bedroom12.webp";
 import pool_garden_14 from "../../public/assets/images/bedroomvilla-3/bedroom11.jpg";
 import pool_garden_15 from "../../public/assets/images/bedroomvilla-3/bedroom10.jpg";
-import pool_garden_16 from "../../public/assets/images/bedroomvilla-3/bedroom15.webp";
-import pool_garden_17 from "../../public/assets/images/bedroomvilla-3/bedroom15.webp";
-import pool_garden_18 from "../../public/assets/images/bedroomvilla-3/bedroom15.webp";
-import pool_garden_19 from "../../public/assets/images/bedroomvilla-3/bedroom15.webp";
+import pool_garden_16 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
+import pool_garden_17 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
+import pool_garden_18 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
+import pool_garden_19 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
 import pool_garden_20 from "../../public/images/villa2/pool-garden/pool-garden (20).jpg";
 import pool_garden_21 from "../../public/images/villa2/pool-garden/pool-garden (21).jpg";
 import pool_garden_22 from "../../public/images/villa2/pool-garden/pool-garden (22).jpg";
@@ -153,7 +155,12 @@ import pool_garden_23 from "../../public/images/villa2/pool-garden/pool-garden (
 // import pool_garden_24 from "../../public/images/villa2/pool-garden/pool-garden (24).jpg";
 // import pool_garden_25 from "../../public/images/villa2/pool-garden/pool-garden (25).jpg";
 
-export const hero = ["Welcome to Paradise", "The best resort", "of Limassol", "In Cyprus"];
+export const hero = [
+  "Welcome to Paradise",
+  "The best resort",
+  "of Limassol",
+  "In Cyprus",
+];
 
 export const navbarLinks = [
   {
@@ -227,19 +234,38 @@ export const mostPopularAmenities = [
     icon: <Image src={HomeIcon} alt="home" width={20} height={20} />,
     label: "The entire place is yours",
   },
-  { icon: <Image src={SizeIcon} alt="size" width={20} height={20} />, label: "170 m2 Size" },
+  {
+    icon: <Image src={SizeIcon} alt="size" width={20} height={20} />,
+    label: "170 m2 Size",
+  },
   { icon: <Bath />, label: "Outdoor hot tub" },
   { icon: <CarFront />, label: "Free parking on premises" },
   { icon: <Utensils />, label: "Kitchen" },
 
-  { icon: <Image src={SeaViewIcon} alt="sea view" width={20} height={20} />, label: "Sea view" },
   {
-    icon: <Image src={SwimmingPoolIcon} alt="swimming pool" width={20} height={20} />,
+    icon: <Image src={SeaViewIcon} alt="sea view" width={20} height={20} />,
+    label: "Sea view",
+  },
+  {
+    icon: (
+      <Image
+        src={SwimmingPoolIcon}
+        alt="swimming pool"
+        width={20}
+        height={20}
+      />
+    ),
     label: "Swimming pool",
   },
-  { icon: <Image src={SaunaIcon} alt="sauna" width={20} height={20} />, label: "Sauna" },
+  {
+    icon: <Image src={SaunaIcon} alt="sauna" width={20} height={20} />,
+    label: "Sauna",
+  },
   { icon: <Coffee />, label: "Breakfast" },
-  { icon: <Image src={SpaIcon} alt="spa" width={20} height={20} />, label: "Spa & Wellness" },
+  {
+    icon: <Image src={SpaIcon} alt="spa" width={20} height={20} />,
+    label: "Spa & Wellness",
+  },
 ];
 
 export const PROPERTY_DETAILS = [
@@ -375,7 +401,12 @@ export const GALLERY_IMAGES = [
   },
   {
     name: "Toilet & Shower",
-    images: [toilet_shower_1, toilet_shower_2, toilet_shower_3, toilet_shower_4],
+    images: [
+      toilet_shower_1,
+      toilet_shower_2,
+      toilet_shower_3,
+      toilet_shower_4,
+    ],
   },
   {
     name: "Pool & Garden",
@@ -407,8 +438,7 @@ export const GALLERY_IMAGES = [
   },
 ];
 
-export const MAIN_GALLERY =
-{
+export const MAIN_GALLERY = {
   name: "3 Bedroom Villa",
   images: [
     pool_garden_1,
@@ -517,9 +547,6 @@ export const MAIN_GALLERY =
     // kitchen_6,
     // kitchen_7,
     // kitchen_8,
-
-
-
   ],
 };
 
@@ -542,6 +569,12 @@ export const SLEEPING_SITUATIONS = [
   {
     title: "Sofa bed",
     description: "1 Sofa bed",
-    images: [living_room_3, living_room_13, living_room_14, living_room_15, living_room_16],
+    images: [
+      living_room_3,
+      living_room_13,
+      living_room_14,
+      living_room_15,
+      living_room_16,
+    ],
   },
 ];

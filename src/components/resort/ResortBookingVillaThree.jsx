@@ -5,11 +5,11 @@ import React from "react";
 const ResortBookingVillaThree = () => {
   const images = [
     {
-      src: "/assets/images/bedroomvilla-3/bedroom15.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom15.jpg",
       alt: "3 Bedroom villa ",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom16.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom16.jpg",
       alt: "3 Bedroom villa",
     },
     {
@@ -17,7 +17,7 @@ const ResortBookingVillaThree = () => {
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom18.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom18.jpg",
       alt: "3 Bedroom villa",
     },
     {
@@ -29,7 +29,7 @@ const ResortBookingVillaThree = () => {
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom25.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom25.jpg",
       alt: "3 Bedroom villa",
     },
     {
@@ -41,7 +41,7 @@ const ResortBookingVillaThree = () => {
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom27.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom27.jpg",
       alt: "3 Bedroom villa",
     },
   ];

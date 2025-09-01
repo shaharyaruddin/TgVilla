@@ -1,5 +1,5 @@
 "use client";
-import React, {  useRef } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -12,12 +12,11 @@ const ResortTopSection = () => {
     "/assets/resort2/14.webp",
     "/assets/resort2/15.webp",
     "/assets/resort2/16.webp",
-    "/assets/resort2/17.webp",
-    "/assets/resort2/18.webp",
-    "/assets/resort2/18.webp",
-    "/assets/resort2/19.webp",
+    "/assets/resort2/17.jpg",
+    "/assets/resort2/18.jpg",
+    "/assets/resort2/19.jpg",
     "/assets/resort2/20.webp",
-    "/assets/resort2/21.webp",
+    "/assets/resort2/21.jpg",
   ];
 
   const containerRef = useRef();

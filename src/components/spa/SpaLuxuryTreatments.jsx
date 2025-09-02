@@ -33,27 +33,27 @@ const SpaLuxuryTreatments = () => {
     {
       image: '/images/spa/service/aromatherapy-rituals.avif',
       service: `Aromatherapy Rituals`,
-      desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
+      desc: `Immerse yourself in calming essential oils and holistic techniques for full-body renewal.`,
     },
     {
       image: '/images/spa/service/deeptissuemassage.avif',
       service: `Deeptissue massage`,
-      desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
+      desc: `Relieve tension and stress with expert deep tissue techniques that promote relaxation.`,
     },
     {
       image: '/images/spa/service/full-body-detox-wrap.avif',
       service: `Full Body Detox Wrap`,
-      desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
+      desc: `Detoxify, exfoliate, and hydrate your skin with our signature mineral-rich body wrap.`,
     },
     {
       image: '/images/spa/service/hot-stone-therapy.avif',
       service: `Hot Stone therapy`,
-      desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
+      desc: `Experience deep relaxation and muscle relief through soothing heated stone treatments..`,
     },
     {
       image: '/images/spa/service/spa-manicure-pedicure.avif',
       service: `Spa Manicure Pedicure`,
-      desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
+      desc: `Luxury nail care services that nourish, shape, and beautify your hands and feet.`,
     },
   ];
 

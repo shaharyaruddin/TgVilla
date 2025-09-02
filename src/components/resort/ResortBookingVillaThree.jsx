@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const ResortBookingVillaThree = () => {
   const images = [
@@ -13,7 +14,7 @@ const ResortBookingVillaThree = () => {
       alt: "3 Bedroom villa",
     },
     {
-      src: "/assets/images/bedroomvilla-3/bedroom17.webp",
+      src: "/assets/images/bedroomvilla-3/bedroom17.jpg",
       alt: "3 Bedroom villa",
     },
     {
@@ -55,12 +56,18 @@ const ResortBookingVillaThree = () => {
         {images.map((img, index) => (
           <div
             key={index}
-            className="h-[20rem] max-[1700px]:h-[17rem] max-[1120px]:h-[15rem] max-[800px]:h-[13rem] max-[430px]:h-[10rem]"
+            className="relative h-[20rem] max-[1700px]:h-[17rem] max-[1120px]:h-[15rem] max-[800px]:h-[13rem] max-[430px]:h-[10rem] w-full"
           >
-            <img
+            <Image
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 430px) 100vw,
+                     (max-width: 800px) 50vw,
+                     (max-width: 1120px) 33vw,
+                     (max-width: 1700px) 25vw,
+                     20vw"
             />
           </div>
         ))}
@@ -68,7 +75,6 @@ const ResortBookingVillaThree = () => {
       <div className="text-[#514941] mt-10 max-md:mt-5">
         <h3 className="text-xl max-md:text-sm">What Our Guests Say</h3>
         <h2 className="text-[3.5vw] font-cormorant font-bold max-md:text-[7vw]">
-          {" "}
           Hear From Our Satisfied Guests
         </h2>
         <p className="text-xl max-md:text-sm">

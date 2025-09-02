@@ -1,64 +1,58 @@
 "use client";
 import React, { useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 const ResortTopSection = () => {
   const images = [
     "/assets/resort2/10.webp",
-    "/assets/resort2/11.webp",
-    "/assets/resort2/12.webp",
-    "/assets/resort2/13.webp",
     "/assets/resort2/14.webp",
-    "/assets/resort2/15.webp",
     "/assets/resort2/16.webp",
-    "/assets/resort2/17.jpg",
     "/assets/resort2/18.jpg",
     "/assets/resort2/19.jpg",
-    "/assets/resort2/20.webp",
     "/assets/resort2/21.jpg",
   ];
 
-  const containerRef = useRef();
+  const containerRef = useRef(null);
 
   let lastTime = 0;
   let lastImageIndex = 0;
 
   const MouseMoveHandle = (e) => {
     const now = Date.now();
-    if (now - lastTime < 100) return;
+    if (now - lastTime < 120) return; // throttle
     lastTime = now;
 
     const { clientX, clientY } = e;
 
-    // image display
+    // image create
     const img = document.createElement("img");
-    if (lastImageIndex >= images.length) {
-      lastImageIndex = 0;
-    }
-    img.src = images[lastImageIndex];
+    if (lastImageIndex >= images.length) lastImageIndex = 0;
+    img.src = images[lastImageIndex++];
     img.style.position = "absolute";
-    img.style.scale = "0";
+    img.style.pointerEvents = "none";
     img.style.width = "300px";
     img.style.height = "300px";
-
-    gsap.to(img, {
-      scale: 1,
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-
     img.style.left = `${clientX}px`;
     img.style.top = `${clientY}px`;
+    img.style.opacity = "0";
     containerRef.current.appendChild(img);
 
-    const timer = setTimeout(() => {
-      img.remove();
-    }, 1000);
-    lastImageIndex++;
+    // animation
+    gsap.fromTo(
+      img,
+      { scale: 0, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" }
+    );
 
-    return () => clearTimeout(timer);
+    gsap.to(img, {
+      opacity: 0,
+      duration: 0.5,
+      delay: 0.6,
+      ease: "power2.inOut",
+      onComplete: () => {
+        img.remove(); 
+      },
+    });
   };
 
   return (

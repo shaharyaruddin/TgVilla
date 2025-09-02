@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const ResortBookingVillaTwo = () => {
   const images = [
@@ -33,7 +34,7 @@ const ResortBookingVillaTwo = () => {
       alt: "2 Bedroom Villa",
     },
     {
-      src: "/assets/images/bedroomVilla/bedroom12.webp",
+      src: "/assets/images/bedroomVilla/bedroom12.jpg",
       alt: "2 Bedroom Villa",
     },
     {
@@ -55,12 +56,18 @@ const ResortBookingVillaTwo = () => {
         {images.map((img, index) => (
           <div
             key={index}
-            className="h-[20rem] max-[1700px]:h-[17rem] max-[1120px]:h-[15rem] max-[800px]:h-[13rem] max-[430px]:h-[10rem]"
+            className="relative h-[20rem] max-[1700px]:h-[17rem] max-[1120px]:h-[15rem] max-[800px]:h-[13rem] max-[430px]:h-[10rem] w-full"
           >
-            <img
+            <Image
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              sizes="(max-width: 430px) 100vw,
+                     (max-width: 800px) 50vw,
+                     (max-width: 1120px) 33vw,
+                     (max-width: 1700px) 25vw,
+                     20vw"
             />
           </div>
         ))}

@@ -131,7 +131,7 @@ import toilet_shower_4 from "../../public/images/villa2/toilet-shower/toilet-sho
 
 import pool_garden_1 from "../../public/assets/images/bedroomvilla-3/bedroom15.jpg";
 import pool_garden_2 from "../../public/assets/images/bedroomvilla-3/bedroom16.jpg";
-import pool_garden_3 from "../../public/assets/images/bedroomvilla-3/bedroom17.webp";
+import pool_garden_3 from "../../public/assets/images/bedroomvilla-3/bedroom17.jpg";
 import pool_garden_4 from "../../public/assets/images/bedroomvilla-3/bedroom18.jpg";
 import pool_garden_5 from "../../public/assets/images/bedroomvilla-3/bedroom5.webp";
 import pool_garden_6 from "../../public/assets/images/bedroomvilla-3/bedroom6.webp";

@@ -97,7 +97,7 @@ import PosterAnimation from "./widgets/PosterAnimation";
           <h2 className="font-playfair mt-3 italic">Coming Soon to Limassol</h2>
         </div>
 
-        <StaticPoster />
+        {/* <StaticPoster /> */}
 
         {/* Poster Scroll Section */}
         <PosterAnimation/>

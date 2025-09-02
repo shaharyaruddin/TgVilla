@@ -13,15 +13,12 @@ export const LINKS = [
   },
   {
     name: "tg spa facilities and wellness",
-    href: "/tg-spa-facilities-and-wellness",
+    href: "/spa",
   },
-  {
-    name: "services",
-    href: "/services",
-  },
+ 
   {
     name: "about us",
-    href: "/about-us",
+    href: "/about",
   },
     
 ];

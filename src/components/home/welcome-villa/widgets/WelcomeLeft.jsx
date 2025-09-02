@@ -43,7 +43,7 @@ const WelcomeLeft = () => {
       <div className="bg-[#9A9A9A] welcomeBgImage absolute w-[85%] h-[90%] top-[50%] -translate-y-1/2 right-8 max-lg:right-5 max-[51.25em]:hidden"></div>
       {/* image */}
       <img
-        src="/assets/images/about-us.webp"
+        src="/assets/images/resort/section2/image2.webp"
         alt="welcome-image"
         className="absolute w-[85%] welcomeImage  h-[90%] object-cover max-[51.25em]:h-full! max-[51.25em]:w-full! top-[53%] -translate-y-1/2 max-[51.25em]:-translate-y-0 right-0 max-[51.25em]:static!"
       />

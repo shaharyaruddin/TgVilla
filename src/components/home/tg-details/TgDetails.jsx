@@ -64,12 +64,12 @@ const TgDetails = () => {
   }, []);
 
   const images = [
-    "/assets/resort/4.webp",
-    "/assets/resort/5.jpg",
-    "/assets/resort/6.webp",
-    "/assets/resort/7.webp",
-    "/assets/resort/8.jpg",
-    "/assets/resort/9.webp",
+    "/assets/resort/39.jpg",
+    "/assets/resort/46.jpg",
+    "/assets/resort/50.jpg",
+    "/assets/resort/29.jpg",
+    "/assets/resort/33.jpg",
+    "/assets/resort/34.jpg",
   ];
 
   const modalContent = {

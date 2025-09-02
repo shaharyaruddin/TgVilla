@@ -16,13 +16,13 @@ const HomeSliderRight = () => {
   const swiperRef = useRef(null);
 
   const images = [
-    "/assets/images/bedroomVilla/bedroom1.webp",
-    "/assets/images/bedroomVilla/bedroom2.webp",
-    "/assets/images/bedroomVilla/bedroom4.webp",
-    "/assets/images/bedroomVilla/bedroom5.webp",
-    "/assets/images/bedroomVilla/bedroom6.webp",
-    "/assets/images/bedroomVilla/bedroom7.webp",
-    "/assets/images/bedroomVilla/bedroom8.webp",
+    "/assets/images/bedroomVilla/bedroom28.webp",
+    "/assets/images/bedroomVilla/bedroom29.jpg",
+    "/assets/images/bedroomVilla/bedroom30.jpg",
+    "/assets/images/bedroomVilla/bedroom32.jpg",
+    "/assets/images/bedroomVilla/bedroom33.jpg",
+    "/assets/images/bedroomVilla/bedroom34.jpg",
+    "/assets/images/bedroomVilla/bedroom35.jpg",
   ];
 
   useGSAP(() => {
@@ -48,7 +48,7 @@ const HomeSliderRight = () => {
     <div className="w-full relative center px-10 max-md:px-2 slider-right-container">
       {/* Swiper Slider */}
       <Swiper
-        modules={[Navigation, Autoplay]} 
+        modules={[Navigation, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
         loop={true} // Infinite loop enabled

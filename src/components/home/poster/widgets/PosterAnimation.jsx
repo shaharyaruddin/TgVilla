@@ -21,7 +21,7 @@ const PosterAnimation = () => {
   const CONTENT = [
     {
       id: 2,
-      src: "/assets/images/posters/poster-4.jpg",
+      src: "/assets/images/posters/poster-7.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 
@@ -30,7 +30,7 @@ const PosterAnimation = () => {
     },
     {
       id: 3,
-      src: "/assets/images/posters/poster-2.jpg",
+      src: "/assets/images/posters/poster-8.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 
@@ -39,7 +39,7 @@ const PosterAnimation = () => {
     },
     {
       id: 4,
-      src: "/assets/images/posters/poster-6.jpg",
+      src: "/assets/images/posters/poster-9.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 
@@ -135,18 +135,18 @@ const PosterAnimation = () => {
                   : { autoPlay: true, loop: true, muted: true })}
               /> */}
 
-                    <video
-        loop
-        muted
-        playsInline
-        autoPlay
-        // {...(isMobile
-        //   ? { controls: true }
-        //   : { autoPlay: true })}
+              <video
+                loop
+                muted
+                playsInline
+                autoPlay
+                // {...(isMobile
+                //   ? { controls: true }
+                //   : { autoPlay: true })}
                 className="bg-black/30 w-full h-screen object-cover"
-      >
-        <source src={item.src} type="video/mp4" />
-      </video>
+              >
+                <source src={item.src} type="video/mp4" />
+              </video>
 
               {/* Centered Text */}
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 text-center text-white space-y-3 max-md:space-y-1">

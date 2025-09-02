@@ -11,12 +11,12 @@ const HomeServicesLeft = () => {
 
   // Sample image URLs for the slider (replace with your actual image paths)
   const sliderImages = [
-    "/assets/images/bed.webp",
-    "/assets/resort/10.jpg",
-    "/assets/resort/17.jpg",
-    "/assets/resort/18.jpg",
-    "/assets/resort/19.jpg",
-    "/assets/resort/50.jpg",
+    "/assets/images/bedroomvilla-3/bedroom15.jpg",
+    "/assets/images/bedroomvilla-3/bedroom1.jpg",
+    "/assets/images/bedroomvilla-3/bedroom18.jpg",
+    "/assets/images/bedroomvilla-3/bedroom27.jpg",
+    "/assets/resort2/23.jpg",
+    "/assets/resort2/12.webp",
   ];
 
   // GSAP animations
@@ -91,7 +91,9 @@ const HomeServicesLeft = () => {
 
   // Navigate to previous slide
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + sliderImages.length) % sliderImages.length
+    );
   };
 
   return (
@@ -104,7 +106,7 @@ const HomeServicesLeft = () => {
         onClick={openModal}
       >
         <img
-          src="/assets/images/bed.webp"
+          src="/assets/images/bedroomvilla-3/bedroom15.jpg"
           alt="welcome-image"
           className="homeServiceImage w-full h-full object-cover"
         />
@@ -120,7 +122,9 @@ const HomeServicesLeft = () => {
             >
               ×
             </button>
-            <h3 className="text-2xl font-playfair mb-4 text-center">Hotel Gallery</h3>
+            <h3 className="text-2xl font-playfair mb-4 text-center">
+              Hotel Gallery
+            </h3>
             <div className="relative w-full h-96">
               <img
                 src={sliderImages[currentSlide]}

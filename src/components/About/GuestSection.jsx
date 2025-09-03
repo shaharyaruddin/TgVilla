@@ -15,12 +15,12 @@ const GuestSection = () => {
 
         <div className="relative w-full md:w-1/2 md:pl-8 flex justify-center md:justify-end">
           <img
-            src="/assets/about/cloth.jpg"
+            src="/assets/resort2/3.jpg"
             alt="clothes"
             className="w-40 h-36 md:w-52 md:h-48 mb-4 md:mb-0 md:absolute md:top-20 md:right-64 -rotate-12 animate-float"
           />
           <img
-            src="/assets/about/glass.jpg"
+            src="/assets/resort2/2.jpg"
             alt="glass"
             className="w-40 h-36 md:w-52 md:h-48 md:absolute md:-top-24 md:right-24 rotate-12 animate-float delay-500"
           />

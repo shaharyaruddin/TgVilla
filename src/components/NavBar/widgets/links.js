@@ -20,5 +20,9 @@ export const LINKS = [
     name: "about us",
     href: "/about",
   },
+  {
+    name: "contact us",
+    href: "/contact",
+  },
     
 ];

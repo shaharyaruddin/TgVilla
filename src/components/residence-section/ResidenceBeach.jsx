@@ -45,7 +45,7 @@ const ResidenceBeach = () => {
         {/* Bottom Text with Paragraph */}
         <div className="text-center my-5 md:my-15 max-w-4xl max-md:max-w-full md:mx-auto px-4">
           <h2 className="font-cormorant  text-4xl md:text-5xl max-md:text-nowrap font-medium text-black">
-            Coming Soon to Limassol
+            Now in Limassol
           </h2>
           <h3 className="text-lg md:text-xl text-gray-800 mt-3">
             A New Chapter in Seaside Luxury Living

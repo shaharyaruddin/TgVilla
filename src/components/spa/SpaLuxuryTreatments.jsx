@@ -26,34 +26,29 @@ const SpaLuxuryTreatments = () => {
 
   const SERVICE = [
     {
-      image: '/images/spa/service/luxuryfacials.avif',
-      service: `Luxury Facials`,
+      image: '/spa/SAUNA.jpg',
+      service: `SAUNA`,
       desc: `Hydrating, anti-aging, and brightening facials for radiant skin.`,
     },
     {
-      image: '/images/spa/service/aromatherapy-rituals.avif',
-      service: `Aromatherapy Rituals`,
+      image: '/spa/STEAM BATH.jpg',
+      service: `STEAM BATH`,
       desc: `Immerse yourself in calming essential oils and holistic techniques for full-body renewal.`,
     },
     {
-      image: '/images/spa/service/deeptissuemassage.avif',
-      service: `Deeptissue massage`,
+      image: '/spa/COLD-PLUNG.jpg',
+      service: `COLD PLUNG`,
       desc: `Relieve tension and stress with expert deep tissue techniques that promote relaxation.`,
     },
     {
-      image: '/images/spa/service/full-body-detox-wrap.avif',
-      service: `Full Body Detox Wrap`,
+      image: '/spa/ICE ROOM.jpg',
+      service: `ICE ROOM`,
       desc: `Detoxify, exfoliate, and hydrate your skin with our signature mineral-rich body wrap.`,
     },
     {
-      image: '/images/spa/service/hot-stone-therapy.avif',
-      service: `Hot Stone therapy`,
+      image: '/images/resort/3.jpg',
+      service: `POOL WITH HYDRO PUMBS`,
       desc: `Experience deep relaxation and muscle relief through soothing heated stone treatments..`,
-    },
-    {
-      image: '/images/spa/service/spa-manicure-pedicure.avif',
-      service: `Spa Manicure Pedicure`,
-      desc: `Luxury nail care services that nourish, shape, and beautify your hands and feet.`,
     },
   ];
 
@@ -108,7 +103,7 @@ const SpaLuxuryTreatments = () => {
       </div>
 
       {/* Right - Scrollable */}
-      <div className="scrollable-content space-y-5 my-10 max-md:my-0 max-md:mb-4">
+      <div className="scrollable-content space-y-5 my-10 max-md:px-6 max-md:my-0 max-md:mb-4">
         {SERVICE.map((item, index) => (
           <SpaServiceCard
             key={index}

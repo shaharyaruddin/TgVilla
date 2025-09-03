@@ -2,7 +2,7 @@ import React from "react";
 
 const BannerContent = ({ content }) => {
   return (
-    <div className="center h-full pt-[30%] md:pt-[10%]">
+    <div className="center h-full pt-[15vh] md:pt-[12vh]">
       <div className="flex items-center flex-col uppercase">
         <h1 className="font-crimson-text md:w-[50%] min-[1200px]:w-full leading-[6vw] text-white text-[5vw] md:text-[6vw] max-lg:mb-5 headingAnimation1 opacity-0">
           Slice of Paradise

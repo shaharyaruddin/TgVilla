@@ -21,7 +21,7 @@ const PosterAnimation = () => {
   const CONTENT = [
     {
       id: 2,
-      src: "/assets/images/posters/poster-7.jpg",
+      src: "/assets/resort2/3.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 

@@ -62,7 +62,7 @@ const ResortTopSection = () => {
       style={{ backgroundImage: "url(/assets/images/posters/mainhero.webp)" }}
       onMouseMove={MouseMoveHandle}
     >
-      <h3 className="text-[12vw] max-xl:text-[15vw] max-md:text-[17vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-2.jpg)]">
+      <h3 className="text-[12vw] max-xl:text-[15vw] max-md:text-[17vw] uppercase font-[600] text-transparent bg-clip-text bg-[url(/assets/images/posters/poster-2.jpg)] bg-center">
         tg resort
       </h3>
     </div>

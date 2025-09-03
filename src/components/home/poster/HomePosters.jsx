@@ -94,7 +94,7 @@ import PosterAnimation from "./widgets/PosterAnimation";
           className="min-h-[15rem] bg-[#E8E6DA] headerAnimation3 pt-8 w-full center-column capitalize text-[5vw] leading-none"
         >
           <h2 className="font-bold">TG Residence by the Beach</h2>
-          <h2 className="font-playfair mt-3 italic">Coming Soon to Limassol</h2>
+          <h2 className="font-playfair mt-3 italic">Now in Limassol</h2>
         </div>
 
         {/* <StaticPoster /> */}

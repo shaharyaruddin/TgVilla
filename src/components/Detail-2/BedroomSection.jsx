@@ -4,7 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { IoCloseOutline } from "react-icons/io5";
 
 const BedroomSection = () => {
-  const [expanded, setExpanded] = useState(""); // only one open at a time
+  const [expanded, setExpanded] = useState("");
   const [activeImage, setActiveImage] = useState(
     "/assets/images/bedroomvilla-3/bedroom25.jpg"
   );

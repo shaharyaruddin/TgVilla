@@ -28,6 +28,7 @@ const BannerSection = () => {
       {/* PRICING SECTION ON NEXT LINE */}
       <div className="mt-10">
         <PricingSection />
+        
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import BedroomSection from "@/components/Detail-2/BedroomSection";
+import DetailTopSection from "@/components/Detail-2/DetailTopSection";
 import HouseRuleSection from "@/components/Detail-2/HouseRuleSection";
 import IconSection from "@/components/Detail-2/IconSection";
 import ImageSection from "@/components/Detail-2/ImageSection";
@@ -11,6 +12,7 @@ import React from "react";
 const page = () => {
   return (
     <>
+      <DetailTopSection />
       <ImageSection />
       <IconSection />
       <div className="bg-[#F4F4EA] w-full min-h-screen center-column max-width py-10 max-md:py-5">

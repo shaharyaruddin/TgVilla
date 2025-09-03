@@ -10,6 +10,7 @@ import TestimonialLoopSection from "@/components/home/testimonials/widgets/Testi
 import AmenitiesSection from "@/components/resort/ResortAmenitiesSection";
 import React from "react";
 import BannerSection from "@/components/Detail-2/BannerSection";
+import BookingSection from "@/components/Detail-2/BookingSection";
 
 const page = () => {
   return (
@@ -17,6 +18,9 @@ const page = () => {
       <DetailTopSection />
       {/* <RoomSection /> */}
       <BannerSection />
+
+      <BookingSection />
+
       <ImageSection />
       <IconSection />
       <div className="bg-[#F4F4EA] w-full min-h-screen center-column max-width py-10 max-md:py-5">

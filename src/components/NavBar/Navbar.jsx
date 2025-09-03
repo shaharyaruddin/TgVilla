@@ -5,6 +5,7 @@ import { LINKS } from "./widgets/links";
 import NavLinks from "./widgets/NavLinks";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,9 +69,11 @@ const Navbar = () => {
 
         {/* actions */}
         <div className="hidden lg:flex justify-end items-center gap-4">
-          <button className="bg-app-yellow w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
-            Book Now
-          </button>
+          <Link href="/bookings">
+            <button className="bg-app-yellow w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+              Book Now
+            </button>
+          </Link>
         </div>
 
         {/* mobile menu icon */}

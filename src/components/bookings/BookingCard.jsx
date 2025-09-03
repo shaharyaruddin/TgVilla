@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const BookingCard = ({ villa }) => {
@@ -39,12 +40,12 @@ const BookingCard = ({ villa }) => {
               <h3 className="font-bold text-2xl max-xl:text-xl">{villa.price}</h3>
             </div>
             <div className="flex items-center ml-4">
-              <a
-                href="#"
+              <Link
+                href="/detailed-2"
                 className="border border-black/40 px-4 py-2 items-center rounded-lg max-xl:text-sm"
               >
                 RESERVE
-              </a>
+              </Link>
             </div>
           </div>
         </div>

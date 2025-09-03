@@ -1,3 +1,4 @@
+import BedroomSection from "@/components/Detail-2/BedroomSection";
 import HouseRuleSection from "@/components/Detail-2/HouseRuleSection";
 import IconSection from "@/components/Detail-2/IconSection";
 import ImageSection from "@/components/Detail-2/ImageSection";
@@ -16,6 +17,7 @@ const page = () => {
         <TestimonialLoopSection />
       </div>
       <VillaDetails />
+      <BedroomSection />
       <AmenitiesSection />
       <PropertyDetail />
       <HouseRuleSection />

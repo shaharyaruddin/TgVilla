@@ -16,7 +16,7 @@ const page = () => {
       </div>
       <VillaDetails />
       <AmenitiesSection />
-      {/* <PropertyDetail /> */}
+      <PropertyDetail />
     </>
   );
 };

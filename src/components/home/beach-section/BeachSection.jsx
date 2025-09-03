@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion"; // <-- Important: Add this import
+import { motion } from "framer-motion"; 
 
 const BeachSection = () => {
   const images = [

@@ -27,7 +27,9 @@ export default function PricingSection() {
               {/* Breakfast Info */}
               <div className="mb-4">
                 <h3 className="text-lg font-semibold">Breakfast Info</h3>
-                <p className="text-gray-600">Continental, Italian, Vegetarian</p>
+                <p className="text-gray-600">
+                  Continental, Italian, Vegetarian
+                </p>
               </div>
               {/* Villas with */}
               <div className="mb-4">
@@ -74,7 +76,7 @@ export default function PricingSection() {
               <div className="flex items-start justify-end w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/detail-2/topimage.jpg"
+                    src="/assets/images/bedroomVilla/bedroom1.webp"
                     alt="Villa Inverted"
                     width={192}
                     height={400}
@@ -142,7 +144,7 @@ export default function PricingSection() {
               <div className="absolute bottom-0 right-20 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">
                   <Image
-                    src="/assets/detail-2/topimage.jpg"
+                    src="/assets/images/bedroomVilla/bedroom29.jpg"
                     alt="Villa Upright"
                     width={192}
                     height={400}
@@ -155,7 +157,7 @@ export default function PricingSection() {
               <div className="flex items-start justify-end w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/detail-2/topimage.jpg"
+                    src="/assets/images/bedroomVilla/bedroom34.jpg"
                     alt="Villa Inverted"
                     width={192}
                     height={400}

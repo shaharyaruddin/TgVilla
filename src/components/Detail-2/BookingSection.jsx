@@ -67,7 +67,7 @@ const BookingSection = () => {
         )}
 
         {showCalendar && (
-          <div className="bg-white p-6 rounded-2xl shadow-xl max-w-md mx-auto animate-fade-in">
+          <div className="bg-white p-6 rounded-2xl shadow-xl min-w-lg mx-auto animate-fade-in">
             <h2 className="text-xl font-bold text-gray-800 mb-4 text-center">
               Select Your Dates
             </h2>
@@ -104,7 +104,7 @@ const BookingSection = () => {
               </div>
               <button
                 onClick={handleNextClick}
-                className="w-full px-4 py-2 bg-black text-white font-semibold rounded-lg shadow-md hover:from-yellow-600 hover:to-orange-600 transition-all duration-300"
+                className="w-fit px-6 py-2 bg-black text-white font-semibold rounded-lg shadow-md hover:from-yellow-600 hover:to-orange-600 transition-all duration-300"
               >
                 Next
               </button>

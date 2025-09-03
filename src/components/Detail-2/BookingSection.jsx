@@ -60,7 +60,7 @@ const BookingSection = () => {
               onClick={handleBookNowClick}
               className="relative px-6 py-3 rounded-2xl bg-gradient-to-r from-black via-gray-800 to-black text-white font-semibold text-base shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:from-gray-900 hover:to-black"
             >
-              <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-yellow-400 to-orange-500 opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
+              <span className="absolute inset-0 rounded-2xl  opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
               Book Now
             </button>
           </div>
@@ -104,7 +104,7 @@ const BookingSection = () => {
               </div>
               <button
                 onClick={handleNextClick}
-                className="w-full px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-lg shadow-md hover:from-yellow-600 hover:to-orange-600 transition-all duration-300"
+                className="w-full px-4 py-2 bg-black text-white font-semibold rounded-lg shadow-md hover:from-yellow-600 hover:to-orange-600 transition-all duration-300"
               >
                 Next
               </button>

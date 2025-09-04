@@ -56,13 +56,13 @@ const BookingCard = ({ villa }) => {
           <div className="flex space-x-5">
             <a
               href="#"
-              className="font-bold text-sm border-b-2 border-white/40"
+              className="font-bold text-sm border-b-2 border-black"
             >
               VIEW ROOM DETAILS
             </a>
             <a
               href="#"
-              className="font-bold text-sm border-b-2 border-white/40"
+              className="font-bold text-sm border-b-2 border-black"
             >
               VIEW GALLERY
             </a>

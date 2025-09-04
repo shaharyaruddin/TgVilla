@@ -65,7 +65,7 @@ const WaterSectionNew = () => {
           ref={(el) => (sectionsRef.current[index] = el)}
           className="h-screen w-full flex items-center absolute justify-center  text-white text-2xl card"
         >
-          <div className="bg-white rounded-xl flex max-w-[70vw] max-md:max-w-full max-md:mx-3 p-3 max-md:flex-col">
+          <div className="bg-white rounded-xl flex max-w-[70vw]  w-full max-md:max-w-full max-md:mx-3 p-3 max-md:flex-col">
             {/* Left - Image */}
             <div className="w-[30rem] max-md:w-full h-full flex justify-center">
               <img

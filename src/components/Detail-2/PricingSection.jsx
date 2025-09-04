@@ -86,7 +86,7 @@ export default function PricingSection() {
               <div className="absolute bottom-0 right-22 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">
                   <Image
-                    src="/assets/detail-2/topimage.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom6.webp"
                     alt="Villa Upright"
                     width={192}
                     height={400}
@@ -99,7 +99,7 @@ export default function PricingSection() {
               <div className="absolute top-0 -right-14 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/images/bedroomVilla/bedroom1.webp"
+                    src="/assets/images/resort/section2/image-2.webp"
                     alt="Villa Inverted"
                     width={192}
                     height={400}
@@ -202,7 +202,7 @@ export default function PricingSection() {
               <div className="absolute top-0 -right-14 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/images/bedroomVilla/bedroom34.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom13.jpg"
                     alt="Villa Inverted"
                     width={192}
                     height={400}

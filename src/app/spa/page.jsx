@@ -1,4 +1,5 @@
 import TestimonialLoopSection from "@/components/home/testimonials/widgets/Testimonial/TestimonialLoopSection";
+import ResortTestimonials from "@/components/resort/ResortTestimonials";
 import SpaCardGridSection from "@/components/spa/SpaCardGridSection";
 import SpaLuxuryTreatments from "@/components/spa/SpaLuxuryTreatments";
 import SpaSecondSection from "@/components/spa/SpaSecondSection";
@@ -17,7 +18,7 @@ const page = () => {
       <SpaLuxuryTreatments />
       <SpaWhereExpertiseMeetsIndulgence />
       <div className=" w-full min-h-40 center-column max-width py-10 max-md:py-5">
-        <TestimonialLoopSection />
+     <ResortTestimonials />
       </div>
     </div>
   );

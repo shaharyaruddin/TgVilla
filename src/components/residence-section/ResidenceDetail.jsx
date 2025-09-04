@@ -22,7 +22,7 @@ const ResidenceDetail = () => {
         {/* Right: Image */}
         <div className="flex-1 flex justify-center mt-6 md:mt-0 max-md:w-full">
           <img
-            src="/assets/images/vision.webp"
+            src="/assets/residence/7.jpg"
             alt="TG Residence Interior"
             className="w-full md:w-[90%] h-[25rem] max-2xl:h-[10rem] max-md:h-full object-cover rounded-lg"
           />
@@ -34,7 +34,7 @@ const ResidenceDetail = () => {
         {/* Left: Image */}
         <div className="flex-1 flex justify-center  md:mt-0 max-md:w-full">
           <img
-            src="/assets/images/services.webp"
+            src="/assets/residence/8.jpg"
             alt="TG Residence Interior"
             className="w-full md:w-[90%] h-[25rem] max-2xl:h-[10rem] max-md:h-full object-cover rounded-lg"
           />

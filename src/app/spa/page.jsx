@@ -11,11 +11,11 @@ const page = () => {
   return (
     <div className="bg-[#FAFAFA]">
       <SpaTopSection />
+      <WhereLuxuryMeetsSerenity />
       <SpaSecondSection />
       <SpaCardGridSection />
-      <WhereLuxuryMeetsSerenity/>
-      <SpaLuxuryTreatments/>
-      <SpaWhereExpertiseMeetsIndulgence/>
+      <SpaLuxuryTreatments />
+      <SpaWhereExpertiseMeetsIndulgence />
       <div className=" w-full min-h-40 center-column max-width py-10 max-md:py-5">
         <TestimonialLoopSection />
       </div>

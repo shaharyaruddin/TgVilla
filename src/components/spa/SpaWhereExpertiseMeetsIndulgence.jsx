@@ -24,7 +24,7 @@ const SpaWhereExpertiseMeetsIndulgence = () => {
         <div className="max-w-lg space-y-5">
           <h3>The Vistiq Experience</h3>
           <h2 className="font-cormorant text-6xl font-[600]  max-md:w-full">
-            Where Expertise Meets Indulgence
+            Where Expertise Meets Indulgence test
           </h2>
           <p className="text-xl">
             We blend science and serenity to deliver meaningful results every
@@ -45,7 +45,7 @@ const SpaWhereExpertiseMeetsIndulgence = () => {
           </div>
         </div>
         {/* second */}
-        <div className="flex items-end p-2 bg-red-200 rounded-2xl  col-span-2 row-span-2 max-md:col-span-1 max-md:min-h-[35rem] bg-[url('/images/women.avif')] bg-center bg-cover bg-no-repeat">
+        <div className="flex items-end p-2 bg-red-200 rounded-2xl  col-span-2 row-span-2 max-md:col-span-1 max-md:min-h-[35rem] bg-[url('/assets/resort2/7.jpg')] bg-center bg-cover bg-no-repeat">
           {/* content */}
           <div className="w-full h-[15rem] backdrop-blur-md rounded-2xl flex p-3 space-y-4 justify-center flex-col text-white  ">
             <h2 className="font-cormorant text-4xl mt-4 font-[600]">

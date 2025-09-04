@@ -10,6 +10,8 @@ import Navbar from "@/components/NavBar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
+
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -42,6 +44,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body

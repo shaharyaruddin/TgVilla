@@ -21,7 +21,7 @@ const Resort = () => {
      <ResortFiveSection/>
      <ResortBookingVillaTwo/>
      <ResortBookingVillaThree/>
-     <ResortTestimonials/>
+     <ResortTestimonials bgImage='/assets/images/resort/section2/image-4.webp'/>
      <AmenitiesSection/>
      <ResortButtonSection/>
     </div>

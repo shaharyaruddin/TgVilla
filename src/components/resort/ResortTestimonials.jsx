@@ -3,27 +3,28 @@
 import React from "react";
 import TestimonialReviewSection from "../home/testimonials/widgets/Testimonial/TestimonialReviewSection";
 
-const ResortTestimonials = () => {
+const ResortTestimonials = ({ bgImage, bgColor, showButton = true }) => {
   return (
     <div
-      className="relative w-full min-h-screen bg-cover bg-center max-md:min-h-[20vh]"
+      className={`pb-10 md:pb-0 relative w-full min-h-screen max-md:min-h-[20vh] bg-cover bg-center`}
       style={{
-        backgroundImage: "url('/assets/images/resort/section2/image-4.webp')",
+        backgroundImage: bgImage ? `url(${bgImage})` : "none",
+        backgroundColor: bgImage ? "transparent" : bgColor || "transparent",
       }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
-      {/* You can also try a gradient: */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60"></div> */}
+      {/* Overlay (only if bgImage is present) */}
+      {bgImage && <div className="absolute inset-0 bg-black/50"></div>}
 
       {/* Content */}
       <div className="relative z-10 w-full min-h-screen max-md:min-h-[20vh] flex flex-col items-center justify-center p-10 max-md:p-4">
         <TestimonialReviewSection />
 
         {/* View All Button */}
-        <button className="mt-10 border border-white text-white font-outfit font-semibold py-3 px-10 rounded-full hover:bg-white hover:text-black transition duration-300">
-          View All
-        </button>
+        {showButton && (
+          <button className="mt-10 border border-white text-white font-outfit font-semibold py-3 px-10 rounded-full hover:bg-white hover:text-black transition duration-300">
+            View All
+          </button>
+        )}
       </div>
     </div>
   );

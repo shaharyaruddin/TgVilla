@@ -44,7 +44,7 @@ const WaterSectionNew = () => {
         scrub: true,
         pin: true,
         anticipatePin: 1,
-        markers: true, // testing ke liye
+        markers: false, // testing ke liye
       },
     });
 
@@ -65,9 +65,9 @@ const WaterSectionNew = () => {
           ref={(el) => (sectionsRef.current[index] = el)}
           className="h-screen w-full flex items-center absolute justify-center  text-white text-2xl card"
         >
-          <div className="bg-white rounded-xl flex max-w-[70vw] p-3">
+          <div className="bg-white rounded-xl flex max-w-[70vw] max-md:max-w-full max-md:mx-3 p-3 max-md:flex-col">
             {/* Left - Image */}
-            <div className="w-[30rem] h-full flex justify-center">
+            <div className="w-[30rem] max-md:w-full h-full flex justify-center">
               <img
                 src={card.img}
                 alt={card.title}
@@ -76,11 +76,11 @@ const WaterSectionNew = () => {
             </div>
 
             {/* Right - Text */}
-            <div className="w-2xl mt-6 md:mt-12 md:ml-10">
+            <div className="max-w-2xl mt-6 md:mt-12 md:ml-10 min-h-40">
               <h2 className="text-3xl md:text-5xl font-cormorant font-semibold text-black mb-4">
                 {card.title}
               </h2>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed font-sans">
+              <p className="text-gray-700 text-base md:text-lg  font-sans">
                 {card.description}
               </p>
             </div>

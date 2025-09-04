@@ -11,6 +11,7 @@ import AmenitiesSection from "@/components/resort/ResortAmenitiesSection";
 import React from "react";
 import BannerSection from "@/components/Detail-2/BannerSection";
 import BookingSection from "@/components/Detail-2/BookingSection";
+import ResortTestimonials from "@/components/resort/ResortTestimonials";
 
 const page = () => {
   return (
@@ -23,9 +24,12 @@ const page = () => {
 
       <ImageSection />
       <IconSection />
-      <div className="bg-[#F4F4EA] w-full min-h-screen center-column max-width py-10 max-md:py-5">
+      {/* <div className="bg-[#F4F4EA] w-full min-h-screen center-column max-width py-10 max-md:py-5">
         <TestimonialLoopSection />
-      </div>
+      </div> */}
+
+      <ResortTestimonials bgColor="#F4F4EA" showButton={false} />
+
       <VillaDetails />
       <BedroomSection />
       {/* <AmenitiesSection /> */}

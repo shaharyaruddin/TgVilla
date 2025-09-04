@@ -104,7 +104,10 @@ const ResortFourthSection = () => {
           onWheel={handleWheel}
         >
           {villaDetails.map((item, index) => (
-            <div className="grid grid-cols-[1fr_2fr] gap-5 text-lg max-[1520px]:text-base max-2xl:text-sm border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:grid-cols-1">
+            <div
+              key={index}
+              className="grid grid-cols-[1fr_2fr] gap-5 text-lg max-[1520px]:text-base max-2xl:text-sm border-b-2 text-[#514941] border-[#DCDAD0] pb-3 font-outfit max-xl:grid-cols-1"
+            >
               <span>{item.title}</span>
               <span>{item.desc}</span>
             </div>

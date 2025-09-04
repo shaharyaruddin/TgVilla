@@ -15,7 +15,7 @@ const villaImages = {
   twoBedroom: [
     "/assets/images/bedroomVilla/bedroom1.jpg",
     "/assets/images/bedroomVilla/bedroom2.jpg",
-    "/assets/images/bedroomVilla/bedroom4.jpg",
+    "/assets/images/bedroomVilla/bedroom4.webp",
     "/assets/images/bedroomVilla/bedroom6.jpg",
     "/assets/images/bedroomVilla/bedroom5.jpg",
     "/assets/images/bedroomVilla/bedroom7.jpg",
@@ -26,14 +26,14 @@ const villaImages = {
     "/assets/images/bedroomvilla-3/bedroom2.jpg",
     "/assets/images/bedroomvilla-3/bedroom3.jpg",
     "/assets/images/bedroomvilla-3/bedroom4.jpg",
-    "/assets/images/bedroomvilla-3/bedroom5.jpg",
-    "/assets/images/bedroomvilla-3/bedroom6.jpg",
+    "/assets/images/bedroomvilla-3/bedroom5.webp",
+    "/assets/images/bedroomvilla-3/bedroom6.webp",
     "/assets/images/bedroomvilla-3/bedroom7.jpg",
     "/assets/images/bedroomvilla-3/bedroom8.jpg",
     "/assets/images/bedroomvilla-3/bedroom9.jpg",
     "/assets/images/bedroomvilla-3/bedroom10.jpg",
     "/assets/images/bedroomvilla-3/bedroom11.jpg",
-    "/assets/images/bedroomvilla-3/bedroom12.jpg",
+    "/assets/images/bedroomvilla-3/bedroom12.webp",
     "/assets/images/bedroomvilla-3/bedroom13.jpg",
     "/assets/images/bedroomvilla-3/bedroom14.jpg",
   ],
@@ -61,7 +61,7 @@ const HomeSliderLeft = () => {
         // markers: true
       },
     });
-  }, []); 
+  }, []);
 
   // GSAP for modal animation (only for modal entrance)
   useGSAP(() => {
@@ -107,7 +107,9 @@ const HomeSliderLeft = () => {
 
   const getRelatedImages = (currentImage) => {
     const currentIndex = villaImages[activeTab].indexOf(currentImage);
-    const related = villaImages[activeTab].filter((img, idx) => idx !== currentIndex);
+    const related = villaImages[activeTab].filter(
+      (img, idx) => idx !== currentIndex
+    );
     return related.slice(0, 4);
   };
 
@@ -195,7 +197,9 @@ const HomeSliderLeft = () => {
                       handleImageClick(image);
                       setIsGalleryOpen(false); // Close modal when clicking an image
                     }}
-                    onError={() => console.error(`Failed to load image: ${image}`)}
+                    onError={() =>
+                      console.error(`Failed to load image: ${image}`)
+                    }
                   />
                 </div>
               ))}
@@ -234,7 +238,9 @@ const HomeSliderLeft = () => {
                     src={image}
                     alt={`${activeTab} Villa ${index + 1}`}
                     className="max-w-full max-h-[80vh] object-contain mx-auto"
-                    onError={() => console.error(`Failed to load swiper image: ${image}`)}
+                    onError={() =>
+                      console.error(`Failed to load swiper image: ${image}`)
+                    }
                   />
                 </SwiperSlide>
               ))}
@@ -262,7 +268,9 @@ const HomeSliderLeft = () => {
                   e.stopPropagation();
                   setSelectedImage(image);
                 }}
-                onError={() => console.error(`Failed to load related image: ${image}`)}
+                onError={() =>
+                  console.error(`Failed to load related image: ${image}`)
+                }
               />
             ))}
           </div>

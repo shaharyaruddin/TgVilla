@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function PricingSection() {
   return (
     <div className="max-w-full lg:max-w-[90%] mx-auto p-0 lg:p-6">
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8 md:px-0 px-3">
         {/* ===== Card 1 ===== */}
-        <div className="relative p-6 bg-gray-50 rounded-lg shadow-md">
+        <div className=" px-3 relative p-6 bg-gray-50 rounded-lg shadow-md">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Text Content */}
             <div className="flex-1">
@@ -44,7 +44,8 @@ export default function PricingSection() {
                     alt="moon"
                     className="w-5 h-5"
                   />
-                  <div className="text-xs font-semibold">€750</div>
+                  <div className="text-xs font-semibold">
+                    €750</div>
                 </div>
               </div>
               {/* Breakfast Info */}
@@ -80,7 +81,7 @@ export default function PricingSection() {
               </div>
             </div>
 
-            <div className=" hidden md:block">
+            <div className=" hidden lg:block">
               {/* Bottom aligned cylinder */}
               <div className="absolute bottom-0 right-22 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">
@@ -183,7 +184,7 @@ export default function PricingSection() {
             </div>
 
             {/* Images - Hidden on mobile and tablet, visible on desktop */}
-            <div className=" hidden md:block">
+            <div className=" hidden lg:block">
               {/* Bottom aligned cylinder */}
               <div className="absolute bottom-0 right-22 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">

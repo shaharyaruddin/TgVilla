@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { X } from "lucide-react";
+import { Loader2, X } from "lucide-react";
+import { useSearch } from "@/contexts/search-context";
+import { useBookOption } from "@/contexts/book-option-context";
+import { useScroll } from "@/hooks/use-scroll";
+import Axios from "@/lib/axios";
+import { toast } from "sonner";
+import { useMediaQuery } from "react-responsive";
 
 // Custom CSS to hide static ranges on mobile
 const styles = `
@@ -15,53 +21,135 @@ const styles = `
 `;
 
 const SearchSection = () => {
+  const isMobile = useMediaQuery({ maxWidth: 639 });
+  const { searchOptions, changeGuests, changeSearchDate } = useSearch();
+  const { setAllBookingOptions } = useBookOption();
+  const { scrollToSection } = useScroll();
   const [isDateOpen, setIsDateOpen] = useState(false);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
-  const [dateRange, setDateRange] = useState([
+  const [isLoading, setIsLoading] = useState(false);
+  const [count, setCount] = useState(0);
+  const [localRange, setLocalRange] = useState([
     {
-      startDate: null,
-      endDate: null,
+      startDate: searchOptions.startDate || null,
+      endDate: searchOptions.endDate || null,
       key: "selection",
     },
   ]);
-  const [guests, setGuests] = useState({ adults: 2, children: 0, infants: 1 });
-  const [isDateSelected, setIsDateSelected] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Check for mobile screen size on client side
+  // ✅ Reset dates only once on mount
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth < 640);
-      const handleResize = () => setIsMobile(window.innerWidth < 640);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+    if (searchOptions.startDate || searchOptions.endDate) {
+      changeSearchDate({ startDate: null, endDate: null });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Auto-open guest modal when a valid date range is selected
+  useEffect(() => {
+    const fetchAllBookingOptions = async () => {
+      setIsLoading(true);
+      try {
+        if (!searchOptions.startDate || !searchOptions.endDate) return;
+        if (searchOptions.guests.total === 0) return;
+
+        const { data } = await Axios.post(`/user/get-booking-options-all`, {
+          startDate: searchOptions.startDate,
+          endDate: searchOptions.endDate,
+          guests: searchOptions.guests.total,
+        });
+
+        // ✅ Always log results
+        if (data.allBookingOptions?.length > 0) {
+          console.log("✅ Booking options fetched:", data.allBookingOptions);
+        } else {
+          console.log("⚠️ No booking options found (empty array).");
+        }
+
+        setAllBookingOptions(data.allBookingOptions || []);
+      } catch (error) {
+        console.error("❌ Fetch error:", error.message);
+        setAllBookingOptions([]);
+        toast.error("Failed to fetch booking options.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchAllBookingOptions();
+  }, [searchOptions.startDate, searchOptions.endDate, searchOptions.guests.total]);
+
+  // Auto-close date modal and open guest modal when a valid date range is selected
   useEffect(() => {
     if (
-      dateRange[0].startDate &&
-      dateRange[0].endDate &&
-      dateRange[0].startDate !== dateRange[0].endDate
+      localRange[0].startDate &&
+      localRange[0].endDate &&
+      localRange[0].startDate !== localRange[0].endDate
     ) {
-      setIsDateSelected(true);
-      setIsGuestOpen(true);
+      changeSearchDate({
+        startDate: localRange[0].startDate,
+        endDate: localRange[0].endDate,
+      });
       setIsDateOpen(false);
+      setIsGuestOpen(true);
     }
-  }, [dateRange]);
+  }, [localRange, changeSearchDate]);
 
-  const handleGuestChange = (type, delta) => {
-    setGuests((prev) => ({
-      ...prev,
-      [type]: Math.max(0, prev[type] + delta),
-    }));
+  const handleSearch = async () => {
+    setIsLoading(true);
+    try {
+      if (!searchOptions.startDate || !searchOptions.endDate) {
+        toast.error("Please select a date range.");
+        return;
+      }
+      if (searchOptions.guests.total === 0) {
+        toast.error("Please select at least 1 guest.");
+        return;
+      }
+
+      console.log("🔎 Starting search with:", {
+        startDate: searchOptions.startDate,
+        endDate: searchOptions.endDate,
+        guests: searchOptions.guests.total,
+      });
+
+      const { data } = await Axios.post(`/user/get-booking-options-all`, {
+        startDate: searchOptions.startDate,
+        endDate: searchOptions.endDate,
+        guests: searchOptions.guests.total,
+      });
+
+      // ✅ Console result
+      if (data.allBookingOptions?.length > 0) {
+        console.log("✅ Search results:", data.allBookingOptions);
+      } else {
+        console.log("⚠️ Search completed but no results found (empty array).");
+      }
+
+      setAllBookingOptions(data.allBookingOptions || []);
+      setCount(count + 1);
+      scrollToSection(null, "best-match");
+    } catch (error) {
+      console.error("❌ Search error:", error.message);
+      toast.error("Search failed. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Close guest modal and trigger search if guests are selected
+  const handleGuestModalClose = (e) => {
+    e.stopPropagation();
+    setIsGuestOpen(false);
+    setTimeout(() => {
+      if (searchOptions.guests.total > 0) {
+        handleSearch();
+      }
+    }, 0);
   };
 
   return (
     <>
       <style>{styles}</style>
-      <div className="min-h-[15rem] py-10 max-md:py-5 bg-[#E8E4D9]  sm:mt-0 px-4 sm:px-0">
+      <div className="min-h-[15rem] py-10 max-md:py-5 bg-[#E8E4D9] sm:mt-0 px-4 sm:px-0">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl border-2 border-[#D4A017] p-4 sm:p-6 max-md:flex-col max-md:space-y-4">
             <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
@@ -77,23 +165,25 @@ const SearchSection = () => {
                     setIsGuestOpen(false);
                   }}
                 >
-                  {isDateSelected
-                    ? `${dateRange[0].startDate.toLocaleDateString()} - ${dateRange[0].endDate.toLocaleDateString()}`
+                  {searchOptions.startDate && searchOptions.endDate
+                    ? `${searchOptions.startDate.toLocaleDateString()} - ${searchOptions.endDate.toLocaleDateString()}`
                     : "Select the dates"}
                 </div>
                 {isDateOpen && (
                   <div className="absolute z-10 mt-2 w-full max-w-[90vw] sm:max-w-lg bg-white rounded-lg left-1/2 -translate-x-1/2">
                     <DateRangePicker
                       className="text-app-black font-medium w-full"
-                      onChange={(item) => setDateRange([item.selection])}
+                      onChange={(item) => setLocalRange([item.selection])}
                       moveRangeOnFirstSelection={false}
-                      ranges={dateRange}
-                      months={isMobile ? 1 : 2}
+                      ranges={localRange}
+                      months={2}
                       direction={isMobile ? "vertical" : "horizontal"}
                       rangeColors={["#D4A017"]}
                       staticRanges={[]}
                       inputRanges={[]}
-                      showMonthAndYearPickers={isMobile ? false : true}
+                      showMonthAndYearPickers={true}
+                      minDate={new Date()}
+                      initialVisibleMonth={() => new Date()}
                       displayMode={isMobile ? "single" : "range"}
                     />
                   </div>
@@ -112,15 +202,13 @@ const SearchSection = () => {
                     setIsDateOpen(false);
                   }}
                 >
-                  {`${guests.adults} Adults, ${guests.children} Children, ${
-                    guests.infants
-                  } Infant${guests.infants > 1 ? "s" : ""}`}
+                  {searchOptions.guests.total} Guests
                 </div>
                 {isGuestOpen && (
                   <div className="absolute z-10 mt-2 w-72 max-w-[90vw] bg-white rounded-lg p-4 border border-[#D4A017] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
                     <div className="flex justify-end mb-2">
                       <button
-                        onClick={() => setIsGuestOpen(false)}
+                        onClick={handleGuestModalClose}
                         className="text-[#D4A017] hover:text-[#B8860B] transition-colors"
                         aria-label="Close guest selection"
                       >
@@ -128,73 +216,76 @@ const SearchSection = () => {
                       </button>
                     </div>
                     <div className="space-y-4">
+                      {/* Adults */}
                       <div className="flex justify-between items-center py-2 border-b border-gray-200">
                         <span className="text-base sm:text-lg font-semibold text-gray-800">
                           Adults
                         </span>
                         <div className="flex items-center space-x-3">
                           <button
-                            onClick={() => handleGuestChange("adults", -1)}
+                            onClick={() => changeGuests("adults", -1, 8)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                            aria-label="Decrease adults"
+                            disabled={searchOptions.guests.adults <= 0}
                           >
                             -
                           </button>
                           <span className="text-base sm:text-lg font-medium">
-                            {guests.adults}
+                            {searchOptions.guests.adults}
                           </span>
                           <button
-                            onClick={() => handleGuestChange("adults", 1)}
+                            onClick={() => changeGuests("adults", 1, 8)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                            aria-label="Increase adults"
+                            disabled={searchOptions.guests.adults >= 8}
                           >
                             +
                           </button>
                         </div>
                       </div>
+                      {/* Children */}
                       <div className="flex justify-between items-center py-2 border-b border-gray-200">
                         <span className="text-base sm:text-lg font-medium text-gray-700">
                           Children
                         </span>
                         <div className="flex items-center space-x-3">
                           <button
-                            onClick={() => handleGuestChange("children", -1)}
+                            onClick={() => changeGuests("children", -1, 8)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200"
-                            aria-label="Decrease children"
+                            disabled={searchOptions.guests.children <= 0}
                           >
                             -
                           </button>
                           <span className="text-base sm:text-lg font-medium">
-                            {guests.children}
+                            {searchOptions.guests.children}
                           </span>
                           <button
-                            onClick={() => handleGuestChange("children", 1)}
+                            onClick={() => changeGuests("children", 1, 8)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200"
-                            aria-label="Increase children"
+                            disabled={searchOptions.guests.children >= 8}
                           >
                             +
                           </button>
                         </div>
                       </div>
+                      {/* Infants */}
                       <div className="flex justify-between items-center py-2">
                         <span className="text-base sm:text-lg font-medium text-gray-700">
                           Infants
                         </span>
                         <div className="flex items-center space-x-3">
                           <button
-                            onClick={() => handleGuestChange("infants", -1)}
+                            onClick={() => changeGuests("infants", -1, 2)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200"
-                            aria-label="Decrease infants"
+                            disabled={searchOptions.guests.infants <= 0}
                           >
                             -
                           </button>
                           <span className="text-base sm:text-lg font-medium">
-                            {guests.infants}
+                            {searchOptions.guests.infants}
                           </span>
                           <button
-                            onClick={() => handleGuestChange("infants", 1)}
+                            onClick={() => changeGuests("infants", 1, 2)}
                             className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200"
-                            aria-label="Increase infants"
+                            disabled={searchOptions.guests.infants >= 2}
                           >
                             +
                           </button>
@@ -207,8 +298,22 @@ const SearchSection = () => {
 
               {/* Search Button */}
               <div className="flex items-end">
-                <button className="w-full mt-1 p-2.5 sm:p-3 border rounded-xl bg-[#D4A017] border-gray-200 focus:ring-2 focus:ring-[#D4A017] text-base sm:text-xl cursor-pointer font-bold font-playfair text-white hover:bg-[#B8860B] transition-colors">
-                  Search
+                <button
+                  className={`w-full mt-1 p-2.5 sm:p-3 border rounded-xl bg-[#D4A017] border-gray-200 focus:ring-2 focus:ring-[#D4A017] text-base sm:text-xl cursor-pointer font-bold text-nowrap font-playfair text-white hover:bg-[#B8860B] transition-colors ${
+                    isLoading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
+                  onClick={handleSearch}
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <div className="flex justify-between">
+                      <Loader2 className="animate-spin" />
+                      Loading..
+                      <span></span>
+                    </div>
+                  ) : (
+                    "Search"
+                  )}
                 </button>
               </div>
             </div>

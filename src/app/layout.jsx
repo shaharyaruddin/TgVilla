@@ -9,6 +9,7 @@ import "./globals.css";
 import Navbar from "@/components/NavBar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import AppProviders from "@/contexts/app-providers";
 
 
 
@@ -50,11 +51,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} ${crimsonText.variable} ${cormorant.variable} ${playFair.variable} ${outfit.variable} antialiased relative `}
       >
+        <AppProviders>
         {/* <SmoothScrollProvider> */}
         <Navbar />
         {children}
         <Footer />
         {/* </SmoothScrollProvider> */}
+
+        </AppProviders>
+
       </body>
     </html>
   );

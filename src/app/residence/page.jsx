@@ -10,11 +10,11 @@ import React from "react";
 const page = () => {
   return (
     <>
-      <ResidenceSection />
-      <ResidenceBeach />
+      {/* <ResidenceSection />
+      <ResidenceBeach /> */}
       <ResidenceDetail />
-      <WaterSection />
-      {/* <WaterSectionNew/> */}
+      {/* <WaterSection /> */}
+      <WaterSectionNew/>
       <ResidenceLife />
     </>
   );

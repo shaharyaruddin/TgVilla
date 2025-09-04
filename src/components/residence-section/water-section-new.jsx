@@ -1,7 +1,8 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,60 +28,46 @@ const WaterSectionNew = () => {
     },
   ];
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const sections = sectionsRef.current;
+  useGSAP(() => {
+    const cards = sectionsRef.current;
 
-  
-    // GSAP animation for each section
-    sections.forEach((section, index) => {
-      if (index < sections.length - 1) {
-        ScrollTrigger.create({
-          trigger: section,
-          start: 'top top',
-          end: '+=100%',
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
-          onEnter: () => {
-            gsap.to(section, {
-              y: -100,
-              duration: 0.5,
-            });
-          },
-          onLeaveBack: () => {
-            gsap.to(section, {
-              duration: 0.5,
-            });
-          },
-        });
-      } else {
-        // Last section: normal scrolling after pinning ends
-        ScrollTrigger.create({
-          trigger: section,
-          start: 'top top',
-          pin: true,
-          pinSpacing: true,
-        });
-      }
+    // Pehle sab ko neeche set kar dete hain
+    gsap.set(cards, { yPercent: 100 });
+    gsap.set(cards[0], { yPercent: 0 }); // pehla card visible
+
+    // Timeline create karte hain
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top top',
+        end: () => `+=${cards.length * 100}%`, // har card ke liye scroll space
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        markers: true, // testing ke liye
+      },
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+    cards.forEach((card, i) => {
+      if (i === 0) return; // first card already visible
+      tl.to(card, { yPercent: 0 }, `+=${1}`); // har card ek step me upar aayega
+    });
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full min-h-screen relative bg-[#E8E4D9]">
+    <div
+      ref={containerRef}
+      className="w-full min-h-screen serviceContainer relative bg-[#E8E4D9] overflow-hidden"
+    >
       {cardsData.map((card, index) => (
         <section
           key={index}
           ref={(el) => (sectionsRef.current[index] = el)}
-          className={`h-screen w-full flex items-center justify-center bg-[#E8E4D9] text-white text-2xl `}
+          className="h-screen w-full flex items-center absolute justify-center  text-white text-2xl card"
         >
-          <div className=" bg-white rounded-xl flex max-w-[70vw] p-3">
+          <div className="bg-white rounded-xl flex max-w-[70vw] p-3">
             {/* Left - Image */}
-            <div className="w-[30rem] h-[30rem] flex justify-center">
+            <div className="w-[30rem] h-full flex justify-center">
               <img
                 src={card.img}
                 alt={card.title}
@@ -89,7 +76,7 @@ const WaterSectionNew = () => {
             </div>
 
             {/* Right - Text */}
-            <div className=" w-2xl mt-6 md:mt-12 md:ml-10">
+            <div className="w-2xl mt-6 md:mt-12 md:ml-10">
               <h2 className="text-3xl md:text-5xl font-cormorant font-semibold text-black mb-4">
                 {card.title}
               </h2>

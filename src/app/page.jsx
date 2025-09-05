@@ -1,5 +1,6 @@
 import Banner from "@/components/home/banner/Banner";
 import BeachSection from "@/components/home/beach-section/BeachSection";
+import BestMatch from "@/components/home/BestMatch";
 import BookingSection from "@/components/home/booking-section/BookingSection";
 import ExperienceHarmony from "@/components/home/experience-harmony/ExperienceHarmony";
 import FeelingsBalance from "@/components/home/feelings-balance/FeelingsBalance";
@@ -20,6 +21,7 @@ const Home = () => {
     <div className="">
       <Banner />
       <SearchSection />
+      <BestMatch/>
       <BookingSection />
       <VillaSection />
       <Roller />

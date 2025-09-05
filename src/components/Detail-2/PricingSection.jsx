@@ -3,15 +3,15 @@ import Image from "next/image";
 export default function PricingSection() {
   return (
     <div className="max-w-full lg:max-w-[90%] mx-auto p-0 lg:p-6">
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8 md:px-0 px-3">
         {/* ===== Card 1 ===== */}
-        <div className="p-6 bg-gray-50 rounded-lg shadow-md">
+        <div className=" px-3 relative p-6 bg-gray-50 rounded-lg shadow-md">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Text Content */}
             <div className="flex-1">
               {/* Standard Rate */}
-              <div className="flex w-fit rounded-full border border-black overflow-hidden mb-4">
-                <div className="px-4 py-2 font-medium text-black bg-white">
+              <div className="flex items-center w-fit rounded-full border border-black overflow-hidden mb-8">
+                <div className="px-4 py-2  text-sm font-medium text-black bg-white">
                   Standard Rate
                 </div>
                 <div className="px-4 py-2 font-medium text-white rounded-l-2xl bg-[#2a1b14]">
@@ -19,22 +19,46 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <div className="flex justify-between text-sm text-gray-600 mb-4">
-                <span>🌙 1 Nights</span>
-                <span>👥 2 Guests</span>
-                <span>💶 €750</span>
+              <div className="flex gap-6 text-sm text-gray-600 mb-4">
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/moon.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold"> 1 Nights</div>
+                </div>
+
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/guest.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold">2 Guests</div>
+                </div>
+
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/dollar.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold">
+                    €750</div>
+                </div>
               </div>
               {/* Breakfast Info */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold">Breakfast Info</h3>
-                <p className="text-gray-600">
+                <h3 className="text-lg font-medium">Breakfast Info</h3>
+                <p className="text-xs text-gray-600">
                   Continental, Italian, Vegetarian
                 </p>
               </div>
               {/* Villas with */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold">Villas with:</h3>
-                <ul className="list-disc text-sm list-inside text-gray-600">
+                <h3 className="text-lg font-medium">Villas with:</h3>
+                <ul className="list-disc text-xs list-inside text-gray-600">
                   <li>Sea View</li>
                   <li>Private Garden</li>
                   <li>Free Wi-Fi</li>
@@ -47,8 +71,8 @@ export default function PricingSection() {
               </div>
               {/* Additional Services */}
               <div>
-                <h3 className="text-lg font-semibold">Additional Services:</h3>
-                <ul className="list-disc text-sm w-84 list-inside text-gray-600">
+                <h3 className="text-lg font-medium">Additional Services:</h3>
+                <ul className="list-disc text-xs w-84 list-inside text-gray-600">
                   <li>Breakfast (€10)</li>
                   <li>Scooters Electric x2</li>
                   <li>Daily Laundry, Linen & Amenities Refresh</li>
@@ -57,13 +81,12 @@ export default function PricingSection() {
               </div>
             </div>
 
-            {/* Images - Hidden on mobile and tablet, visible on desktop */}
-            <div className="relative hidden md:block">
+            <div className=" hidden lg:block">
               {/* Bottom aligned cylinder */}
-              <div className="absolute bottom-0 right-20 w-48 h-[360px]">
+              <div className="absolute bottom-0 right-22 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">
                   <Image
-                    src="/assets/detail-2/topimage.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom6.webp"
                     alt="Villa Upright"
                     width={192}
                     height={400}
@@ -73,10 +96,10 @@ export default function PricingSection() {
               </div>
 
               {/* Top aligned cylinder */}
-              <div className="flex items-start justify-end w-48 h-[360px]">
+              <div className="absolute top-0 -right-14 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/images/bedroomVilla/bedroom1.webp"
+                    src="/assets/images/resort/section2/image-2.webp"
                     alt="Villa Inverted"
                     width={192}
                     height={400}
@@ -89,34 +112,56 @@ export default function PricingSection() {
         </div>
 
         {/* ===== Card 2 (Different Content) ===== */}
-        <div className="p-6 bg-gray-50 rounded-lg shadow-md">
-          <div className="flex flex-col md:flex-row gap-6">
+        <div className="relative p-6 bg-gray-50 rounded-lg shadow-md">
+          <div className=" flex flex-col md:flex-row gap-6">
             {/* Text Content */}
             <div className="flex-1">
-              {/* Premium Rate */}
-              <div className="flex w-fit rounded-full border border-black overflow-hidden mb-4">
-                <div className="px-4 py-2 font-medium text-black bg-white">
-                  Premium Rate
+              <div className="flex items-center w-fit rounded-full border border-black overflow-hidden mb-8">
+                <div className="px-4 py-2 text-sm  font-medium text-black bg-white">
+                  Standard (Non-Refundable) Rate
                 </div>
                 <div className="px-4 py-2 font-medium text-white rounded-l-2xl bg-[#2a1b14]">
                   €1200
                 </div>
               </div>
 
-              <div className="flex justify-between text-sm text-gray-600 mb-4">
-                <span>🌙 2 Nights</span>
-                <span>👥 4 Guests</span>
-                <span>💶 €1200</span>
+              <div className="flex gap-6 text-sm text-gray-600 mb-4">
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/moon.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold"> 1 Nights</div>
+                </div>
+
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/guest.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold">2 Guests</div>
+                </div>
+
+                <div className="flex items-center">
+                  <img
+                    src="/assets/detail-2/dollar.avif"
+                    alt="moon"
+                    className="w-5 h-5"
+                  />
+                  <div className="text-xs font-semibold">€750</div>
+                </div>
               </div>
               {/* Breakfast Info */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold">Breakfast Info</h3>
-                <p className="text-gray-600">Buffet, Vegan, Halal</p>
+                <h3 className="text-lg font-medium">Breakfast Info</h3>
+                <p className="text-xs text-gray-600">Buffet, Vegan, Halal</p>
               </div>
               {/* Villas with */}
               <div className="mb-4">
-                <h3 className="text-lg font-semibold">Villas with:</h3>
-                <ul className="list-disc text-sm list-inside text-gray-600">
+                <h3 className="text-lg font-medium">Villas with:</h3>
+                <ul className="list-disc text-xs list-inside text-gray-600">
                   <li>Infinity Pool</li>
                   <li>Private Beach</li>
                   <li>Smart Home System</li>
@@ -128,8 +173,8 @@ export default function PricingSection() {
               </div>
               {/* Additional Services */}
               <div>
-                <h3 className="text-lg font-semibold">Additional Services:</h3>
-                <ul className="list-disc text-sm list-inside text-gray-600">
+                <h3 className="text-lg font-medium">Additional Services:</h3>
+                <ul className="list-disc text-xs list-inside text-gray-600">
                   <li>Luxury Car Rental (€200)</li>
                   <li>Private Yacht Tour (€500)</li>
                   <li>Massage & Spa (€150)</li>
@@ -139,9 +184,9 @@ export default function PricingSection() {
             </div>
 
             {/* Images - Hidden on mobile and tablet, visible on desktop */}
-            <div className="relative hidden md:block">
+            <div className=" hidden lg:block">
               {/* Bottom aligned cylinder */}
-              <div className="absolute bottom-0 right-20 w-48 h-[360px]">
+              <div className="absolute bottom-0 right-22 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-t-full">
                   <Image
                     src="/assets/images/bedroomVilla/bedroom29.jpg"
@@ -154,10 +199,10 @@ export default function PricingSection() {
               </div>
 
               {/* Top aligned cylinder */}
-              <div className="flex items-start justify-end w-48 h-[360px]">
+              <div className="absolute top-0 -right-14 w-48 h-[360px]">
                 <div className="w-32 h-[360px] overflow-hidden rounded-b-full">
                   <Image
-                    src="/assets/images/bedroomVilla/bedroom34.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom13.jpg"
                     alt="Villa Inverted"
                     width={192}
                     height={400}

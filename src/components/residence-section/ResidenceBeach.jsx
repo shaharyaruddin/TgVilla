@@ -4,14 +4,12 @@ import Marquee from "react-fast-marquee";
 
 const ResidenceBeach = () => {
   const images = [
-    { src: "/assets/resort/2.webp", alt: "resort 1" },
-    { src: "/assets/resort/32.webp", alt: "resort 2" },
-    { src: "/assets/resort/28.webp", alt: "resort 3" },
-    { src: "/assets/resort/27.webp", alt: "resort 4" },
-    { src: "/assets/images/beach/14.webp", alt: "resort 6" },
-    { src: "/assets/images/beach/15.webp", alt: "resort 7" },
-    { src: "/assets/images/beach/16.webp", alt: "resort 8" },
-    { src: "/assets/images/beach/17.webp", alt: "resort 9" },
+    { src: "/assets/images/beach/2.jpg", alt: "resort 1" },
+    { src: "/assets/images/beach/poster-9.jpeg", alt: "resort 2" },
+    { src: "/assets/images/beach/7.jpg", alt: "resort 3" },
+    { src: "/assets/images/beach/10.jpg", alt: "resort 4" },
+    { src: "/assets/images/beach/11.jpg", alt: "resort 6" },
+    { src: "/assets/images/beach/9.jpg", alt: "resort 7" },
   ];
 
   return (

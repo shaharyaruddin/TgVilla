@@ -14,6 +14,7 @@ import HomeServices from "@/components/home/service/HomeServices";
 import Testimonials from "@/components/home/testimonials/Testimonials";
 import TgDetails from "@/components/home/tg-details/TgDetails";
 import VillaSection from "@/components/home/welcome-villa/VillaSection";
+import ResortTestimonials from "@/components/resort/ResortTestimonials";
 import React from "react";
 
 const Home = () => {
@@ -32,7 +33,7 @@ const Home = () => {
       <FeelingsBalance />
       <HomePosters />
       <BeachSection/>
-      <Testimonials />
+     <ResortTestimonials/>
       <PremiumAmenities />
     </div>
   );

@@ -17,7 +17,7 @@ const ReviewCards = () => {
         </div>
         <div className="reviewCardRight max-lg:hidden">
           <ReviewCard
-            comment={`This home is in the top 5% of eligible listings based on ratings, reviews, and reliability`}
+            comment={`This home is in the top 1% of eligible listings based on ratings, reviews, and reliability`}
             heading="Airbnb.com"
             title="Guest Favourite"
             description="According to guests"

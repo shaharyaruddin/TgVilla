@@ -21,7 +21,7 @@ export const AirbnbBrandBig = () => {
       </div>
       <p className="text-white text-sm">Guest Favourite</p>
       <p className="text-white text-md text-center">
-        This home is in the top 5% of eligible listings based on ratings,
+        This home is in the top 1% of eligible listings based on ratings,
         reviews, and reliability
       </p>
       <div className="flex gap-2 justify-between w-full items-end">

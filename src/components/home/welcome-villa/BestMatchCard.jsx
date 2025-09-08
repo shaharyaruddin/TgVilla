@@ -1,31 +1,85 @@
 'use client';
 import Link from 'next/link';
-import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useBook } from '@/contexts/book-context';
+import { useRouter } from 'next/navigation';
+import { differenceInDays } from 'date-fns'; // Ensure this is imported for calculation
 
 const BestMatchCard = ({ villa }) => {
-  const [checkedServices, setCheckedServices] = useState({});
+  const { bookData: currentBookData, setBookData } = useBook();
+  const router = useRouter();
+  const [additionalServices, setAdditionalServices] = useState([]);
+
+  useEffect(() => {
+    // Initialize additional services with selected: false
+    setAdditionalServices(
+      (villa.services || []).map((service) => ({
+        ...service,
+        selected: false,
+      }))
+    );
+  }, [villa.services]);
 
   const handleCheckboxChange = (serviceName) => {
-    setCheckedServices((prev) => ({
-      ...prev,
-      [serviceName]: !prev[serviceName],
-    }));
+    setAdditionalServices((prevState) =>
+      prevState.map((service) =>
+        service.name === serviceName ? { ...service, selected: !service.selected } : service
+      )
+    );
   };
 
+  const handleReserve = async () => {
+    const selectedServices = additionalServices.filter((service) => service.selected);
 
-  
-  // Default values to prevent undefined errors
+    const totalServicePrice = additionalServices
+      .filter((service) => service.selected)
+      .reduce((acc, service) => {
+        const servicePrice = service.each
+          ? service.price * villa.nights * villa.guests
+          : service.price * villa.nights;
+        return acc + servicePrice;
+      }, 0);
+
+    const totalPrice = parseFloat(villa.price || 0) + totalServicePrice;
+
+    // Set default dates and guests if not present in currentBookData to avoid alert and ensure checkout works
+    const defaultStartDate = currentBookData.startDate || new Date(); // Today
+    const defaultEndDate = currentBookData.endDate || new Date(Date.now() + 24 * 60 * 60 * 1000); // Tomorrow
+    const defaultGuests = currentBookData.guests || villa.guests || 2;
+    const totalNights = differenceInDays(defaultEndDate, defaultStartDate);
+
+    // Merge with current bookData, using defaults where necessary
+    const updatedBookData = {
+      ...currentBookData,
+      startDate: defaultStartDate,
+      endDate: defaultEndDate,
+      totalNights: totalNights,
+      guests: defaultGuests,
+      rateType: villa.rateType || 'Non-Refundable',
+      totalNightsPrice: parseFloat(villa.price || 0),
+      villaId: villa.id,
+      villaName: villa.name,
+      villaNumber: villa.id,
+      additionalServices: selectedServices,
+      totalPrice: totalPrice.toFixed(2),
+    };
+    setBookData(updatedBookData);
+    router.push('/checkout');
+  };
+
   const {
-    id = 1, // Default id for image logic
+    id = 1,
     type = 'Standard',
     name = 'Unknown Villa',
     bedrooms = 'N/A',
     price = 'N/A',
-    nights,
-    guests,
+    nights = 1,
+    guests = 2,
     services = [],
+    rateType = 'Non-Refundable',
+    standardPrice = price,
   } = villa || {};
+
   return (
     <div className="relative my-3 max-md:my-0 w-full min-h-[10rem] grid grid-cols-1 text-white">
       {/* Left - Image */}
@@ -60,14 +114,29 @@ const BestMatchCard = ({ villa }) => {
                 ({nights} {nights === 1 ? 'night' : 'nights'} | {guests}{' '}
                 {guests === 1 ? 'guest' : 'guests'})
               </h3>
-              <h3 className="font-bold text-xl">{price}</h3>
+              <div className="flex items-center gap-2">
+                {rateType !== 'standard' && (
+                  <p className="text-sm text-red-500 line-through">€{standardPrice}</p>
+                )}
+                <h3 className="font-bold text-xl">€{price}</h3>
+              </div>
             </div>
-            <div className="flex items-center ml-4">
+            <div className="flex items-center ml-4 space-x-2">
               <Link
-                href="/villa-details"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleReserve();
+                }}
                 className="border border-black/40 px-4 py-2 items-center rounded-lg text-sm"
               >
                 RESERVE
+              </Link>
+              <Link
+                href={id === 1 ? '/details-1' : '/details-2'}
+                className="border border-black/40 px-4 py-2 items-center rounded-lg text-sm"
+              >
+                view Detail
               </Link>
             </div>
           </div>
@@ -95,14 +164,12 @@ const BestMatchCard = ({ villa }) => {
                       <input
                         type="checkbox"
                         className="size-3 accent-white border-2 border-white rounded cursor-pointer"
-                        checked={checkedServices[service.name] || false}
+                        checked={additionalServices.find((s) => s.name === service.name)?.selected || false}
                         onChange={() => handleCheckboxChange(service.name)}
                       />
                       <span>
                         {service.name || 'N/A'}{' '}
-                        <span className="font-cormorant text-xl">
-                          ({service.price || 'N/A'})
-                        </span>
+                        <span className="font-cormorant text-xl">({service.price || 'N/A'})</span>
                       </span>
                     </label>
                   </li>

@@ -10,7 +10,7 @@ const BestMatch = () => {
     <div className="bg-[#E8E4D9] flex flex-col">
       <div className="flex justify-center items-center">
         <h2 className="font-cormorant text-[4vmax] font-[600]">
-          {allBookingOptions?.length === 1 ? 'Match' : 'Matches'}
+          {(allBookingOptions != null  | allBookingOptions?.length > 0) ? 'Match' : 'Matches'}
         </h2>
       </div>
       {allBookingOptions?.length > 0 ? (

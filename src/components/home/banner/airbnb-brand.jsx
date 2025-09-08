@@ -31,7 +31,7 @@ export const AirbnbBrandBig = () => {
         </div>
 
         <div className="flex flex-col justify-center items-center w-12 h-12 bg-[#ff385c] rounded-md text-white">
-          <p className="text-xl font-bold">5%</p>
+          <p className="text-xl font-bold">1%</p>
           <p className="text-[8px]">Top</p>
         </div>
       </div>

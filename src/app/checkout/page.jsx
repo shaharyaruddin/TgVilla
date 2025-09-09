@@ -201,7 +201,7 @@ const CheckoutForm = ({ paymentId }) => {
   };
 
   return (
-    <div className="bg-[#F4F4EA]">
+    <div className="bg-[#F4F4EA] pt-10">
       <div className="container max-w-6xl mx-auto px-4 py-10 md:py-10">
         <Button variant="outline" className="mb-4 rounded-full" onClick={() => router.back()}>
           <ArrowLeft className="w-4 h-4" />

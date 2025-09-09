@@ -12,11 +12,11 @@ const BestMatch = () => {
     <div className="bg-[#E8E4D9] flex flex-col">
       <div className="flex justify-center items-center">
         <h2 className="font-cormorant text-[4vmax] font-[600]">
-          {(allBookingOptions != null | allBookingOptions?.length > 0) ? 'Match' : 'Matches'}
+          {(allBookingOptions != null | allBookingOptions?.length > 0) ?  'Matches' : ''}
         </h2>
       </div>
       {allBookingOptions?.length > 0 ? (
-        <div className="grid grid-cols-2 max-md:grid-cols-1 max-md:px-5 gap-4 max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 max-md:grid-cols-1 max-2xl:px-5 gap-4 max-w-7xl mx-auto">
           {allBookingOptions.map((item, i) => {
             // Construct villa object with defaults and id
             const villa = {

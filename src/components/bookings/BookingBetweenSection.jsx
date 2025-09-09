@@ -1,7 +1,5 @@
-import React from 'react'
+import SearchSection from '../home/search-section/SearchSection'
 import BookingOverlayedContent from './BookingOverlayedContent'
-import SelectBookingDate from './SelectBookingDate'
-import SelectBookingGuest from './SelectBookingGuest'
 
 const BookingBetweenSection = () => {
   return (
@@ -12,8 +10,7 @@ const BookingBetweenSection = () => {
       </h2>
 
       <div className="w-full min-h-[6rem] max-md:flex-col max-md:space-x-0 max-md:space-y-6 flex items-center justify-center space-x-10 mt-7 z-10">
-        <SelectBookingDate />
-        <SelectBookingGuest />
+              <SearchSection />
       </div>
    </>
   )

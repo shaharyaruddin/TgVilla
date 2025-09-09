@@ -29,13 +29,25 @@ const SearchSection = () => {
   const [isGuestOpen, setIsGuestOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [count, setCount] = useState(0);
+  // ✅ Initialize localRange with nulls to prevent stale dates on mount
   const [localRange, setLocalRange] = useState([
     {
-      startDate: searchOptions.startDate || null,
-      endDate: searchOptions.endDate || null,
+      startDate: null,
+      endDate: null,
       key: "selection",
     },
   ]);
+
+  // ✅ Sync localRange with searchOptions dates to handle resets and changes
+  useEffect(() => {
+    setLocalRange([
+      {
+        startDate: searchOptions.startDate || null,
+        endDate: searchOptions.endDate || null,
+        key: "selection",
+      },
+    ]);
+  }, [searchOptions.startDate, searchOptions.endDate]);
 
   // ✅ Reset dates only once on mount
   useEffect(() => {
@@ -72,6 +84,7 @@ const SearchSection = () => {
         toast.error("Failed to fetch booking options.");
       } finally {
         setIsLoading(false);
+        setIsGuestOpen(false)
       }
     };
     fetchAllBookingOptions();
@@ -127,18 +140,21 @@ const SearchSection = () => {
       setAllBookingOptions(data.allBookingOptions || []);
       setCount(count + 1);
       scrollToSection(null, "best-match");
+    
     } catch (error) {
       console.error("❌ Search error:", error.message);
       toast.error("Search failed. Please try again.");
     } finally {
       setIsLoading(false);
+      setIsGuestOpen(false);
     }
   };
 
-  // Close guest modal and trigger search if guests are selected
+  // ✅ Close guest modal immediately, and trigger search only if guests are selected (with minimal timeout)
   const handleGuestModalClose = (e) => {
     e.stopPropagation();
     setIsGuestOpen(false);
+    // Use setTimeout with 0ms to queue search after current execution (prevents race conditions)
     setTimeout(() => {
       if (searchOptions.guests.total > 0) {
         handleSearch();
@@ -149,7 +165,7 @@ const SearchSection = () => {
   return (
     <>
       <style>{styles}</style>
-      <div className="min-h-[15rem] py-10 max-md:py-5 bg-[#E8E4D9] sm:mt-0 px-4 sm:px-0">
+      <div className="min-h-[15rem] py-10 max-md:py-5 sm:mt-0 px-4 sm:px-0">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl border-2 border-[#D4A017] p-4 sm:p-6 max-md:flex-col max-md:space-y-4">
             <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
@@ -204,7 +220,7 @@ const SearchSection = () => {
                 >
                   {searchOptions.guests.total} Guests
                 </div>
-                {isGuestOpen && (
+                {isGuestOpen == true && (
                   <div className="absolute z-10 mt-2 w-72 max-w-[90vw] bg-white rounded-lg p-4 border border-[#D4A017] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
                     <div className="flex justify-end mb-2">
                       <button

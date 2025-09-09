@@ -1,8 +1,8 @@
-'use client';
-import React from 'react';
-import { useBookOption } from '@/contexts/book-option-context';
-import { useSearch } from '@/contexts/search-context';
-import BestMatchCard from './welcome-villa/BestMatchCard';
+"use client";
+import React from "react";
+import { useBookOption } from "@/contexts/book-option-context";
+import { useSearch } from "@/contexts/search-context";
+import BestMatchCard from "./welcome-villa/BestMatchCard";
 
 const BestMatch = () => {
   const { allBookingOptions } = useBookOption();
@@ -12,7 +12,9 @@ const BestMatch = () => {
     <div className="bg-[#E8E4D9] flex flex-col">
       <div className="flex justify-center items-center">
         <h2 className="font-cormorant text-[4vmax] font-[600]">
-          {(allBookingOptions != null | allBookingOptions?.length > 0) ?  'Matches' : ''}
+          {(allBookingOptions != null) | (allBookingOptions?.length > 0)
+            ? "Matches"
+            : ""}
         </h2>
       </div>
       {allBookingOptions?.length > 0 ? (
@@ -21,22 +23,32 @@ const BestMatch = () => {
             // Construct villa object with defaults and id
             const villa = {
               id: item.villa?._id || i + 1,
-              type: item.villa?.type || 'Standard',
-              name: item.villa?.name || 'Unknown Villa',
-              bedrooms: item.villa?.bedrooms || 'N/A',
+              type: item.villa?.type || "Standard",
+              name: item.villa?.name || "Unknown Villa",
+              bedrooms: item.villa?.bedrooms || "N/A",
               price:
                 item.bookingOptions?.find((option) =>
-                  option.rateType.includes('Non-Refundable')
-                )?.price || item.standardPrice || 'N/A',
+                  option.rateType.includes("Non-Refundable")
+                )?.price ||
+                item.standardPrice ||
+                "N/A",
               nights: item.bookingOptions[0].totalNights,
               guests: item.bookingOptions[0].guests,
               services: item.villa?.services || [],
-              // ✅ Pass startDate and endDate from searchOptions
               startDate: searchOptions.startDate,
               endDate: searchOptions.endDate,
             };
 
-            return <BestMatchCard key={villa.id || i} villa={villa} />;
+            return (
+              <BestMatchCard
+                key={villa.id || i}
+                villa={villa}
+                option={item.bookingOptions.find((option) =>
+                  option.rateType.includes("Non-Refundable")
+                )}
+                standardPrice={item.standardPrice}
+              />
+            );
           })}
         </div>
       ) : (

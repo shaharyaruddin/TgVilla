@@ -5,7 +5,7 @@ import { useBook } from '@/contexts/book-context';
 import { useRouter } from 'next/navigation';
 import { differenceInDays } from 'date-fns';
 
-const BestMatchCard = ({ villa }) => {
+const BestMatchCard = ({ villa,option,standardPrice }) => {
   const { bookData: currentBookData, setBookData } = useBook();
   const router = useRouter();
   const [additionalServices, setAdditionalServices] = useState([]);
@@ -68,15 +68,12 @@ const BestMatchCard = ({ villa }) => {
 
   const {
     id = 1,
-    type = 'Standard',
+    type = 'Standard (Non-Refundable)',
     name = 'Unknown Villa',
-    bedrooms = 'N/A',
-    price = 'N/A',
     nights = 1,
     guests = 2,
     services = [],
     rateType = 'Non-Refundable',
-    standardPrice = price,
   } = villa || {};
 
   return (
@@ -101,12 +98,11 @@ const BestMatchCard = ({ villa }) => {
       <div className="flex bg-white rounded-bl-xl rounded-br-xl flex-col sticky space-y-3 justify-center p-5 text-black/80 min-w-full">
         {/* Top */}
         <div className="w-full font-cormorant pb-2 flex flex-col border-b-2 border-black/40 text-2xl">
-          <h3 className="text-base">{type}</h3>
+          <h3 className="text-base capitalize font-[600]">standard (Non-Refundable)</h3>
           <h2 className="font-[700] text-lg">{name}</h2>
         </div>
         {/* Center */}
         <div className="flex justify-between border-b-2 border-black/40 pb-3 flex-col items-start">
-          <h3 className="text-sm">{bedrooms}</h3>
           <div className="flex justify-between w-full">
             <div className="flex flex-col font-medium items-start">
               <h3 className="font-cormorant text-base">
@@ -117,7 +113,7 @@ const BestMatchCard = ({ villa }) => {
                 {rateType !== 'standard' && (
                   <p className="text-sm text-red-500 line-through">€{standardPrice}</p>
                 )}
-                <h3 className="font-bold text-xl">€{price}</h3>
+                <h3 className="font-bold text-xl">€{option.totalNightsPrice}</h3>
               </div>
             </div>
             <div className="flex items-center ml-4 space-x-2">

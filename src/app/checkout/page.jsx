@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import Loading from "@/components/loading";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -65,7 +65,8 @@ const CheckoutForm = ({ paymentId }) => {
 
   const onSubmit = async (formData) => {
     try {
-      console.log(formData);
+      console.log("Form data:", formData);
+      console.log("Book data:", bookData);
       const guestDetails = {
         name: formData.firstName + " " + formData.lastName,
         email: formData.email,
@@ -80,18 +81,23 @@ const CheckoutForm = ({ paymentId }) => {
       };
       setLoading(true);
 
-      if (!stripe || !elements) return;
+      if (!stripe || !elements) {
+        throw new Error("Stripe or elements not initialized.");
+      }
 
       const { data } = await Axios.post("/bookings", {
         ...bookData,
+        rateType: bookData.rateType.toLowerCase(), // Normalize rateType
         paymentId,
         guestDetails,
       });
 
+      console.log("Booking response:", data);
+
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/completion`, // Redirect after payment success
+          return_url: `${process.env.NEXT_PUBLIC_BASE_URL}/completion`,
         },
       });
 
@@ -99,12 +105,14 @@ const CheckoutForm = ({ paymentId }) => {
         console.error("Payment failed:", error.message);
         toast.error("Payment failed. Please try again.");
         setLoading(false);
+      } else {
+        console.log("Payment successful:", data);
+        toast.success("Booking confirmed successfully!");
       }
-
-      console.log("Payment successful:", data);
     } catch (error) {
       console.error("Payment failed:", error);
       toast.error(error?.response?.data?.message || "Something went wrong");
+      setLoading(false);
     }
   };
 
@@ -213,7 +221,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="firstName" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("firstName")} 
                       />
                       {errors.firstName && (
@@ -227,7 +235,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="lastName" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("lastName")} 
                       />
                       {errors.lastName && (
@@ -241,7 +249,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="email" 
                         id="email" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("email")} 
                       />
                       {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -262,11 +270,12 @@ const CheckoutForm = ({ paymentId }) => {
                         <Input 
                           type="tel" 
                           id="phone" 
-                          className="flex-1 p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                          className="flex-1 p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                           {...register("phone")} 
                         />
                       </div>
-                      {(errors.phoneCode || errors.phone) && <p className="text-red-500 text-sm">{errors.phoneCode?.message || errors.phone?.message}</p>}
+                      {errors.phoneCode && <p className="text-red-500 text-sm">{errors.phoneCode.message}</p>}
+                      {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
                     </div>
                   </div>
                 </div>
@@ -297,7 +306,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="address" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("address")} 
                       />
                       {errors.address && (
@@ -311,7 +320,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="company" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("company")} 
                       />
                       {errors.company && (
@@ -325,7 +334,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="city" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("city")} 
                       />
                       {errors.city && <p className="text-red-500 text-sm">{errors.city.message}</p>}
@@ -337,7 +346,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="purpose" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("purpose")} 
                       />
                       {errors.purpose && (
@@ -351,7 +360,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="state" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("state")} 
                       />
                       {errors.state && <p className="text-red-500 text-sm">{errors.state.message}</p>}
@@ -363,7 +372,7 @@ const CheckoutForm = ({ paymentId }) => {
                       <Input 
                         type="text" 
                         id="remarks" 
-                        className="w-full p-2 border rounded placeholder:bg-[#F4F4EA] text-sm bg-[#F4F4EA]" 
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
                         {...register("remarks")} 
                       />
                       {errors.remarks && (
@@ -385,7 +394,7 @@ const CheckoutForm = ({ paymentId }) => {
                   className="object-cover"
                 />
               </div>
-              <p className="text-xl mt-2">{bookData.villaName}</p>
+              <p className="text-xl mt-2 text-[#514941]">{bookData.villaName}</p>
               <div className="flex flex-wrap items-center gap-2">
                 <div className="flex items-center gap-2 bg-[#cc8823] rounded-2xl text-white px-2 py-1">
                   <Check className="w-4 h-4" />
@@ -397,45 +406,42 @@ const CheckoutForm = ({ paymentId }) => {
                       key={service.name}
                       className="flex items-center gap-2 bg-[#cc8823] rounded-2xl text-white px-2 py-1"
                     >
-                      {/* <Utensils className="w-4 h-4" /> */}
                       <span>{service.name}</span>
                     </div>
                   ))}
               </div>
               <div className="flex flex-col gap-2 mt-4">
                 <div className="flex items-center justify-between gap-2">
-                  <p>Rate:</p>
-                  <p className="capitalize">{bookData.rateType}</p>
+                  <p className="text-[#514941]">Rate:</p>
+                  <p className="capitalize text-[#514941]">{bookData.rateType}</p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <p>Guests:</p>
-                  <p>{bookData.guests}</p>
+                  <p className="text-[#514941]">Guests:</p>
+                  <p className="text-[#514941]">{bookData.guests}</p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <p>Check In:</p>
-
-                  <p>{format(bookData.startDate, "MMM d, yyyy")}</p>
+                  <p className="text-[#514941]">Check In:</p>
+                  <p className="text-[#514941]">{bookData.startDate ? format(bookData.startDate, "MMM d, yyyy") : 'N/A'}</p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <p>Check Out:</p>
-
-                  <p>{format(bookData.endDate, "MMM d, yyyy")}</p>
+                  <p className="text-[#514941]">Check Out:</p>
+                  <p className="text-[#514941]">{bookData.endDate ? format(bookData.endDate, "MMM d, yyyy") : 'N/A'}</p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <p>Nights:</p>
-                  <p>{differenceInDays(bookData.endDate, bookData.startDate)} nights</p>
+                  <p className="text-[#514941]">Nights:</p>
+                  <p className="text-[#514941]">{differenceInDays(bookData.endDate, bookData.startDate)} nights</p>
                 </div>
               </div>
               <div className="h-px bg-gray-200 my-4"></div>
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-2">
-                  <p>Stay Total:</p>
-                  <p>€{bookData.totalNightsPrice}</p>
+                  <p className="text-[#514941]">Stay Total:</p>
+                  <p className="text-[#514941]">€{bookData.totalNightsPrice}</p>
                 </div>
                 {bookData.additionalServices.length > 0 &&
                   bookData.additionalServices.map((service) => (
                     <div key={service.name} className="flex items-center justify-between gap-2">
-                      <p className="capitalize">{service.name}:</p>
+                      <p className="capitalize text-[#514941]">{service.name}:</p>
                       {service.each ? (
                         <Tooltip delayDuration={100}>
                           <TooltipTrigger>
@@ -479,32 +485,14 @@ const CheckoutForm = ({ paymentId }) => {
                       )}
                     </div>
                   ))}
-
-                {/* <div className="flex items-center justify-between gap-2">
-                  <p>Taxes:</p>
-                  <p>${(bookData.totalNightsPrice * 0.1).toFixed(2)}</p>
-                </div> */}
               </div>
               <div className="h-px bg-gray-200 my-4"></div>
               <div className="flex items-center justify-between gap-2">
-                <p className="text-xl font-bold">Total:</p>
-                <p className="text-3xl font-bold">€{bookData.totalPrice}</p>
+                <p className="text-xl font-bold text-[#514941]">Total:</p>
+                <p className="text-3xl font-bold text-[#514941]">€{bookData.totalPrice}</p>
               </div>
-              <div className="text-sm text-right">(Included VAT 9%)</div>
+              <div className="text-sm text-right text-[#514941]">(Included VAT 9%)</div>
 
-              {/* <div className="flex items-center gap-2 mt-4">
-                <Checkbox id="terms" className="size-8" {...register("terms")} />
-                <label htmlFor="terms" className="text-sm font-medium ">
-                  Before this booking, you agree to the{" "}
-                  <Link href="/terms" className="underline text-cyan-500">
-                    Terms & Conditions
-                  </Link>{" "}
-                  and{" "}
-                  <Link href="/privacy" className="underline text-cyan-500">
-                    Privacy Policy
-                  </Link>
-                </label>
-              </div> */}
               <div className="flex items-center gap-2 mt-4">
                 <Checkbox
                   id="terms"
@@ -512,7 +500,7 @@ const CheckoutForm = ({ paymentId }) => {
                   checked={isChecked}
                   onCheckedChange={() => setIsChecked(!isChecked)}
                 />
-                <label htmlFor="terms" className="text-sm font-medium ">
+                <label htmlFor="terms" className="text-sm font-medium text-[#514941]">
                   Before this booking, you agree to the{" "}
                   <Link href="/terms" className="underline text-[#616161]">
                     Terms & Conditions
@@ -556,14 +544,24 @@ export default function CheckoutPage() {
       if (hasRun.current) return;
       hasRun.current = true;
 
-      console.log("----------------API called to create payment intent----------------");
-      const { data } = await Axios.post("/payments/checkout", {
-        bookData,
-      });
+      console.log("Book data for payment:", bookData);
+      try {
+        const { data } = await Axios.post("/payments/checkout", {
+          bookData: {
+            ...bookData,
+            rateType: bookData.rateType.toLowerCase(),
+            startDate: bookData.startDate.toISOString().split("T")[0],
+            endDate: bookData.endDate.toISOString().split("T")[0],
+          },
+        });
 
-      console.log(data);
-      setClientSecret(data.clientSecret);
-      setPaymentIntentId(data.paymentIntentId);
+        console.log("Payment intent response:", data);
+        setClientSecret(data.clientSecret);
+        setPaymentIntentId(data.paymentIntentId);
+      } catch (error) {
+        console.error("Error creating payment intent:", error);
+        toast.error("Failed to initialize payment. Please try again.");
+      }
     };
 
     if (!bookData.startDate || !bookData.endDate || !bookData.guests) {
@@ -584,6 +582,7 @@ export default function CheckoutPage() {
     }),
     [clientSecret]
   );
+
   return (
     <>
       {!clientSecret ? (

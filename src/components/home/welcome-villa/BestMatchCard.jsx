@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { useBook } from '@/contexts/book-context';
 import { useRouter } from 'next/navigation';
-import { differenceInDays } from 'date-fns'; // Ensure this is imported for calculation
+import { differenceInDays } from 'date-fns';
 
 const BestMatchCard = ({ villa }) => {
   const { bookData: currentBookData, setBookData } = useBook();
@@ -42,19 +42,18 @@ const BestMatchCard = ({ villa }) => {
 
     const totalPrice = parseFloat(villa.price || 0) + totalServicePrice;
 
-    // Set default dates and guests if not present in currentBookData to avoid alert and ensure checkout works
-    const defaultStartDate = currentBookData.startDate || new Date(); // Today
-    const defaultEndDate = currentBookData.endDate || new Date(Date.now() + 24 * 60 * 60 * 1000); // Tomorrow
-    const defaultGuests = currentBookData.guests || villa.guests || 2;
-    const totalNights = differenceInDays(defaultEndDate, defaultStartDate);
+    // ✅ Use villa.startDate and villa.endDate directly from props (from searchOptions)
+    const startDate = villa.startDate;
+    const endDate = villa.endDate;
+    const totalNights = startDate && endDate ? differenceInDays(endDate, startDate) : villa.nights;
 
-    // Merge with current bookData, using defaults where necessary
+    // Merge with current bookData, using villa data where necessary
     const updatedBookData = {
       ...currentBookData,
-      startDate: defaultStartDate,
-      endDate: defaultEndDate,
-      totalNights: totalNights,
-      guests: defaultGuests,
+      startDate,
+      endDate,
+      totalNights,
+      guests: villa.guests || 2,
       rateType: villa.rateType || 'Non-Refundable',
       totalNightsPrice: parseFloat(villa.price || 0),
       villaId: villa.id,

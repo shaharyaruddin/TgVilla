@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";

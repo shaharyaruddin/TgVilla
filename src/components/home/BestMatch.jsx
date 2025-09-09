@@ -1,16 +1,18 @@
 'use client';
 import React from 'react';
 import { useBookOption } from '@/contexts/book-option-context';
+import { useSearch } from '@/contexts/search-context';
 import BestMatchCard from './welcome-villa/BestMatchCard';
 
 const BestMatch = () => {
   const { allBookingOptions } = useBookOption();
+  const { searchOptions } = useSearch();
 
   return (
     <div className="bg-[#E8E4D9] flex flex-col">
       <div className="flex justify-center items-center">
         <h2 className="font-cormorant text-[4vmax] font-[600]">
-          {(allBookingOptions != null  | allBookingOptions?.length > 0) ? 'Match' : 'Matches'}
+          {(allBookingOptions != null | allBookingOptions?.length > 0) ? 'Match' : 'Matches'}
         </h2>
       </div>
       {allBookingOptions?.length > 0 ? (
@@ -18,7 +20,7 @@ const BestMatch = () => {
           {allBookingOptions.map((item, i) => {
             // Construct villa object with defaults and id
             const villa = {
-              id: item.villa?._id || i + 1, // Use _id if available, else index-based id
+              id: item.villa?._id || i + 1,
               type: item.villa?.type || 'Standard',
               name: item.villa?.name || 'Unknown Villa',
               bedrooms: item.villa?.bedrooms || 'N/A',
@@ -29,9 +31,11 @@ const BestMatch = () => {
               nights: item.bookingOptions[0].totalNights,
               guests: item.bookingOptions[0].guests,
               services: item.villa?.services || [],
+              // ✅ Pass startDate and endDate from searchOptions
+              startDate: searchOptions.startDate,
+              endDate: searchOptions.endDate,
             };
 
-            
             return <BestMatchCard key={villa.id || i} villa={villa} />;
           })}
         </div>

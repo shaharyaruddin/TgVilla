@@ -1,5 +1,4 @@
-"use client";
-
+'use client';
 import { toast } from "sonner";
 import { createContext, useContext, useState } from "react";
 
@@ -39,24 +38,22 @@ export function SearchProvider({ children }) {
     });
   };
 
- const changeSearchDate = ({ startDate, endDate }) => {
-  setSearchOptions((prev) => {
-    // 🔑 Prevent unnecessary re-render loop
-    if (
-      prev.startDate?.getTime?.() === startDate?.getTime?.() &&
-      prev.endDate?.getTime?.() === endDate?.getTime?.()
-    ) {
-      return prev; // Agar same date hain, to dobara state update na karo
-    }
+  const changeSearchDate = ({ startDate, endDate }) => {
+    setSearchOptions((prev) => {
+      if (
+        prev.startDate?.getTime?.() === startDate?.getTime?.() &&
+        prev.endDate?.getTime?.() === endDate?.getTime?.()
+      ) {
+        return prev;
+      }
 
-    return {
-      ...prev,
-      startDate,
-      endDate,
-    };
-  });
-};
-
+      return {
+        ...prev,
+        startDate,
+        endDate,
+      };
+    });
+  };
 
   return (
     <SearchContext.Provider

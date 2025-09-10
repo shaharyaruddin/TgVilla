@@ -9,8 +9,8 @@ const BookingBetweenSection = () => {
         CHOOSE YOUR ROOM
       </h2>
 
-      <div className="w-full min-h-[6rem] max-md:flex-col max-md:space-x-0 max-md:space-y-6 flex items-center justify-center space-x-10 mt-7 z-10">
-              <SearchSection />
+      <div className="min-w-full min-h-[6rem]  flex items-center justify-center  mt-7 z-[20]">
+      <SearchSection />
       </div>
    </>
   )

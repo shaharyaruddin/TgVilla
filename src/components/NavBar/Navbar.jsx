@@ -12,33 +12,33 @@ const Navbar = () => {
   const navbarRef = useRef(null);
   const lastScrollY = useRef(0);
 
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-  //   // const handleScroll = () => {
-  //   //   const currentScrollY = window.scrollY;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-  //   //   if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
-  //   //     // scrolling down
-  //   //     gsap.to(navbarRef.current, {
-  //   //       y: "-100%",
-  //   //       duration: 0.5,
-  //   //     });
-  //   //   } else {
-  //   //     // scrolling up
-  //   //     gsap.to(navbarRef.current, {
-  //   //       y: "0%",
-  //   //       duration: 0.5,
-  //   //     });
-  //   //   }
+      if ( currentScrollY > 80) {
+        // scrolling down
+        gsap.to(".link_ul", {
+          color: "black",
+          duration: 0.5,
+        });
+      } else {
+        // scrolling up
+        gsap.to(".link_ul", {
+          color: "white",
+          duration: 0.5,
+        });
+      }
 
-  //   //   lastScrollY.current = currentScrollY;
-  //   // };
+      lastScrollY.current = currentScrollY;
+    };
 
-  //   // window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div
@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* desktop links */}
         <div className="hidden lg:block">
-          <ul className="flex justify-center items-center gap-10 text-lg  max-xl:gap-5 font-medium text-gray-700">
+          <ul className="flex justify-center items-center gap-10 text-lg  max-xl:gap-5 font-medium text-white link_ul">
             {LINKS.map((link, i) => (
               <NavLinks key={i} href={link.href} name={link.name} />
             ))}

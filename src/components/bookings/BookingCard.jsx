@@ -1,49 +1,129 @@
 "use client";
+import { useBook } from "@/contexts/book-context";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { differenceInDays } from "date-fns";
 
-const BookingCard = ({ villa }) => {
-  const [checkedServices, setCheckedServices] = useState({});
+const BookingCard = ({ villa, option, standardPrice }) => {
+  const { bookData: currentBookData, setBookData } = useBook();
+  const router = useRouter();
+  const [additionalServices, setAdditionalServices] = useState([]);
+
+  useEffect(() => {
+    // Initialize additional services with selected: false
+    setAdditionalServices(
+      (villa.services || []).map((service) => ({
+        ...service,
+        selected: false,
+      }))
+    );
+  }, [villa.services]);
 
   const handleCheckboxChange = (serviceName) => {
-    setCheckedServices((prev) => ({
-      ...prev,
-      [serviceName]: !prev[serviceName],
-    }));
+    setAdditionalServices((prevState) =>
+      prevState.map((service) =>
+        service.name === serviceName ? { ...service, selected: !service.selected } : service
+      )
+    );
   };
 
+  const handleReserve = async () => {
+    const selectedServices = additionalServices.filter((service) => service.selected);
+
+    const totalServicePrice = additionalServices
+      .filter((service) => service.selected)
+      .reduce((acc, service) => {
+        const servicePrice = service.each
+          ? service.price * villa.nights * villa.guests
+          : service.price * villa.nights;
+        return acc + servicePrice;
+      }, 0);
+
+    const totalPrice = parseFloat(villa.price || 0) + totalServicePrice;
+
+    // Use villa.startDate and villa.endDate directly from props (from searchOptions)
+    const startDate = villa.startDate;
+    const endDate = villa.endDate;
+    const totalNights = startDate && endDate ? differenceInDays(endDate, startDate) : villa.nights;
+
+    // Merge with current bookData, using villa data where necessary
+    const updatedBookData = {
+      ...currentBookData,
+      startDate,
+      endDate,
+      totalNights,
+      guests: villa.guests || 2,
+      rateType: villa.rateType || "Non-Refundable",
+      totalNightsPrice: parseFloat(villa.price || 0),
+      villaId: villa.id,
+      villaName: villa.name,
+      villaNumber: villa.id,
+      additionalServices: selectedServices,
+      totalPrice: totalPrice.toFixed(2),
+    };
+    setBookData(updatedBookData);
+    router.push("/checkout");
+  };
+
+  const {
+    id = 1,
+    type = "Standard (Non-Refundable)",
+    name = "Unknown Villa",
+    nights = 1,
+    guests = 2,
+    services = [],
+    rateType = "Non-Refundable",
+  } = villa || {};
+
   return (
-    <div className="relative   my-10 max-xl:my-3  w-full min-h-[35rem] max-2xl:min-h-[30rem] max-xl:min-h-[28rem] max-md:min-h-[20rem] grid grid-cols-2 max-md:grid-cols-1 text-white">
+    <div className="relative my-10 max-xl:my-3 w-full min-h-[35rem] max-2xl:min-h-[30rem] max-xl:min-h-[28rem] max-md:min-h-[20rem] grid grid-cols-2 max-md:grid-cols-1 text-white">
       {/* Left - Image */}
-      <div className="w-full h-full  ">
-        <img
-          src={villa.image}
-          className="w-full h-full object-cover max-md:rounded-tl-xl max-md:rounded-tr-xl"
-          alt={villa.name}
-        />
+      <div className="w-full h-full">
+        {id === 1 ? (
+          <img
+            src="/images/villa/card.jpg"
+            alt="villa"
+            className="object-cover rounded-tl-xl rounded-tr-xl"
+          />
+        ) : (
+          <img
+            src="/images/villa2/card.jpg"
+            alt="villa"
+            className="object-cover rounded-tl-xl rounded-tr-xl"
+          />
+        )}
       </div>
       {/* Right - Details */}
       <div className="flex max-md:rounded-bl-xl max-md:rounded-br-xl flex-col max-md:sticky space-y-5 max-md:space-y-3 justify-center p-5 bg-[#F4F4EA] text-black/80 absolute left-1/2 -translate-x-[10%] top-1/2 -translate-y-[40%] min-w-[45vw] max-2xl:min-w-[54vw] max-md:min-w-full max-md:-translate-y-0 max-md:-translate-x-0">
         {/* Top */}
         <div className="w-full font-cormorant pb-3 max-xl:pb-2 flex flex-col border-b-2 border-black/40 text-2xl">
-          <h3 className="text-lg max-xl:text-base">{villa.type}</h3>
-          <h2 className="font-[700] max-xl:text-lg">{villa.name}</h2>
+          <h3 className="text-lg max-xl:text-base">Standard (Non-Refundable)</h3>
+          <h2 className="font-[700] max-xl:text-lg">{name}</h2>
         </div>
         {/* Center */}
         <div className="flex justify-between items-center border-b-2 border-black/40 pb-6 max-xl:pb-3 max-md:flex-col max-md:items-start">
-          <h3 className="text-base max-xl:text-sm">{villa.bedrooms}</h3>
+          <h3 className="text-base max-xl:text-sm">{name}</h3>
           <div className="flex max-md:justify-between max-md:w-full">
             <div className="flex flex-col items-end font-medium max-md:items-start">
               <h3 className="font-cormorant text-xl max-xl:text-sm max-md:text-base">
-                ({villa.nights} nights | {villa.guests} guests)
+                ({nights} {nights === 1 ? "night" : "nights"} | {guests}{" "}
+                {guests === 1 ? "guest" : "guests"})
               </h3>
-              <h3 className="font-bold text-2xl max-xl:text-xl">
-                {villa.price}
-              </h3>
+              <div className="flex items-center gap-2">
+                {rateType !== "standard" && (
+                  <p className="text-sm text-red-500 line-through">€{standardPrice}</p>
+                )}
+                <h3 className="font-bold text-2xl max-xl:text-xl">€{option.totalNightsPrice}</h3>
+              </div>
             </div>
             <div className="flex items-center ml-4">
               <Link
-                href="/villa-details"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleReserve();
+                }}
                 className="border border-black/40 px-4 py-2 items-center rounded-lg max-xl:text-sm"
               >
                 RESERVE
@@ -54,45 +134,41 @@ const BookingCard = ({ villa }) => {
         {/* Bottom */}
         <div className="py-10 max-xl:py-0">
           <div className="flex space-x-5">
-            <a
-              href="#"
-              className="font-bold text-sm border-b-2 border-black"
-            >
+            <a href="#" className="font-bold text-sm border-b-2 border-black">
               VIEW ROOM DETAILS
             </a>
-            <a
-              href="#"
-              className="font-bold text-sm border-b-2 border-black"
-            >
+            <a href="#" className="font-bold text-sm border-b-2 border-black">
               VIEW GALLERY
             </a>
           </div>
           {/* Services */}
-          <div className="py-2 max-xl:py-1">
-            <ul>
-              {villa.services.map((service, index) => (
-                <li
-                  key={index}
-                  className="flex items-center max-xl:text-sm space-x-2 cursor-pointer select-none"
-                >
-                  <label className="flex items-center space-x-2 cursor-pointer w-full">
-                    <input
-                      type="checkbox"
-                      className="size-4 max-xl:size-3 accent-white border-2 border-white rounded cursor-pointer"
-                      checked={checkedServices[service.name] || false}
-                      onChange={() => handleCheckboxChange(service.name)}
-                    />
-                    <span>
-                      {service.name}{" "}
-                      <span className="font-cormorant text-xl">
-                        ({service.price})
+          {services.length > 0 ? (
+            <div className="py-2 max-xl:py-1">
+              <ul>
+                {services.map((service, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center max-xl:text-sm space-x-2 cursor-pointer select-none"
+                  >
+                    <label className="flex items-center space-x-2 cursor-pointer w-full">
+                      <input
+                        type="checkbox"
+                        className="size-4 max-xl:size-3 accent-white border-2 border-white rounded cursor-pointer"
+                        checked={additionalServices.find((s) => s.name === service.name)?.selected || false}
+                        onChange={() => handleCheckboxChange(service.name)}
+                      />
+                      <span>
+                        {service.name || "N/A"}{" "}
+                        <span className="font-cormorant text-xl">({service.price || "N/A"})</span>
                       </span>
-                    </span>
-                  </label>
-                </li>
-              ))}
-            </ul>
-          </div>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p className="text-sm text-black/60">No services available</p>
+          )}
         </div>
       </div>
     </div>

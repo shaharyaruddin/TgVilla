@@ -34,12 +34,20 @@ const BookingStepTwoSection = () => {
               nights: item.bookingOptions[0].totalNights,
               guests: item.bookingOptions[0].guests,
               services: item.villa?.services || [],
-              // ✅ Pass startDate and endDate from searchOptions
               startDate: searchOptions.startDate,
               endDate: searchOptions.endDate,
             };
 
-            return <BookingCard key={villa.id || i} villa={villa} />;
+            return (
+              <BookingCard
+                key={villa.id || i}
+                villa={villa}
+                option={item.bookingOptions.find((option) =>
+                  option.rateType.includes("Non-Refundable")
+                )}
+                standardPrice={item.standardPrice}
+              />
+            );
           })}
         </div>
       ) : (

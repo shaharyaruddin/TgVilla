@@ -40,7 +40,7 @@ const BestMatchCard = ({ villa,option,standardPrice }) => {
         return acc + servicePrice;
       }, 0);
 
-    const totalPrice = parseFloat(villa.price || 0) + totalServicePrice;
+    const totalPrice = parseFloat(option.totalNightsPrice || 0) + totalServicePrice;
 
     // ✅ Use villa.startDate and villa.endDate directly from props (from searchOptions)
     const startDate = villa.startDate;
@@ -55,7 +55,7 @@ const BestMatchCard = ({ villa,option,standardPrice }) => {
       totalNights,
       guests: villa.guests || 2,
       rateType: villa.rateType || 'Non-Refundable',
-      totalNightsPrice: parseFloat(villa.price || 0),
+      totalNightsPrice: parseFloat(option.totalNightsPrice || 0),
       villaId: villa.id,
       villaName: villa.name,
       villaNumber: villa.id,
@@ -117,8 +117,7 @@ const BestMatchCard = ({ villa,option,standardPrice }) => {
               </div>
             </div>
             <div className="flex items-center ml-4 space-x-2">
-              <Link
-                href="#"
+              <button
                 onClick={(e) => {
                   e.preventDefault();
                   handleReserve();
@@ -126,7 +125,7 @@ const BestMatchCard = ({ villa,option,standardPrice }) => {
                 className="border border-black/40 px-4 py-2 items-center rounded-lg text-sm"
               >
                 RESERVE
-              </Link>
+              </button>
               <Link
                 href={id === 1 ? '/details-1' : '/details-2'}
                 className="border border-black/40 px-4 py-2 items-center rounded-lg text-sm"

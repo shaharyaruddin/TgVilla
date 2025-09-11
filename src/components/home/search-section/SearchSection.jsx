@@ -150,11 +150,9 @@ const SearchSection = () => {
     }
   };
 
-  // ✅ Close guest modal immediately, and trigger search only if guests are selected (with minimal timeout)
   const handleGuestModalClose = (e) => {
     e.stopPropagation();
     setIsGuestOpen(false);
-    // Use setTimeout with 0ms to queue search after current execution (prevents race conditions)
     setTimeout(() => {
       if (searchOptions.guests.total > 0) {
         handleSearch();

@@ -121,9 +121,9 @@ const ResortBookingVillaThree = () => {
   };
 
   // Structure images for VillaGalleryModal (single tab for 2 Bedroom Villa)
-  const villaImages = {
-    twoBedroom: modalImages.map((img) => img.src),
-  };
+ const villaImages = {
+  twoBedroom: modalImages, // keep objects, not only src
+};
 
   return (
     <div className="w-full min-h-screen px-20 max-2xl:px-10 max-md:px-5 flex flex-col bg-[#EBE7DC] space-y-5 py-10">

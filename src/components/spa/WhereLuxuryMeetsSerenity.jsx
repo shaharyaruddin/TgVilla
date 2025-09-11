@@ -14,7 +14,7 @@ const WhereLuxuryMeetsSerenity = () => {
       start: 'top top', 
       end: '+=800', 
       scrub: 1, 
-      pin:'.main-container'
+      pin: '.main-container'
     };
 
     const tl = gsap.timeline({ scrollTrigger });
@@ -75,24 +75,24 @@ const WhereLuxuryMeetsSerenity = () => {
   }, []);
 
   return (
-    <div className="main-container flex justify-center items-center relative overflow-hidden min-h-screen p-10 max-md:p-5">
-      <div className="absolute flex flex-col items-center max-w-lg  text-center z-[1] text-[#333333] space-y-4">
-        <h3>About Us</h3>
-        <h2 className="font-cormorant text-5xl max-md:text-3xl">Where Luxury Meets Serenity</h2>
-        <p className='mx-10'>
+    <div className="main-container flex justify-center items-center relative overflow-hidden min-h-screen p-10 max-md:p-4">
+      <div className="absolute flex flex-col items-center max-w-lg text-center z-[1] text-[#333333] space-y-4 max-md:max-w-sm max-md:space-y-3">
+        <h3 className="max-md:text-lg">About Us</h3>
+        <h2 className="font-cormorant text-5xl max-md:text-2xl">Where Luxury Meets Serenity</h2>
+        <p className="mx-10 max-md:mx-4 max-md:text-sm">
           Experience personalized spa treatments that restore balance and elevate
           self-care
         </p>
         <a
           href="#"
-          className="border-2 px-3 py-2 border-black rounded-full"
+          className="border-2 px-3 py-2 max-md:px-2 max-md:py-1 max-md:text-sm border-black rounded-full"
         >
           More About TG Luxury Stays
         </a>
       </div>
-      <div className="aboutAnimate relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl">
+      <div className="aboutAnimate relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl max-md:rounded-2xl">
         {/* Top left */}
-        <div className="absolute aboutTopLeft top-20 max-md:top-6 max-md:left-5 left-20 max-md:size-[150px] size-[190px]">
+        <div className="absolute aboutTopLeft top-20 max-md:top-4 max-md:left-4 left-20 max-md:size-[100px] size-[190px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/1.avif"
@@ -101,7 +101,7 @@ const WhereLuxuryMeetsSerenity = () => {
           />
         </div>
         {/* Top right */}
-        <div className="absolute aboutTopRight top-20 right-20  max-md:top-6 max-md:right-5 max-md:size-[150px] size-[240px]">
+        <div className="absolute aboutTopRight top-20 right-20 max-md:top-4 max-md:right-4 max-md:size-[100px] size-[240px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/2.avif"
@@ -110,7 +110,7 @@ const WhereLuxuryMeetsSerenity = () => {
           />
         </div>
         {/* Bottom left */}
-        <div className="absolute aboutBottomLeft bottom-20 left-40 max-md:left-6 max-md:bottom-5 max-md:size-[150px] size-[240px]">
+        <div className="absolute aboutBottomLeft bottom-20 left-40 max-md:left-4 max-md:bottom-4 max-md:size-[100px] size-[240px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/3.avif"
@@ -119,7 +119,7 @@ const WhereLuxuryMeetsSerenity = () => {
           />
         </div>
         {/* Bottom right */}
-        <div className="absolute aboutBottomRight bottom-20 right-20 max-md:right-6 max-md:bottom-5 max-md:size-[150px] size-[190px]">
+        <div className="absolute aboutBottomRight bottom-20 right-20 max-md:right-4 max-md:bottom-4 max-md:size-[100px] size-[190px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/4.avif"

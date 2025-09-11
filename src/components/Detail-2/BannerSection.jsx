@@ -1,18 +1,25 @@
-import React from "react";
-import PricingSection from "./PricingSection";
+"use client";
 
-const BannerSection = () => {
+import React, { useEffect } from "react";
+import PricingSection from "./PricingSection";
+import SearchSection from "../home/search-section/SearchSection";
+
+const BannerSection = ({ villa }) => {
+  useEffect(() => {
+    console.log("BannerSection villa:", villa);
+  }, [villa]);
+
   const items = [
     { src: "/assets/detail-2/villa.avif", label: "Villa" },
-    { src: "/assets/detail-2/users.avif", label: "Upto 8" },
-    { src: "/assets/detail-2/3bedroom.avif", label: "3 Bedrooms" },
-    { src: "/assets/detail-2/2bedroom.avif", label: "2 Bathrooms" },
+    { src: "/assets/detail-2/users.avif", label: `Upto ${villa?.capacity || 6}` },
+    { src: "/assets/detail-2/3bedroom.avif", label: `${villa?.bedrooms || 2} Bedrooms` },
+    { src: "/assets/detail-2/2bedroom.avif", label: `${villa?.bathrooms || 2} Bathrooms` },
   ];
 
   return (
     <div className="bg-[#F4F4EA] pt-5">
       {/* ICON SECTION */}
-      <div className="max-w-5xl mx-auto flex flex-wrap justify-center  gap-10 md:gap-20">
+      <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-10 md:gap-20">
         {items.map((item, index) => (
           <div key={index} className="flex flex-col items-center text-center">
             <img
@@ -25,10 +32,10 @@ const BannerSection = () => {
         ))}
       </div>
 
-      {/* PRICING SECTION ON NEXT LINE */}
+      {/* SEARCH + PRICING */}
       <div className="mt-10">
-        <PricingSection />
-        
+        <SearchSection villa={villa} />
+        <PricingSection villa={villa} />
       </div>
     </div>
   );

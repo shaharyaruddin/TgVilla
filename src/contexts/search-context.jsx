@@ -1,81 +1,42 @@
-'use client';
-import { toast } from "sonner";
+"use client";
+
 import { createContext, useContext, useState } from "react";
+import moment from "moment";
 
-export const SearchContext = createContext();
+const SearchContext = createContext();
 
-export function SearchProvider({ children }) {
+export const SearchProvider = ({ children }) => {
   const [searchOptions, setSearchOptions] = useState({
     startDate: null,
     endDate: null,
-    guests: {
-      total: 0,
-      adults: 0,
-      children: 0,
-      infants: 0,
-    },
+    guests: { adults: 0, children: 0, infants: 0, total: 0 },
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [isLoading,setIsLoading] = useState(undefined);
-
-  const changeGuests = (type, adjustment, capacity = 6) => {
-    const total = searchOptions.guests.adults + searchOptions.guests.children;
-    if (total + adjustment > capacity) {
-      toast.error(`You can only have up to ${capacity} people in the house`);
-      return;
-    }
-
+  const changeGuests = (type, delta, max) => {
     setSearchOptions((prev) => {
-      const updatedGuests = {
-        ...prev.guests,
-        [type]: prev.guests[type] + adjustment,
-      };
-      return {
-        ...prev,
-        guests: {
-          ...updatedGuests,
-          total: updatedGuests.adults + updatedGuests.children,
-        },
-      };
+      const newGuests = { ...prev.guests };
+      newGuests[type] = Math.max(0, Math.min(newGuests[type] + delta, max));
+      newGuests.total = newGuests.adults + newGuests.children + newGuests.infants;
+      return { ...prev, guests: newGuests };
     });
   };
 
   const changeSearchDate = ({ startDate, endDate }) => {
-    setSearchOptions((prev) => {
-      if (
-        prev.startDate?.getTime?.() === startDate?.getTime?.() &&
-        prev.endDate?.getTime?.() === endDate?.getTime?.()
-      ) {
-        return prev;
-      }
-
-      return {
-        ...prev,
-        startDate,
-        endDate,
-      };
-    });
+    setSearchOptions((prev) => ({
+      ...prev,
+      startDate: startDate ? moment(startDate) : null,
+      endDate: endDate ? moment(endDate) : null,
+    }));
   };
 
   return (
     <SearchContext.Provider
-      value={{
-        searchOptions,
-        isLoading,
-        setIsLoading,
-        changeGuests,
-        changeSearchDate,
-      }}
+      value={{ searchOptions, changeGuests, changeSearchDate, isLoading, setIsLoading }}
     >
       {children}
     </SearchContext.Provider>
   );
-}
-
-export const useSearch = () => {
-  const context = useContext(SearchContext);
-  if (!context) {
-    throw new Error("useSearch must be used within a SearchProvider");
-  }
-  return context;
 };
+
+export const useSearch = () => useContext(SearchContext);

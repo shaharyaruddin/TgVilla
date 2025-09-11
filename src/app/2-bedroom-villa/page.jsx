@@ -12,15 +12,25 @@ import React from "react";
 import BannerSection from "@/components/Detail-2/BannerSection";
 import BookingSection from "@/components/Detail-2/BookingSection";
 import ResortTestimonials from "@/components/resort/ResortTestimonials";
+import SearchSection from "@/components/home/search-section/SearchSection";
 
-const page = () => {
+const page = async () => {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/get-villa/1`, {
+    cache: "no-store",
+  });
+
+  const data = await res.json();
+  const villa = data.villa;
+  console.log("villa 1  =========>", villa);
+ 
+  if (!villa) return <Loading />;
   return (
     <>
       <DetailTopSection />
       {/* <RoomSection /> */}
-      <BannerSection />
+      <BannerSection villa={villa}/>
 
-      <BookingSection />
 
       <ImageSection />
       <IconSection />

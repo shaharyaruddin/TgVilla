@@ -1,0 +1,144 @@
+.DateRangePickerInput {
+  background-color: transparent !important;
+  border: none !important;
+  display: flex !important;
+}
+
+.DateInput {
+  background: transparent !important;
+  width: 100% !important;
+  position: relative;
+}
+
+.DateInput::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.DateInput_input {
+  background: white !important;
+  cursor: pointer;
+  border: 1px solid black !important;
+  border-radius: 4px !important;
+  padding: 12px !important;
+  padding-left: 40px !important; /* Space for the calendar icon */
+  font-size: 14px !important;
+  height: 48px !important;
+  width: 100% !important;
+  color: black !important;
+  font-weight: 400 !important;
+}
+
+.DateInput_input::placeholder {
+  color: black !important;
+}
+
+/* Hide the arrow between dates */
+.DateRangePickerInput_arrow {
+  display: none !important;
+}
+
+/* Adjust spacing between inputs */
+.DateRangePickerInput > .DateInput:first-child {
+  margin-right: 10px;
+}
+
+/* Add focus state */
+.DateInput_input__focused {
+  border: 2px solid #22d3ee !important;
+  box-shadow: 0 0 0 1px #22d3ee !important;
+}
+
+/* Blocked calendar day - default state */
+.CalendarDay__blocked_calendar,
+.CalendarDay__blocked_calendar:active,
+.CalendarDay__blocked_calendar:hover {
+  /* background: #22d3ee80 !important; */
+  background: white;
+  color: #a1a1aa !important;
+  text-decoration: line-through !important;
+  cursor: not-allowed !important;
+  border: 0px solid #e5e7eb !important;
+}
+
+/* .CalendarDay__blocked_calendar::after {
+  content: "booked";
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-size: 8px !important;
+  color: #6b7280 !important;
+  font-weight: 500 !important;
+} */
+
+/* Blocked out-of-range days */
+.CalendarDay__blocked_out_of_range,
+.CalendarDay__blocked_out_of_range:active,
+.CalendarDay__blocked_out_of_range:hover {
+  background: #f9fafb !important;
+  color: #d1d5db !important;
+  cursor: not-allowed !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+/* .DateRangePicker {
+  background-color: red;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 8px;
+} */
+
+/* .DayPicker {
+  background: red;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+} */
+
+.CalendarDay__default {
+  border: none !important;
+}
+
+.CalendarDay__selected {
+  background: #3498db !important;
+  border: none !important;
+}
+
+.CalendarDay__selected_span {
+  background: #e6e8ec !important;
+  border: none !important;
+  color: inherit !important;
+
+}
+.CalendarDay__selected:active {
+  border: none !important;
+}
+
+.CalendarDay__selected_start {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  color: white !important;
+}
+
+.CalendarDay__selected_end {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  color: white !important;
+}
+
+.CalendarDay__hovered_span,
+.CalendarDay__hovered_span:hover {
+  background: #e6e8ec !important;
+  border: none !important;
+  color: inherit !important;
+}

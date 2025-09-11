@@ -30,18 +30,23 @@ const ResortTestimonials = ({ title, bgImage, bgColor, showButton = true }) => {
         {/* View All Button */}
         {showButton && (
           <button
-            onClick={() => setOpen(true)}
-            className="mt-10 border border-white text-white font-outfit font-semibold py-3 px-10 rounded-full hover:bg-white hover:text-black transition duration-300"
-          >
-            View All
-          </button>
+  onClick={() => setOpen(true)}
+  className={`mt-10 font-outfit font-semibold py-3 px-10 rounded-full transition duration-300
+    ${bgImage 
+      ? "border border-white text-white hover:bg-white hover:text-black" 
+      : "border border-black text-black hover:bg-black hover:text-white"
+    }`}
+>
+  View All
+</button>
+
         )}
 
         {/* Reviews Modal */}
         <ReviewsModal open={open} setOpen={setOpen} />
       </div>
     </div>
-  );
+  );  
 };
 
 export default ResortTestimonials;

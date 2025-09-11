@@ -12,6 +12,7 @@ import React from "react";
 import BannerSection from "@/components/Detail-2/BannerSection";
 import BookingSection from "@/components/Detail-2/BookingSection";
 import ResortTestimonials from "@/components/resort/ResortTestimonials";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -19,13 +20,13 @@ const page = () => {
       <DetailTopSection />
       {/* <RoomSection /> */}
       <BannerSection />
-      <a
-
-              className="relative px-6 py-3 rounded-2xl bg-gradient-to-r from-black via-gray-800 to-black text-white font-semibold text-base shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:from-gray-900 hover:to-black"
-            >
-              <span className="absolute inset-0 rounded-2xl  opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
-              Book Now
-            </a>
+      <Link
+        href="/bookings"
+        className="relative px-6 py-3 rounded-2xl bg-gradient-to-r from-black via-gray-800 to-black text-white font-semibold text-base shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:from-gray-900 hover:to-black"
+      >
+        <span className="absolute inset-0 rounded-2xl  opacity-0 hover:opacity-20 transition-opacity duration-300"></span>
+        Book Now
+      </Link>
 
       {/* <BookingSection /> */}
 

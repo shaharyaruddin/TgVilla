@@ -88,7 +88,7 @@ const SearchSection = () => {
       }
     };
     fetchAllBookingOptions();
-  }, [searchOptions.startDate, searchOptions.endDate, searchOptions.guests.total]);
+  },[]);
 
   // Auto-close date modal and open guest modal when a valid date range is selected
   useEffect(() => {
@@ -107,6 +107,7 @@ const SearchSection = () => {
   }, [localRange, changeSearchDate]);
 
   const handleSearch = async () => {
+    setIsGuestOpen(false)
     setIsLoading(true);
     try {
       if (!searchOptions.startDate || !searchOptions.endDate) {
@@ -118,11 +119,11 @@ const SearchSection = () => {
         return;
       }
 
-      console.log("🔎 Starting search with:", {
-        startDate: searchOptions.startDate,
-        endDate: searchOptions.endDate,
-        guests: searchOptions.guests.total,
-      });
+      // console.log("🔎 Starting search with:", {
+      //   startDate: searchOptions.startDate,
+      //   endDate: searchOptions.endDate,
+      //   guests: searchOptions.guests.total,
+      // });
 
       const { data } = await Axios.post(`/user/get-booking-options-all`, {
         startDate: searchOptions.startDate,
@@ -153,11 +154,6 @@ const SearchSection = () => {
   const handleGuestModalClose = (e) => {
     e.stopPropagation();
     setIsGuestOpen(false);
-    setTimeout(() => {
-      if (searchOptions.guests.total > 0) {
-        handleSearch();
-      }
-    }, 0);
   };
 
   return (

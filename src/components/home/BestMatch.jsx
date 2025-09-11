@@ -3,22 +3,36 @@ import React from "react";
 import { useBookOption } from "@/contexts/book-option-context";
 import { useSearch } from "@/contexts/search-context";
 import BestMatchCard from "./welcome-villa/BestMatchCard";
+import { Loader2 } from "lucide-react";
 
 const BestMatch = () => {
   const { allBookingOptions } = useBookOption();
-  const { searchOptions } = useSearch();
+  const { searchOptions, isLoading } = useSearch();
 
   return (
     <div className="bg-[#E8E4D9] flex flex-col">
       <div className="flex justify-center items-center">
         <h2 className="font-cormorant text-[4vmax] font-[600]">
-          {(allBookingOptions != null) | (allBookingOptions?.length > 0)
-            ? "Matches"
-            : ""}
+          {isLoading
+            ? "Looking for Best Matches..."
+            : allBookingOptions?.length > 0
+              ? "Matches"
+              : ""}
         </h2>
       </div>
-      {allBookingOptions?.length > 0 ? (
-        <div className="grid grid-cols-2 max-md:grid-cols-1 max-2xl:px-5 gap-4 max-w-7xl mx-auto">
+      {isLoading ? (
+        <div className="text-center py-10">
+          <Loader2 className="animate-spin mx-auto text-[#D4A017] h-10 w-10" />
+          <p className="text-lg text-black/60 mt-2">Searching for available villas...</p>
+        </div>
+      ) : allBookingOptions?.length > 0 ? (
+        <div
+          className={`grid grid-cols-${
+            allBookingOptions?.length === 1 ? "1" : "2"
+          } max-md:grid-cols-1 max-2xl:px-5 gap-4 ${
+            allBookingOptions?.length === 1 ? "max-w-xl" : "max-w-7xl"
+          } mx-auto`}
+        >
           {allBookingOptions.map((item, i) => {
             // Construct villa object with defaults and id
             const villa = {
@@ -29,9 +43,7 @@ const BestMatch = () => {
               price:
                 item.bookingOptions?.find((option) =>
                   option.rateType.includes("Non-Refundable")
-                )?.price ||
-                item.standardPrice ||
-                "N/A",
+                )?.price || item.standardPrice || "N/A",
               nights: item.bookingOptions[0].totalNights,
               guests: item.bookingOptions[0].guests,
               services: item.villa?.services || [],

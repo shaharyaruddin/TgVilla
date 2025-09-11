@@ -22,14 +22,12 @@ const styles = `
 
 const SearchSection = () => {
   const isMobile = useMediaQuery({ maxWidth: 639 });
-  const { searchOptions, changeGuests, changeSearchDate } = useSearch();
+  const { searchOptions, changeGuests, changeSearchDate, isLoading, setIsLoading } = useSearch();
   const { setAllBookingOptions } = useBookOption();
   const { scrollToSection } = useScroll();
   const [isDateOpen, setIsDateOpen] = useState(false);
   const [isGuestOpen, setIsGuestOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [count, setCount] = useState(0);
-  // ✅ Initialize localRange with nulls to prevent stale dates on mount
   const [localRange, setLocalRange] = useState([
     {
       startDate: null,
@@ -38,7 +36,7 @@ const SearchSection = () => {
     },
   ]);
 
-  // ✅ Sync localRange with searchOptions dates to handle resets and changes
+  // Sync localRange with searchOptions dates
   useEffect(() => {
     setLocalRange([
       {
@@ -49,14 +47,14 @@ const SearchSection = () => {
     ]);
   }, [searchOptions.startDate, searchOptions.endDate]);
 
-  // ✅ Reset dates only once on mount
+  // Reset dates on mount
   useEffect(() => {
     if (searchOptions.startDate || searchOptions.endDate) {
       changeSearchDate({ startDate: null, endDate: null });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Fetch booking options on mount
   useEffect(() => {
     const fetchAllBookingOptions = async () => {
       setIsLoading(true);
@@ -70,7 +68,6 @@ const SearchSection = () => {
           guests: searchOptions.guests.total,
         });
 
-        // ✅ Always log results
         if (data.allBookingOptions?.length > 0) {
           console.log("✅ Booking options fetched:", data.allBookingOptions);
         } else {
@@ -84,15 +81,15 @@ const SearchSection = () => {
         toast.error("Failed to fetch booking options.");
       } finally {
         setIsLoading(false);
-        setIsGuestOpen(false)
       }
     };
     fetchAllBookingOptions();
-  },[]);
+  }, []);
 
-  // Auto-close date modal and open guest modal when a valid date range is selected
+  // Auto-open guest modal only when date picker is open and a valid range is selected
   useEffect(() => {
     if (
+      isDateOpen && // Only trigger when date picker is active
       localRange[0].startDate &&
       localRange[0].endDate &&
       localRange[0].startDate !== localRange[0].endDate
@@ -104,10 +101,10 @@ const SearchSection = () => {
       setIsDateOpen(false);
       setIsGuestOpen(true);
     }
-  }, [localRange, changeSearchDate]);
+  }, [localRange, changeSearchDate, isDateOpen]);
 
   const handleSearch = async () => {
-    setIsGuestOpen(false)
+    setIsGuestOpen(false); // Close guest modal
     setIsLoading(true);
     try {
       if (!searchOptions.startDate || !searchOptions.endDate) {
@@ -119,19 +116,12 @@ const SearchSection = () => {
         return;
       }
 
-      // console.log("🔎 Starting search with:", {
-      //   startDate: searchOptions.startDate,
-      //   endDate: searchOptions.endDate,
-      //   guests: searchOptions.guests.total,
-      // });
-
       const { data } = await Axios.post(`/user/get-booking-options-all`, {
         startDate: searchOptions.startDate,
         endDate: searchOptions.endDate,
         guests: searchOptions.guests.total,
       });
 
-      // ✅ Console result
       if (data.allBookingOptions?.length > 0) {
         console.log("✅ Search results:", data.allBookingOptions);
       } else {
@@ -141,13 +131,11 @@ const SearchSection = () => {
       setAllBookingOptions(data.allBookingOptions || []);
       setCount(count + 1);
       scrollToSection(null, "best-match");
-    
     } catch (error) {
       console.error("❌ Search error:", error.message);
       toast.error("Search failed. Please try again.");
     } finally {
       setIsLoading(false);
-      setIsGuestOpen(false);
     }
   };
 
@@ -214,7 +202,7 @@ const SearchSection = () => {
                 >
                   {searchOptions.guests.total} Guests
                 </div>
-                {isGuestOpen == true && (
+                {isGuestOpen && (
                   <div className="absolute z-10 mt-2 w-72 max-w-[90vw] bg-white rounded-lg p-4 border border-[#D4A017] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
                     <div className="flex justify-end mb-2">
                       <button

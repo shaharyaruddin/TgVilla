@@ -16,6 +16,8 @@ export function SearchProvider({ children }) {
     },
   });
 
+  const [isLoading,setIsLoading] = useState(undefined);
+
   const changeGuests = (type, adjustment, capacity = 6) => {
     const total = searchOptions.guests.adults + searchOptions.guests.children;
     if (total + adjustment > capacity) {
@@ -59,6 +61,8 @@ export function SearchProvider({ children }) {
     <SearchContext.Provider
       value={{
         searchOptions,
+        isLoading,
+        setIsLoading,
         changeGuests,
         changeSearchDate,
       }}

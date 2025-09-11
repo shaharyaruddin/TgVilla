@@ -122,7 +122,7 @@ const ResortBookingVillaTwo = () => {
 
   // Structure images for VillaGalleryModal (single tab for 2 Bedroom Villa)
   const villaImages = {
-    twoBedroom: modalImages.map((img) => img.src),
+    twoBedroom: modalImages, // keep objects, not only src
   };
 
   return (
@@ -131,7 +131,7 @@ const ResortBookingVillaTwo = () => {
         2 Bedroom Villa
       </h2>
       <div className="flex gap-4">
-        <Link href="/villa-details">
+        <Link href="/2-bedroom-villa">
           <button className="font-bold text-sm border-b-2 border-black">
             Villa Details
           </button>

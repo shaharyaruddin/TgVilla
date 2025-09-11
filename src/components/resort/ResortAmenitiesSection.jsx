@@ -1,5 +1,6 @@
   "use client";
 
+import Link from "next/link";
   import React, { useState } from "react";
 
   const AmenitiesSection = () => {
@@ -83,7 +84,19 @@
               )}
             </div>
           ))}
+
+
+
         </div>
+
+  <div className="mt-5 w-full flex justify-center">
+          <Link href="/bookings">
+            <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+              Book Now
+            </button>
+          </Link>
+        </div>
+
       </div>
     );
   };

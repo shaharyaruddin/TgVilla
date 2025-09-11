@@ -28,6 +28,22 @@ const VillaGalleryModal = ({
 
   if (!isOpen) return null;
 
+  // Check if villaImages[activeTab] exists and is an array
+  const images = villaImages[activeTab] || [];
+  if (!Array.isArray(images)) {
+    console.error("Invalid villaImages data for activeTab:", activeTab, villaImages);
+    return (
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50">
+        <div className="bg-white p-6 rounded-lg text-center">
+          <p>No images available for this villa.</p>
+          <button onClick={onClose} className="mt-4 px-4 py-2 bg-gray-200 rounded">
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
       className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
@@ -49,14 +65,14 @@ const VillaGalleryModal = ({
 
         {/* Image Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {villaImages[activeTab].map((image, index) => (
+          {images.map((image, index) => (
             <div key={`${activeTab}-${index}`}>
               <img
-                src={image}
-                alt={`${activeTab} Villa ${index + 1}`}
+                src={image.src} // Access the src property
+                alt={image.alt || `${activeTab} Villa ${index + 1}`} // Use alt if available, fallback to default
                 className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer"
                 onClick={() => onImageClick(image)}
-                onError={() => console.error(`Failed to load image: ${image}`)}
+                onError={() => console.error(`Failed to load image: ${image.src}`)}
               />
             </div>
           ))}

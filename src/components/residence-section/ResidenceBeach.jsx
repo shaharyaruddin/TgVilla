@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import Link from "next/link";
 
 const ResidenceBeach = () => {
   const images = [
@@ -60,7 +61,19 @@ const ResidenceBeach = () => {
             and hotel-style services — all crafted for modern travelers seeking
             privacy, comfort, and elegance.
           </p>
+ <div className="mt-5 w-full flex justify-center">
+          <Link href="/bookings">
+            <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+              Book Now
+            </button>
+          </Link>
         </div>
+
+
+        </div>
+
+
+
       </div>
 
       <div className=" ">

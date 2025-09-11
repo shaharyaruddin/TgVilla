@@ -4,12 +4,116 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { differenceInDays } from "date-fns";
+import VillaGalleryModal from "../gallery-modal";
 
 const BookingCard = ({ villa, option, standardPrice }) => {
   const { bookData: currentBookData, setBookData } = useBook();
   const router = useRouter();
   const [additionalServices, setAdditionalServices] = useState([]);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("twoBedroom");
 
+  // Define villa images
+  const twoBedroomVilla = [
+    {
+      src: "/assets/images/bedroomVilla/bedroom29.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom32.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom33.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom34.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom4.webp",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom35.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom10.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom12.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom14.jpg",
+      alt: "2 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomVilla/bedroom28.webp",
+      alt: "2 Bedroom Villa",
+    },
+  ];
+
+  const threeBedroomVilla = [
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom15.jpg",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom16.jpg",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom17.jpg",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom18.jpg",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom5.webp",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom6.webp",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom25.jpg",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom26.webp",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom12.webp",
+      alt: "3 Bedroom Villa",
+    },
+    {
+      src: "/assets/images/bedroomvilla-3/bedroom27.jpg",
+      alt: "3 Bedroom Villa",
+    },
+  ];
+
+  const villaImages = villa?.name?.includes("2-Bedroom")
+    ? twoBedroomVilla
+    : threeBedroomVilla;
+
+  const handleCloseModal = () => {
+    setIsGalleryOpen(false);
+  };
+
+  const handleViewGalleryClick = () => {
+    setActiveTab(
+      villa?.name?.includes("2-Bedroom") ? "twoBedroom" : "threeBedroom"
+    );
+    setIsGalleryOpen(true);
+  };
 
   useEffect(() => {
     // Initialize additional services with selected: false
@@ -47,7 +151,6 @@ const BookingCard = ({ villa, option, standardPrice }) => {
 
     const totalPrice = parseFloat(villa.price || 0) + totalServicePrice;
 
-    // Use villa.startDate and villa.endDate directly from props (from searchOptions)
     const startDate = villa.startDate;
     const endDate = villa.endDate;
     const totalNights =
@@ -55,7 +158,6 @@ const BookingCard = ({ villa, option, standardPrice }) => {
         ? differenceInDays(endDate, startDate)
         : villa.nights;
 
-    // Merge with current bookData, using villa data where necessary
     const updatedBookData = {
       ...currentBookData,
       startDate,
@@ -84,21 +186,25 @@ const BookingCard = ({ villa, option, standardPrice }) => {
     rateType = "Non-Refundable",
   } = villa || {};
 
+  const handleImageClick = (image) => {
+    setIsGalleryOpen(false);
+  };
+
   return (
     <div className="relative my-10 max-xl:my-3 w-full min-h-[35rem] max-2xl:min-h-[30rem] max-xl:min-h-[28rem] max-md:min-h-[20rem] grid grid-cols-2 max-md:grid-cols-1 text-white">
       {/* Left - Image */}
       <div className="w-full h-full">
         {villa?.name?.includes("2-Bedroom") ? (
           <img
-            src="/assets/images/bedroomVilla-3/bedroom25.jpg"
+            src="/assets/images/bedroomvilla-3/bedroom25.jpg"
             alt="villa"
-            className="object-cover rounded-tl-xl rounded-tr-xl"
+            className="object-cover md:rounded-none rounded-tl-xl rounded-tr-xl"
           />
         ) : (
           <img
-            src="/assets/images/bedroomVilla-3/bedroom15.jpg"
+            src="/assets/images/bedroomvilla-3/bedroom15.jpg"
             alt="villa"
-            className="object-cover rounded-tl-xl rounded-tr-xl"
+            className="object-cover md:rounded-none rounded-tl-xl rounded-tr-xl"
           />
         )}
       </div>
@@ -107,7 +213,7 @@ const BookingCard = ({ villa, option, standardPrice }) => {
         {/* Top */}
         <div className="w-full font-cormorant pb-3 max-xl:pb-2 flex flex-col border-b-2 border-black/40 text-2xl">
           <h3 className="text-lg max-xl:text-base">
-            test Standard (Non-Refundable)
+            Standard (Non-Refundable)
           </h3>
           <h2 className="font-[700] max-xl:text-lg">{name}</h2>
         </div>
@@ -148,12 +254,22 @@ const BookingCard = ({ villa, option, standardPrice }) => {
         {/* Bottom */}
         <div className="py-10 max-xl:py-0">
           <div className="flex space-x-5">
-            <a href="#" className="font-bold text-sm border-b-2 border-black">
+            <Link
+              href={
+                villa?.name?.includes("2-Bedroom")
+                  ? "/2-bedroom-villa"
+                  : "/3-bedroom-villa"
+              }
+              className="font-bold text-sm border-b-2 border-black"
+            >
               VIEW ROOM DETAILS
-            </a>
-            <a href="#" className="font-bold text-sm border-b-2 border-black">
-              VIEW GALLERY
-            </a>
+            </Link>
+            <button
+              className="font-bold text-sm border-b-2 border-black"
+              onClick={handleViewGalleryClick}
+            >
+              View Gallery
+            </button>
           </div>
           {/* Services */}
           {services.length > 0 ? (
@@ -191,6 +307,16 @@ const BookingCard = ({ villa, option, standardPrice }) => {
           )}
         </div>
       </div>
+
+      {/* Gallery Modal */}
+      <VillaGalleryModal
+        isOpen={isGalleryOpen}
+        onClose={handleCloseModal}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        villaImages={{ [activeTab]: villaImages }}
+        onImageClick={handleImageClick}
+      />
     </div>
   );
 };

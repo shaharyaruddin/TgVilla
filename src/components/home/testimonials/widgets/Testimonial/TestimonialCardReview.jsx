@@ -18,10 +18,18 @@ const TestimonialCardReview = ({
 
   // Pick logo
   const selectedLogo =
-    companyLogos[companyName?.toLowerCase()] || logoUrl || "/assets/icon/default-logo.png";
+    companyLogos[companyName?.toLowerCase()] ||
+    logoUrl ||
+    "/assets/icon/default-logo.png";
 
   // Avatar background colors
-  const avatarColors = ["bg-black", "bg-orange-500", "bg-blue-500", "bg-green-600", "bg-purple-600"];
+  const avatarColors = [
+    "bg-black",
+    "bg-orange-500",
+    "bg-blue-500",
+    "bg-green-600",
+    "bg-purple-600",
+  ];
 
   // Pick a random color (stable per render using useMemo)
   const avatarColor = useMemo(
@@ -48,7 +56,9 @@ const TestimonialCardReview = ({
             <h2>{reviewerName?.charAt(0) || "S"}</h2>
           </div>
           <div className="flex flex-col ml-3">
-            <h3 className="font-medium text-gray-900">{reviewerName || "Sagi"}</h3>
+            <h3 className="font-medium text-gray-900">
+              {reviewerName || "Sagi"}
+            </h3>
             <p className="text-sm text-gray-500 flex items-center gap-1">
               <img
                 src={`/assets/flags/${countryCode || "israel"}.png`}
@@ -62,14 +72,20 @@ const TestimonialCardReview = ({
 
         {/* Company Logo */}
         <div className="flex">
-          <img src={selectedLogo} alt={companyName} className="w-20 h-20 object-contain" />
+          <img
+            src={selectedLogo}
+            alt={companyName}
+            className="w-20 h-20 object-contain"
+          />
         </div>
       </div>
 
       {/* Review Text */}
       <div className="mt-4 text-sm">
-        "{reviewText ||
-          "We had a fantastic stay at the villa! It's beautifully equipped with everything you could possibly need for a comfortable and relaxing vacation. The space was spotless, well-maintained, and felt like ..."}"
+        "
+        {reviewText ||
+          "We had a fantastic stay at the villa! It's beautifully equipped with everything you could possibly need for a comfortable and relaxing vacation. The space was spotless, well-maintained, and felt like ..."}
+        "
       </div>
     </div>
   );

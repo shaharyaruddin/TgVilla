@@ -48,7 +48,7 @@ const TestimonialReviewSection = () => {
   }, []);
 
   return (
-    <div className="mt-10 space-y-5 overflow-x-hidden">
+    <div className=" space-y-5 overflow-x-hidden">
       {/* Left-moving row */}
       <div className="flex space-x-3" ref={leftRowRef}>
         {Array.from({ length: 10 }).map((_, index) => (

@@ -10,6 +10,7 @@ const BookingCard = ({ villa, option, standardPrice }) => {
   const router = useRouter();
   const [additionalServices, setAdditionalServices] = useState([]);
 
+
   useEffect(() => {
     // Initialize additional services with selected: false
     setAdditionalServices(
@@ -23,13 +24,17 @@ const BookingCard = ({ villa, option, standardPrice }) => {
   const handleCheckboxChange = (serviceName) => {
     setAdditionalServices((prevState) =>
       prevState.map((service) =>
-        service.name === serviceName ? { ...service, selected: !service.selected } : service
+        service.name === serviceName
+          ? { ...service, selected: !service.selected }
+          : service
       )
     );
   };
 
   const handleReserve = async () => {
-    const selectedServices = additionalServices.filter((service) => service.selected);
+    const selectedServices = additionalServices.filter(
+      (service) => service.selected
+    );
 
     const totalServicePrice = additionalServices
       .filter((service) => service.selected)
@@ -45,7 +50,10 @@ const BookingCard = ({ villa, option, standardPrice }) => {
     // Use villa.startDate and villa.endDate directly from props (from searchOptions)
     const startDate = villa.startDate;
     const endDate = villa.endDate;
-    const totalNights = startDate && endDate ? differenceInDays(endDate, startDate) : villa.nights;
+    const totalNights =
+      startDate && endDate
+        ? differenceInDays(endDate, startDate)
+        : villa.nights;
 
     // Merge with current bookData, using villa data where necessary
     const updatedBookData = {
@@ -67,7 +75,7 @@ const BookingCard = ({ villa, option, standardPrice }) => {
   };
 
   const {
-    id = 1,
+    _id,
     type = "Standard (Non-Refundable)",
     name = "Unknown Villa",
     nights = 1,
@@ -80,15 +88,15 @@ const BookingCard = ({ villa, option, standardPrice }) => {
     <div className="relative my-10 max-xl:my-3 w-full min-h-[35rem] max-2xl:min-h-[30rem] max-xl:min-h-[28rem] max-md:min-h-[20rem] grid grid-cols-2 max-md:grid-cols-1 text-white">
       {/* Left - Image */}
       <div className="w-full h-full">
-        {id === 1 ? (
+        {villa?.name?.includes("2-Bedroom") ? (
           <img
-            src="/images/villa/card.jpg"
+            src="/assets/images/bedroomVilla-3/bedroom25.jpg"
             alt="villa"
             className="object-cover rounded-tl-xl rounded-tr-xl"
           />
         ) : (
           <img
-            src="/images/villa2/card.jpg"
+            src="/assets/images/bedroomVilla-3/bedroom15.jpg"
             alt="villa"
             className="object-cover rounded-tl-xl rounded-tr-xl"
           />
@@ -98,7 +106,9 @@ const BookingCard = ({ villa, option, standardPrice }) => {
       <div className="flex max-md:rounded-bl-xl max-md:rounded-br-xl flex-col max-md:sticky space-y-5 max-md:space-y-3 justify-center p-5 bg-[#F4F4EA] text-black/80 absolute left-1/2 -translate-x-[10%] top-1/2 -translate-y-[40%] min-w-[45vw] max-2xl:min-w-[54vw] max-md:min-w-full max-md:-translate-y-0 max-md:-translate-x-0">
         {/* Top */}
         <div className="w-full font-cormorant pb-3 max-xl:pb-2 flex flex-col border-b-2 border-black/40 text-2xl">
-          <h3 className="text-lg max-xl:text-base">Standard (Non-Refundable)</h3>
+          <h3 className="text-lg max-xl:text-base">
+            test Standard (Non-Refundable)
+          </h3>
           <h2 className="font-[700] max-xl:text-lg">{name}</h2>
         </div>
         {/* Center */}
@@ -112,9 +122,13 @@ const BookingCard = ({ villa, option, standardPrice }) => {
               </h3>
               <div className="flex items-center gap-2">
                 {rateType !== "standard" && (
-                  <p className="text-sm text-red-500 line-through">€{standardPrice}</p>
+                  <p className="text-sm text-red-500 line-through">
+                    €{standardPrice}
+                  </p>
                 )}
-                <h3 className="font-bold text-2xl max-xl:text-xl">€{option.totalNightsPrice}</h3>
+                <h3 className="font-bold text-2xl max-xl:text-xl">
+                  €{option.totalNightsPrice}
+                </h3>
               </div>
             </div>
             <div className="flex items-center ml-4">
@@ -154,12 +168,18 @@ const BookingCard = ({ villa, option, standardPrice }) => {
                       <input
                         type="checkbox"
                         className="size-4 max-xl:size-3 accent-white border-2 border-white rounded cursor-pointer"
-                        checked={additionalServices.find((s) => s.name === service.name)?.selected || false}
+                        checked={
+                          additionalServices.find(
+                            (s) => s.name === service.name
+                          )?.selected || false
+                        }
                         onChange={() => handleCheckboxChange(service.name)}
                       />
                       <span>
                         {service.name || "N/A"}{" "}
-                        <span className="font-cormorant text-xl">({service.price || "N/A"})</span>
+                        <span className="font-cormorant text-xl">
+                          ({service.price || "N/A"})
+                        </span>
                       </span>
                     </label>
                   </li>

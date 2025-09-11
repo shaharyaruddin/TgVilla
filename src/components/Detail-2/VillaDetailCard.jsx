@@ -7,8 +7,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useBook } from "@/contexts/book-context";
 import { useRouter } from "next/navigation";
+import { differenceInDays, addDays, startOfDay } from "date-fns";
 
-const VillaDetailCard = ({ option, villa }) => {
+const VillaDetailCard = ({ option, villa,villaNumber }) => {
   const { setBookData } = useBook();
   const router = useRouter();
 
@@ -16,6 +17,7 @@ const VillaDetailCard = ({ option, villa }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    console.log("Villa prop in VillaDetailCard:", villa); // Debug villa prop
     setAdditionalServices(villa.services || []);
   }, [villa]);
 
@@ -29,41 +31,76 @@ const VillaDetailCard = ({ option, villa }) => {
 
   const handleReserve = async () => {
     setLoading(true);
-    const selectedServices = additionalServices.filter((s) => s.selected);
+    try {
+      const selectedServices = additionalServices.filter((s) => s.selected);
 
-    const totalServicePrice = additionalServices
-      .filter((service) => service.selected)
-      .reduce((acc, service) => {
-        const servicePrice = service.each
-          ? service.price * option.totalNights * option.guests
-          : service.price * option.totalNights;
-        return acc + servicePrice;
-      }, 0);
+      const totalServicePrice = additionalServices
+        .filter((service) => service.selected)
+        .reduce((acc, service) => {
+          const servicePrice = service.each
+            ? service.price * option.totalNights * option.guests
+            : service.price * option.totalNights;
+          return acc + servicePrice;
+        }, 0);
 
-    const totalPrice = option.totalNightsPrice + totalServicePrice;
+      const totalPrice = parseFloat(option.totalNightsPrice || 0) + totalServicePrice;
 
-    const bookData = {
-      ...option,
-      villaId: villa._id,
-      villaName: villa.name,
-      villaNumber: villa.id,
-      additionalServices: selectedServices,
-      totalPrice: totalPrice.toFixed(2),
-    };
+      // Handle and validate dates with fallback
+      let startDate = villa.startDate ? new Date(villa.startDate) : null;
+      let endDate = villa.endDate ? new Date(villa.endDate) : null;
 
-    console.log("bookData", bookData);
-    setBookData(bookData);
-    router.push("/checkout");
-    setLoading(false);
+      // Debug the raw and parsed dates
+      console.log("Raw startDate:", villa.startDate, "Parsed startDate:", startDate);
+      console.log("Raw endDate:", villa.endDate, "Parsed endDate:", endDate);
+
+      // Fallback to a default date range if dates are missing or invalid
+      if (!startDate || isNaN(startDate.getTime()) || !endDate || isNaN(endDate.getTime())) {
+        console.warn("Falling back to default dates due to invalid or missing dates");
+        startDate = startOfDay(new Date()); // Today's date as fallback
+        endDate = addDays(startDate, option.totalNights || 1); // Add totalNights days
+      }
+
+      const totalNights = differenceInDays(endDate, startDate);
+
+      if (totalNights <= 0) {
+        console.error("Invalid date range: totalNights must be positive", { startDate, endDate });
+        throw new Error("Invalid date range selected");
+      }
+
+      // Match BestMatchCard's bookData structure
+      const bookData = {
+        startDate,
+        endDate,
+        totalNights,
+        guests: option.guests || villa.guests || 2,
+        rateType: option.rateType || villa.rateType || "Non-Refundable",
+        totalNightsPrice: parseFloat(option.totalNightsPrice || 0),
+        villaId: villa._id,
+        villaName: villa.name,
+        villaNumber: villaNumber,
+        additionalServices: selectedServices,
+        totalPrice: totalPrice.toFixed(2),
+      };
+
+      console.log("bookData from VillaDetailCard:", bookData); // Debug log
+      setBookData(bookData);
+      router.push("/checkout"); // Explicitly navigate to checkout
+    } catch (error) {
+      console.error("Error in handleReserve:", error);
+      // Optionally show a user-friendly message
+      // toast.error("Failed to reserve. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div className="px-3 relative p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="px-3 relative bg-gray-50 rounded-lg shadow-md">
       <div className="flex flex-col md:flex-row gap-6">
         {/* Text Content */}
-        <div className="flex-1">
+        <div className="flex-1 p-4">
           {/* Standard Rate */}
-          <div className="flex items-center w-fit rounded-full border border-black overflow-hidden mb-8">
+          <div className="flex items-center w-fit rounded-full border border-black overflow-hidden mb-5">
             <div className="px-4 py-2 text-sm font-medium text-black bg-white capitalize">
               {option.rateType} Rate
             </div>
@@ -72,7 +109,7 @@ const VillaDetailCard = ({ option, villa }) => {
             </div>
           </div>
 
-          <div className="flex gap-6 text-sm text-gray-600 mb-4">
+          <div className="flex gap-6 text-sm text-gray-600 mb-2">
             <div className="flex items-center">
               <img
                 src="/assets/detail-2/moon.avif"
@@ -106,13 +143,13 @@ const VillaDetailCard = ({ option, villa }) => {
           </div>
 
           {/* Breakfast Info */}
-          <div className="mb-4">
+          <div className="mb-2">
             <h3 className="text-lg font-medium">Breakfast Info</h3>
             <p className="text-xs text-gray-600">Continental, Italian, Vegetarian</p>
           </div>
 
           {/* Villas with */}
-          <div className="mb-4">
+          <div className="mb-2">
             <h3 className="text-lg font-medium">Villas with:</h3>
             <ul className="list-disc text-xs list-inside text-gray-600">
               {[
@@ -140,7 +177,7 @@ const VillaDetailCard = ({ option, villa }) => {
                     id={service.name}
                     name={service.name}
                     className="text-cyan-400"
-                    checked={service.selected}
+                    checked={service.selected || false}
                     onCheckedChange={(checked) =>
                       handleCheckboxChange({ name: service.name, checked })
                     }
@@ -157,7 +194,7 @@ const VillaDetailCard = ({ option, villa }) => {
           <Button
             onClick={handleReserve}
             disabled={loading}
-            className="w-full bg-cyan-400 text-white py-3 rounded-md hover:bg-cyan-500 transition-colors"
+            className="w-40 bg-[#D4A017] text-white py-3 rounded-md hover:bg-[#c99d2e] transition-colors"
           >
             {loading ? <Loader2 className="size-4 animate-spin" /> : "Reserve"}
           </Button>

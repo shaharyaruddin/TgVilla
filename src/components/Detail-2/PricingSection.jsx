@@ -4,7 +4,7 @@ import VillaDetailCard from "./VillaDetailCard";
 import { useBookOption } from "@/contexts/book-option-context";
 import { useEffect } from "react";
 
-export default function PricingSection({ villa }) {
+export default function PricingSection({ villa ,villaNumber}) {
   const { bookingOptions } = useBookOption();
 
   useEffect(() => {
@@ -22,13 +22,11 @@ export default function PricingSection({ villa }) {
                 option.rateType === "non-refundable" ? "border-cyan-500" : "border-transparent"
               }`}
             >
-              <VillaDetailCard option={option} villa={villa} />
+              <VillaDetailCard option={option} villa={villa} villaNumber={villaNumber} />
             </div>
           ))
         ) : (
-          <h1 className="text-center italic text-cyan-500 text-2xl">
-            No booking options found. Please try again with different dates or guests
-          </h1>
+          ''
         )}
       </div>
     </div>

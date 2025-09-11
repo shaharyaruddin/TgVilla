@@ -15,14 +15,14 @@ import ResortTestimonials from "@/components/resort/ResortTestimonials";
 import SearchSection from "@/components/home/search-section/SearchSection";
 
 const page = async () => {
-    const villaNumber = 1;
+    const villaNumber = 2;
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/get-villa/${villaNumber}`, {
     cache: "no-store",
   });
 
   const data = await res.json();
   const villa = data.villa;
-  console.log("villa 1  =========>", villa);
+  console.log("villa 2  =========>", villa);
  
   if (!villa) return <Loading />;
   return (

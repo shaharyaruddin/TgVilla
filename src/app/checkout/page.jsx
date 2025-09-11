@@ -1,15 +1,24 @@
-'use client';
+"use client";
 import Loading from "@/components/loading";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { useBook } from "@/contexts/book-context";
 import { countries } from "@/data/countries";
 import Axios from "@/lib/axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import {
+  Elements,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { differenceInDays, format } from "date-fns";
 import { ArrowLeft, Check, CloudMoon, Info, UserRound } from "lucide-react";
@@ -23,7 +32,9 @@ import ReactSelect from "react-select";
 import { toast } from "sonner";
 import { z } from "zod";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 const checkoutSchema = z.object({
   country: z.string().min(1, "Country is required"),
@@ -37,7 +48,7 @@ const checkoutSchema = z.object({
   state: z.string().min(1, "State is required"),
   remarks: z.string(),
   purpose: z.string(),
-  company: z.string()
+  company: z.string(),
 });
 
 const CheckoutForm = ({ paymentId }) => {
@@ -203,7 +214,11 @@ const CheckoutForm = ({ paymentId }) => {
   return (
     <div className="bg-[#F4F4EA] pt-10">
       <div className="container max-w-6xl mx-auto px-4 py-10 md:py-10">
-        <Button variant="outline" className="mb-4 rounded-full" onClick={() => router.back()}>
+        <Button
+          variant="outline"
+          className="mb-4 rounded-full"
+          onClick={() => router.back()}
+        >
           <ArrowLeft className="w-4 h-4" />
           Back to Book
         </Button>
@@ -212,171 +227,246 @@ const CheckoutForm = ({ paymentId }) => {
             <div className="flex-1">
               <div className="flex flex-col gap-4 mb-5">
                 <div className="bg-[#EBE7DC] p-4 sm:p-6 rounded-md shadow-sm">
-                  <h3 className="text-[#514941] text-base sm:text-sm mb-4 border-b-2 border-[#514941] pb-2">Guest Details</h3>
+                  <h3 className="text-[#514941] text-base sm:text-sm mb-4 border-b-2 border-[#514941] pb-2">
+                    Guest Details
+                  </h3>
                   <div className="grid grid-cols-2 gap-4 mt-4">
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="firstName" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="firstName"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         First Name <span className="text-red-500">*</span>
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="firstName" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("firstName")} 
+                      <Input
+                        type="text"
+                        id="firstName"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("firstName")}
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-sm">{errors.firstName.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.firstName.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="lastName" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="lastName"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Last Name <span className="text-red-500">*</span>
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="lastName" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("lastName")} 
+                      <Input
+                        type="text"
+                        id="lastName"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("lastName")}
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-sm">{errors.lastName.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.lastName.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="email" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="email"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Email <span className="text-red-500">*</span>
                       </Label>
-                      <Input 
-                        type="email" 
-                        id="email" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("email")} 
+                      <Input
+                        type="email"
+                        id="email"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("email")}
                       />
-                      {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+                      {errors.email && (
+                        <p className="text-red-500 text-sm">
+                          {errors.email.message}
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="phone" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="phone"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Phone <span className="text-red-500">*</span>
                       </Label>
                       <div className="flex items-center gap-2 w-full">
                         <ReactSelect
                           id="phoneCode"
                           options={phoneCodeOptions}
-                          onChange={(selectedOption) => setValue("phoneCode", selectedOption.value)}
+                          onChange={(selectedOption) =>
+                            setValue("phoneCode", selectedOption.value)
+                          }
                           className="w-52"
                           placeholder="Select"
                           styles={selectStyles}
                         />
-                        <Input 
-                          type="tel" 
-                          id="phone" 
-                          className="flex-1 p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                          {...register("phone")} 
+                        <Input
+                          type="tel"
+                          id="phone"
+                          className="flex-1 p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                          {...register("phone")}
                         />
                       </div>
-                      {errors.phoneCode && <p className="text-red-500 text-sm">{errors.phoneCode.message}</p>}
-                      {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
+                      {errors.phoneCode && (
+                        <p className="text-red-500 text-sm">
+                          {errors.phoneCode.message}
+                        </p>
+                      )}
+                      {errors.phone && (
+                        <p className="text-red-500 text-sm">
+                          {errors.phone.message}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-[#EBE7DC] p-4 sm:p-6 rounded-md shadow-sm">
-                  <h3 className="text-[#514941] text-base sm:text-sm mb-4 border-b-2 border-[#514941] pb-2">Personal Information</h3>
+                  <h3 className="text-[#514941] text-base sm:text-sm mb-4 border-b-2 border-[#514941] pb-2">
+                    Personal Information
+                  </h3>
                   <div className="grid grid-cols-2 gap-4 mt-4">
                     <div className="flex col-span-2 flex-col gap-2">
-                      <Label htmlFor="country" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="country"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Country <span className="text-red-500">*</span>
                       </Label>
                       <ReactSelect
                         id="country"
                         options={countryOptions}
-                        onChange={(selectedOption) => setValue("country", selectedOption.value)}
+                        onChange={(selectedOption) =>
+                          setValue("country", selectedOption.value)
+                        }
                         className="w-full"
                         placeholder="Select a country"
                         styles={selectStyles}
                       />
                       {errors.country && (
-                        <p className="text-red-500 text-sm">{errors.country.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.country.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="address" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="address"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Address <span className="text-red-500">*</span>
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="address" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("address")} 
+                      <Input
+                        type="text"
+                        id="address"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("address")}
                       />
                       {errors.address && (
-                        <p className="text-red-500 text-sm">{errors.address.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.address.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="company" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="company"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Company
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="company" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("company")} 
+                      <Input
+                        type="text"
+                        id="company"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("company")}
                       />
                       {errors.company && (
-                        <p className="text-red-500 text-sm">{errors.company.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.company.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="city" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="city"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         City/Location <span className="text-red-500">*</span>
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="city" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("city")} 
+                      <Input
+                        type="text"
+                        id="city"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("city")}
                       />
-                      {errors.city && <p className="text-red-500 text-sm">{errors.city.message}</p>}
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <Label htmlFor="purpose" className="block text-[#514941] text-sm font-medium mb-2">
-                        Purpose of stay
-                      </Label>
-                      <Input 
-                        type="text" 
-                        id="purpose" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("purpose")} 
-                      />
-                      {errors.purpose && (
-                        <p className="text-red-500 text-sm">{errors.purpose.message}</p>
+                      {errors.city && (
+                        <p className="text-red-500 text-sm">
+                          {errors.city.message}
+                        </p>
                       )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="state" className="block text-[#514941] text-sm font-medium mb-2">
-                        State/Region <span className="text-red-500">*</span>
+                      <Label
+                        htmlFor="purpose"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
+                        Purpose of stay
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="state" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("state")} 
+                      <Input
+                        type="text"
+                        id="purpose"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("purpose")}
                       />
-                      {errors.state && <p className="text-red-500 text-sm">{errors.state.message}</p>}
+                      {errors.purpose && (
+                        <p className="text-red-500 text-sm">
+                          {errors.purpose.message}
+                        </p>
+                      )}
                     </div>
                     <div className="flex flex-col gap-2">
-                      <Label htmlFor="remarks" className="block text-[#514941] text-sm font-medium mb-2">
+                      <Label
+                        htmlFor="state"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
+                        State/Region <span className="text-red-500">*</span>
+                      </Label>
+                      <Input
+                        type="text"
+                        id="state"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("state")}
+                      />
+                      {errors.state && (
+                        <p className="text-red-500 text-sm">
+                          {errors.state.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      <Label
+                        htmlFor="remarks"
+                        className="block text-[#514941] text-sm font-medium mb-2"
+                      >
                         Special Requests/Remarks
                       </Label>
-                      <Input 
-                        type="text" 
-                        id="remarks" 
-                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]" 
-                        {...register("remarks")} 
+                      <Input
+                        type="text"
+                        id="remarks"
+                        className="w-full p-2 border rounded placeholder:text-[#9ca3af] text-sm bg-[#F4F4EA] text-[#514941]"
+                        {...register("remarks")}
                       />
                       {errors.remarks && (
-                        <p className="text-red-500 text-sm">{errors.remarks.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.remarks.message}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -387,14 +477,23 @@ const CheckoutForm = ({ paymentId }) => {
 
             <div className="flex w-full md:w-80 flex-col">
               <div className="relative w-80 h-60 rounded-lg overflow-hidden">
-                <Image
-                  src={bookData.villaNumber === 1 ? "/images/hero/1.jpeg" : "/images/villa2/card.jpg"}
-                  alt="checkout"
-                  fill
-                  className="object-cover"
-                />
+                {bookData?.villaName?.includes("2-Bedroom") ? (
+                  <img
+                    src="/assets/images/bedroomVilla-3/bedroom25.jpg"
+                    alt="villa"
+                    className="object-cover rounded-tl-xl rounded-tr-xl"
+                  />
+                ) : (
+                  <img
+                    src="/assets/images/bedroomVilla-3/bedroom15.jpg"
+                    alt="villa"
+                    className="object-cover rounded-tl-xl rounded-tr-xl"
+                  />
+                )}
               </div>
-              <p className="text-xl mt-2 text-[#514941]">{bookData.villaName}</p>
+              <p className="text-xl mt-2 text-[#514941]">
+                {bookData.villaName}
+              </p>
               <div className="flex flex-wrap items-center gap-2">
                 <div className="flex items-center gap-2 bg-[#cc8823] rounded-2xl text-white px-2 py-1">
                   <Check className="w-4 h-4" />
@@ -413,7 +512,9 @@ const CheckoutForm = ({ paymentId }) => {
               <div className="flex flex-col gap-2 mt-4">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[#514941]">Rate:</p>
-                  <p className="capitalize text-[#514941]">{bookData.rateType}</p>
+                  <p className="capitalize text-[#514941]">
+                    {bookData.rateType}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[#514941]">Guests:</p>
@@ -421,15 +522,26 @@ const CheckoutForm = ({ paymentId }) => {
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[#514941]">Check In:</p>
-                  <p className="text-[#514941]">{bookData.startDate ? format(bookData.startDate, "MMM d, yyyy") : 'N/A'}</p>
+                  <p className="text-[#514941]">
+                    {bookData.startDate
+                      ? format(bookData.startDate, "MMM d, yyyy")
+                      : "N/A"}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[#514941]">Check Out:</p>
-                  <p className="text-[#514941]">{bookData.endDate ? format(bookData.endDate, "MMM d, yyyy") : 'N/A'}</p>
+                  <p className="text-[#514941]">
+                    {bookData.endDate
+                      ? format(bookData.endDate, "MMM d, yyyy")
+                      : "N/A"}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-[#514941]">Nights:</p>
-                  <p className="text-[#514941]">{differenceInDays(bookData.endDate, bookData.startDate)} nights</p>
+                  <p className="text-[#514941]">
+                    {differenceInDays(bookData.endDate, bookData.startDate)}{" "}
+                    nights
+                  </p>
                 </div>
               </div>
               <div className="h-px bg-gray-200 my-4"></div>
@@ -440,13 +552,21 @@ const CheckoutForm = ({ paymentId }) => {
                 </div>
                 {bookData.additionalServices.length > 0 &&
                   bookData.additionalServices.map((service) => (
-                    <div key={service.name} className="flex items-center justify-between gap-2">
-                      <p className="capitalize text-[#514941]">{service.name}:</p>
+                    <div
+                      key={service.name}
+                      className="flex items-center justify-between gap-2"
+                    >
+                      <p className="capitalize text-[#514941]">
+                        {service.name}:
+                      </p>
                       {service.each ? (
                         <Tooltip delayDuration={100}>
                           <TooltipTrigger>
                             <div className="flex items-center gap-1">
-                              €{service.price * bookData.totalNights * bookData.guests}
+                              €
+                              {service.price *
+                                bookData.totalNights *
+                                bookData.guests}
                               <Info className="w-3 h-3" />
                             </div>
                           </TooltipTrigger>
@@ -454,13 +574,18 @@ const CheckoutForm = ({ paymentId }) => {
                             <div className="flex items-center gap-2">
                               €{service.price} x
                               <div className="flex items-center gap-1">
-                                {bookData.totalNights} <CloudMoon className="w-4 h-4" />
+                                {bookData.totalNights}{" "}
+                                <CloudMoon className="w-4 h-4" />
                               </div>
                               x
                               <div className="flex items-center gap-1">
-                                {bookData.guests} <UserRound className="w-4 h-4" />
+                                {bookData.guests}{" "}
+                                <UserRound className="w-4 h-4" />
                               </div>
-                              = €{service.price * bookData.totalNights * bookData.guests}
+                              = €
+                              {service.price *
+                                bookData.totalNights *
+                                bookData.guests}
                             </div>
                           </TooltipContent>
                         </Tooltip>
@@ -476,7 +601,8 @@ const CheckoutForm = ({ paymentId }) => {
                             <div className="flex items-center gap-2">
                               €{service.price} x
                               <div className="flex items-center gap-1">
-                                {bookData.totalNights} <CloudMoon className="w-4 h-4" />
+                                {bookData.totalNights}{" "}
+                                <CloudMoon className="w-4 h-4" />
                               </div>
                               = €{service.price * bookData.totalNights}
                             </div>
@@ -489,9 +615,13 @@ const CheckoutForm = ({ paymentId }) => {
               <div className="h-px bg-gray-200 my-4"></div>
               <div className="flex items-center justify-between gap-2">
                 <p className="text-xl font-bold text-[#514941]">Total:</p>
-                <p className="text-3xl font-bold text-[#514941]">€{bookData.totalPrice}</p>
+                <p className="text-3xl font-bold text-[#514941]">
+                  €{bookData.totalPrice}
+                </p>
               </div>
-              <div className="text-sm text-right text-[#514941]">(Included VAT 9%)</div>
+              <div className="text-sm text-right text-[#514941]">
+                (Included VAT 9%)
+              </div>
 
               <div className="flex items-center gap-2 mt-4">
                 <Checkbox
@@ -500,7 +630,10 @@ const CheckoutForm = ({ paymentId }) => {
                   checked={isChecked}
                   onCheckedChange={() => setIsChecked(!isChecked)}
                 />
-                <label htmlFor="terms" className="text-sm font-medium text-[#514941]">
+                <label
+                  htmlFor="terms"
+                  className="text-sm font-medium text-[#514941]"
+                >
                   Before this booking, you agree to the{" "}
                   <Link href="/terms" className="underline text-[#616161]">
                     Terms & Conditions
@@ -511,7 +644,9 @@ const CheckoutForm = ({ paymentId }) => {
                   </Link>
                 </label>
               </div>
-              {errors.terms && <p className="text-red-500 text-sm">{errors.terms.message}</p>}
+              {errors.terms && (
+                <p className="text-red-500 text-sm">{errors.terms.message}</p>
+              )}
               <Button
                 type="submit"
                 className="w-full mt-5 h-12 bg-black text-white hover:bg-gray-800 text-lg rounded p-2"

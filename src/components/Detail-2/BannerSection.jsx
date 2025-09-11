@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import PricingSection from "./PricingSection";
 import SearchSection from "../home/search-section/SearchSection";
 
-const BannerSection = ({ villa }) => {
+const BannerSection = ({ villa,villaNumber }) => {
   useEffect(() => {
     console.log("BannerSection villa:", villa);
   }, [villa]);
@@ -12,8 +12,8 @@ const BannerSection = ({ villa }) => {
   const items = [
     { src: "/assets/detail-2/villa.avif", label: "Villa" },
     { src: "/assets/detail-2/users.avif", label: `Upto ${villa?.capacity || 6}` },
-    { src: "/assets/detail-2/3bedroom.avif", label: `${villa?.bedrooms || 2} Bedrooms` },
-    { src: "/assets/detail-2/2bedroom.avif", label: `${villa?.bathrooms || 2} Bathrooms` },
+    { src: "/assets/detail-2/3bedroom.avif", label: `${villaNumber == 1 ? '2' :'3'} Bedrooms` },
+    { src: "/assets/detail-2/2bedroom.avif", label: `${'2'} Bathrooms` },
   ];
 
   return (
@@ -35,7 +35,7 @@ const BannerSection = ({ villa }) => {
       {/* SEARCH + PRICING */}
       <div className="mt-10">
         <SearchSection villa={villa} />
-        <PricingSection villa={villa} />
+        <PricingSection villa={villa} villaNumber={villaNumber}/>
       </div>
     </div>
   );

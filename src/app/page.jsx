@@ -36,7 +36,7 @@ const Home = () => {
       <FeelingsBalance />
       <HomePosters />
       <BeachSection/>
-     <ResortTestimonials showButton={false} />
+     <ResortTestimonials title="HEAR FROM OUR GUESTS" showButton={false} />
       <PremiumAmenities />
     </div>
   );

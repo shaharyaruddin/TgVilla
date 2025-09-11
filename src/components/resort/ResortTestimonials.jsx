@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import TestimonialReviewSection from "../home/testimonials/widgets/Testimonial/TestimonialReviewSection";
 import ReviewsModal from "../modals/reviews-modal";
 
-const ResortTestimonials = ({ bgImage, bgColor, showButton = true }) => {
+const ResortTestimonials = ({ title, bgImage, bgColor, showButton = true }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,6 +15,11 @@ const ResortTestimonials = ({ bgImage, bgColor, showButton = true }) => {
         backgroundColor: bgImage ? "transparent" : bgColor || "transparent",
       }}
     >
+      {title && (
+        <h1 className="uppercase text-4xl font-bold font-playfair italic text-center">
+          {title}
+        </h1>
+      )}
       {/* Overlay (only if bgImage is present) */}
       {bgImage && <div className="absolute inset-0 bg-black/50"></div>}
 

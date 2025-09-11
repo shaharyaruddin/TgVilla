@@ -131,7 +131,7 @@ const ResortBookingVillaThree = () => {
         3 Bedroom Villa
       </h2>
       <div className="flex gap-4">
-        <Link href="/villa-details">
+        <Link href="/3-bedroom-villa">
           <button 
           className="font-bold text-sm border-b-2 border-black"
           >

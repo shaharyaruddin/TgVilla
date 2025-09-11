@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 
 const ResortFourthSection = () => {
@@ -93,6 +94,15 @@ const ResortFourthSection = () => {
             unforgettable moments.
           </p>
         </div>
+
+    <div className="mt-5 w-full flex">
+          <Link href="/bookings">
+            <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+              Book Now
+            </button>
+          </Link>
+        </div>
+
       </div>
       {/* right */}
       <div className="col-span-2 pl-10 max-lg:pl-5 max-md:pl-0 max-md:col-span-1 max-md:mt-10">

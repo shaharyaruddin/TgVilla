@@ -6,17 +6,29 @@ import DreamVillaSection from "./DreamVillaSection";
 import BookingReview from "./BookingReview";
 import { useBookOption } from "@/contexts/book-option-context";
 import { useSearch } from "@/contexts/search-context";
+import { Loader2 } from "lucide-react";
 
 const BookingStepTwoSection = () => {
   const { allBookingOptions } = useBookOption();
-  const { searchOptions } = useSearch();
+  const { searchOptions, isLoading } = useSearch();
 
   return (
     <div className="relative w-full min-h-[15rem] flex justify-center items-center flex-col overflow-hidden pt-5">
       <div className="absolute inset-0 bg-[url('/assets/booking/texture.webp')] bg-center bg-repeat opacity-10"></div>
       <BookingBetweenSection />
-
-      {allBookingOptions?.length > 0 ? (
+  <h2 className="font-cormorant text-[4vmax] font-[600]">
+          {isLoading
+            ? "Looking for Best Matches..."
+            : allBookingOptions?.length > 0
+              ? (allBookingOptions?.length == 1 ? 'Match' :'Matches' )
+              : ""}
+        </h2>
+      {isLoading ? (
+        <div className="text-center py-10">
+          <Loader2 className="animate-spin mx-auto text-[#D4A017] h-10 w-10" />
+          <p className="text-lg text-black/60 mt-2">Searching for available villas...</p>
+        </div>
+      ) : allBookingOptions?.length > 0 ? (
         <div className="w-full relative my-10 flex flex-col items-center max-md:px-4">
           {allBookingOptions.map((item, i) => {
             // Construct villa object with defaults and id

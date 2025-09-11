@@ -16,7 +16,7 @@ const BestMatch = () => {
           {isLoading
             ? "Looking for Best Matches..."
             : allBookingOptions?.length > 0
-              ? "Matches"
+              ? (allBookingOptions?.length == 1 ? 'Match' :'Matches' )
               : ""}
         </h2>
       </div>

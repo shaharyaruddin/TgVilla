@@ -30,8 +30,8 @@ const SearchSection = () => {
   const [count, setCount] = useState(0);
   const [localRange, setLocalRange] = useState([
     {
-      startDate: null,
-      endDate: null,
+      startDate: searchOptions.startDate || null,
+      endDate: searchOptions.endDate || null,
       key: "selection",
     },
   ]);
@@ -47,64 +47,9 @@ const SearchSection = () => {
     ]);
   }, [searchOptions.startDate, searchOptions.endDate]);
 
-  // Reset dates on mount
-  useEffect(() => {
-    if (searchOptions.startDate || searchOptions.endDate) {
-      changeSearchDate({ startDate: null, endDate: null });
-    }
-  }, []);
-
-  // Fetch booking options on mount
-  useEffect(() => {
-    const fetchAllBookingOptions = async () => {
-      setIsLoading(true);
-      try {
-        if (!searchOptions.startDate || !searchOptions.endDate) return;
-        if (searchOptions.guests.total === 0) return;
-
-        const { data } = await Axios.post(`/user/get-booking-options-all`, {
-          startDate: searchOptions.startDate,
-          endDate: searchOptions.endDate,
-          guests: searchOptions.guests.total,
-        });
-
-        if (data.allBookingOptions?.length > 0) {
-          console.log("✅ Booking options fetched:", data.allBookingOptions);
-        } else {
-          console.log("⚠️ No booking options found (empty array).");
-        }
-
-        setAllBookingOptions(data.allBookingOptions || []);
-      } catch (error) {
-        console.error("❌ Fetch error:", error.message);
-        setAllBookingOptions([]);
-        toast.error("Failed to fetch booking options.");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchAllBookingOptions();
-  }, []);
-
-  // Auto-open guest modal only when date picker is open and a valid range is selected
-  useEffect(() => {
-    if (
-      isDateOpen && // Only trigger when date picker is active
-      localRange[0].startDate &&
-      localRange[0].endDate &&
-      localRange[0].startDate !== localRange[0].endDate
-    ) {
-      changeSearchDate({
-        startDate: localRange[0].startDate,
-        endDate: localRange[0].endDate,
-      });
-      setIsDateOpen(false);
-      setIsGuestOpen(true);
-    }
-  }, [localRange, changeSearchDate, isDateOpen]);
-
   const handleSearch = async () => {
     setIsGuestOpen(false); // Close guest modal
+    setIsDateOpen(false); // Close date picker modal
     setIsLoading(true);
     try {
       if (!searchOptions.startDate || !searchOptions.endDate) {
@@ -171,7 +116,22 @@ const SearchSection = () => {
                   <div className="absolute z-10 mt-2 w-full max-w-[90vw] sm:max-w-lg bg-white rounded-lg left-1/2 -translate-x-1/2">
                     <DateRangePicker
                       className="text-app-black font-medium w-full"
-                      onChange={(item) => setLocalRange([item.selection])}
+                      onChange={(item) => {
+                        const newRange = [item.selection];
+                        setLocalRange(newRange);
+                        if (
+                          newRange[0].startDate &&
+                          newRange[0].endDate &&
+                          newRange[0].startDate !== newRange[0].endDate
+                        ) {
+                          changeSearchDate({
+                            startDate: newRange[0].startDate,
+                            endDate: newRange[0].endDate,
+                          });
+                          setIsDateOpen(false);
+                          setIsGuestOpen(true);
+                        }
+                      }}
                       moveRangeOnFirstSelection={false}
                       ranges={localRange}
                       months={2}

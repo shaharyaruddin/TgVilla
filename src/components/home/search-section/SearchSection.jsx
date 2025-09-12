@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
+import "react-dates/lib/css/_datepicker.css"; 
 import { Loader2, X, UserRound, Minus, Plus, Search } from "lucide-react";
 import { useSearch } from "@/contexts/search-context";
 import { useBookOption } from "@/contexts/book-option-context";

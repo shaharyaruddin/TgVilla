@@ -102,11 +102,11 @@ const VillaDetailCard = ({ option, villa,villaNumber }) => {
           {/* Standard Rate */}
           <div className="flex items-center w-fit rounded-full border border-black overflow-hidden mb-5">
             <div className="px-4 py-2 text-sm font-medium text-black bg-white capitalize">
-              {option.rateType} Rate
+              {option.rateType} 
             </div>
-            <div className="px-4 py-2 font-medium text-white rounded-l-2xl bg-[#2a1b14]">
-              €{option.totalNightsPrice}
-            </div>
+            {/* <div className="px-4 py-2 font-medium text-white rounded-l-2xl bg-[#2a1b14]">
+             Rate €{option.totalNightsPrice}
+            </div> */}
           </div>
 
           <div className="flex gap-6 text-sm text-gray-600 mb-2">

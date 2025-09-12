@@ -43,7 +43,6 @@
     "react-countup": "^6.5.3",
     "react-date-range": "^2.0.1",
     "react-datepicker": "^8.7.0",
-    "react-dates": "^21.8.0",
     "react-dom": "^18.3.0",
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.62.0",

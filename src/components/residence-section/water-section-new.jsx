@@ -83,7 +83,7 @@ const WaterSectionNew = () => {
 
             {/* Right Image - Full Height */}
             <div className="w-full md:w-[45%] h-[40vh] sm:h-[60vh] md:h-[90vh] p-2 sm:p-2 md:p-6 rounded-2xl mt-2 sm:mt-2 md:mt-0">
-              <div className="w-full h-full rounded-2xl overflow-hidden shadow-lg">
+              <div className="w-full h-full overflow-hidden shadow-md">
                 <img
                   src={card.img}
                   alt={card.title}

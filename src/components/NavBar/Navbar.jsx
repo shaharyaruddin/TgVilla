@@ -18,7 +18,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if ( currentScrollY > 80) {
+      if (currentScrollY > 80) {
         // scrolling down
         gsap.to(".link_ul", {
           color: "black",
@@ -40,6 +40,28 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  //Mobile scroll/touch detection
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleClose = (e) => {
+      if (window.innerWidth < 1024 && isOpen) {
+        if (navbarRef.current && navbarRef.current.contains(e.target)) return;
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("scroll", handleClose, { passive: true });
+      window.addEventListener("touchstart", handleClose, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleClose);
+      window.removeEventListener("touchstart", handleClose);
+    };
+  }, [isOpen]);
+
   return (
     <div
       ref={navbarRef}
@@ -49,13 +71,15 @@ const Navbar = () => {
       <div className="max-width flex justify-between items-center px-10 max-h-[4.5rem] overflow-hidden py-4 relative max-md:px-4">
         {/* logo */}
         <div>
-          <Image
-            src="/assets/logo/TG-villas-48.png"
-            alt="logo"
-            width={80}
-            height={50}
-            className="max-md:w-[4.5rem] "
-          />
+          <Link href="/">
+            <Image
+              src="/assets/logo/TG-villas-48.png"
+              alt="logo"
+              width={80}
+              height={50}
+              className="max-md:w-[4.5rem] "
+            />
+          </Link>
         </div>
 
         {/* desktop links */}
@@ -95,10 +119,10 @@ const Navbar = () => {
             <NavLinks key={i} href={link.href} name={link.name} />
           ))}
           <Link href="/bookings">
-          <button className="mt-2 bg-app-yellow w-full rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
-            Book Now
-          </button>
-        </Link>
+            <button className="mt-2 bg-app-yellow w-full rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+              Book Now
+            </button>
+          </Link>
         </ul>
       </div>
     </div>

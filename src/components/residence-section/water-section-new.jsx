@@ -39,7 +39,7 @@ const WaterSectionNew = () => {
         trigger: containerRef.current,
         start: "top top",
         end: () => `+=${cards.length * 100}%`,
-        scrub: true,
+        scrub: 1, // ✅ smooth scrub
         pin: true,
         anticipatePin: 1,
         markers: false,
@@ -48,7 +48,15 @@ const WaterSectionNew = () => {
 
     cards.forEach((card, i) => {
       if (i === 0) return;
-      tl.to(card, { yPercent: 0 }, `+=1`);
+      tl.to(
+        card,
+        {
+          yPercent: 0,
+          ease: "power2.out",
+          duration: 1,
+        },
+        i
+      );
     });
   }, []);
 

@@ -11,8 +11,6 @@ import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import AppProviders from "@/contexts/app-providers";
 
-
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
@@ -40,26 +38,23 @@ const playFair = Playfair({
 });
 
 export const metadata = {
-  title: "Villa frontend",
-  description: "Villa frontend",
+  title: "TG Luxury Stay",
+  description: "",
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <body
         className={`${poppins.className} ${crimsonText.variable} ${cormorant.variable} ${playFair.variable} ${outfit.variable} antialiased relative `}
       >
         <AppProviders>
-        {/* <SmoothScrollProvider> */}
-        <Navbar />
-        {children}
-        <Footer />
-        {/* </SmoothScrollProvider> */}
-
+          {/* <SmoothScrollProvider> */}
+          <Navbar />
+          {children}
+          <Footer />
+          {/* </SmoothScrollProvider> */}
         </AppProviders>
-
       </body>
     </html>
   );

@@ -195,12 +195,14 @@ const BookingSection = () => {
                 reserved for the finest homes and villas offering outstanding
                 quality, location, and guest experience.
               </p>
-              <button
-                ref={leftButtonRef}
-                className="bg-[#D4A017] font-playfair text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold"
-              >
-                View Our Villas
-              </button>
+              <Link href="/resort">
+                <button
+                  ref={leftButtonRef}
+                  className="bg-[#D4A017] font-playfair text-white px-8 py-3 rounded-full transition-all duration-300 text-lg font-semibold"
+                >
+                  View Our Villas
+                </button>
+              </Link>
             </div>
           </div>
 

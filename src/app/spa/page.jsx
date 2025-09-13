@@ -17,9 +17,9 @@ const page = () => {
       <SpaCardGridSection />
       <SpaLuxuryTreatments />
       <SpaWhereExpertiseMeetsIndulgence />
-      <div className=" w-full min-h-40 center-column max-width py-10 max-md:py-5">
+      {/* <div className=" w-full min-h-40 center-column max-width py-10 max-md:py-5">
      <ResortTestimonials />
-      </div>
+      </div> */}
     </div>
   );
 };

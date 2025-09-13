@@ -303,77 +303,77 @@ const SearchSection = ({ villa }) => {
   };
 
   // Custom day renderer for hover-based price display
-  const renderDayContents = useCallback(
-    (day) => {
-      if (!villa) return <div className="flex flex-col items-center"><span className="text-lg">{day.date()}</span></div>;
+  // Custom day renderer for hover-based price display
+const renderDayContents = useCallback(
+  (day) => {
+    if (!villa) return <div className="flex flex-col items-center"><span className="text-lg">{day.date()}</span></div>;
 
-      const dateKey = day.format("YYYY-MM-DD");
-      const price = dailyPrices[dateKey];
-      const isBlocked = isDayBlocked(day);
-      const isStartOfBlockedRange = blockedRanges.some((range) => {
-        if (!range.start) return false;
-        const rangeStart = startOfDay(parseISO(range.start));
-        return day.isSame(rangeStart, "day");
-      });
+    const dateKey = day.format("YYYY-MM-DD");
+    const price = dailyPrices[dateKey];
+    const isBlocked = isDayBlocked(day);
+    const isStartOfBlockedRange = blockedRanges.some((range) => {
+      if (!range.start) return false;
+      const rangeStart = startOfDay(parseISO(range.start));
+      return day.isSame(rangeStart, "day");
+    });
 
-      return (
-        <TooltipProvider delayDuration={100}>
-          {isStartOfBlockedRange && !isBlocked && day >= moment() ? (
-            <Tooltip
-              open={hoveredDateKey === dateKey || departureTooltipDateKey === dateKey}
-              onOpenChange={(isOpen) => {
-                if (!isOpen) {
-                  setDepartureTooltipDateKey(null);
-                }
-              }}
-            >
-              <TooltipTrigger asChild>
-                <div
-                  className="flex flex-col items-center cursor-pointer"
-                  onClick={() => {
-                    setDepartureTooltipDateKey(dateKey);
-                    setTimeout(() => {
-                      setDepartureTooltipDateKey(null);
-                    }, 50);
-                  }}
-                  onMouseEnter={() => setHoveredDateKey(dateKey)}
-                  onMouseLeave={() => setHoveredDateKey(null)}
-                >
-                  <span className="text-lg text-cyan-700">{day.date()}</span>
-                  <span className="text-xs font-extralight text-cyan-700 opacity-70">
+    return (
+      <TooltipProvider delayDuration={100}>
+        {isStartOfBlockedRange && !isBlocked && day >= moment() ? (
+          <Tooltip
+            open={hoveredDateKey === dateKey || departureTooltipDateKey === dateKey}
+            onOpenChange={(isOpen) => {
+              if (!isOpen) {
+                setDepartureTooltipDateKey(null);
+              }
+            }}
+          >
+            <TooltipTrigger asChild>
+              <div
+                className="flex flex-col items-center cursor-pointer"
+                onClick={() => {
+                  setDepartureTooltipDateKey(dateKey);
+                  setTimeout(() => {
+                    setDepartureTooltipDateKey(null);
+                  }, 50);
+                }}
+                onMouseEnter={() => setHoveredDateKey(dateKey)}
+                onMouseLeave={() => setHoveredDateKey(null)}
+              >
+                <span className="text-lg text-cyan-700">{day.date()}</span>
+                <span className="text-xs font-extralight text-cyan-700 opacity-70">
+                  €{price ? price : villa?.basePrice || 0}
+                </span>
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className="bg-cyan-400 text-white">
+              <p>Departure only</p>
+            </TooltipContent>
+          </Tooltip>
+        ) : (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="flex flex-col items-center">
+                <span className={`text-lg ${isBlocked ? "text-gray-400 line-through cursor-not-allowed" : "text-black"}`}>{day.date()}</span>
+                {!isBlocked ? (
+                  <span className="text-xs font-extralight opacity-70">
                     €{price ? price : villa?.basePrice || 0}
                   </span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent className="bg-cyan-400 text-white">
-                <p>Departure only</p>
-              </TooltipContent>
-            </Tooltip>
-          ) : (
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="flex flex-col items-center">
-                  <span className={`text-lg ${isBlocked ? "text-gray-400" : "text-black"}`}>{day.date()}</span>
-                  {!isBlocked ? (
-                    <span className="text-xs font-extralight opacity-70">
-                      €{price ? price : villa?.basePrice || 0}
-                    </span>
-                  ) : (
-                    <span className="text-xs font-extralight">---</span>
-                  )}
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{getMinNightsForDate(day.toDate())} Nights</p>
-              </TooltipContent>
-            </Tooltip>
-          )}
-        </TooltipProvider>
-      );
-    },
-    [villa, dailyPrices, blockedRanges, isDayBlocked, getMinNightsForDate, hoveredDateKey, departureTooltipDateKey]
-  );
-
+                ) : (
+                  <span className="text-xs font-extralight">---</span>
+                )}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{getMinNightsForDate(day.toDate())} Nights</p>
+            </TooltipContent>
+          </Tooltip>
+        )}
+      </TooltipProvider>
+    );
+  },
+  [villa, dailyPrices, blockedRanges, isDayBlocked, getMinNightsForDate, hoveredDateKey, departureTooltipDateKey]
+);
   return (
     <>
       <style>{styles}</style>

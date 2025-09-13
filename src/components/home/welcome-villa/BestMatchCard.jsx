@@ -5,105 +5,15 @@ import { useBook } from "@/contexts/book-context";
 import { useRouter } from "next/navigation";
 import { differenceInDays } from "date-fns";
 import VillaGalleryModal from "@/components/gallery-modal";
+import GalleryModal from "@/components/modals/gallery1-modal";
 
 const BestMatchCard = ({ villa, option, standardPrice }) => {
   const { bookData: currentBookData, setBookData } = useBook();
   const router = useRouter();
   const [additionalServices, setAdditionalServices] = useState([]);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("twoBedroom");
+  const [open, setOpen] = useState(false);
 
 
-  const handleCloseModal = () => {
-    setIsGalleryOpen(false);
-  };
-
-  // Define villa images
-  const twoBedroomVilla = [
-    {
-      src: "/assets/images/bedroomVilla/bedroom29.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom32.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom33.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom34.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom4.webp",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom35.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom10.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom12.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom14.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom28.webp",
-      alt: "2 Bedroom Villa",
-    },
-  ];
-
-  const threeBedroomVilla = [
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom15.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom16.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom17.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom18.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom5.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom6.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom25.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom26.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom12.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom27.jpg",
-      alt: "3 Bedroom Villa",
-    },
-  ];
 
   useEffect(() => {
     // Initialize additional services with selected: false
@@ -179,20 +89,15 @@ const BestMatchCard = ({ villa, option, standardPrice }) => {
     rateType = "Non-Refundable",
   } = villa || {};
 
-  const villaImages = villa?.name?.includes("2-Bedroom")
-    ? twoBedroomVilla
-    : threeBedroomVilla;
 
-  const handleViewGalleryClick = () => {
-    setActiveTab(
-      villa?.name?.includes("2-Bedroom") ? "twoBedroom" : "threeBedroom"
-    );
-    setIsGalleryOpen(true);
+ const handleViewGalleryClick = () => {
+    setOpen(true);
   };
 
-    const handleImageClick = (image) => {
-    setIsGalleryOpen(false);
+  const handleCloseModal = () => {
+    setOpen(false);
   };
+
 
   return (
     <div className="relative my-3 max-md:my-0 w-full min-h-[10rem] grid grid-cols-1 text-white">
@@ -200,13 +105,13 @@ const BestMatchCard = ({ villa, option, standardPrice }) => {
       <div className="w-full h-full relative">
         {villa?.name?.includes("2-Bedroom") ? (
           <img
-            src="/assets/images/bedroomVilla-3/bedroom25.jpg"
+            src="/assets/images/bedroomvilla-3/bedroom25.jpg"
             alt="villa"
             className="object-cover rounded-tl-xl rounded-tr-xl"
           />
         ) : (
           <img
-            src="/assets/images/bedroomVilla-3/bedroom15.jpg"
+            src="/assets/images/bedroomvilla-3/bedroom15.jpg"
             alt="villa"
             className="object-cover rounded-tl-xl rounded-tr-xl"
           />
@@ -310,14 +215,8 @@ const BestMatchCard = ({ villa, option, standardPrice }) => {
         </div>
       </div>
 
-      <VillaGalleryModal
-        isOpen={isGalleryOpen}
-        onClose={handleCloseModal}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        villaImages={{ [activeTab]: villaImages }}
-        onImageClick={handleImageClick}
-      />
+         <GalleryModal open={open} setOpen={setOpen} onClose={handleCloseModal} />
+   
     </div>
   );
 };

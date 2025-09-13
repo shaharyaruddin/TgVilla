@@ -1,76 +1,77 @@
-'use client';
-import React from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import { useGSAP } from '@gsap/react';
-import Image from 'next/image';
+"use client";
+import React from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import Image from "next/image";
+import Link from "next/link";
 
 const WhereLuxuryMeetsSerenity = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const scrollTrigger = {
-      trigger: '.main-container',
-      start: 'top top', 
-      end: '+=800', 
-      scrub: 1, 
-      pin: '.main-container'
+      trigger: ".main-container",
+      start: "top top",
+      end: "+=800",
+      scrub: 1,
+      pin: ".main-container",
     };
 
     const tl = gsap.timeline({ scrollTrigger });
 
-    tl.from('.aboutAnimate', {
+    tl.from(".aboutAnimate", {
       scale: 0,
-      duration: 1.5, 
-      ease: 'power2.out', 
+      duration: 1.5,
+      ease: "power2.out",
     })
       .from(
-        '.aboutTopLeft',
+        ".aboutTopLeft",
         {
-          top: '-100%',
-          left: '-100%',
-          opacity: 0,
-          duration: 1.5, 
-          ease: 'power2.out',
-          delay: 0.3, 
-        },
-        '-=0.5' 
-      )
-      .from(
-        '.aboutTopRight',
-        {
-          top: '-100%',
-          right: '-100%',
+          top: "-100%",
+          left: "-100%",
           opacity: 0,
           duration: 1.5,
-          ease: 'power2.out',
+          ease: "power2.out",
           delay: 0.3,
         },
-        '-=0.5'
+        "-=0.5"
       )
       .from(
-        '.aboutBottomLeft',
+        ".aboutTopRight",
         {
-          bottom: '-100%',
-          left: '-100%',
+          top: "-100%",
+          right: "-100%",
           opacity: 0,
           duration: 1.5,
-          ease: 'power2.out',
+          ease: "power2.out",
           delay: 0.3,
         },
-        '-=0.5'
+        "-=0.5"
       )
       .from(
-        '.aboutBottomRight',
+        ".aboutBottomLeft",
         {
-          bottom: '-100%',
-          right: '-100%',
+          bottom: "-100%",
+          left: "-100%",
           opacity: 0,
           duration: 1.5,
-          ease: 'power2.out',
+          ease: "power2.out",
           delay: 0.3,
         },
-        '-=0.5'
+        "-=0.5"
+      )
+      .from(
+        ".aboutBottomRight",
+        {
+          bottom: "-100%",
+          right: "-100%",
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3,
+        },
+        "-=0.5"
       );
   }, []);
 
@@ -78,17 +79,19 @@ const WhereLuxuryMeetsSerenity = () => {
     <div className="main-container flex justify-center items-center relative overflow-hidden min-h-screen p-10 max-md:p-4">
       <div className="absolute flex flex-col items-center max-w-lg text-center z-[1] text-[#333333] space-y-4 max-md:max-w-sm max-md:space-y-3">
         <h3 className="max-md:text-lg">About Us</h3>
-        <h2 className="font-cormorant lg:text-5xl text-2xl md:text-3xl">Where Luxury Meets Serenity</h2>
+        <h2 className="font-cormorant lg:text-5xl text-2xl md:text-3xl">
+          Where Luxury Meets Serenity
+        </h2>
         <p className="mx-10 max-md:mx-4 max-md:text-sm">
-          Experience personalized spa treatments that restore balance and elevate
-          self-care
+          Experience personalized spa treatments that restore balance and
+          elevate self-care
         </p>
-        <a
-          href="#"
+        <Link
+          href="/about"
           className="border-2 px-3 py-2 max-md:px-2 max-md:py-1 max-md:text-sm border-black rounded-full"
         >
           More About TG Luxury Stays
-        </a>
+        </Link>
       </div>
       <div className="aboutAnimate relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl max-md:rounded-2xl">
         {/* Top left */}

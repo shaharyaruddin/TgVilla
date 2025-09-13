@@ -4,116 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { differenceInDays } from "date-fns";
-import VillaGalleryModal from "../gallery-modal";
+import GalleryModal from "../modals/gallery1-modal";
 
 const BookingCard = ({ villa, option, standardPrice }) => {
   const { bookData: currentBookData, setBookData } = useBook();
   const router = useRouter();
   const [additionalServices, setAdditionalServices] = useState([]);
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("twoBedroom");
 
-  // Define villa images
-  const twoBedroomVilla = [
-    {
-      src: "/assets/images/bedroomVilla/bedroom29.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom32.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom33.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom34.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom4.webp",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom35.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom10.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom12.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom14.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom28.webp",
-      alt: "2 Bedroom Villa",
-    },
-  ];
-
-  const threeBedroomVilla = [
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom15.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom16.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom17.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom18.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom5.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom6.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom25.jpg",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom26.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom12.webp",
-      alt: "3 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomvilla-3/bedroom27.jpg",
-      alt: "3 Bedroom Villa",
-    },
-  ];
-
-  const villaImages = villa?.name?.includes("2-Bedroom")
-    ? twoBedroomVilla
-    : threeBedroomVilla;
-
-  const handleCloseModal = () => {
-    setIsGalleryOpen(false);
-  };
-
-  const handleViewGalleryClick = () => {
-    setActiveTab(
-      villa?.name?.includes("2-Bedroom") ? "twoBedroom" : "threeBedroom"
-    );
-    setIsGalleryOpen(true);
-  };
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     // Initialize additional services with selected: false
@@ -186,8 +84,12 @@ const BookingCard = ({ villa, option, standardPrice }) => {
     rateType = "Non-Refundable",
   } = villa || {};
 
-  const handleImageClick = (image) => {
-    setIsGalleryOpen(false);
+  const handleViewGalleryClick = () => {
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
   };
 
   return (
@@ -309,14 +211,7 @@ const BookingCard = ({ villa, option, standardPrice }) => {
       </div>
 
       {/* Gallery Modal */}
-      <VillaGalleryModal
-        isOpen={isGalleryOpen}
-        onClose={handleCloseModal}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        villaImages={{ [activeTab]: villaImages }}
-        onImageClick={handleImageClick}
-      />
+      <GalleryModal open={open} setOpen={setOpen} onClose={handleCloseModal} />
     </div>
   );
 };

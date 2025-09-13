@@ -3,56 +3,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import VillaGalleryModal from "../gallery-modal";
+import GalleryModal from "../modals/gallery1-modal";
 
 const ResortBookingVillaTwo = () => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("twoBedroom");
+  const [open, setOpen] = useState(false);
 
   const images = [
-    {
-      src: "/assets/images/bedroomVilla/bedroom29.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom32.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom33.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom34.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom4.webp",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom35.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom10.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom12.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom14.jpg",
-      alt: "2 Bedroom Villa",
-    },
-    {
-      src: "/assets/images/bedroomVilla/bedroom28.webp",
-      alt: "2 Bedroom Villa",
-    },
-  ];
-
-  const modalImages = [
     {
       src: "/assets/images/bedroomVilla/bedroom29.jpg",
       alt: "2 Bedroom Villa",
@@ -99,7 +55,7 @@ const ResortBookingVillaTwo = () => {
   useEffect(() => {
     const handleEscKey = (event) => {
       if (event.key === "Escape") {
-        setIsGalleryOpen(false);
+        setOpen(false);
       }
     };
 
@@ -108,21 +64,11 @@ const ResortBookingVillaTwo = () => {
   }, []);
 
   const handleViewGalleryClick = () => {
-    setIsGalleryOpen(true);
+    setOpen(true);
   };
 
   const handleCloseModal = () => {
-    setIsGalleryOpen(false);
-  };
-
-  const handleImageClick = (image) => {
-    // Optional: Handle image click if needed (e.g., open full-screen view)
-    setIsGalleryOpen(false);
-  };
-
-  // Structure images for VillaGalleryModal (single tab for 2 Bedroom Villa)
-  const villaImages = {
-    twoBedroom: modalImages, // keep objects, not only src
+    setOpen(false);
   };
 
   return (
@@ -130,6 +76,7 @@ const ResortBookingVillaTwo = () => {
       <h2 className="text-6xl font-[600] text-[#514941] font-cormorant max-md:text-4xl">
         2 Bedroom Villa
       </h2>
+
       <div className="flex gap-4">
         <Link href="/2-bedroom-villa">
           <button className="font-bold text-sm border-b-2 border-black">
@@ -143,6 +90,8 @@ const ResortBookingVillaTwo = () => {
           View Gallery
         </button>
       </div>
+
+      {/* Static Grid Images */}
       <div className="grid grid-cols-5 max-2xl:grid-cols-4 max-xl:grid-cols-3 gap-2 mt-10 max-md:mt-5 max-md:grid-cols-2">
         {images.map((img, index) => (
           <div
@@ -163,15 +112,9 @@ const ResortBookingVillaTwo = () => {
           </div>
         ))}
       </div>
+
       {/* Modal Gallery */}
-      <VillaGalleryModal
-        isOpen={isGalleryOpen}
-        onClose={handleCloseModal}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        villaImages={villaImages}
-        onImageClick={handleImageClick}
-      />
+      <GalleryModal open={open} setOpen={setOpen} images={images} onClose={handleCloseModal} />
     </div>
   );
 };

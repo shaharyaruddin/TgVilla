@@ -38,7 +38,7 @@ const page = async () => {
         <TestimonialLoopSection />
       </div> */}
 
-      <ResortTestimonials bgColor="#F4F4EA" showButton={false} />
+      <ResortTestimonials bgColor="#F4F4EA" showButton={true} />
 
       <VillaDetails />
       <BedroomSection />

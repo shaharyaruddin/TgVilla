@@ -15,22 +15,24 @@ import ResortTestimonials from "@/components/resort/ResortTestimonials";
 import SearchSection from "@/components/home/search-section/SearchSection";
 
 const page = async () => {
-    const villaNumber = 2;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/get-villa/${villaNumber}`, {
-    cache: "no-store",
-  });
+  const villaNumber = 2;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/user/get-villa/${villaNumber}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   const data = await res.json();
   const villa = data.villa;
-  console.log("villa 2  =========>", villa);
- 
+  // console.log("villa 2  =========>", villa);
+
   if (!villa) return <Loading />;
   return (
     <>
       <DetailTopSection />
       {/* <RoomSection /> */}
-      <BannerSection villa={villa} villaNumber={villaNumber}/>
-
+      <BannerSection villa={villa} villaNumber={villaNumber} />
 
       <ImageSection />
       <IconSection />
@@ -38,7 +40,7 @@ const page = async () => {
         <TestimonialLoopSection />
       </div> */}
 
-      <ResortTestimonials bgColor="#F4F4EA" showButton={false} />
+      <ResortTestimonials bgColor="#F4F4EA" showButton={true} />
 
       <VillaDetails />
       <BedroomSection />

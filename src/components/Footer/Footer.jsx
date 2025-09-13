@@ -15,7 +15,9 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
+                <Link href="/bookings">
                 » Booking Changes, <br /> Cancellations & Terms
+                </Link>
               </li>
               <li>» Privacy and Policy</li>
               <li>» Airbnb.com</li>

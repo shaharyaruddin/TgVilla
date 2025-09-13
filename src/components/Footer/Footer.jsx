@@ -28,10 +28,30 @@ const Footer = () => {
               Menu
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>» TG Resort</li>
-              <li>» TG Residences</li>
-              <li>» Services</li>
-              <li>» About Us</li>
+              <li>
+                »{" "}
+                <Link href="/resort" className="hover:underline">
+                  TG Resort
+                </Link>
+              </li>
+              <li>
+                »{" "}
+                <Link href="/residence" className="hover:underline">
+                  TG Residences
+                </Link>
+              </li>
+              <li>
+                »{" "}
+                <Link href="/services" className="hover:underline">
+                  Services
+                </Link>
+              </li>
+              <li>
+                »{" "}
+                <Link href="/about" className="hover:underline">
+                  About Us
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

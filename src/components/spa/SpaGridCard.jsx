@@ -15,7 +15,7 @@ const SpaGridCard = ({ subTitle, text, image, index }) => {
         />
       </div>
       <div className="min-h-[3.5rem] flex justify-center items-center">
-        <p className="font-crimson-text text-gray-600 font-[600] text-center text-lg max-2xl:text-base">
+        <p className="font-crimson-text font-[600] text-center text-lg max-2xl:text-base">
           {text}
         </p>
       </div>

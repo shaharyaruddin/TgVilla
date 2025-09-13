@@ -6,7 +6,7 @@ const SpaGridCard = ({ subTitle, text, image, index }) => {
       data-aos-delay={index * 200} 
       data-aos-duration="400" 
     >
-      <h3 className="font-crimson-text">{subTitle}</h3>
+      <h3 className="font-crimson-text font-[600]">{subTitle}</h3>
       <div className="max-h-[13rem] mt-4 w-full">
         <img
           src={image}
@@ -14,8 +14,8 @@ const SpaGridCard = ({ subTitle, text, image, index }) => {
           alt={text}
         />
       </div>
-      <div className="min-h-[3.5rem] flex items-center">
-        <p className="font-crimson-text text-gray-600 text-lg max-2xl:text-base">
+      <div className="min-h-[3.5rem] flex justify-center items-center">
+        <p className="font-crimson-text text-gray-600 font-[600] text-center text-lg max-2xl:text-base">
           {text}
         </p>
       </div>

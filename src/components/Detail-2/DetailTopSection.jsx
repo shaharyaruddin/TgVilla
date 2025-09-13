@@ -23,9 +23,9 @@ const DetailTopSection = () => {
               world-class hospitality. Our work blends architectural excellence
               with regal sophistication.
             </p>
-            <button className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 w-fit bg-white text-black rounded-3xl shadow-lg hover:bg-gray-200 transition duration-300 text-sm sm:text-base">
+            {/* <button className="mt-6 sm:mt-8 px-4 sm:px-6 py-2 sm:py-3 w-fit bg-white text-black rounded-3xl shadow-lg hover:bg-gray-200 transition duration-300 text-sm sm:text-base">
               Explore →
-            </button>
+            </button> */}
           </div>
 
           {/* Right Side Marquee Slider */}

@@ -109,22 +109,29 @@ const Navbar = () => {
       </div>
 
       {/* mobile dropdown */}
-      <div
-        className={`lg:hidden transition-all duration-300 ease-in-out px-3 overflow-hidden ${
-          isOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
-        }`}
-      >
-        <ul className="flex flex-col gap-4 text-base font-semibold text-gray-700 pb-4">
-          {LINKS.map((link, i) => (
-            <NavLinks key={i} href={link.href} name={link.name} />
-          ))}
-          <Link href="/bookings">
-            <button className="mt-2 bg-app-yellow w-full rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
-              Book Now
-            </button>
-          </Link>
-        </ul>
-      </div>
+     {/* mobile dropdown */}
+<div
+  className={`lg:hidden transition-all duration-300 ease-in-out px-3 overflow-hidden ${
+    isOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
+  }`}
+>
+  <ul className="flex flex-col gap-4 text-base font-semibold text-gray-700 pb-4">
+    {LINKS.map((link, i) => (
+      <NavLinks
+        key={i}
+        href={link.href}
+        name={link.name}
+        onClick={() => setIsOpen(false)} // 👈 close on click
+      />
+    ))}
+    <Link href="/bookings" onClick={() => setIsOpen(false)}>
+      <button className="mt-2 bg-app-yellow w-full rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+        Book Now
+      </button>
+    </Link>
+  </ul>
+</div>
+
     </div>
   );
 };

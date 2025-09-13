@@ -40,14 +40,14 @@ export default function PropertyDetail() {
   return (
     <div className="bg-[#F4F4EA]">
       <div className="max-w-7xl mx-auto px-3 md:px-0">
-        <h1 className="text-3xl md:text-4xl font-semibold font-cormorant  mb-4">
+        <h1 className="text-3xl md:text-4xl font-semibold font-cormorant mb-4">
           Property Details
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10">
           {propertyDetails.map((item, index) => (
             <div
               key={index}
-              className={`relative group bg-[#E5E7EB] p-4 h-64 flex flex-col justify-between overflow-hidden rounded-md shadow-sm`}
+              className="relative group bg-[#E5E7EB] p-4 h-64 flex flex-col justify-between overflow-hidden rounded-md shadow-sm"
             >
               <img
                 src={item.image}
@@ -57,11 +57,15 @@ export default function PropertyDetail() {
 
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative z-10 py-3 flex flex-col h-full justify-between">
-                <h2 className=" text-gray-800 text-lg group-hover:text-white transition-colors duration-500">
+              {/* Title Center */}
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <h2 className="text-gray-800 text-lg font-medium group-hover:text-white transition-colors duration-500">
                   {item.title}
                 </h2>
+              </div>
 
+              {/* Description Bottom */}
+              <div className="relative z-10 mt-auto">
                 <p className="text-sm text-gray-600 group-hover:opacity-0 transition-opacity duration-500">
                   {item.value}
                 </p>

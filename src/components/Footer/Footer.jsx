@@ -42,7 +42,7 @@ const Footer = () => {
               </li>
               <li>
                 »{" "}
-                <Link href="/services" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   Services
                 </Link>
               </li>

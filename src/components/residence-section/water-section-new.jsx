@@ -74,7 +74,7 @@ const WaterSectionNew = () => {
           <section
             key={index}
             ref={(el) => (sectionsRef.current[index] = el)}
-            className="h-screen flex flex-col md:flex-row absolute"
+            className="h-screen pt-[5%] flex flex-col md:flex-row absolute"
           >
             {/* Left Content */}
             <div className="flex-1 bg-[#F8F6F0] flex flex-col justify-center pr-0 md:pr-10">

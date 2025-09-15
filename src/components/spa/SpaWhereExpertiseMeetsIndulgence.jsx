@@ -52,10 +52,12 @@ const SpaWhereExpertiseMeetsIndulgence = () => {
               Professionals You Can Trust
             </h2>
             <p>
-              At Vistiq, our team consists of highly trained, certified spa and
-              wellness professionals. From licensed massage therapists to expert
-              estheticians, every practitioner is hand-selected for their skill,
-              experience, and intuitive care.
+              Every guest is cared for by seasoned professionals who blend
+              expertise with genuine hospitality. Our staff is dedicated to
+              delivering exceptional service, ensuring that your stay is not
+              only comfortable but also unforgettable. From personalized
+              attention to world-class amenities, you can relax knowing you are
+              in trusted hands.
             </p>
           </div>
         </div>
@@ -76,16 +78,15 @@ const SpaWhereExpertiseMeetsIndulgence = () => {
           <div className="">
             <h3 className="font-cormorant text-3xl mb-4">Community Love</h3>
             <p className="">
-              Vistiq is more than a spa — it’s a part of our clients’ self-care
-              rituals. From first-time guests to loyal regulars, our community
-              keeps coming back for the warmth, the care, and the calm.
+              Our guests return not just for the treatments, but for the warmth,
+              care, and calm that make every visit feel like home.
             </p>
           </div>
         </div>
 
-        <div className="bg-[linear-gradient(to_bottom,white,transparent),url('/images/flower.avif')] via-transparent bg-center bg-cover bg-no-repeat h-full rounded-2xl flex justify-center items-center text-center flex-col font-outfit space-y-1 p-2 max-xl:col-span-2 max-md:col-span-1 max-md:min-h-[13rem]">
-          <h3>Our Promise to You</h3>
-          <h2>
+        <div className="bg-[linear-gradient(to_bottom,white,transparent),url('/images/flower.avif')] bg-center bg-cover bg-no-repeat h-full rounded-2xl flex justify-center items-center text-center flex-col font-outfit space-y-1 p-4 max-xl:col-span-2 max-md:col-span-1 max-md:w-full max-md:aspect-[4/3]">
+          <h3 className="text-lg">Our Promise to You</h3>
+          <h2 className="text-base max-md:text-sm">
             This isn’t just a spa treatment—it’s a reset for your mind, body,
             and soul.
           </h2>

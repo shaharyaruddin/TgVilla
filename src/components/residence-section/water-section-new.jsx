@@ -41,7 +41,7 @@ const WaterSectionNew = () => {
         end: () => `+=${cards.length * 50}%`,
         scrub: 1, // ✅ smooth scrub
         pin: true,
-        markers: true,
+        markers: false,
       },
     });
 

@@ -38,11 +38,10 @@ const WaterSectionNew = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
-        end: () => `+=${cards.length * 100}%`,
+        end: () => `+=${cards.length * 50}%`,
         scrub: 1, // ✅ smooth scrub
         pin: true,
-        anticipatePin: 1,
-        markers: false,
+        markers: true,
       },
     });
 
@@ -61,13 +60,13 @@ const WaterSectionNew = () => {
   }, []);
 
   return (
-    <div className="bg-[#F8F6F0]">
+    <div className="bg-[#F8F6F0] scrollTriggerContainer  min-h-screen " ref={containerRef}>
       <div
-        ref={containerRef}
-        className="max-w-7xl pb-0 md:pb-20 mx-auto min-h-screen relative overflow-hidden px-4 sm:px-6 md:px-16"
+        
+        className="max-w-7xl pb-0 md:pb-20 mx-auto h-full relative overflow-hidden px-4 sm:px-6 md:px-16 "
       >
         {/* Sticky Heading (only once at top) */}
-        <h3 className="text-3xl md:text-4xl w-fit font-cormorant font-semibold text-black sticky top-22 md:top-24 z-20 bg-[#F8F6F0] pb-6">
+        <h3 className="text-3xl md:text-4xl w-fit font-cormorant font-semibold text-black absolute top-22 md:top-24 z-20 bg-[#F8F6F0] pb-6">
           Enjoy the Water Sports
         </h3>
 
@@ -75,7 +74,7 @@ const WaterSectionNew = () => {
           <section
             key={index}
             ref={(el) => (sectionsRef.current[index] = el)}
-            className="md:h-screen h-[90vh] flex flex-col md:flex-row absolute"
+            className="h-screen flex flex-col md:flex-row absolute"
           >
             {/* Left Content */}
             <div className="flex-1 bg-[#F8F6F0] flex flex-col justify-center pr-0 md:pr-10">

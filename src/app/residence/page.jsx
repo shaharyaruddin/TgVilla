@@ -21,7 +21,7 @@ const page = () => {
       <OurService/>
       {/* <ResidenceDetail /> */}
       {/* <WaterSection /> */}
-      <WaterSectionNew />
+      {/* <WaterSectionNew /> */}
       <ResidenceLife />
     </>
   );

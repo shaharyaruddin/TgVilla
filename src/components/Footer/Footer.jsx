@@ -56,7 +56,7 @@ const Footer = () => {
               <li>
                 »{" "}
                 <Link href="/spa" className="hover:underline">
-                  Services
+                  TG Spa Facilities and Wellness
                 </Link>
               </li>
 

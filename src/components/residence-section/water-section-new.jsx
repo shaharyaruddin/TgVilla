@@ -77,9 +77,9 @@ const WaterSectionNew = () => {
             className="h-screen pt-0 lg:pt-[5%] flex flex-col md:flex-row absolute"
           >
             {/* Left Content */}
-            <div className="flex-1 bg-[#F8F6F0] flex flex-col justify-center pr-0 md:pr-10">
+            <div className="flex-1 bg-[#F8F6F0] flex flex-col justify-center pt-10 md:pt-0 pr-0 md:pr-10">
               <div className="max-w-xl px-4 sm:px-6">
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-cormorant font-semibold text-black mb-4">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-cormorant  font-semibold text-black mb-4">
                   {card.title}
                 </h2>
                 <p className="text-gray-700 text-sm sm:text-base md:text-lg font-sans leading-relaxed">

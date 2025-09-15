@@ -21,7 +21,7 @@ const ReviewCards = () => {
             heading="Airbnb.com"
             title="Guest Favourite"
             description="According to guests"
-            percent={"5%"}
+            percent={"1%"}
             outOf="Top"
 
           />

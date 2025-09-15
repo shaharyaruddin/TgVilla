@@ -130,7 +130,7 @@ const TgDetails = () => {
     <div className="max-width mx-auto px-3 lg:px-12 w-full bg-[#E8E4D9]">
       <div className="flex flex-col md:flex-row justify-between gap-10">
         {/* Left Side - Text Content */}
-        <div className=" p-9 w-full md:w-1/2 space-y-4" ref={textContainer}>
+        <div className="p-3 lg:p-9 w-full md:w-1/2 space-y-4" ref={textContainer}>
           <h1 className="text-4xl font-bold font-playfair">
             Welcome to TG Luxury Villas — Exclusive Private Retreats
           </h1>

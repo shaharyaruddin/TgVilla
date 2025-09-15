@@ -53,6 +53,14 @@ const ResortSecondSection = () => {
       title: "Outdoor Sound System & Exotic Garden Leisure Area",
       desc: "Immerse yourself in a tranquil atmosphere.",
     },
+    {
+      title: "Ping Pong Table",
+      desc: "Stay active and entertained with recreational options.",
+    },
+    {
+      title: "Electric Scooters & Bicycles*",
+      desc: "Explore Limassol with ease and style.",
+    },
   ];
 
   return (
@@ -125,12 +133,12 @@ const ResortSecondSection = () => {
         {/* Overlay */}
         <div
           className="absolute inset-0 bg-black/20 backdrop-blur-xs bg-opacity-50"
-          onClick={closeModal} // 👈 overlay click = close modal
+          onClick={closeModal}
         ></div>
 
         {/* Modal Box */}
         <div
-          onClick={(e) => e.stopPropagation()} // 👈 andar click karne pe close na ho
+          onClick={(e) => e.stopPropagation()}
           className={`relative bg-[#FFFFFF] max-w-[60%] max-lg:max-w-[80%] max-sm:max-w-[90%] max-md:px-5 max-md:py-5 w-full px-10 py-10 rounded-lg shadow-lg transform transition-transform duration-300 ease-out ${
             isModalOpen ? "scale-100" : "scale-0"
           }`}
@@ -148,6 +156,16 @@ const ResortSecondSection = () => {
                 <span>{item.desc}</span>
               </div>
             ))}
+
+            <div className="font-outfit">
+              Book your stay today and experience the best private villa rental
+              in Cyprus. <br />
+              Indulge in a fully private, high-end villa experience where every
+              detail is designed for your comfort and relaxation. Whether you're
+              seeking a romantic retreat, a wellness getaway, or a luxurious
+              family escape, TG Luxury Villas offers a refined setting for
+              unforgettable moments.
+            </div>
           </div>
           <button
             onClick={closeModal}

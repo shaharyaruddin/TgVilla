@@ -64,7 +64,7 @@ export const AirbnbBrandSmall = () => {
           <p className="text-[#ff385c] text-xs font-bold">Airbnb.com</p>
         </div>
         <div className="flex flex-col justify-center items-center w-10 h-10 bg-[#ff385c] rounded-md text-white">
-          <p className="text-base font-bold">5%</p>
+          <p className="text-base font-bold">1%</p>
           <p className="text-[6px]">Top</p>
         </div>
       </div>

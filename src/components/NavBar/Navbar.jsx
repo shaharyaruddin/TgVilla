@@ -65,7 +65,7 @@ const Navbar = () => {
   return (
     <div
       ref={navbarRef}
-      className="w-full fixed backdrop-blur-[3px] top-0 left-0 z-50"
+      className="w-full fixed backdrop-blur-[3px] top-0 left-0 z-[999]"
     >
       {/* NAV CONTAINER */}
       <div className="max-width flex justify-between items-center px-10 max-h-[4.5rem] overflow-hidden py-4 relative max-md:px-4">

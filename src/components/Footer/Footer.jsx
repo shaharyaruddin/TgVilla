@@ -15,13 +15,24 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/bookings">
-                » Booking Changes, <br /> Cancellations & Terms
+                <Link href="/terms">
+                  » Booking Changes, <br /> Cancellations & Terms
                 </Link>
               </li>
-              <li>» Privacy and Policy</li>
-              <li>» Airbnb.com</li>
-              <li>» Booking.com</li>
+
+              <li>
+                <Link href="/privacy">» Privacy and Policy</Link>
+              </li>
+              <li>
+                <Link href="https://www.airbnb.com/users/show/590548157">
+                  » Airbnb.com
+                </Link>
+              </li>
+              <li className="">
+                <Link href="https://www.booking.com/hotel/cy/new-luxury-2-bedroom-house-heated-salty-swimming-pool-sauna-and-garden.en-gb.html?label=gen173nr-1BCAsoOUJGbmV3LWx1eHVyeS0yLWJlZHJvb20taG91c2UtaGVhdGVkLXNhbHR5LXN3aW1taW5nLXBvb2wtc2F1bmEtYW5kLWdhcmRlbkgzWARoOYgBAZgBCbgBGMgBD9gBAegBAYgCAagCBLgCn9rlwQbAAgHSAiQ1MDkyYmE4MS0xMGNlLTRjZGUtYmY3OS1hMGJlZGVhZjM0Y2TYAgXgAgE&sid=9e24681f85baa197b4bc0d33a6fbed63&dist=0&keep_landing=1&sb_price_type=total&type=total&">
+                  »Booking.com
+                </Link>
+              </li>
             </ul>
           </div>
           {/* Menu Section */}
@@ -44,10 +55,11 @@ const Footer = () => {
               </li>
               <li>
                 »{" "}
-                <Link href="/" className="hover:underline">
+                <Link href="/spa" className="hover:underline">
                   Services
                 </Link>
               </li>
+
               <li>
                 »{" "}
                 <Link href="/about" className="hover:underline">

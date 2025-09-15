@@ -123,7 +123,7 @@ const PosterAnimation = () => {
           ) : (
             <div className="relative w-full h-screen video-container">
               {/* Overlay */}
-              <div className="hidden md:block absolute inset-0 bg-black/30 z-10" />
+              <div className="absolute inset-0 bg-black/30 z-10" />
 
               {/* Video Background */}
               {/* <video

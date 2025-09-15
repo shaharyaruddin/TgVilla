@@ -68,17 +68,17 @@ const BrandName = () => {
     <div className="h-screen center relative max-width brand-container">
       <BrandNameToolTip
         className={
-          "top-[10%] left-[17%] brand-tooltip lg:top-[10%] lg:left-[2%]"
+          "top-[10%] left-[2%] brand-tooltip lg:top-[10%] lg:left-[2%]"
         }
         lineClassName="hidden lg:block rotate-[300deg] tooltip-line"
       />
       <BrandNameToolTip
         tooltip={{
-          title: "Private & Secure Stay",
+          title: "Private & Secure Stay test",
           imagePath: "/assets/icon/point/Private.png",
         }}
         className={
-          "top-[2%] left-[48%] brand-tooltip lg:top-[2%] lg:left-[58%]"
+          "top-[2%] left-[2%] brand-tooltip lg:top-[2%] lg:left-[58%]"
         }
         lineClassName="hidden min-h-12! lg:block rotate-0 lg:rotate-[0deg] tooltip-line"
       />
@@ -88,20 +88,21 @@ const BrandName = () => {
           imagePath: "/assets/icon/point/ulta-luxurious.png",
         }}
         className={
-          "top-[20%] max-md:top-[27%] left-[32%] brand-tooltip lg:top-[1%] lg:left-[26%]"
+          "top-[20%] max-md:top-[27%] left-[2%] brand-tooltip lg:top-[1%] lg:left-[26%]"
         }
         lineClassName="hidden min-h-12! lg:block rotate-[0deg] tooltip-line"
       />
-      <BrandNameToolTip
-        tooltip={{
-          title: "Fully Equipped Gourmet Kitchen",
-          imagePath: "/assets/icon/point/fully-equipped.png",
-        }}
-        className={
-          "top-[18%] right-[3%] brand-tooltip lg:top-[13%] lg:right-[3.5%]"
-        }
-        lineClassName="hidden lg:block rotate-[60deg] tooltip-line"
-      />
+     <BrandNameToolTip
+  tooltip={{
+    title: "Fully Equipped Gourmet Kitchen",
+    imagePath: "/assets/icon/point/fully-equipped.png",
+  }}
+  className="
+    top-[18%] left-[2%] brand-tooltip
+    lg:top-[13%] lg:right-[3.5%] lg:left-auto
+  "
+  lineClassName="hidden lg:block rotate-[60deg] tooltip-line"
+/>
       <BrandNameToolTip
         tooltip={{
           title: "Private Spa & Wellness",

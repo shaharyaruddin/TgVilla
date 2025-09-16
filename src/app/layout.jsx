@@ -7,9 +7,12 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/NavBar/Navbar";
-import Footer from "@/components/Footer/Footer";
+// import Footer from "@/components/Footer/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import AppProviders from "@/contexts/app-providers";
+import localFont from "next/font/local";
+
+import Footer from "@/components/Footer-2/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -41,6 +44,11 @@ export const metadata = {
   title: "TG Luxury Stay",
   description: "",
 };
+
+// const estancia = localFont({
+//   src: "/assets/fonts/Estancia.otf",
+//   variable: "--font-estancia",
+// });
 
 export default function RootLayout({ children }) {
   return (

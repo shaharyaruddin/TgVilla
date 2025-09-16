@@ -12,6 +12,7 @@ import WaterSection from "@/components/residence-section/WaterSection";
 import ResortBookingVillaThree from "@/components/resort/ResortBookingVillaThree";
 import ResortBookingVillaTwo from "@/components/resort/ResortBookingVillaTwo";
 import ResortFiveSection from "@/components/resort/ResortFiveSection";
+import ResortFourthSection from "@/components/resort/ResortFourthSection";
 import React from "react";
 
 const page = () => {
@@ -24,6 +25,7 @@ const page = () => {
       {/* <ResidenceDetail /> */}
       {/* <WaterSection /> */}
       {/* <WaterSectionNew /> */}
+      <ResortFourthSection heading="Apartment details at a Glance" />
 
       <ResortFiveSection />
       <ResortBookingVillaTwo />

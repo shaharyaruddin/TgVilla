@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 
-const ResortFourthSection = () => {
+const ResortFourthSection = ({heading}) => {
   const villaDetails = [
     {
       title: "5-Star Hotel Services & Facilities",
@@ -107,7 +107,7 @@ const ResortFourthSection = () => {
       {/* right */}
       <div className="col-span-2 pl-10 max-lg:pl-5 max-md:pl-0 max-md:col-span-1 max-md:mt-10">
         <h2 className="text-5xl max-md:text-4xl font-bold font-cormorant mb-5 max-md:mb-2 text-[#514941]">
-          Villa details at a Glance
+          {heading}
         </h2>
         <div
           className="space-y-4 h-[80vh] w-full overflow-y-scroll scroll-smooth mt-10 max-md:mt-5"

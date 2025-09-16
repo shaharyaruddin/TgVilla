@@ -60,7 +60,7 @@ const VillaDetails = () => {
     <div className="bg-[#F4F4EA]">
       <div className="max-w-full md:max-w-[90%] mx-auto px-3 md:px-6 pb-10 md:pb-2">
         <h2 className="md:text-5xl text-4xl font-bold font-cormorant mb-10 text-[#514941]">
-          Apartment details at a glance
+          Villa details at a glance
         </h2>
 
       <div className="divide-y divide-[#DCDAD0] border-b border-[#DCDAD0]">

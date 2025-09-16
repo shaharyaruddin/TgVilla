@@ -144,7 +144,7 @@ const ResortSecondSection = () => {
           }`}
         >
           <h2 className="text-5xl max-md:text-3xl font-bold font-cormorant mb-5">
-            Apartment Details at a Glance
+            Villa Details at a Glance
           </h2>
           <div className="space-y-4 max-h-[70vh] overflow-y-auto">
             {villaDetails.map((item, index) => (

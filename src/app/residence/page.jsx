@@ -9,7 +9,9 @@ import ResidenceLife from "@/components/residence-section/ResidenceLife";
 import ResidenceSection from "@/components/residence-section/ResidenceSection";
 import WaterSectionNew from "@/components/residence-section/water-section-new";
 import WaterSection from "@/components/residence-section/WaterSection";
+import ResortBookingVillaThree from "@/components/resort/ResortBookingVillaThree";
 import ResortBookingVillaTwo from "@/components/resort/ResortBookingVillaTwo";
+import ResortFiveSection from "@/components/resort/ResortFiveSection";
 import React from "react";
 
 const page = () => {
@@ -18,10 +20,15 @@ const page = () => {
       <ResidenceSection />
       <ResidenceBeach />
       <OurVision />
-      <OurService/>
+      <OurService />
       {/* <ResidenceDetail /> */}
       {/* <WaterSection /> */}
       {/* <WaterSectionNew /> */}
+
+      <ResortFiveSection />
+      <ResortBookingVillaTwo />
+      <ResortBookingVillaThree />
+
       <ResidenceLife />
     </>
   );

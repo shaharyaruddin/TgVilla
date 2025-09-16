@@ -77,9 +77,7 @@ const BrandName = () => {
           title: "Private & Secure Stay test",
           imagePath: "/assets/icon/point/Private.png",
         }}
-        className={
-          "top-[2%] left-[2%] brand-tooltip lg:top-[2%] lg:left-[58%]"
-        }
+        className={"top-[2%] left-[2%] brand-tooltip lg:top-[2%] lg:left-[58%]"}
         lineClassName="hidden min-h-12! lg:block rotate-0 lg:rotate-[0deg] tooltip-line"
       />
       <BrandNameToolTip
@@ -92,17 +90,17 @@ const BrandName = () => {
         }
         lineClassName="hidden min-h-12! lg:block rotate-[0deg] tooltip-line"
       />
-     <BrandNameToolTip
-  tooltip={{
-    title: "Fully Equipped Gourmet Kitchen",
-    imagePath: "/assets/icon/point/fully-equipped.png",
-  }}
-  className="
+      <BrandNameToolTip
+        tooltip={{
+          title: "Fully Equipped Gourmet Kitchen",
+          imagePath: "/assets/icon/point/fully-equipped.png",
+        }}
+        className="
     top-[18%] left-[2%] brand-tooltip
     lg:top-[13%] lg:right-[3.5%] lg:left-auto
   "
-  lineClassName="hidden lg:block rotate-[60deg] tooltip-line"
-/>
+        lineClassName="hidden lg:block rotate-[60deg] tooltip-line"
+      />
       <BrandNameToolTip
         tooltip={{
           title: "Private Spa & Wellness",
@@ -138,15 +136,24 @@ const BrandName = () => {
           title: "High-Tech Smart Home & Entertainment",
           imagePath: "/assets/icon/point/high-tech.png",
         }}
-        className={
-          "bottom-[15%] max-[412px]:right-[11%] right-[21%] brand-tooltip lg:bottom-[30%] lg:right-[0%]"
-        }
-        lineClassName="hidden lg:block min-h-20! left-[23%]! top-0! rotate-[120deg] tooltip-line"
+        className="
+    bottom-[15%] 
+    max-[412px]:right-[11%] 
+    right-auto left-[2%] 
+    lg:bottom-[30%] 
+    lg:right-[0%] lg:left-auto 
+    brand-tooltip"
+        lineClassName="
+    hidden lg:block 
+    min-h-20! 
+    left-[23%]! 
+    top-0! 
+    rotate-[120deg] 
+    tooltip-line
+  "
       />
 
       <div className="max-xl:mt-13 max-md:mt-0">
-      
-
         <div className="flex justify-center gap-1  my-2">
           {[...Array(5)].map((_, index) => (
             <Star stroke="0" fill="#D4A017" />
@@ -158,7 +165,7 @@ const BrandName = () => {
             // />
           ))}
         </div>
-  <h2 className="text-center capitalize font-playfair text-lg lg:text-7xl text-[#D4A017]">
+        <h2 className="text-center capitalize font-playfair text-lg lg:text-7xl text-[#D4A017]">
           FIVE - STAR
         </h2>
         <h2 className="capitalize font-playfair text-[10vw] leading-none max-lg:text-[8vw]">

@@ -1,4 +1,5 @@
 import Testimonials from "@/components/home/testimonials/Testimonials";
+import GuestSection from "@/components/resort/GuestSection";
 import AmenitiesSection from "@/components/resort/ResortAmenitiesSection";
 import ResortBookingVillaThree from "@/components/resort/ResortBookingVillaThree";
 import ResortBookingVillaTwo from "@/components/resort/ResortBookingVillaTwo";
@@ -21,6 +22,7 @@ const Resort = () => {
       <ResortFiveSection />
       <ResortBookingVillaTwo />
       <ResortBookingVillaThree />
+      <GuestSection />
       <ResortTestimonials
         bgImage="/assets/images/resort/section2/image-4.webp"
         showButton={true}

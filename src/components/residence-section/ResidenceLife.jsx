@@ -13,7 +13,7 @@ const ResidenceLife = () => {
 
   return (
     <>
-      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center pt-8">
+      <div className="w-full bg-[#EBE7DC] flex flex-col items-center justify-center pt-8">
         {/* Title */}
         <div className="text-center mb-10 ">
           <h1 className="text-4xl md:text-5xl font-medium font-cormorant text-black max-xxl:mt-20">

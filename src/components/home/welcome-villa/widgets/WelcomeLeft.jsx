@@ -15,7 +15,7 @@ const WelcomeLeft = () => {
       right: 0,
       duration: 2,
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,
@@ -28,7 +28,7 @@ const WelcomeLeft = () => {
       opacity:0,
       transformOrigin: "left",
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,

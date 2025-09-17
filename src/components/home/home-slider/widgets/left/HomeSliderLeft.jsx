@@ -112,7 +112,7 @@ const HomeSliderLeft = () => {
           {/* Buttons */}
           <div className="flex gap-4">
             <button
-              className="border rounded-full p-2 px-5 mt-5 font-medium leftToRight"
+              className="border border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight"
               onClick={handleReadMoreClick}
             >
               Read More

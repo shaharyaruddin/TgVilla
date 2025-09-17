@@ -157,7 +157,7 @@ const TgDetails = () => {
             <li>24/7 Hot Water for nonstop comfort</li>
           </ul>
           <button
-            className="border rounded-full p-2 px-5 mt-5 font-medium"
+            className="border border-black rounded-full p-2 px-5 mt-5 font-medium"
             onClick={handleSeeMoreClick}
           >
             See More

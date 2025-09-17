@@ -25,7 +25,7 @@ const Home = () => {
 
       <SearchSection />
       </div>
-      {/* <BestMatch/>
+      <BestMatch/>
       <BookingSection />
       <VillaSection />
       <Roller />
@@ -36,7 +36,7 @@ const Home = () => {
       <FeelingsBalance />
       <HomePosters />
       <BeachSection/>
-     <ResortTestimonials title="HEAR FROM OUR GUESTS" showButton={true} /> */}
+     <ResortTestimonials title="HEAR FROM OUR GUESTS" showButton={true} />
       <PremiumAmenities />
     </div>
   );

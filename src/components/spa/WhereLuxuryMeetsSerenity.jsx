@@ -10,69 +10,77 @@ const WhereLuxuryMeetsSerenity = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const scrollTrigger = {
-      trigger: ".main-container",
-      start: "top top",
-      end: "+=800",
-      scrub: 1,
-      pin: ".main-container",
+    // Create a GSAP context to manage animations
+    const context = gsap.context(() => {
+      const scrollTrigger = {
+        trigger: ".main-container",
+        start: "top top",
+        end: "+=800",
+        scrub: 1,
+        pin: ".main-container",
+      };
+
+      const tl = gsap.timeline({ scrollTrigger });
+
+      tl.from(".aboutAnimate", {
+        scale: 0,
+        duration: 1.5,
+        ease: "power2.out",
+      })
+        .from(
+          ".aboutTopLeft",
+          {
+            top: "-100%",
+            left: "-100%",
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: 0.3,
+          },
+          "-=0.5"
+        )
+        .from(
+          ".aboutTopRight",
+          {
+            top: "-100%",
+            right: "-100%",
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: 0.3,
+          },
+          "-=0.5"
+        )
+        .from(
+          ".aboutBottomLeft",
+          {
+            bottom: "-100%",
+            left: "-100%",
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: 0.3,
+          },
+          "-=0.5"
+        )
+        .from(
+          ".aboutBottomRight",
+          {
+            bottom: "-100%",
+            right: "-100%",
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: 0.3,
+          },
+          "-=0.5"
+        );
+    });
+
+    // Cleanup function to kill animations and ScrollTrigger on unmount
+    return () => {
+      context.revert(); // Reverts all GSAP animations, ScrollTriggers, etc.
     };
-
-    const tl = gsap.timeline({ scrollTrigger });
-
-    tl.from(".aboutAnimate", {
-      scale: 0,
-      duration: 1.5,
-      ease: "power2.out",
-    })
-      .from(
-        ".aboutTopLeft",
-        {
-          top: "-100%",
-          left: "-100%",
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: 0.3,
-        },
-        "-=0.5"
-      )
-      .from(
-        ".aboutTopRight",
-        {
-          top: "-100%",
-          right: "-100%",
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: 0.3,
-        },
-        "-=0.5"
-      )
-      .from(
-        ".aboutBottomLeft",
-        {
-          bottom: "-100%",
-          left: "-100%",
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: 0.3,
-        },
-        "-=0.5"
-      )
-      .from(
-        ".aboutBottomRight",
-        {
-          bottom: "-100%",
-          right: "-100%",
-          opacity: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          delay: 0.3,
-        },
-        "-=0.5"
-      );
   }, []);
 
   return (

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import SpaGridCard from './SpaGridCard';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+
 const SpaCardGridSection = () => {
   const Card = [
     {
@@ -26,6 +27,7 @@ const SpaCardGridSection = () => {
       image: `/images/amenities/private.avif`,
     },
   ];
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       AOS.init({
@@ -35,7 +37,15 @@ const SpaCardGridSection = () => {
         anchorPlacement: 'top-bottom', // Trigger when top of card hits bottom of viewport
       });
     }
+
+    // Cleanup function to destroy AOS on unmount
+    return () => {
+      if (typeof window !== 'undefined') {
+        AOS.destroy(); // Removes AOS event listeners
+      }
+    };
   }, []); // Empty dependency array to run once on mount
+
   return (
     <div className="max-w-7xl mx-auto grid grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1 gap-3 my-10 max-2xl:px-5">
       {Card.map((item, index) => (

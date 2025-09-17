@@ -12,7 +12,7 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import AppProviders from "@/contexts/app-providers";
 import localFont from "next/font/local";
 
-import Footer from "@/components/Footer-2/Footer";
+import Footer from "@/components/Footer/Footer";
 
 const poppins = Poppins({
   subsets: ["latin"],

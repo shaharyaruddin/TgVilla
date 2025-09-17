@@ -38,12 +38,7 @@ const SpaCardGridSection = () => {
       });
     }
 
-    // Cleanup function to destroy AOS on unmount
-    return () => {
-      if (typeof window !== 'undefined') {
-        AOS.destroy(); // Removes AOS event listeners
-      }
-    };
+   
   }, []); // Empty dependency array to run once on mount
 
   return (

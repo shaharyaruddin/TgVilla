@@ -10,7 +10,7 @@ const Footer = () => {
         {/* Left Section - Link and Menu */}
         <div className="flex flex-col lg:flex-row mb-6 lg:mb-0 space-y-6 lg:space-y-0 lg:space-x-12 order-2 lg:order-none">
           {/* Link Section */}
-          <div className="min-h-[15rem] max-md:min-h-[10rem]">
+          <div className="min-h-[15rem] min-w-[75%] max-md:min-h-[10rem]">
             <h3 className="text-app-yellow text-3xl max-md:text-2xl font-playfair mb-6">
               Link
             </h3>
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Menu Section */}
-          <div className="min-h-[15rem] max-md:min-h-[10rem]">
+          <div className="min-h-[15rem] z-10 min-w-[90%] max-md:min-h-[10rem]">
             <h3 className="text-app-yellow text-3xl max-md:text-2xl mb-6 font-playfair">
               Menu
             </h3>

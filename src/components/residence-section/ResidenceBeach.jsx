@@ -5,6 +5,10 @@ import Link from "next/link";
 
 const ResidenceBeach = () => {
   const images = [
+    { src: "/assets/images/beach/newbeach1.jpg", alt: "resort 8" },
+    { src: "/assets/images/beach/newbeach2.jpg", alt: "resort 9" },
+    { src: "/assets/images/beach/newbeach5.jpg", alt: "resort 10" },
+
     { src: "/assets/images/beach/2.jpg", alt: "resort 1" },
     { src: "/assets/images/beach/poster-9.jpeg", alt: "resort 2" },
     { src: "/assets/images/beach/7.jpg", alt: "resort 3" },
@@ -15,7 +19,7 @@ const ResidenceBeach = () => {
 
   return (
     <>
-      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-4 ">
+      <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-0 lg:px-4 ">
         {/* Title */}
         <div className="text-center mt-5 max-md:mt-4">
           <h1 className="font-cormorant  text-4xl md:text-5xl font-medium text-black mt-5">
@@ -61,19 +65,14 @@ const ResidenceBeach = () => {
             and hotel-style services — all crafted for modern travelers seeking
             privacy, comfort, and elegance.
           </p>
- <div className="mt-5 w-full flex justify-center">
-          <Link href="/bookings">
-            <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
-              Book Now
-            </button>
-          </Link>
+          <div className="mt-5 w-full flex justify-center">
+            <Link href="/bookings">
+              <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
+                Book Now
+              </button>
+            </Link>
+          </div>
         </div>
-
-
-        </div>
-
-
-
       </div>
 
       <div className=" ">

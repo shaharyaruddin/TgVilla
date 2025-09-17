@@ -25,7 +25,7 @@ const page = () => {
       {/* <ResidenceDetail /> */}
       {/* <WaterSection /> */}
       {/* <WaterSectionNew /> */}
-      <ResortFourthSection heading="Apartment details at a Glance" />
+      <ResortFourthSection image="/assets/images/beach/newbeach5.jpg" heading="Apartment details at a Glance" />
 
       <ResortFiveSection />
       <ResortBookingVillaTwo />

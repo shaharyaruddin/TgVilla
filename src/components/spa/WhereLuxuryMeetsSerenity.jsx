@@ -115,7 +115,7 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Bottom left */}
-        <div className="absolute aboutBottomLeft bottom-20 left-40 max-md:bottom-20 max-md:left-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
+        <div className="absolute aboutBottomLeft bottom-40 left-40 max-md:bottom-20 max-md:left-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/3.avif"
@@ -125,7 +125,7 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Bottom right */}
-        <div className="absolute aboutBottomRight bottom-20 right-20 max-md:bottom-20 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
+        <div className="absolute aboutBottomRight bottom-40 right-20 max-md:bottom-20 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/4.avif"

@@ -7,28 +7,28 @@ import React from "react";
 const OurVisionLeft = () => {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".welcomeBgImage", {
+    gsap.from(".welcomeBgImage1", {
       top: "53%",
-      opacity:0,
+      opacity: 0,
       scaleX: 0.15,
       transformOrigin: "left",
       right: 0,
       duration: 2,
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,
         // markers: true,
       },
     });
-    gsap.from(".welcomeImage", {
+    gsap.from(".welcomeImage1", {
       scaleX: 0.15,
       duration: 2,
-      opacity:0,
+      opacity: 0,
       transformOrigin: "left",
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,
@@ -40,15 +40,15 @@ const OurVisionLeft = () => {
   return (
     <div className="w-full h-full p-10  px-16 relative max-[51.25em]:min-h-[20rem]! max-[51.25em]:p-0!">
       {/* background */}
-      <div className="bg-[#C8B29C] welcomeBgImage absolute w-[85%] h-[90%] top-[50%] -translate-y-1/2 right-8 max-lg:right-5 max-[51.25em]:hidden"></div>
+      <div className="bg-[#C8B29C] welcomeBgImage1 absolute w-[85%] h-[90%] top-[50%] -translate-y-1/2 right-8 max-lg:right-5 max-[51.25em]:hidden"></div>
       {/* image */}
       <img
-         src="/assets/residence/8.jpg"
+        src="/assets/residence/8.jpg"
         alt="welcome-image"
-        className="absolute w-[85%] welcomeImage  h-[90%] object-cover max-[51.25em]:h-full! max-[51.25em]:w-full! top-[53%] -translate-y-1/2 max-[51.25em]:-translate-y-0 right-0 max-[51.25em]:static!"
+        className="absolute w-[85%] welcomeImage1  h-[90%] object-cover max-[51.25em]:h-full! max-[51.25em]:w-full! top-[53%] -translate-y-1/2 max-[51.25em]:-translate-y-0 right-0 max-[51.25em]:static!"
       />
     </div>
   );
-}
+};
 
-export default OurVisionLeft
+export default OurVisionLeft;

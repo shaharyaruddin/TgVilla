@@ -65,12 +65,12 @@ const ResortSecondSection = () => {
 
   return (
     <div className="">
-      <div className="min-h-screen flex max-md:flex-col-reverse w-full bg-[#F4F4EA] p-20 max-2xl:p-10  max-sm:p-5">
+      <div className="min-h-screen flex max-md:flex-col-reverse w-full bg-[#F4F4EA] p-20 max-2xl:p-10  max-sm:p-0">
         {/* left */}
         <div className="flex flex-col w-1/2 pr-5 max-md:w-full max-md:pr-0">
           {/* content */}
           <div className="w-[80%] font-cormorant mb-10 max-md:mb-5 max-md:text-center max-md:w-full">
-            <h3 className="font-bold text-[3.5vw] text-[#26180F] max-md:text-3xl  leading-none">
+            <h3 className="font-bold text-[3.5vw] text-[#26180F] max-md:text-3xl max-sm:p-5  leading-none">
               Welcome to TG Luxury Villas – Exclusive Private Retreats
             </h3>
           </div>
@@ -97,8 +97,8 @@ const ResortSecondSection = () => {
             </div>
           </div>
           {/* text */}
-          <div className="flex justify-center flex-col my-5 max-sm:mt-3">
-            <h2 className="font-medium text-2xl mb-2 max-sm:text-xl">
+          <div className="flex justify-center flex-col my-5 max-sm:mt-3 max-sm:p-5">
+            <h2 className="font-medium text-2xl mb-2 max-sm:text-xl ">
               Luxury Villas in Limassol – A Private Wellness & Spa Retreat
             </h2>
             <p className="text-lg max-2xl:text-xl max-xl:text-base max-md:text-sm">
@@ -146,7 +146,24 @@ const ResortSecondSection = () => {
           <h2 className="text-5xl max-md:text-3xl font-bold font-cormorant mb-5">
             Villa Details at a Glance
           </h2>
+
           <div className="space-y-4 max-h-[70vh] overflow-y-auto">
+            <div className="font-outfit">
+              Welcome to TG Luxury Villas, your exclusive escape in Limassol,
+              Cyprus. Experience five-star luxury, wellness, and tranquility in
+              a private, high-end villa designed for discerning travelers.{" "}
+              <br />
+              Located just 10 minutes from the beach, our heated saltwater pool,
+              luxury outdoor Jacuzzi, and glass-fronted sauna provide the
+              ultimate spa-like experience. Whether you're seeking a romantic
+              getaway, a family retreat, or a wellness escape, our luxury Cyprus
+              villas redefine indulgence.
+              <br /> Enjoy boutique hotel-style services, including daily
+              cleaning, private yoga sessions, premium bath amenities, and smart
+              home technology—all wrapped in an atmosphere of exclusivity and
+              comfort.
+              <br />
+            </div>
             {villaDetails.map((item, index) => (
               <div
                 key={index}

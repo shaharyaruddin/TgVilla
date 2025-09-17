@@ -8,12 +8,12 @@ const OurVisionRight = () => {
  
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".welcomeRightSection", {
+    gsap.from(".welcomeRightSection1", {
       scale: 0.5,
       duration: 2,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,
@@ -24,7 +24,7 @@ const OurVisionRight = () => {
   return (
     //OLD COLOR bg-[#F2F2F2]
 
-    <div className="w-full h-full welcomeRightSection origin-bottom-right  flex items-center pr-10 max-lg:pr-6 max-[51.25em]:pr-0!">
+    <div className="w-full h-full welcomeRightSection1 origin-bottom-right  flex items-center pr-10 max-lg:pr-6 max-[51.25em]:pr-0!">
       <div className="min-h-[35rem] max-xl:min-h-[25rem] max-[51.25em]:min-h-full! bg-[#F2EFE7] w-full center-column items-start! p-10 space-y-5 max-xl:p-6 max-lg:space-y-3">
         <h2 className="font-playfair text-5xl max-xl:text-4xl max-lg:text-3xl capitalize">
           tg residence

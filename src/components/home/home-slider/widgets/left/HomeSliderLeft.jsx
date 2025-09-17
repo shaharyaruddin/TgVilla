@@ -5,44 +5,14 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HomeSliderPera from "./widgets/HomeSliderPera";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Image paths for 2 Bedroom and 3 Bedroom Villas
-const villaImages = {
-  twoBedroom: [
-    "/assets/images/bedroomVilla/bedroom1.jpg",
-    "/assets/images/bedroomVilla/bedroom2.jpg",
-    "/assets/images/bedroomVilla/bedroom4.webp",
-    "/assets/images/bedroomVilla/bedroom6.jpg",
-    "/assets/images/bedroomVilla/bedroom5.jpg",
-    "/assets/images/bedroomVilla/bedroom7.jpg",
-    "/assets/images/bedroomVilla/bedroom8.jpg",
-  ],
-  threeBedroom: [
-    "/assets/images/bedroomvilla-3/bedroom1.jpg",
-    "/assets/images/bedroomvilla-3/bedroom2.jpg",
-    "/assets/images/bedroomvilla-3/bedroom3.jpg",
-    "/assets/images/bedroomvilla-3/bedroom4.jpg",
-    "/assets/images/bedroomvilla-3/bedroom5.webp",
-    "/assets/images/bedroomvilla-3/bedroom6.webp",
-    "/assets/images/bedroomvilla-3/bedroom7.jpg",
-    "/assets/images/bedroomvilla-3/bedroom8.jpg",
-    "/assets/images/bedroomvilla-3/bedroom9.jpg",
-    "/assets/images/bedroomvilla-3/bedroom10.jpg",
-    "/assets/images/bedroomvilla-3/bedroom11.jpg",
-    "/assets/images/bedroomvilla-3/bedroom12.webp",
-    "/assets/images/bedroomvilla-3/bedroom13.jpg",
-    "/assets/images/bedroomvilla-3/bedroom14.jpg",
-  ],
-};
-
 const HomeSliderLeft = () => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("twoBedroom");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("Bedroom 1");
 
   // GSAP for main content animation only
   useGSAP(() => {
@@ -58,59 +28,63 @@ const HomeSliderLeft = () => {
         start: "top center",
         end: "center center",
         scrub: 1,
-        // markers: true
       },
     });
   }, []);
 
-  // GSAP for modal animation (only for modal entrance)
-  useGSAP(() => {
-    if (isGalleryOpen) {
-      gsap.from(".modal", {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      });
-    }
-  }, [isGalleryOpen]);
-
-  // Handle ESC key press to close modal
-  useEffect(() => {
-    const handleEscKey = (event) => {
-      if (event.key === "Escape") {
-        setIsGalleryOpen(false);
-        setSelectedImage(null);
-      }
-    };
-
-    document.addEventListener("keydown", handleEscKey);
-    return () => document.removeEventListener("keydown", handleEscKey);
-  }, []);
-
-  const handleSeeMoreClick = () => {
-    setIsGalleryOpen(true);
+  const handleReadMoreClick = () => {
+    setActiveTab("Bedroom 1");
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    setIsGalleryOpen(false);
-    setSelectedImage(null);
+    setIsModalOpen(false);
   };
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-  };
-
-  const getRelatedImages = (currentImage) => {
-    const currentIndex = villaImages[activeTab].indexOf(currentImage);
-    const related = villaImages[activeTab].filter(
-      (img, idx) => idx !== currentIndex
-    );
-    return related.slice(0, 4);
+  const modalContent = {
+    "Bedroom 1": {
+      features: [
+        "King Size Bed",
+        "Sofa Bed",
+        "Air Conditioner",
+        "Bed linens",
+        "Clothing storage",
+        "Private Bathroom",
+      ],
+      images: [
+        "/assets/images/bedroomVilla/bedroom2.jpg",
+        "/assets/resort/7.jpg",
+        "/assets/resort/8.jpg",
+      ],
+    },
+    "Bedroom 2": {
+      features: [
+        "Queen Size Bed",
+        "Air Conditioner",
+        "Bed linens",
+        "Clothing storage",
+        "Private Bathroom",
+      ],
+      images: [
+        "/assets/resort/5.jpg",
+        "/assets/resort/8.jpg",
+        "/assets/resort/9.jpg",
+      ],
+    },
+    "Sofa bed": {
+      features: [
+        "Sofa Bed",
+        "Air Conditioner",
+        "Bed linens",
+        "Clothing storage",
+        "Private Bathroom",
+      ],
+      images: [
+        "/assets/resort/6.jpg",
+        "/assets/resort/4.jpg",
+        "/assets/resort/7.jpg",
+      ],
+    },
   };
 
   return (
@@ -134,148 +108,106 @@ const HomeSliderLeft = () => {
             offer both tranquil relaxation and easy access to Cyprus's finest
             beaches, restaurants, and nightlife.
           </HomeSliderPera>
-          <button
-            className="border rounded-full p-2 px-5 mt-5 font-medium leftToRight"
-            onClick={handleSeeMoreClick}
-          >
-            See More
-          </button>
-        </div>
-      </div>
 
-      {/* Modal Gallery */}
-      {isGalleryOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
-          onClick={handleCloseModal}
-        >
-          <div
-            className="bg-white p-6 rounded-lg w-[85%] max-w-5xl max-h-[80vh] overflow-y-auto modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="font-playfair text-2xl">Villa Gallery</h2>
-              <button
-                className="text-gray-600 hover:text-gray-800 font-bold"
-                onClick={handleCloseModal}
-              >
-                ✕
-              </button>
-            </div>
-            {/* Tabs */}
-            <div className="flex justify-center space-x-4 mb-6">
-              <button
-                className={`text-xs md:text-base px-4 py-2 font-medium rounded-lg transition-colors duration-300 ${
-                  activeTab === "twoBedroom"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-                onClick={() => handleTabClick("twoBedroom")}
-              >
-                2 Bedroom Villa
-              </button>
-              <button
-                className={`text-xs md:text-base px-4 py-2 font-medium rounded-lg transition-colors duration-300 ${
-                  activeTab === "threeBedroom"
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-                onClick={() => handleTabClick("threeBedroom")}
-              >
-                3 Bedroom Villa
-              </button>
-            </div>
-            {/* Image Gallery */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {villaImages[activeTab].map((image, index) => (
-                <div key={`${activeTab}-${index}`}>
-                  <img
-                    src={image}
-                    alt={`${activeTab} Villa ${index + 1}`}
-                    className="w-full h-64 object-cover rounded-lg shadow-md cursor-pointer"
-                    onClick={() => {
-                      handleImageClick(image);
-                      setIsGalleryOpen(false); // Close modal when clicking an image
-                    }}
-                    onError={() =>
-                      console.error(`Failed to load image: ${image}`)
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Full-Screen Image Slider Overlay */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-[60]"
-          onClick={handleCloseModal}
-        >
-          <div
-            className="relative w-full max-w-[90%] max-h-[80vh] flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Swiper
-              modules={[Navigation, Pagination]}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              }}
-              pagination={{ clickable: true }}
-              spaceBetween={10}
-              slidesPerView={1}
-              centeredSlides={true}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-              className="w-full h-full flex items-center justify-center"
-            >
-              {villaImages[activeTab].map((image, index) => (
-                <SwiperSlide key={`${activeTab}-swiper-${index}`}>
-                  <img
-                    src={image}
-                    alt={`${activeTab} Villa ${index + 1}`}
-                    className="max-w-full max-h-[80vh] object-contain mx-auto"
-                    onError={() =>
-                      console.error(`Failed to load swiper image: ${image}`)
-                    }
-                  />
-                </SwiperSlide>
-              ))}
-              {/* Custom Navigation Buttons */}
-              <div className="swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/80 transition-all z-[70]" />
-              <div className="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-black/80 transition-all z-[70]" />
-            </Swiper>
-            {/* Close Button */}
+          {/* Buttons */}
+          <div className="flex gap-4">
             <button
-              className="absolute top-4 right-4 bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-black/80 transition-all z-[80] font-bold text-lg"
-              onClick={handleCloseModal}
+              className="border rounded-full p-2 px-5 mt-5 font-medium leftToRight"
+              onClick={handleReadMoreClick}
             >
-              ✕
+              Read More
             </button>
           </div>
-          {/* Related Images */}
-          <div className="absolute bottom-4 grid grid-cols-4 gap-2 p-4 bg-black/50 z-[100] rounded-lg">
-            {getRelatedImages(selectedImage).map((image, index) => (
-              <img
-                key={`${activeTab}-related-${index}`}
-                src={image}
-                alt={`Related ${activeTab} Villa ${index + 1}`}
-                className="w-20 h-20 object-cover rounded-md cursor-pointer"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setSelectedImage(image);
-                }}
-                onError={() =>
-                  console.error(`Failed to load related image: ${image}`)
-                }
-              />
-            ))}
-          </div>
         </div>
-      )}
+
+        {/* Modal */}
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
+            onClick={handleCloseModal}
+          >
+            <div
+              className="bg-white rounded-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 shadow-2xl transform transition-all duration-300 ease-in-out hover:shadow-xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex bg-gray-100 p-2 rounded-lg justify-around mb-6">
+                {Object.keys(modalContent).map((tab) => (
+                  <button
+                    key={tab}
+                    className={`px-6 py-2 text-sm font-medium ${
+                      activeTab === tab
+                        ? "bg-white rounded-md shadow-md text-gray-800"
+                        : "text-gray-500 hover:text-gray-800"
+                    } transition-colors duration-200`}
+                    onClick={() => setActiveTab(tab)}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="w-full md:w-1/2">
+                  <ul className="list-none pl-5 space-y-2">
+                    {modalContent[activeTab].features.map((feature, index) => (
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="text-green-500">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <Swiper
+                    modules={[Autoplay]}
+                    spaceBetween={10}
+                    slidesPerView={1}
+                    autoplay={{
+                      delay: 3000,
+                      disableOnInteraction: false,
+                    }}
+                    className="w-full h-64 rounded-xl shadow-md"
+                  >
+                    {modalContent[activeTab].images.map((image, index) => (
+                      <SwiperSlide key={index}>
+                        <div className="w-full h-64 overflow-hidden rounded-xl">
+                          <img
+                            src={image}
+                            alt={`Slide ${index + 1}`}
+                            className="w-full h-full object-cover zoom-image"
+                          />
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              </div>
+
+              <button
+                className="mt-6 w-full md:w-auto px-6 py-2 bg-gray-100 rounded-full font-medium text-gray-800 hover:bg-gray-200 transition-colors duration-200"
+                onClick={handleCloseModal}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };

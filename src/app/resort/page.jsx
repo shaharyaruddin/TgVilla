@@ -18,7 +18,7 @@ const Resort = () => {
       <ResortTopSection />
       <ResortSecondSection />
       <ResortThirdSection />
-      <ResortFourthSection heading="Villa details at a Glance" />
+      <ResortFourthSection image="/assets/images/resort/section2/image-3.webp" heading="Villa details at a Glance" />
       <ResortFiveSection />
       <ResortBookingVillaTwo />
       <ResortBookingVillaThree />

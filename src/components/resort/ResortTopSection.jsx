@@ -58,7 +58,7 @@ const ResortTopSection = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full min-h-screen max-xl:min-h-[40vh] max-md:min-h-[10rem] max-md:items-end bg-no-repeat bg-cover flex justify-center items-center relative"
+      className="w-full min-h-screen max-xl:min-h-[20rem] max-md:min-h-[20rem] max-md:items-center bg-no-repeat bg-cover flex justify-center items-center relative"
       style={{ backgroundImage: "url(/assets/images/posters/mainhero.webp)" }}
       onMouseMove={MouseMoveHandle}
     >

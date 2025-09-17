@@ -1,7 +1,12 @@
-import Image from 'next/image';
-import React from 'react'
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import GalleryModal from "../modals/gallery1-modal";
 
 const ImageSection = () => {
+  const [open, setOpen] = useState(false);
 
   const images = [
     {
@@ -46,10 +51,26 @@ const ImageSection = () => {
     },
   ];
 
-  return (
-    <div className="w-full min-h-screen px-20 max-2xl:px-10 max-md:px-5 flex flex-col bg-[#F4F4EA] space-y-5 py-10">
+  const handleViewGalleryClick = () => {
+    setOpen(true);
+  };
 
-  <div className="grid grid-cols-5 max-2xl:grid-cols-4 max-xl:grid-cols-3 gap-2 mt-10 max-md:mt-5 max-md:grid-cols-2 ">
+  const handleCloseModal = () => {
+    setOpen(false);
+  };
+
+  return (
+    <div className="w-full min-h-screen px-20 max-2xl:px-10 max-md:px-5 flex flex-col bg-[#F4F4EA] space-y-5 pb-10">
+      <div className=" w-full flex justify-center">
+        <button
+          onClick={handleViewGalleryClick}
+          className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black"
+        >
+          View Gallery
+        </button>
+      </div>
+
+      <div className="grid grid-cols-5 max-2xl:grid-cols-4 max-xl:grid-cols-3 gap-2  max-md:mt-5 max-md:grid-cols-2 ">
         {images.map((img, index) => (
           <div
             key={index}
@@ -70,8 +91,14 @@ const ImageSection = () => {
         ))}
       </div>
 
-</div>
-  )
-}
+      <GalleryModal
+        open={open}
+        setOpen={setOpen}
+        images={images}
+        onClose={handleCloseModal}
+      />
+    </div>
+  );
+};
 
-export default ImageSection
+export default ImageSection;

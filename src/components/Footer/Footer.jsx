@@ -123,7 +123,7 @@ const Footer = () => {
               Start your trip with your family in the most beautiful villa
             </p>
           </div>
-          <div className="">
+          <div className="pr-5">
             <p className=" font-playfair text-app-yellow text-xl">
               Get a trip now!
             </p>

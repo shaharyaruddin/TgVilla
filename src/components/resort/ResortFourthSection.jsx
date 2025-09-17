@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 
-const ResortFourthSection = ({heading}) => {
+const ResortFourthSection = ({ heading, image }) => {
   const villaDetails = [
     {
       title: "5-Star Hotel Services & Facilities",
@@ -77,7 +77,8 @@ const ResortFourthSection = ({heading}) => {
       {/* left */}
       <div className="text-[#514941] space-y-5 border-r-2 pr-10 max-lg:pr-5 border-[#DCDAD0] max-md:border-r-transparent max-md:flex max-md:pr-0 max-md:items-center max-md:justify-center max-md:space-y-0 max-sm:flex-col">
         <img
-          src="/assets/images/resort/section2/image-3.webp"
+          // src="/assets/images/resort/section2/image-3.webp"
+          src={image}
           alt="image-3"
           className="max-md:max-w-[15rem] object-cover max-sm:max-w-full"
         />
@@ -95,14 +96,13 @@ const ResortFourthSection = ({heading}) => {
           </p>
         </div>
 
-    <div className="mt-5 w-full flex">
+        <div className="mt-5 w-full flex">
           <Link href="/bookings">
             <button className="bg-app-yellow transform transition-all duration-300 hover:scale-105 w-[10rem] rounded-full px-4 py-2 font-medium hover:bg-app-yellow/90 text-black">
               Book Now
             </button>
           </Link>
         </div>
-
       </div>
       {/* right */}
       <div className="col-span-2 pl-10 max-lg:pl-5 max-md:pl-0 max-md:col-span-1 max-md:mt-10">

@@ -2,8 +2,8 @@ import React from "react";
 
 const SpaTopSection = () => {
   return (
-    <div className='relative w-full min-h-[70vh] max-md:min-h-[40vh] max-sm:min-h-[35vh] bg-[url("/assets/spa/spa-treatment-dark-wall.webp")] bg-center bg-cover bg-no-repeat'>
-      <div className="absolute w-screen min-h-[70vh] max-md:min-h-[40vh] max-sm:min-h-[35vh]   text-white bg-black/40 flex flex-col justify-center items-center">
+<div className="relative w-full min-h-screen max-md:min-h-[40vh] max-sm:min-h-[35vh] bg-[url('/assets/spa/spa-treatment-dark-wall.webp')] bg-center bg-cover bg-no-repeat">
+       <div className="absolute w-screen min-h-screen max-md:min-h-[40vh] max-sm:min-h-[35vh] text-white bg-black/40 flex flex-col justify-center items-center">
         <h3 className="text-[6vw] font-medium max-md:text-[7vw] max-md:text-center">
           A Haven of Peace & Beauty
         </h3>

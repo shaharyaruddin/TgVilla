@@ -21,7 +21,7 @@ const PosterAnimation = () => {
   const CONTENT = [
     {
       id: 2,
-      src: "/assets/resort2/3.jpg",
+      src: "/assets/images/beach/newbeach1.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 
@@ -30,7 +30,7 @@ const PosterAnimation = () => {
     },
     {
       id: 3,
-      src: "/assets/images/posters/poster-8.jpg",
+      src: "/assets/images/beach/newbeach4.jpg",
       title: "a new chapter in seaside luxury living",
       description: `
         TG Luxury Stay is proud to introduce its next evolution in hospitality: 

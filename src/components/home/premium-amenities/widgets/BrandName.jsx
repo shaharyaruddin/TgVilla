@@ -118,7 +118,7 @@ const BrandName = () => {
           imagePath: "/assets/icon/point/private-spa.png",
         }}
         className={
-          "top-[87%] right-[2%] brand-tooltip lg:top-[50%] lg:left-[2%] md:left-[70%]"
+          "top-[87%] left-[2%] brand-tooltip lg:top-[50%] lg:left-[2%] md:left-[70%] max-md:right-0!"
         }
         lineClassName="hidden lg:block min-h-22! -rotate-[20deg] left-[80%]! top-0! rotate-[250deg] tooltip-line"
       />

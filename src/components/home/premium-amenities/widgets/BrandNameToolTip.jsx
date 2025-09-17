@@ -10,7 +10,7 @@ const BrandNameToolTip = ({className = '',lineClassName = '',tooltip={
     <div className={clsx('center-column absolute',className)}>
       <img src={tooltip.imagePath} alt="location icon" className='hidden lg:block size-10 mb-2 object-contain' />
       <div className="relative">
-        <div className="border border-[#F1E6D3]  center bg-[#F1E6D3] px-5 text-sm py-3 rounded-full">
+        <div className="border text-nowrap border-[#F1E6D3]  center bg-[#F1E6D3] px-5 text-sm py-3 rounded-full">
         <p>{tooltip.title}</p>
       </div>
       {/* line */}

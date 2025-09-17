@@ -69,9 +69,8 @@ const BrandName = () => {
       <BrandNameToolTip
         className="
     top-[10%] 
-    left-[2%]             
     lg:top-[10%] lg:left-[2%] lg:right-auto 
-    md:left-auto md:right-[2%]
+    md:left-auto right-[3%]
     brand-tooltip
   "
         lineClassName="
@@ -88,7 +87,7 @@ const BrandName = () => {
           imagePath: "/assets/icon/point/Private.png",
         }}
         className={
-          "top-[2%] left-[2%] brand-tooltip lg:top-[2%] lg:left-[58%] md:left-[70%]"
+          "top-[2%] right-[3%] brand-tooltip lg:top-[2%] lg:left-[58%] "
         }
         lineClassName="hidden min-h-12! lg:block rotate-0 lg:rotate-[0deg] tooltip-line"
       />
@@ -119,7 +118,7 @@ const BrandName = () => {
           imagePath: "/assets/icon/point/private-spa.png",
         }}
         className={
-          "top-[87%] left-[2%] brand-tooltip lg:top-[50%] lg:left-[2%] md:left-[70%]"
+          "top-[87%] right-[3%] brand-tooltip lg:top-[50%] lg:left-[2%] "
         }
         lineClassName="hidden lg:block min-h-22! -rotate-[20deg] left-[80%]! top-0! rotate-[250deg] tooltip-line"
       />
@@ -150,8 +149,7 @@ const BrandName = () => {
         }}
         className="
     bottom-[15%] 
-    max-[412px]:right-[11%] 
-    left-[2%] right-auto          
+    right-[2%]      
     md:right-[2%] md:left-auto    
     lg:bottom-[30%] 
     lg:right-[0%] lg:left-auto

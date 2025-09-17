@@ -13,6 +13,7 @@ import AppProviders from "@/contexts/app-providers";
 import localFont from "next/font/local";
 
 import Footer from "@/components/Footer/Footer";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} ${crimsonText.variable} ${cormorant.variable} ${playFair.variable} ${outfit.variable} antialiased relative `}
       >
+          <ScrollProgressBar/>
         <AppProviders>
           {/* <SmoothScrollProvider> */}
           <Navbar />

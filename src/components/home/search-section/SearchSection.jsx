@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css"; 
+import "react-dates/lib/css/_datepicker.css";
 import { Loader2, X, UserRound, Minus, Plus, Search } from "lucide-react";
 import { useSearch } from "@/contexts/search-context";
 import { useBookOption } from "@/contexts/book-option-context";
@@ -89,7 +89,6 @@ const styles = `
 
 const SearchSection = ({ villa }) => {
   const isMobile = useMediaQuery({ maxWidth: 639 });
-  const isWideScreen = useMediaQuery({ minWidth: 1024 });
   const { searchOptions, changeGuests, changeSearchDate, isLoading, setIsLoading } = useSearch();
   const { setAllBookingOptions, setBookingOptions } = useBookOption();
   const { scrollToSection } = useScroll();
@@ -103,19 +102,12 @@ const SearchSection = ({ villa }) => {
   const [hoveredDateKey, setHoveredDateKey] = useState(null);
   const [departureTooltipDateKey, setDepartureTooltipDateKey] = useState(null);
 
-  // Debug logs
-  useEffect(() => {
-    console.log("SearchSection searchOptions:", searchOptions);
-    console.log("SearchSection villa:", villa);
-  }, [searchOptions, villa]);
-
   // Fetch villa-specific details
   useEffect(() => {
     const fetchVillaDetails = async () => {
       try {
         if (!villa?._id) return;
         const { data } = await Axios.get(`/user/get-villa-details/${villa._id}`);
-        console.log("Villa details:", data);
         setDailyPrices(data.villa?.pricings || {});
         setDailyNights(data.villa?.nights || {});
         setBlockedRanges(data.villa?.bookedDates || []);
@@ -152,7 +144,6 @@ const SearchSection = ({ villa }) => {
       }
     });
 
-    console.log("blockedDatesSet:", Array.from(blockedDatesSet));
     setBlockedDatesSet(blockedDatesSet);
   }, [blockedRanges]);
 
@@ -169,7 +160,7 @@ const SearchSection = ({ villa }) => {
   const getMinNightsForDate = useCallback(
     (day) => {
       const formattedDate = format(day, "yyyy-MM-dd");
-      return dailyNights[formattedDate] || villa?.baseNight || 3;
+      return dailyNights[formattedDate] || villa?.baseNight || 1; // Default to 1 if no villa-specific data
     },
     [dailyNights, villa]
   );
@@ -177,28 +168,35 @@ const SearchSection = ({ villa }) => {
   // Handle date changes
   const handleDatesChange = useCallback(
     ({ startDate, endDate }) => {
+      if (!villa) {
+        changeSearchDate({ startDate, endDate });
+        if (startDate && endDate && !isSameDay(startDate.toDate(), endDate.toDate())) {
+          setIsGuestOpen(true);
+          setFocusedInput(null);
+        }
+        return;
+      }
+
       // Validation for departure-only dates
-      if (villa && startDate) {
+      if (startDate) {
         const isSelectingDepartureOnlyAsStart = blockedRanges.some((range) => {
           if (!range.start) return false;
           const rangeStart = startOfDay(parseISO(range.start));
           return startDate.isSame(rangeStart, "day");
         });
         if (isSelectingDepartureOnlyAsStart) {
-          console.log("Blocked: Departure-only start date");
           toast.error("This date is available for departure only. Please select a different check-in date.");
           return;
         }
       }
 
-      if (villa && !startDate && endDate) {
+      if (!startDate && endDate) {
         const isSelectingDepartureOnlyAsEndWithoutStart = blockedRanges.some((range) => {
           if (!range.start) return false;
           const rangeStart = startOfDay(parseISO(range.start));
           return endDate.isSame(rangeStart, "day");
         });
         if (isSelectingDepartureOnlyAsEndWithoutStart) {
-          console.log("Blocked: Departure-only end date without start");
           toast.error("This date is available for departure only. Please select a check-in date first.");
           return;
         }
@@ -210,7 +208,7 @@ const SearchSection = ({ villa }) => {
       setDepartureTooltipDateKey(null);
 
       // Validate range when both dates are selected
-      if (villa && startDate && endDate) {
+      if (startDate && endDate) {
         const isInvalid = blockedRanges.some((range) => {
           if (!range.start || !range.end) return false;
           const rangeStart = startOfDay(parseISO(range.start));
@@ -236,9 +234,6 @@ const SearchSection = ({ villa }) => {
           setIsGuestOpen(true);
           setFocusedInput(null);
         }
-      } else if (startDate && endDate && !isSameDay(startDate.toDate(), endDate.toDate())) {
-        setIsGuestOpen(true);
-        setFocusedInput(null);
       }
     },
     [villa, blockedRanges, changeSearchDate]
@@ -265,7 +260,6 @@ const SearchSection = ({ villa }) => {
           endDate: searchOptions.endDate,
           guests: searchOptions.guests.total,
         });
-        console.log("Villa booking options:", data.bookingOptions);
         if (!data.bookingOptions || data.bookingOptions.length === 0) {
           toast.error("No booking options available for the selected dates.");
           setBookingOptions([]);
@@ -279,7 +273,6 @@ const SearchSection = ({ villa }) => {
           endDate: searchOptions.endDate,
           guests: searchOptions.guests.total,
         });
-        console.log("All booking options:", data.allBookingOptions);
         setAllBookingOptions(data.allBookingOptions || []);
         setCount(count + 1);
         scrollToSection(null, "best-match");
@@ -297,83 +290,80 @@ const SearchSection = ({ villa }) => {
     }
   }, [villa, searchOptions, setBookingOptions, setAllBookingOptions, scrollToSection, count]);
 
-  const handleGuestModalClose = (e) => {
-    e.stopPropagation();
-    setIsGuestOpen(false);
-  };
-
   // Custom day renderer for hover-based price display
-  // Custom day renderer for hover-based price display
-const renderDayContents = useCallback(
-  (day) => {
-    if (!villa) return <div className="flex flex-col items-center"><span className="text-lg">{day.date()}</span></div>;
+  const renderDayContents = useCallback(
+    (day) => {
+      if (!villa) {
+        return <div className="flex flex-col items-center"><span className="text-lg">{day.date()}</span></div>;
+      }
 
-    const dateKey = day.format("YYYY-MM-DD");
-    const price = dailyPrices[dateKey];
-    const isBlocked = isDayBlocked(day);
-    const isStartOfBlockedRange = blockedRanges.some((range) => {
-      if (!range.start) return false;
-      const rangeStart = startOfDay(parseISO(range.start));
-      return day.isSame(rangeStart, "day");
-    });
+      const dateKey = day.format("YYYY-MM-DD");
+      const price = dailyPrices[dateKey] || villa?.basePrice || 0;
+      const isBlocked = isDayBlocked(day);
+      const isStartOfBlockedRange = blockedRanges.some((range) => {
+        if (!range.start) return false;
+        const rangeStart = startOfDay(parseISO(range.start));
+        return day.isSame(rangeStart, "day");
+      });
 
-    return (
-      <TooltipProvider delayDuration={100}>
-        {isStartOfBlockedRange && !isBlocked && day >= moment() ? (
-          <Tooltip
-            open={hoveredDateKey === dateKey || departureTooltipDateKey === dateKey}
-            onOpenChange={(isOpen) => {
-              if (!isOpen) {
-                setDepartureTooltipDateKey(null);
-              }
-            }}
-          >
-            <TooltipTrigger asChild>
-              <div
-                className="flex flex-col items-center cursor-pointer"
-                onClick={() => {
-                  setDepartureTooltipDateKey(dateKey);
-                  setTimeout(() => {
-                    setDepartureTooltipDateKey(null);
-                  }, 50);
-                }}
-                onMouseEnter={() => setHoveredDateKey(dateKey)}
-                onMouseLeave={() => setHoveredDateKey(null)}
-              >
-                <span className="text-lg text-cyan-700">{day.date()}</span>
-                <span className="text-xs font-extralight text-cyan-700 opacity-70">
-                  €{price ? price : villa?.basePrice || 0}
-                </span>
-              </div>
-            </TooltipTrigger>
-            <TooltipContent className="bg-cyan-400 text-white">
-              <p>Departure only</p>
-            </TooltipContent>
-          </Tooltip>
-        ) : (
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <div className="flex flex-col items-center">
-                <span className={`text-lg ${isBlocked ? "text-gray-400 line-through cursor-not-allowed" : "text-black"}`}>{day.date()}</span>
-                {!isBlocked ? (
-                  <span className="text-xs font-extralight opacity-70">
-                    €{price ? price : villa?.basePrice || 0}
+      return (
+        <TooltipProvider delayDuration={100}>
+          {isStartOfBlockedRange && !isBlocked && day >= moment() ? (
+            <Tooltip
+              open={hoveredDateKey === dateKey || departureTooltipDateKey === dateKey}
+              onOpenChange={(isOpen) => {
+                if (!isOpen) {
+                  setDepartureTooltipDateKey(null);
+                }
+              }}
+            >
+              <TooltipTrigger asChild>
+                <div
+                  className="flex flex-col items-center cursor-pointer"
+                  onClick={() => {
+                    setDepartureTooltipDateKey(dateKey);
+                    setTimeout(() => {
+                      setDepartureTooltipDateKey(null);
+                    }, 50);
+                  }}
+                  onMouseEnter={() => setHoveredDateKey(dateKey)}
+                  onMouseLeave={() => setHoveredDateKey(null)}
+                >
+                  <span className="text-lg text-cyan-700">{day.date()}</span>
+                  <span className="text-xs font-extralight text-cyan-700 opacity-70">
+                    €{price}
                   </span>
-                ) : (
-                  <span className="text-xs font-extralight">---</span>
-                )}
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{getMinNightsForDate(day.toDate())} Nights</p>
-            </TooltipContent>
-          </Tooltip>
-        )}
-      </TooltipProvider>
-    );
-  },
-  [villa, dailyPrices, blockedRanges, isDayBlocked, getMinNightsForDate, hoveredDateKey, departureTooltipDateKey]
-);
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="bg-cyan-400 text-white">
+                <p>Departure only</p>
+              </TooltipContent>
+            </Tooltip>
+          ) : (
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="flex flex-col items-center">
+                  <span className={`text-lg ${isBlocked ? "text-gray-400 line-through cursor-not-allowed" : "text-black"}`}>
+                    {day.date()}
+                  </span>
+                  {!isBlocked ? (
+                    <span className="text-xs font-extralight opacity-70">€{price}</span>
+                  ) : (
+                    <span className="text-xs font-extralight">---</span>
+                  )}
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{getMinNightsForDate(day.toDate())} Nights</p>
+              </TooltipContent>
+            </Tooltip>
+          )}
+        </TooltipProvider>
+      );
+    },
+    [villa, dailyPrices, blockedRanges, isDayBlocked, getMinNightsForDate, hoveredDateKey, departureTooltipDateKey]
+  );
+
   return (
     <>
       <style>{styles}</style>
@@ -417,19 +407,19 @@ const renderDayContents = useCallback(
                       focusedInput={focusedInput}
                       onDatesChange={handleDatesChange}
                       onFocusChange={setFocusedInput}
-                      numberOfMonths={isMobile ? 1 : 2} // Show 1 month on mobile for better fit
+                      numberOfMonths={isMobile ? 1 : 2}
                       startDatePlaceholderText="Check-In Date"
                       endDatePlaceholderText="Check-Out Date"
-                      daySize={isMobile ? 40 : 60} // Smaller day size on mobile
+                      daySize={isMobile ? 40 : 60}
                       displayFormat="MMM DD, yyyy"
                       hideKeyboardShortcutsPanel
-                      orientation="horizontal" // Force horizontal orientation
+                      orientation="horizontal"
                       isDayBlocked={villa ? isDayBlocked : () => false}
                       isOutsideRange={(day) => day.isBefore(startOfDay(new Date()))}
                       minimumNights={
                         villa && searchOptions.startDate
                           ? getMinNightsForDate(searchOptions.startDate.toDate())
-                          : 3
+                          : 1
                       }
                       renderDayContents={villa ? renderDayContents : undefined}
                     />
@@ -454,7 +444,10 @@ const renderDayContents = useCallback(
                   <div className="absolute z-10 mt-2 w-72 max-w-[90vw] bg-white rounded-lg p-4 border border-[#D4A017] left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0">
                     <div className="flex justify-end mb-2">
                       <button
-                        onClick={handleGuestModalClose}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setIsGuestOpen(false);
+                        }}
                         className="text-[#D4A017] hover:text-[#B8860B] transition-colors"
                         aria-label="Close guest selection"
                       >
@@ -557,7 +550,7 @@ const renderDayContents = useCallback(
               {/* Search Button */}
               <div className="flex items-end">
                 <Button
-                  className={`w-full mt-1 min-h-12.5 max-md:min-h-10 p-3 border rounded-xl border-[#D4A017] focus-within:ring-2 focus-within:ring-[#D4A017] cursor-pointer text-sm sm:text-base   sm:p-3  bg-[#D4A017]   focus:ring-2 focus:ring-[#D4A017]  font-bold text-nowrap font-playfair text-white hover:bg-[#B8860B] hover:border-[#B8860B] transition-colors ${
+                  className={`w-full mt-1 min-h-12.5 max-md:min-h-10 p-3 border rounded-xl border-[#D4A017] focus-within:ring-2 focus-within:ring-[#D4A017] cursor-pointer text-sm sm:text-base bg-[#D4A017] font-bold text-nowrap font-playfair text-white hover:bg-[#B8860B] hover:border-[#B8860B] transition-colors ${
                     isLoading ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   onClick={handleSearch}

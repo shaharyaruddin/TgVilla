@@ -222,7 +222,7 @@ const CheckoutForm = ({ paymentId }) => {
           <ArrowLeft className="w-4 h-4" />
           Back to Book
         </Button>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={(onSubmit)}>
           <div className="flex flex-col md:flex-row gap-10 mt-2">
             <div className="flex-1">
               <div className="flex flex-col gap-4 mb-5">
@@ -234,7 +234,7 @@ const CheckoutForm = ({ paymentId }) => {
                     <div className="flex flex-col gap-2">
                       <Label
                         htmlFor="firstName"
-                        className="block text-[#514941] text-sm font-medium mb-2"
+                        className="bhandleSubmitlock text-[#514941] text-sm font-medium mb-2"
                       >
                         First Name <span className="text-red-500">*</span>
                       </Label>
@@ -479,13 +479,13 @@ const CheckoutForm = ({ paymentId }) => {
               <div className="relative w-80 h-60 rounded-lg overflow-hidden">
                 {bookData?.villaName?.includes("2-Bedroom") ? (
                   <img
-                    src="/assets/images/bedroomVilla-3/bedroom25.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom25.jpg"
                     alt="villa"
                     className="object-cover rounded-tl-xl rounded-tr-xl"
                   />
                 ) : (
                   <img
-                    src="/assets/images/bedroomVilla-3/bedroom15.jpg"
+                    src="/assets/images/bedroomvilla-3/bedroom15.jpg"
                     alt="villa"
                     className="object-cover rounded-tl-xl rounded-tr-xl"
                   />

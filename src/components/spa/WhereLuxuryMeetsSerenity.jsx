@@ -112,7 +112,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Top left */}
         <div
           ref={topLeftRef}
-          className="absolute top-20 left-20 max-md:top-20 max-sm:top-10 max-md:left-4  max-md:size-[130px] md:size-[130px] lg:size-[190px]"
+          className="absolute top-20 left-20 max-md:top-10 max-sm:top-10 max-md:left-4  max-md:size-[130px] md:size-[130px] lg:size-[190px]"
         >
           <Image
             className="rounded-xl object-cover"

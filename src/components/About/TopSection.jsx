@@ -3,7 +3,7 @@ import React from "react";
 
 const TopSection = () => {
   return (
-    <div className="relative h-[26rem] bg-[url('/assets/resort2/10.webp')] bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4">
+    <div className="relative h-screen bg-[url('/assets/resort2/10.webp')] bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4">
       <div className="absolute inset-0 bg-black/50"></div>
 
       <div className="relative z-10">

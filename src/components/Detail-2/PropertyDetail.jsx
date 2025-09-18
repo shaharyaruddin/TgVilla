@@ -52,21 +52,24 @@ export default function PropertyDetail() {
               <img
                 src={item.image}
                 alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="
+    absolute inset-0 w-full h-full object-cover opacity-100 md:opacity-0 md:group-hover:opacity-100 
+    transition-opacity duration-500"
               />
+              <div className="absolute inset-0 bg-black/50 md:hidden"></div>
 
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Title Center */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
-                <h2 className="text-gray-800 text-lg font-medium group-hover:text-white transition-colors duration-500">
+                <h2 className="text-white lg:text-gray-800 text-lg font-medium group-hover:text-white transition-colors duration-500">
                   {item.title}
                 </h2>
               </div>
 
               {/* Description Bottom */}
-              <div className="relative z-10 mt-auto">
-                <p className="text-sm text-gray-600 group-hover:opacity-0 transition-opacity duration-500">
+              <div className="hidden md:block relative z-10 mt-auto">
+                <p className="text-sm text-white lg:text-gray-600 group-hover:opacity-0 transition-opacity duration-500">
                   {item.value}
                 </p>
               </div>

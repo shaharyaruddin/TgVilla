@@ -1,3 +1,4 @@
+import SearchSection from "@/components/home/search-section/SearchSection";
 import Testimonials from "@/components/home/testimonials/Testimonials";
 import GuestSection from "@/components/resort/GuestSection";
 import AmenitiesSection from "@/components/resort/ResortAmenitiesSection";
@@ -16,6 +17,8 @@ const Resort = () => {
   return (
     <div>
       <ResortTopSection />
+      <SearchSection />
+
       <ResortSecondSection />
       <ResortThirdSection />
       <ResortFourthSection image="/assets/images/resort/section2/image-3.webp" heading="Villa details at a Glance" />

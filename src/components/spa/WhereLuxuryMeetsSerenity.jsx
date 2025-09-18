@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
@@ -7,84 +7,87 @@ import Image from "next/image";
 import Link from "next/link";
 
 const WhereLuxuryMeetsSerenity = () => {
+  // Refs
+  const mainContainerRef = useRef(null);
+  const aboutAnimateRef = useRef(null);
+  const topLeftRef = useRef(null);
+  const topRightRef = useRef(null);
+  const bottomLeftRef = useRef(null);
+  const bottomRightRef = useRef(null);
+
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Create a GSAP context to manage animations
-    const context = gsap.context(() => {
-      const scrollTrigger = {
-        trigger: ".main-container",
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: mainContainerRef.current,
         start: "top top",
         end: "+=800",
         scrub: 1,
-        pin: ".main-container",
-      };
-
-      const tl = gsap.timeline({ scrollTrigger });
-
-      tl.from(".aboutAnimate", {
-        scale: 0,
-        duration: 1.5,
-        ease: "power2.out",
-      })
-        .from(
-          ".aboutTopLeft",
-          {
-            top: "-100%",
-            left: "-100%",
-            opacity: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            delay: 0.3,
-          },
-          "-=0.5"
-        )
-        .from(
-          ".aboutTopRight",
-          {
-            top: "-100%",
-            right: "-100%",
-            opacity: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            delay: 0.3,
-          },
-          "-=0.5"
-        )
-        .from(
-          ".aboutBottomLeft",
-          {
-            bottom: "-100%",
-            left: "-100%",
-            opacity: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            delay: 0.3,
-          },
-          "-=0.5"
-        )
-        .from(
-          ".aboutBottomRight",
-          {
-            bottom: "-100%",
-            right: "-100%",
-            opacity: 0,
-            duration: 1.5,
-            ease: "power2.out",
-            delay: 0.3,
-          },
-          "-=0.5"
-        );
+        pin: mainContainerRef.current,
+      },
     });
 
-    // Cleanup function to kill animations and ScrollTrigger on unmount
-    return () => {
-      context.revert(); // Reverts all GSAP animations, ScrollTriggers, etc.
-    };
+    tl.from(aboutAnimateRef.current, {
+      scale: 0,
+      duration: 1.5,
+      ease: "power2.out",
+    })
+      .from(
+        topLeftRef.current,
+        {
+          top: "-100%",
+          left: "-100%",
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3,
+        },
+        "-=0.5"
+      )
+      .from(
+        topRightRef.current,
+        {
+          top: "-100%",
+          right: "-100%",
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3,
+        },
+        "-=0.5"
+      )
+      .from(
+        bottomLeftRef.current,
+        {
+          bottom: "-100%",
+          left: "-100%",
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3,
+        },
+        "-=0.5"
+      )
+      .from(
+        bottomRightRef.current,
+        {
+          bottom: "-100%",
+          right: "-100%",
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          delay: 0.3,
+        },
+        "-=0.5"
+      );
   }, []);
 
   return (
-    <div className="main-container flex justify-center items-center relative overflow-hidden min-h-screen p-10 max-md:p-4">
+    <div
+      ref={mainContainerRef}
+      className="main-container flex justify-center items-center relative overflow-hidden min-h-screen p-10 max-md:p-4"
+    >
       <div className="absolute flex flex-col items-center max-w-lg text-center z-[1] text-[#333333] space-y-4 max-md:max-w-sm max-md:space-y-3">
         <h3 className="max-md:text-lg">About Us</h3>
         <h2 className="font-cormorant lg:text-5xl text-2xl md:text-3xl">
@@ -101,9 +104,16 @@ const WhereLuxuryMeetsSerenity = () => {
           More About TG Luxury Stays
         </Link>
       </div>
-      <div className="aboutAnimate relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl max-md:rounded-2xl">
+
+      <div
+        ref={aboutAnimateRef}
+        className="relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl max-md:rounded-2xl"
+      >
         {/* Top left */}
-        <div className="absolute aboutTopLeft top-20 max-md:top-20 max-sm:top-10 max-md:left-4 left-20 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
+        <div
+          ref={topLeftRef}
+          className="absolute top-20 max-md:top-20 max-sm:top-10 max-md:left-4 left-20 max-md:size-[130px] md:size-[130px] lg:size-[190px]"
+        >
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/1.avif"
@@ -113,7 +123,10 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Top right */}
-        <div className="absolute aboutTopRight top-20 right-20 max-md:top-20 max-sm:top-10 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
+        <div
+          ref={topRightRef}
+          className="absolute top-20 right-20 max-md:top-20 max-sm:top-10 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]"
+        >
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/2.avif"
@@ -123,7 +136,10 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Bottom left */}
-        <div className="absolute aboutBottomLeft bottom-40 left-40 max-md:bottom-20 max-sm:bottom-10 max-md:left-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
+        <div
+          ref={bottomLeftRef}
+          className="absolute bottom-40 left-40 max-md:bottom-15 max-sm:bottom-5 max-md:left-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]"
+        >
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/3.avif"
@@ -133,7 +149,10 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Bottom right */}
-        <div className="absolute aboutBottomRight bottom-40 right-20 max-md:bottom-20 max-sm:bottom-10 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
+        <div
+          ref={bottomRightRef}
+          className="absolute bottom-40 right-20 max-md:bottom-15 max-sm:bottom-5 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[190px]"
+        >
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/4.avif"

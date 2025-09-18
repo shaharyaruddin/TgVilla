@@ -1,3 +1,4 @@
+import SearchSection from "@/components/home/search-section/SearchSection";
 import HomeServices from "@/components/home/service/HomeServices";
 import TgDetails from "@/components/home/tg-details/TgDetails";
 import VillaSection from "@/components/home/welcome-villa/VillaSection";
@@ -19,13 +20,17 @@ const page = () => {
   return (
     <>
       <ResidenceSection />
+      <SearchSection />
       <ResidenceBeach />
       <OurVision />
       <OurService />
       {/* <ResidenceDetail /> */}
       {/* <WaterSection /> */}
       {/* <WaterSectionNew /> */}
-      <ResortFourthSection image="/assets/images/beach/newbeach5.jpg" heading="Apartment details at a Glance" />
+      <ResortFourthSection
+        image="/assets/images/beach/newbeach5.jpg"
+        heading="Apartment details at a Glance"
+      />
 
       <ResortFiveSection />
       <ResortBookingVillaTwo />

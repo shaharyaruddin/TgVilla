@@ -21,7 +21,7 @@ const Navbar = () => {
       if (currentScrollY > 80) {
         // scrolling down
         gsap.to(".navbar-container", {
-          backgroundColor: "#ffffff",
+          backgroundColor: "#E8E4D9",
           duration: 0.5,
         });
 

@@ -87,7 +87,7 @@ const ResortSecondSection = () => {
         {/* right */}
         <div className="flex flex-col justify-between w-1/2 max-md:w-full">
           {/* image */}
-          <div className="flex justify-end">
+          <div className="flex justify-end p-5 lg:p-0">
             <div className="w-[80%] max-2xl:w-[90%] max-xl:w-full">
               <img
                 src="/assets/images/resort/section2/image2.webp"

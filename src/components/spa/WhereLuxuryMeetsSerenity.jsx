@@ -103,7 +103,7 @@ const WhereLuxuryMeetsSerenity = () => {
       </div>
       <div className="aboutAnimate relative w-full min-h-[calc(100vh-100px)] bg-[#F4F4EA] rounded-3xl max-md:rounded-2xl">
         {/* Top left */}
-        <div className="absolute aboutTopLeft top-20 max-md:top-20 max-md:left-4 left-20 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
+        <div className="absolute aboutTopLeft top-20 max-md:top-20 max-sm:top-10 max-md:left-4 left-20 max-md:size-[130px] md:size-[130px] lg:size-[190px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/1.avif"
@@ -113,7 +113,7 @@ const WhereLuxuryMeetsSerenity = () => {
         </div>
 
         {/* Top right */}
-        <div className="absolute aboutTopRight top-20 right-20 max-md:top-20 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
+        <div className="absolute aboutTopRight top-20 right-20 max-md:top-20 max-sm:top-10 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]">
           <Image
             className="rounded-xl object-cover"
             src="/images/spa/2.avif"

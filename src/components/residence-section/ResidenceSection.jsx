@@ -2,7 +2,7 @@ import React from "react";
 
 const ResidenceSection = () => {
   return (
-    <div className="w-full min-h-screen max-xl:min-h-[20rem] max-md:min-h-[20rem] max-md:items-center bg-no-repeat bg-cover flex justify-center items-center relative">
+    <div className="w-full min-h-screen  max-md:items-center bg-no-repeat bg-cover flex justify-center items-center relative">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video

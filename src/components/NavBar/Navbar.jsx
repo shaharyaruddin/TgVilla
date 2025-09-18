@@ -77,7 +77,6 @@ const Navbar = () => {
       className="w-full md:border-none border fixed backdrop-blur-[3px] top-0 left-0 z-[120]"
     >
       {/* NAV CONTAINER */}
-      {/* NAV CONTAINER */}
      <div
   className={`navbar-container max-width flex justify-between items-center px-10 max-h-[4.5rem] overflow-hidden py-4 relative max-md:px-4 
     ${isOpen ? "bg-[#E8E4D9] lg:bg-transparent" : "bg-transparent"}`}
@@ -90,7 +89,7 @@ const Navbar = () => {
               alt="logo"
               width={80}
               height={50}
-              className="max-md:w-[4.5rem]"
+              className="max-md:w-[5rem]"
             />
           </Link>
         </div>

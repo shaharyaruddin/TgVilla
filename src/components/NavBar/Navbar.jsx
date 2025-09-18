@@ -74,7 +74,7 @@ const Navbar = () => {
   return (
     <div
       ref={navbarRef}
-      className="w-full border fixed backdrop-blur-[3px] top-0 left-0 z-[120]"
+      className="w-full md:border-none border fixed backdrop-blur-[3px] top-0 left-0 z-[120]"
     >
       {/* NAV CONTAINER */}
       {/* NAV CONTAINER */}
@@ -116,7 +116,7 @@ const Navbar = () => {
         {/* mobile menu icon */}
         <div className="lg:hidden text-white">
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
       </div>

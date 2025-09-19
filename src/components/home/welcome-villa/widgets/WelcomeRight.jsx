@@ -26,12 +26,12 @@ const WelcomeRight = () => {
   ];
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".welcomeRightSection", {
+    gsap.from(".welcomeRightSection1", {
       scale: 0.5,
       duration: 2,
       opacity: 0,
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "top center",
         end: "60% 70%",
         scrub: 2,
@@ -44,7 +44,7 @@ const WelcomeRight = () => {
       stagger: 2,
       duration: 2,
       scrollTrigger: {
-        trigger: ".welcomeSection",
+        trigger: ".welcomeSection1",
         start: "center center",
         end: "bottom bottom",
         scrub: 2,
@@ -55,7 +55,7 @@ const WelcomeRight = () => {
   return (
     //OLD COLOR bg-[#F2F2F2]
 
-    <div className="w-full h-full welcomeRightSection origin-bottom-right  flex items-center pr-10 max-lg:pr-6 max-[51.25em]:pr-0!">
+    <div className="w-full h-full welcomeRightSection1 origin-bottom-right  flex items-center pr-10 max-lg:pr-6 max-[51.25em]:pr-0!">
       <div className="min-h-[35rem] max-xl:min-h-[25rem] max-[51.25em]:min-h-full! bg-[#F2EFE7] w-full center-column items-start! p-10 space-y-6 max-xl:p-6 max-lg:space-y-3">
         <h4 className="font-cormorant text-3xl max-lg:text-2xl">Welcome to</h4>
         <h2 className="font-playfair text-5xl max-xl:text-4xl max-lg:text-3xl">

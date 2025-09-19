@@ -22,7 +22,6 @@ const Home = () => {
     <div className="">
       <Banner />
       <div className="bg-[#E8E4D9]">
-
       <SearchSection />
       </div>
       <BestMatch/>

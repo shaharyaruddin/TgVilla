@@ -100,7 +100,9 @@ const Banner = () => {
     "/assets/resort/homebg.jpg",
     "/assets/resort/homebg1.jpg",
     "/assets/resort/homebg3.jpg",
-    "/assets/resort/homebg4.jpg",
+    "/assets/residence/6.jpg",
+    "/assets/residence/7.jpg",
+    "/assets/residence/8.jpg",
     // "/assets/resort/67.webp",
   ];
 

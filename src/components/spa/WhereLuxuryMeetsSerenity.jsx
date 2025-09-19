@@ -112,7 +112,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Top left */}
         <div
           ref={topLeftRef}
-          className="absolute top-20 left-20 max-md:top-10 max-sm:top-10 max-md:left-4  max-md:size-[130px] md:size-[130px] lg:size-[190px]"
+          className="absolute top-20 left-20 max-md:top-10 max-sm:top-10 max-md:left-4  size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem]"
         >
           <Image
             className="rounded-xl object-cover"
@@ -125,7 +125,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Top right */}
         <div
           ref={topRightRef}
-          className="absolute top-20 right-20 max-md:top-20 max-sm:top-10 max-md:right-4 max-md:size-[130px] md:size-[130px] lg:size-[240px]"
+          className="absolute top-20 right-20 max-md:top-20 max-sm:top-10 max-md:right-4 size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem]"
         >
           <Image
             className="rounded-xl object-cover"
@@ -138,7 +138,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Bottom left */}
         <div
           ref={bottomLeftRef}
-          className="absolute bottom-40 left-40 max-md:bottom-15 max-sm:bottom-5 max-md:left-5 max-md:size-[130px] md:size-[130px] lg:size-[240px]"
+          className="absolute bottom-40 left-40 max-md:bottom-15 max-lg:left-20 max-lg:bottom-20 max-sm:bottom-3 max-sm:left-4  size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem] "
         >
           <Image
             className="rounded-xl object-cover"
@@ -151,7 +151,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Bottom right */}
         <div
           ref={bottomRightRef}
-          className="absolute bottom-40 right-20 max-md:bottom-15 max-sm:bottom-5 max-md:right-5 max-md:size-[130px] md:size-[130px] lg:size-[190px]"
+          className="absolute bottom-40 right-40 max-md:bottom-15 max-lg:right-20 max-lg:bottom-20  max-sm:bottom-3 max-sm:right-4  size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem]  "
         >
           <Image
             className="rounded-xl object-cover"

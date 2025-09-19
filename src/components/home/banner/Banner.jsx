@@ -100,9 +100,9 @@ const Banner = () => {
     "/assets/resort/homebg.jpg",
     "/assets/resort/homebg1.jpg",
     "/assets/resort/homebg3.jpg",
-    "/assets/residence/6.jpg",
-    "/assets/residence/7.jpg",
-    "/assets/residence/8.jpg",
+    "/images/residence/new.jpg",
+    "/images/residence/new-2.jpg",
+    "/images/residence/new-3.jpg",
     // "/assets/resort/67.webp",
   ];
 
@@ -115,7 +115,7 @@ const Banner = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 3500,
+            delay: 1800,
             disableOnInteraction: false,
           }}
           loop={true}

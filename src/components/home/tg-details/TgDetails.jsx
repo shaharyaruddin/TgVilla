@@ -15,8 +15,12 @@ const TgDetails = () => {
   const textContainer = useRef(null);
   const imageContainer = useRef(null);
   const bgImageRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("Bedroom 1");
+
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
   // GSAP animations using useGSAP
   useGSAP(() => {
@@ -63,6 +67,62 @@ const TgDetails = () => {
     return () => document.removeEventListener("keydown", handleEscKey);
   }, []);
 
+
+    const villaDetails = [
+    {
+      title: "5-Star Hotel Services & Facilities",
+      desc: "Enjoy a seamless blend of high-end hospitality and personalized care.",
+    },
+    {
+      title: "Heated Saltwater Pool",
+      desc: "Immerse yourself in crystal-clear waters designed for ultimate relaxation.",
+    },
+    {
+      title: "Luxury Outdoor Jacuzzi",
+      desc: "Experience hydrotherapy in an exclusive, serene setting.",
+    },
+    {
+      title: "Outdoor Glass Sauna",
+      desc: "Detox with panoramic views of the lush surroundings.",
+    },
+    {
+      title: "Daily Breakfast*",
+      desc: "Start your day with a gourmet meal prepared to perfection.",
+    },
+    {
+      title: "Hot Water 24/7",
+      desc: "Indulge in uninterrupted luxury and comfort.",
+    },
+    {
+      title: "10-Min Walk to the Beach, Bars & Restaurants",
+      desc: "Prime location with easy access to coastal experiences.",
+    },
+    {
+      title: "Luxury Designer Furniture",
+      desc: "Elegantly curated interiors for a sophisticated ambiance.",
+    },
+    {
+      title: "6-Day Weekly Cleaning Service",
+      desc: "Enjoy a pristine environment throughout your stay.",
+    },
+    {
+      title: "Private Yoga Sessions*",
+      desc: "Enhance your wellness with expert-led classes.",
+    },
+    {
+      title: "Outdoor Sound System & Exotic Garden Leisure Area",
+      desc: "Immerse yourself in a tranquil atmosphere.",
+    },
+    {
+      title: "Ping Pong Table",
+      desc: "Stay active and entertained with recreational options.",
+    },
+    {
+      title: "Electric Scooters & Bicycles*",
+      desc: "Explore Limassol with ease and style.",
+    },
+  ];
+
   const images = [
     "/assets/resort/39.jpg",
     "/assets/resort/46.jpg",
@@ -72,59 +132,8 @@ const TgDetails = () => {
     "/assets/resort/34.jpg",
   ];
 
-  const modalContent = {
-    "Bedroom 1": {
-      features: [
-        "King Size Bed",
-        "Sofa Bed",
-        "Air Conditioner",
-        "Bed linens",
-        "Clothing storage",
-        "Private Bathroom",
-      ],
-      images: [
-        "/assets/images/bedroomVilla/bedroom2.jpg",
-        "/assets/resort/7.jpg",
-        "/assets/resort/8.jpg",
-      ],
-    },
-    "Bedroom 2": {
-      features: [
-        "Queen Size Bed",
-        "Air Conditioner",
-        "Bed linens",
-        "Clothing storage",
-        "Private Bathroom",
-      ],
-      images: [
-        "/assets/resort/5.jpg",
-        "/assets/resort/8.jpg",
-        "/assets/resort/9.jpg",
-      ],
-    },
-    "Sofa bed": {
-      features: [
-        "Sofa Bed",
-        "Air Conditioner",
-        "Bed linens",
-        "Clothing storage",
-        "Private Bathroom",
-      ],
-      images: [
-        "/assets/resort/6.jpg",
-        "/assets/resort/4.jpg",
-        "/assets/resort/7.jpg",
-      ],
-    },
-  };
 
-  const handleSeeMoreClick = () => {
-    setIsModalOpen(true);
-  };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <div className="max-width mx-auto px-3 lg:px-12 w-full bg-[#E8E4D9]">
@@ -160,11 +169,11 @@ const TgDetails = () => {
             <li>24/7 Hot Water for nonstop comfort</li>
           </ul>
           <button
-            className="border border-black rounded-full p-2 px-5 mt-5 font-medium"
-            onClick={handleSeeMoreClick}
-          >
-            See More
-          </button>
+              className="border border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight"
+              onClick={openModal}
+            >
+              See More
+            </button>
         </div>
 
         {/* Right Side - Swiper Slider */}
@@ -250,91 +259,74 @@ const TgDetails = () => {
         }
       `}</style>
 
-      {/* Modal */}
-      {isModalOpen && (
+       {/* Modal */}
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
-          onClick={handleCloseModal}
+          className={`fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-300 ${
+            isModalOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         >
+          {/* Overlay */}
           <div
-            className="bg-white rounded-xl p-6 w-11/12 md:w-2/3 lg:w-1/2 shadow-2xl transform transition-all duration-300 ease-in-out hover:shadow-xl"
+            className="absolute inset-0 bg-black/20 backdrop-blur-xs bg-opacity-50"
+            onClick={closeModal}
+          ></div>
+
+          {/* Modal Box */}
+          <div
             onClick={(e) => e.stopPropagation()}
+            className={`relative bg-[#FFFFFF] max-w-[60%] max-lg:max-w-[80%] max-sm:max-w-[90%] max-md:px-5 max-md:py-5 w-full px-10 py-10 rounded-lg shadow-lg transform transition-transform duration-300 ease-out ${
+              isModalOpen ? "scale-100" : "scale-0"
+            }`}
           >
-            <div className="flex bg-gray-100 p-2 rounded-lg justify-around mb-6">
-              {Object.keys(modalContent).map((tab) => (
-                <button
-                  key={tab}
-                  className={`px-6 py-2 text-sm font-medium ${
-                    activeTab === tab
-                      ? "bg-white rounded-md shadow-md text-gray-800"
-                      : "text-gray-500 hover:text-gray-800"
-                  } transition-colors duration-200`}
-                  onClick={() => setActiveTab(tab)}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-full md:w-1/2">
-                <ul className="list-none pl-5 space-y-2">
-                  {modalContent[activeTab].features.map((feature, index) => (
-                    <li key={index} className="flex items-center space-x-2">
-                      <span className="text-green-500">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-5 w-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+            <h2 className="text-5xl max-md:text-3xl font-bold font-cormorant mb-5">
+              Villa Details at a Glance
+            </h2>
+
+            <div className="space-y-4 max-h-[70vh] overflow-y-auto">
+              <div className="font-playfair">
+                Welcome to TG Luxury Villas, your exclusive escape in Limassol,
+                Cyprus. Experience five-star luxury, wellness, and tranquility
+                in a private, high-end villa designed for discerning travelers.{" "}
+                <br />
+                Located just 10 minutes from the beach, our heated saltwater
+                pool, luxury outdoor Jacuzzi, and glass-fronted sauna provide
+                the ultimate spa-like experience. Whether you're seeking a
+                romantic getaway, a family retreat, or a wellness escape, our
+                luxury Cyprus villas redefine indulgence.
+                <br /> Enjoy boutique hotel-style services, including daily
+                cleaning, private yoga sessions, premium bath amenities, and
+                smart home technology—all wrapped in an atmosphere of
+                exclusivity and comfort.
+                <br />
               </div>
-              <div className="w-full md:w-1/2">
-                <Swiper
-                  modules={[Autoplay]}
-                  spaceBetween={10}
-                  slidesPerView={1}
-                  autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                  }}
-                  className="w-full h-64 rounded-xl shadow-md"
+              {villaDetails.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between border-b-2 border-[#DCDAD0] pb-3 font-outfit max-xl:flex-col"
                 >
-                  {modalContent[activeTab].images.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="w-full h-64 overflow-hidden rounded-xl">
-                        <img
-                          src={image}
-                          alt={`Slide ${index + 1}`}
-                          className="w-full h-full object-cover zoom-image"
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                  <span>{item.title}</span>
+                  <span>{item.desc}</span>
+                </div>
+              ))}
+
+              <div className="font-playfair">
+                Book your stay today and experience the best private villa
+                rental in Cyprus. <br />
+                Indulge in a fully private, high-end villa experience where
+                every detail is designed for your comfort and relaxation.
+                Whether you're seeking a romantic retreat, a wellness getaway,
+                or a luxurious family escape, TG Luxury Villas offers a refined
+                setting for unforgettable moments.
               </div>
             </div>
             <button
-              className="mt-6 w-full md:w-auto px-6 py-2 bg-gray-100 rounded-full font-medium text-gray-800 hover:bg-gray-200 transition-colors duration-200"
-              onClick={handleCloseModal}
+              onClick={closeModal}
+              className="mt-4 text-[#26180F] w-fit capitalize border-2 px-3 py-2 rounded-full font-medium border-[#26180F]"
             >
-              Close
+              close
             </button>
           </div>
         </div>
-      )}
     </div>
   );
 };

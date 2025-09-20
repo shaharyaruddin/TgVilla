@@ -2,7 +2,7 @@ import React from "react";
 
 const BannerLayer = () => {
   return (
-    <div className="center h-screen w-full  animation animation2 absolute">
+    <div className="center h-screen w-full   animation2 absolute">
       {/* tg logo */}
       <img
         src="/assets/logo/tg-villa-transparent-logo-2.png"

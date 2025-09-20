@@ -15,7 +15,6 @@ import { useGsapCleanup } from "@/components/useGsapCleanup";
 
 const Page = () => {
   const pathname = usePathname();
- useGsapCleanup(); // ✅ ens
   return (
     <>
       <ResidenceSection key={pathname + "-section"} />

@@ -48,7 +48,7 @@ const BeachSection = () => {
 
       <div className="flex justify-center pb-20">
         <Link href="/residence">
-          <button className="bg-app-yellow text-sm transform transition-all duration-300 hover:scale-105 w-[15rem] rounded-full px-6 py-3 font-semibold hover:bg-app-yellow/90 text-black shadow-lg">
+          <button className="bg-black w-fit  text-white text-sm transform transition-all duration-300 hover:scale-105  rounded-full px-6 py-3 font-semibold shadow-lg">
             View Our TG Residence Apartments
           </button>
         </Link>

@@ -221,7 +221,7 @@ const BookingSection = () => {
                 ref={rightHeadingRef}
                 className="text-4xl font-bold text-white mt-0 md:mt-12 font-playfair"
               >
-                Top 1% of Villas
+                Top 5% of Villas
               </h2>
               <p ref={rightSubtextRef} className="text-white mb-4">
                 by{" "}

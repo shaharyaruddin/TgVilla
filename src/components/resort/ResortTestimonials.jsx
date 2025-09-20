@@ -16,7 +16,7 @@ const ResortTestimonials = ({ title, bgImage, bgColor, showButton = true }) => {
       }}
     >
       {title && (
-        <h1 className="uppercase text-4xl font-bold font-playfair italic text-center">
+        <h1 className="uppercase text-4xl md:text-5xl font-bold font-playfair text-center">
           {title}
         </h1>
       )}
@@ -30,23 +30,23 @@ const ResortTestimonials = ({ title, bgImage, bgColor, showButton = true }) => {
         {/* View All Button */}
         {showButton && (
           <button
-  onClick={() => setOpen(true)}
-  className={`mt-10 font-outfit font-semibold py-3 px-10 rounded-full transition duration-300
-    ${bgImage 
-      ? "border border-white text-white hover:bg-white hover:text-black" 
-      : "border border-black text-black hover:bg-black hover:text-white"
+            onClick={() => setOpen(true)}
+            className={`mt-10 font-outfit font-semibold py-3 px-10 rounded-full transition duration-300
+    ${
+      bgImage
+        ? "border border-white text-white hover:bg-white hover:text-black"
+        : "border border-black text-black hover:bg-black hover:text-white"
     }`}
->
-  View All
-</button>
-
+          >
+            View All
+          </button>
         )}
 
         {/* Reviews Modal */}
         <ReviewsModal open={open} setOpen={setOpen} />
       </div>
     </div>
-  );  
+  );
 };
 
 export default ResortTestimonials;

@@ -21,7 +21,7 @@ export const AirbnbBrandBig = () => {
       </div>
       <p className="text-white text-sm">Guest Favourite</p>
       <p className="text-white text-md text-center">
-        This home is in the top 1% of eligible listings based on ratings,
+        This home is in the top 5% of eligible listings based on ratings,
         reviews, and reliability
       </p>
       <div className="flex gap-2 justify-between w-full items-end">
@@ -31,7 +31,7 @@ export const AirbnbBrandBig = () => {
         </div>
 
         <div className="flex flex-col justify-center items-center w-12 h-12 bg-[#ff385c] rounded-md text-white">
-          <p className="text-xl font-bold">1%</p>
+          <p className="text-xl font-bold">5%</p>
           <p className="text-[8px]">Top</p>
         </div>
       </div>
@@ -64,7 +64,7 @@ export const AirbnbBrandSmall = () => {
           <p className="text-[#ff385c] text-xs font-bold">Airbnb.com</p>
         </div>
         <div className="flex flex-col justify-center items-center w-10 h-10 bg-[#ff385c] rounded-md text-white">
-          <p className="text-base font-bold">1%</p>
+          <p className="text-base font-bold">5%</p>
           <p className="text-[6px]">Top</p>
         </div>
       </div>

@@ -112,13 +112,13 @@ const HomeSliderLeft = () => {
           </HomeSliderPera>
 
           {/* Buttons */}
-          <div className="flex gap-4">
-            <button
+          <div className="flex ">
+            {/* <button
               className="border border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight"
               onClick={openModal}
             >
               Read More
-            </button>
+            </button> */}
 
             <Link href="/resort">
               <div className="border bg-black text-white  border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight">

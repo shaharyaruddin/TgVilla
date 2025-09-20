@@ -130,25 +130,28 @@ const TgDetails = () => {
     <div className="max-width mx-auto px-3 lg:px-12 w-full bg-[#E8E4D9]">
       <div className="flex flex-col md:flex-row justify-between gap-10">
         {/* Left Side - Text Content */}
-        <div className="p-3 lg:p-9 w-full md:w-1/2 space-y-4" ref={textContainer}>
+        <div
+          className="p-3 lg:p-9 w-full md:w-1/2 space-y-4"
+          ref={textContainer}
+        >
           <h1 className="text-4xl font-bold font-playfair">
             Welcome to TG Luxury Villas — Exclusive Private Retreats
           </h1>
           <h2 className="font-playfair text-3xl font-semibold text-gray-800">
             Luxury Villas in Limassol – A Private Wellness & Spa Retreat
           </h2>
-          <p className="">
+          <p className="font-playfair text-xl">
             Experience 5-star luxury, wellness, and peace in our private
             high-end villas, just 10 minutes from the beach. Designed for
             romantic escapes, family retreats, and wellness getaways, our villas
             offer unmatched comfort and style.
           </p>
-          <p>
+          <p className="font-playfair text-xl">
             Enjoy boutique hotel-style services like daily cleaning, private
             yoga, premium bath products, and smart home features — all in a
             serene, exclusive setting.
           </p>
-          <ul className="list-disc pl-5 space-y-2">
+          <ul className="list-disc pl-5 space-y-2 text-xl font-playfair">
             <li>5-Star Hotel Services with personalized care</li>
             <li>Heated Saltwater Pool for deep relaxation</li>
             <li>Outdoor Jacuzzi in a peaceful setting</li>

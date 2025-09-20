@@ -151,7 +151,7 @@ const WhereLuxuryMeetsSerenity = () => {
         {/* Bottom right */}
         <div
           ref={bottomRightRef}
-          className="absolute bottom-40 right-40 max-md:bottom-15 max-lg:right-20 max-lg:bottom-20  max-sm:bottom-3 max-sm:right-4  size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem]  "
+          className="absolute bottom-40 right-40 max-md:bottom-15 max-lg:right-20 max-lg:bottom-20  max-sm:bottom-[14vh] max-sm:right-4  size-[15rem]  max-lg:size-[13rem] max-md:size-[10rem] max-sm:size-[8rem]  "
         >
           <Image
             className="rounded-xl object-cover"

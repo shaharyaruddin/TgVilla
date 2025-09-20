@@ -79,11 +79,11 @@ import PosterAnimation from "./widgets/PosterAnimation";
 
 
       // Refresh ScrollTrigger to ensure proper calculations
-      ScrollTrigger.refresh();
+      // ScrollTrigger.refresh();
 
-      return () => {
-        ScrollTrigger.getAll().forEach((st) => st.kill());
-      };
+      // return () => {
+      //   ScrollTrigger.getAll().forEach((st) => st.kill());
+      // };
     }, []);
 
     return (

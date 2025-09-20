@@ -142,7 +142,7 @@ const BookingSection = () => {
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    // return () => ctx.revert();
   }, []);
 
   return (

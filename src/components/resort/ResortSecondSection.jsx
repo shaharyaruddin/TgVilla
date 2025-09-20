@@ -77,7 +77,7 @@ const ResortSecondSection = () => {
           {/* image */}
           <div className="w-full">
             <img
-              src="/assets/images/resort/section2/image-2.webp"
+              src="/assets/images/resort/section2/image-15.webp"
               className="w-[80%] max-2xl:w-[90%] h-[40rem] max-md:h-[20rem] object-cover max-xl:w-full"
               alt="image 1"
             />

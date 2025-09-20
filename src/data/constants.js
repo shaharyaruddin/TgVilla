@@ -111,6 +111,18 @@ import pool_garden_10 from "../../public/assets/images/bedroomVilla/bedroom33.jp
 import pool_garden_11 from "../../public/assets/images/bedroomVilla/bedroom34.jpg";
 import pool_garden_12 from "../../public/assets/images/bedroomVilla/bedroom35.jpg";
 import pool_garden_13 from "../../public/assets/images/bedroomVilla/bedroom28.webp";
+
+import pool_garden_14 from "../../public/assets/images/bedroomvilla-3/bedroom12.webp";
+import pool_garden_15 from "../../public/assets/images/bedroomvilla-3/bedroom5.webp";
+import pool_garden_16 from "../../public/assets/images/bedroomvilla-3/bedroom6.webp";
+import pool_garden_17 from "../../public/assets/images/bedroomvilla-3/bedroom26.webp";
+import pool_garden_18 from "../../public/assets/images/bedroomvilla-3/bedroom27.jpg";
+import pool_garden_19 from "../../public/assets/images/bedroomvilla-3/bedroom18.jpg";
+import pool_garden_20 from "../../public/assets/images/bedroomvilla-3/bedroom17.jpg";
+import pool_garden_21 from "../../public/assets/images/bedroomvilla-3/bedroom14.jpg";
+import pool_garden_22 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+import pool_garden_23 from "../../public/assets/images/bedroomvilla-3/bedroom11.jpg";
+
 // import pool_garden_14 from "../../public/images/villa/pool-garden/pool-garden (14).jpg";
 // import pool_garden_15 from "../../public/images/villa/pool-garden/pool-garden (15).jpg";
 // import pool_garden_16 from "../../public/images/villa/pool-garden/pool-garden (16).jpg";
@@ -811,6 +823,21 @@ export const GALLERY_IMAGES = [
 export const MAIN_GALLERY = {
   name: "2 Bedroom Villa",
   images: [
+    pool_garden_13,
+    pool_garden_10,
+    pool_garden_11,
+    
+    // pool_garden_14,
+    // pool_garden_15,
+    pool_garden_16,
+    // pool_garden_17,
+    // pool_garden_18,
+    // pool_garden_19,
+    pool_garden_20,
+    // pool_garden_21,
+    pool_garden_22,
+    pool_garden_23,
+
     pool_garden_1,
     pool_garden_2,
     pool_garden_3,
@@ -819,11 +846,9 @@ export const MAIN_GALLERY = {
     pool_garden_6,
     pool_garden_7,
     pool_garden_8,
-    pool_garden_9,
-    pool_garden_10,
-    pool_garden_11,
-    pool_garden_12,
-    pool_garden_13,
+
+    // pool_garden_12,
+
     // living_room_1,
     // living_room_2,
     // living_room_3,
@@ -862,16 +887,16 @@ export const MAIN_GALLERY = {
     // bedroom1_13,
     // bedroom1_14,
     // bedroom1_15,
-    bedroom2_1,
-    bedroom2_2,
-    bedroom2_3,
-    bedroom2_4,
-    bedroom2_5,
-    bedroom2_6,
-    bedroom2_7,
-    bedroom2_8,
-    bedroom2_9,
-    bedroom2_10,
+    // bedroom2_1,
+    // bedroom2_2,
+    // bedroom2_3,
+    // bedroom2_4,
+    // bedroom2_5,
+    // bedroom2_6,
+    // bedroom2_7,
+    // bedroom2_8,
+    // bedroom2_9,
+    // bedroom2_10,
     // kitchen_1,
     // kitchen_2,
     // kitchen_3,

@@ -141,6 +141,16 @@ import pool_garden_9 from "../../public/assets/images/bedroomvilla-3/bedroom12.w
 import pool_garden_10 from "../../public/assets/images/bedroomvilla-3/bedroom27.jpg";
 import pool_garden_11 from "../../public/assets/images/bedroomvilla-3/bedroom14.jpg";
 import pool_garden_12 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+
+import pool_garden_24 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+import pool_garden_25 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+import pool_garden_26 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+import pool_garden_27 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+import pool_garden_28 from "../../public/assets/images/bedroomvilla-3/bedroom13.jpg";
+
+
+
+
 import pool_garden_13 from "../../public/assets/images/bedroomvilla-3/bedroom12.webp";
 import pool_garden_14 from "../../public/assets/images/bedroomvilla-3/bedroom11.jpg";
 import pool_garden_15 from "../../public/assets/images/bedroomvilla-3/bedroom10.jpg";
@@ -442,7 +452,7 @@ export const MAIN_GALLERY = {
   name: "3 Bedroom Villa",
   images: [
     pool_garden_1,
-    pool_garden_2,
+    // pool_garden_2,
     pool_garden_3,
     pool_garden_4,
     pool_garden_5,
@@ -453,9 +463,9 @@ export const MAIN_GALLERY = {
     pool_garden_10,
     pool_garden_11,
     pool_garden_12,
-    pool_garden_13,
-    pool_garden_14,
-    pool_garden_15,
+    // pool_garden_13,
+    // pool_garden_14,
+    // pool_garden_15,
     // pool_garden_16,
     // pool_garden_17,
     // pool_garden_18,

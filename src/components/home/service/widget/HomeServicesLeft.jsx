@@ -11,7 +11,7 @@ const HomeServicesLeft = () => {
 
   const sliderImages = [
     "/assets/images/bedroomVilla/bedroom10.jpg",
-    "/assets/images/bedroomVilla/bedroom12.jpg",
+    "/assets/images/bedroomVilla/bedroom33.jpg",
     "/assets/images/resort/section2/image-6.webp",
     "/spa/COLD-PLUNG.jpg",
     "/spa/ICE ROOM.jpg",

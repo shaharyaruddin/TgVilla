@@ -102,7 +102,7 @@ const HomeServicesRight = () => {
     <div className="w-full h-full flex homeServiceRightSection items-center pr-10 max-lg:pr-6 max-[51.25em]:pr-0!">
       <div className="h-full w-full center-column items-start! p-10 max-xl:p-6 max-lg:space-y-3">
         <h2 className="font-playfair text-4xl max-xl:text-3xl max-lg:text-2xl">
-          Star Hotel Services & Facilities
+          Star Hotel Services & Facilities 
         </h2>
         <p className="text-[1.4rem] font-playfair mt-2 max-xl:text-base max-xl:mt-0">
           Enjoy a seamless blend of high-end hospitality and personalized care.

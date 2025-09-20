@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -95,6 +95,23 @@ const HomeServicesLeft = () => {
     );
   };
 
+  // Inside component
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener("keydown", handleEsc);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [isModalOpen]);
+
   return (
     <div className="w-full h-full p-10 px-16 relative max-[51.25em]:min-h-[20rem]! max-[51.25em]:p-0!">
       {/* Background */}
@@ -113,8 +130,14 @@ const HomeServicesLeft = () => {
 
       {/* Modal with Slider */}
       {isModalOpen && (
-        <div className="modal fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50">
-          <div className="relative bg-white p-6 rounded-lg max-w-3xl w-full max-h-[80vh]">
+        <div
+          className="modal fixed inset-0 bg-black/50 backdrop-blur-md flex items-center justify-center z-50"
+          onClick={closeModal} // Backdrop click = close
+        >
+          <div
+            className="relative bg-white p-6 rounded-lg max-w-3xl w-full max-h-[80vh]"
+            onClick={(e) => e.stopPropagation()} // Stop click bubbling
+          >
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-2xl text-gray-600 hover:text-gray-800"

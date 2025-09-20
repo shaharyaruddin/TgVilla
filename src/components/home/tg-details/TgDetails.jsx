@@ -137,7 +137,7 @@ const TgDetails = () => {
           <h2 className="font-playfair text-3xl font-semibold text-gray-800">
             Luxury Villas in Limassol – A Private Wellness & Spa Retreat
           </h2>
-          <p>
+          <p className="">
             Experience 5-star luxury, wellness, and peace in our private
             high-end villas, just 10 minutes from the beach. Designed for
             romantic escapes, family retreats, and wellness getaways, our villas

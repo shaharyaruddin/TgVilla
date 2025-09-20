@@ -64,7 +64,7 @@ const WelcomeRight = () => {
         <h4 className="font-cormorant text-xl font-medium italic max-lg:text-base">
           Luxury Villas in Limassol – A Private <br /> Wellness & Spa Retreat
         </h4>
-        <p className="text-[1.5rem] max-xl:text-lg max-lg:text-base ">
+        <p className="text-[1.5rem] max-xl:text-lg max-lg:text-base font-playfair ">
           Welcome to TG Luxury Villas, your exclusive escape in Limassol,
           Cyprus. Experience five-star luxury, wellness, and tranquility in a
           private, high-end villa designed for discerning travelers.

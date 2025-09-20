@@ -211,7 +211,7 @@ const PosterAnimation = () => {
                   {item.title}
                 </h2>
                 {item.description && (
-                  <p className="max-md:text-sm">{item.description}</p>
+                  <p className="max-md:text-sm font-playfair">{item.description}</p>
                 )}
               </div>
             </div>

@@ -121,7 +121,7 @@ const HomeSliderLeft = () => {
             </button> */}
 
             <Link href="/resort">
-              <div className="border bg-black text-white  border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight">
+              <div className="border font-playfair bg-black text-white  border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight">
                 View Our Villas
               </div>
             </Link>
@@ -152,7 +152,7 @@ const HomeSliderLeft = () => {
             </h2>
 
             <div className="space-y-4 max-h-[70vh] overflow-y-auto">
-              <div className="font-outfit">
+              <div className="font-playfair">
                 Welcome to TG Luxury Villas, your exclusive escape in Limassol,
                 Cyprus. Experience five-star luxury, wellness, and tranquility
                 in a private, high-end villa designed for discerning travelers.{" "}
@@ -178,7 +178,7 @@ const HomeSliderLeft = () => {
                 </div>
               ))}
 
-              <div className="font-outfit">
+              <div className="font-playfair">
                 Book your stay today and experience the best private villa
                 rental in Cyprus. <br />
                 Indulge in a fully private, high-end villa experience where

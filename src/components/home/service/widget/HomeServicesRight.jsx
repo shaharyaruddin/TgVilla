@@ -104,7 +104,7 @@ const HomeServicesRight = () => {
         <h2 className="font-playfair text-4xl max-xl:text-3xl max-lg:text-2xl">
           Star Hotel Services & Facilities
         </h2>
-        <p className="text-[1.4rem] mt-2 max-xl:text-base max-xl:mt-0">
+        <p className="text-[1.4rem] font-playfair mt-2 max-xl:text-base max-xl:mt-0">
           Enjoy a seamless blend of high-end hospitality and personalized care.
         </p>
         <ul className="mt-5 w-full max-xl:mt-0">

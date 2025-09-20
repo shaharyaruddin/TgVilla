@@ -254,7 +254,7 @@ const BookingSection = () => {
       <div className="bg-[#E8E4D9]">
         <h2
           ref={bottomHeadingRef}
-          className="text-center text-6xl font-playfair pt-3 italic pb-10 text-[#D4A017]"
+          className="text-center text-6xl font-playfair pt-3 pb-10 text-[#D4A017]"
         >
           TG 5 STAR LUXURY RESORT
         </h2>

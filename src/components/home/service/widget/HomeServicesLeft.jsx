@@ -9,14 +9,13 @@ const HomeServicesLeft = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Sample image URLs for the slider (replace with your actual image paths)
   const sliderImages = [
-    "/assets/images/bedroomvilla-3/bedroom15.jpg",
-    "/assets/images/bedroomvilla-3/bedroom1.jpg",
-    "/assets/images/bedroomvilla-3/bedroom18.jpg",
-    "/assets/images/bedroomvilla-3/bedroom27.jpg",
-    "/assets/resort2/23.jpg",
-    "/assets/resort2/12.webp",
+    "/assets/images/bedroomvilla-3/bedroom17.jpg",
+    "/assets/images/bedroomvilla-3/bedroom26.webp",
+    "/spa/SAUNA.jpg",
+    "/spa/COLD-PLUNG.jpg",
+    "/spa/ICE ROOM.jpg",
+    "/spa/STEAM BATH.jpg",
   ];
 
   // GSAP animations
@@ -122,9 +121,7 @@ const HomeServicesLeft = () => {
             >
               ×
             </button>
-            <h3 className="text-2xl font-playfair mb-4 text-center">
-               Gallery
-            </h3>
+            <h3 className="text-2xl font-playfair mb-4 text-center">Gallery</h3>
             <div className="relative w-full h-96">
               <img
                 src={sliderImages[currentSlide]}

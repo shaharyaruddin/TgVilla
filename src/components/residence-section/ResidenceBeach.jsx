@@ -22,7 +22,7 @@ const ResidenceBeach = () => {
       <div className="w-full bg-[#E8E4D9] flex flex-col items-center justify-center px-0 lg:px-4 ">
         {/* Title */}
         <div className="text-center mt-5 max-md:mt-4">
-          <h1 className="font-cormorant  text-4xl md:text-5xl font-medium text-black mt-5">
+          <h1 className="font-playfair  text-4xl md:text-5xl font-medium text-black mt-5">
             TG Residence by the Beach
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl pt-4 pb-15 max-md:pb-5 mx-auto">
@@ -47,7 +47,7 @@ const ResidenceBeach = () => {
 
         {/* Bottom Text with Paragraph */}
         <div className="text-center my-5 md:my-15 max-w-4xl max-md:max-w-full md:mx-auto px-4">
-          <h2 className="font-cormorant  text-4xl md:text-5xl max-md:text-nowrap font-medium text-black">
+          <h2 className="font-playfair  text-4xl md:text-5xl max-md:text-nowrap font-medium text-black">
             Now in Limassol
           </h2>
           <h3 className="text-lg md:text-xl text-gray-800 mt-3">

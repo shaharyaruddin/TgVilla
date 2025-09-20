@@ -81,7 +81,7 @@ const OurServiceRight = () => {
 
     setTimeout(() => ScrollTrigger.refresh(), 100);
     return () => ctx.revert();
-  }, [pathname]); // 🔑 re-run on route change
+  }, [pathname]); // re-run on route change
 
   const SERVICES = [
     { title: "Private Finnish or infrared sauna" },
@@ -100,7 +100,7 @@ const OurServiceRight = () => {
       <div className="h-full w-full center-column items-start! p-10 max-xl:p-6 max-lg:space-y-3">
         <h2
           ref={headingRef}
-          className="font-playfair text-4xl max-xl:text-3xl max-lg:text-2xl"
+          className="font-playfair text-5xl max-xl:text-3xl max-lg:text-2xl"
         >
           Expected Amenities
         </h2>

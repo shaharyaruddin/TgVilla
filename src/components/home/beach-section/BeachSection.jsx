@@ -15,7 +15,7 @@ const BeachSection = () => {
 
   return (
     <>
-      <h1 className="my-5 mb-12 text-4xl font-bold font-playfair italic text-center">
+      <h1 className="uppercase my-5 mb-12 text-4xl md:text-5xl font-bold font-playfair text-center">
         Your life on the beach
       </h1>
       <div className="flex justify-center items-center flex-wrap gap-4 pb-10">

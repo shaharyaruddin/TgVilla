@@ -27,7 +27,7 @@ const PosterAnimation = () => {
     },
     {
       id: 4,
-      src: "/assets/images/posters/poster-9.jpg",
+      src: "/assets/images/beach/newbeach5.jpg",
       title: "a new chapter in seaside luxury living",
       description: `TG Luxury Stay is proud to introduce its next evolution in hospitality: 
         TG Residence by the Beach – an exclusive new beachfront apartment concept 
@@ -167,7 +167,9 @@ const PosterAnimation = () => {
         <div
           key={item.id}
           ref={(el) => (sectionsRef.current[i] = el)}
-          className={`section-wrapper section-wrapper-${i + 1} h-screen w-full absolute top-0 left-0`}
+          className={`section-wrapper section-wrapper-${
+            i + 1
+          } h-screen w-full absolute top-0 left-0`}
           style={{ willChange: "transform, opacity" }}
         >
           {item.src.endsWith(".jpg") ? (

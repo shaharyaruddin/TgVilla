@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const BeachSection = () => {
   const images = [
-    "/assets/images/beach/2.jpg",
-    "/assets/images/beach/poster-9.jpeg",
+ "/images/residence/new.jpg",
+    "/images/residence/new-2.jpg",
     "/assets/images/beach/7.jpg",
     "/assets/images/beach/10.jpg",
     "/assets/images/beach/11.jpg",

@@ -123,7 +123,7 @@ const HomeServicesLeft = () => {
               ×
             </button>
             <h3 className="text-2xl font-playfair mb-4 text-center">
-              Hotel Gallery
+               Gallery
             </h3>
             <div className="relative w-full h-96">
               <img

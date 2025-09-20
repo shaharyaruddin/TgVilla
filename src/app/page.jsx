@@ -1,8 +1,3 @@
-"use client";
-import React, { useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
-
 import Banner from "@/components/home/banner/Banner";
 import BeachSection from "@/components/home/beach-section/BeachSection";
 import BestMatch from "@/components/home/BestMatch";
@@ -20,37 +15,27 @@ import Testimonials from "@/components/home/testimonials/Testimonials";
 import TgDetails from "@/components/home/tg-details/TgDetails";
 import VillaSection from "@/components/home/welcome-villa/VillaSection";
 import ResortTestimonials from "@/components/resort/ResortTestimonials";
-import { usePathname } from "next/navigation";
+import React from "react";
 
 const Home = () => {
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
-
-  return () => {
-    ScrollTrigger.getAll().forEach((st) => st.kill());
-    gsap.globalTimeline.clear();
-  };
-}, []); // ✅ run only once on mount
-
-
   return (
-    <div>
+    <div className="">
       <Banner />
       <div className="bg-[#E8E4D9]">
-        <SearchSection />
+      <SearchSection />
       </div>
-      <BestMatch />
+      <BestMatch/>
       <BookingSection />
       <VillaSection />
       <Roller />
       <HomeSlider />
-      <TgDetails />
+      <TgDetails/>
       <HomeServices />
       <ImageZoomAnimation />
       <FeelingsBalance />
       <HomePosters />
-      <BeachSection />
-      <ResortTestimonials title="HEAR FROM OUR GUESTS" showButton={true} />
+      <BeachSection/>
+     <ResortTestimonials title="HEAR FROM OUR GUESTS" showButton={true} />
       <PremiumAmenities />
     </div>
   );

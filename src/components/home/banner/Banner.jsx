@@ -8,26 +8,24 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import BannerLayer from "./widgets/BannerLayer";
 import BannerContent from "./widgets/BannerContent";
+import BlurFade from "@/components/ui/blur-fade";
 import { BookingBrand } from "./booking-brand";
 import { AirbnbBrand } from "./airbnb-brand";
 import bannerContent from "@/(data)/bannerContent.json";
-import { usePathname } from "next/navigation";
 
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
- const pathName =  usePathname();
 
   useGSAP(() => {
-  if (typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
 
-  const duration = 0.7;
-  const delay = 0;
-  const delayAfter = window.innerWidth < 640 ? 0.5 : 1.7;
+    const duration = 0.7;
+    const delay = 0;
+    const delayAfter = window.innerWidth < 640 ? 0.5 : 1.7;
+    const mm = gsap.matchMedia();
 
-  const mm = gsap.matchMedia();
-  const ctx = gsap.context(() => {
     mm.add("(min-width: 64rem)", () => {
-      gsap.to(".animation2 .circleImage", {
+      gsap.to(".animation .circleImage", {
         maskImage:
           "radial-gradient(circle at center, transparent 100%, black 81px)",
         WebkitMaskImage:
@@ -35,12 +33,14 @@ const Banner = () => {
         duration: duration + 1,
         delay: delay + 0.5,
         onComplete: () => {
-          const animationElement = document.querySelector(".animation2");
-          if (animationElement) animationElement.style.display = "none";
+          const animationElement = document.querySelector(".animation");
+          if (animationElement) {
+            animationElement.style.display = "none";
+          }
         },
       });
 
-      gsap.to(".animation2 .logoImage", {
+      gsap.to(".animation .logoImage", {
         opacity: 0,
         duration: duration,
         delay: delay + 0.5,
@@ -53,36 +53,48 @@ const Banner = () => {
     gsap.fromTo(
       ".headingAnimation1",
       { x: "-150%", opacity: 0 },
-      { x: 0, opacity: 1, duration, delay: delay + delayAfter }
+      {
+        x: 0,
+        opacity: 1,
+        duration: duration,
+        delay: delay + delayAfter,
+        onComplete: () => {
+          document.querySelectorAll(".headingAnimation1").forEach((el) => {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0)";
+          });
+        },
+      }
     );
 
     gsap.fromTo(
       ".opacityAnimation",
       { opacity: 0 },
-      { opacity: 1, duration, delay: delay + delayAfter }
+      {
+        opacity: 1,
+        duration: duration,
+        delay: delay + delayAfter,
+        onComplete: () => {
+          document.querySelectorAll(".opacityAnimation").forEach((el) => {
+            el.style.opacity = "1";
+            el.style.transform = "translateX(0)";
+          });
+        },
+      }
     );
 
     gsap.fromTo(
       ".reviewCardleft",
       { x: "-150%" },
-      { x: 0, duration, delay: delay + delayAfter }
+      { x: 0, duration: duration, delay: delay + delayAfter }
     );
 
     gsap.fromTo(
       ".reviewCardRight",
       { x: "150%" },
-      { x: 0, duration, delay: delay + delayAfter }
+      { x: 0, duration: duration, delay: delay + delayAfter }
     );
-  });
-
-  return () => {
-    ctx.revert(); // cleanup
-    mm.revert();
-  };
-}, []); // ✅ run only once per mount
-
-
-  const isVilla = currentSlide <= 2; // pehle 3 slides villas hain
+  }, []);
 
   const backgroundImages = [
     "/assets/resort/homebg.jpg",
@@ -90,16 +102,13 @@ const Banner = () => {
     "/assets/resort/homebg3.jpg",
     "/images/residence/new.jpg",
     "/images/residence/new-2.jpg",
-    // "/images/residence/new-3.jpg",
-    "/assets/images/posters/poster-6.jpg",
-
-    // "/assets/resort/67.webp",
     "/images/residence/new-3.jpg",
+    // "/assets/resort/67.webp",
   ];
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden bannerContainer">
-      {/* Swiper Background */}
+      {/* Swiper Background (z-0) */}
       <div className="absolute inset-0 z-0">
         <Swiper
           modules={[Autoplay, EffectFade]}
@@ -130,29 +139,21 @@ const Banner = () => {
         </Swiper>
       </div>
 
-      {/* Layer and Content */}
+      {/* Layer and Content on top of Swiper (z-10+) */}
       <div className="relative z-10">
         <BannerLayer />
-        <BannerContent
-          content={bannerContent[currentSlide] || bannerContent[0]}
-        />
-        <BannerContent
-          content={bannerContent[currentSlide] || bannerContent[0]}
-        />
+        <BannerContent content={bannerContent[currentSlide] || bannerContent[0]} />
       </div>
 
       <div className="absolute inset-0 z-20 flex items-center justify-between px-4 md:-mt-4 mt-20 md:px-3">
-        <BookingBrand />
+          <BookingBrand />
+   
+          <AirbnbBrand />
 
-        <AirbnbBrand />
 
-        <BookingBrand />
-        <AirbnbBrand />
         <div className="w-full font-crimson-text text-white py-6 flex flex-col md:flex-row justify-between px-4 md:px-10 absolute bottom-2 md:bottom-10 left-0 space-y-6 md:space-y-0">
           <div className="text-center md:flex-1">
-            <h2 className="text-xl md:text-3xl font-bold">
-              {isVilla ? "Exclusive Villas" : "Exclusive Residence"}
-            </h2>
+            <h2 className="text-xl md:text-3xl font-bold">Exclusive Villas</h2>
             <p className="text-sm md:text-xl">
               Handpicked villas in stunning locations.
             </p>
@@ -167,9 +168,7 @@ const Banner = () => {
             <h2 className="text-xl md:text-3xl font-bold">
               Unforgettable Experience
             </h2>
-            <p className="text-sm md:text-xl">
-              Memories that last a lifetime.
-            </p>
+            <p className="text-sm md:text-xl">Memories that last a lifetime.</p>
           </div>
         </div>
       </div>
@@ -178,4 +177,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

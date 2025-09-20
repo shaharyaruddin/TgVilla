@@ -10,8 +10,8 @@ const HomeServicesLeft = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const sliderImages = [
-    "/assets/images/bedroomvilla/bedroom10.jpg",
-    "/assets/images/bedroomvilla/bedroom12.jpg",
+    "/assets/images/bedroomVilla/bedroom10.jpg",
+    "/assets/images/bedroomVilla/bedroom12.jpg",
     "/assets/images/resort/section2/image-6.webp",
     "/spa/COLD-PLUNG.jpg",
     "/spa/ICE ROOM.jpg",

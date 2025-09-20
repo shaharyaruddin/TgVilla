@@ -75,7 +75,7 @@ export default function GalleryModal({ open, setOpen }) {
                     "w-full h-10 max-xl:text-sm text-lg ",
                     selectedCategory.name === category.name &&
                       "bg-app-yellow text-white",
-                    " hover:text-white"
+                    " hover:text-white hover:bg-app-yellow"
                   )}
                 >
                   {category.name}

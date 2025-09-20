@@ -64,7 +64,7 @@ const ImageZoomAnimation = () => {
     <>
       <div className="min-h-[15rem] bg-[#E8E4D9] headerAnimation2  w-full center-column capitalize text-[6vw] pt-35 max-md:pt-10 leading-none">
         <h2 className="font-bold">there is no place like</h2>
-        <h2 className="font-playfair mt-3 italic">TG LUXURY VILLA</h2>
+        <h2 className="font-playfair mt-3 italic">TG spa facilities and wellness</h2>
       </div>
 
       <div className="bg-[#E8E4D9] h-screen center imageAnimationContainer relative">

@@ -9,6 +9,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Link from "next/link";
 
 const HomeSliderLeft = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,6 +119,12 @@ const HomeSliderLeft = () => {
             >
               Read More
             </button>
+
+            <Link href="/resort">
+              <div className="border bg-black text-white  border-black rounded-full p-2 px-5 mt-5 font-medium leftToRight">
+                View Our Villas
+              </div>
+            </Link>
           </div>
         </div>
 

@@ -27,7 +27,7 @@ const PosterAnimation = () => {
     },
     {
       id: 4,
-      src: "/assets/images/beach/newbeach5.jpg",
+      src: "/assets/images/posters/poster-6.jpg",
       title: "a new chapter in seaside luxury living",
       description: `TG Luxury Stay is proud to introduce its next evolution in hospitality: 
         TG Residence by the Beach – an exclusive new beachfront apartment concept 

@@ -4,15 +4,15 @@ export const LINKS = [
     href: "/",
   },
   {
-    name: "tg resort",
+    name: "TG resort",
     href: "/resort",
   },
   {
-    name: "tg residence",
+    name: "TG residence",
     href: "/residence",
   },
   {
-    name: "tg spa facilities and wellness",
+    name: "TG spa facilities and wellness",
     href: "/spa",
   },
  

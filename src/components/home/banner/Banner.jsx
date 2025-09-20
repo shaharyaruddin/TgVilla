@@ -82,12 +82,18 @@ const Banner = () => {
 }, []); // ✅ run only once per mount
 
 
+  const isVilla = currentSlide <= 2; // pehle 3 slides villas hain
+
   const backgroundImages = [
     "/assets/resort/homebg.jpg",
     "/assets/resort/homebg1.jpg",
     "/assets/resort/homebg3.jpg",
     "/images/residence/new.jpg",
     "/images/residence/new-2.jpg",
+    // "/images/residence/new-3.jpg",
+    "/assets/images/posters/poster-6.jpg",
+
+    // "/assets/resort/67.webp",
     "/images/residence/new-3.jpg",
   ];
 
@@ -130,14 +136,23 @@ const Banner = () => {
         <BannerContent
           content={bannerContent[currentSlide] || bannerContent[0]}
         />
+        <BannerContent
+          content={bannerContent[currentSlide] || bannerContent[0]}
+        />
       </div>
 
       <div className="absolute inset-0 z-20 flex items-center justify-between px-4 md:-mt-4 mt-20 md:px-3">
         <BookingBrand />
+
+        <AirbnbBrand />
+
+        <BookingBrand />
         <AirbnbBrand />
         <div className="w-full font-crimson-text text-white py-6 flex flex-col md:flex-row justify-between px-4 md:px-10 absolute bottom-2 md:bottom-10 left-0 space-y-6 md:space-y-0">
           <div className="text-center md:flex-1">
-            <h2 className="text-xl md:text-3xl font-bold">Exclusive Villas</h2>
+            <h2 className="text-xl md:text-3xl font-bold">
+              {isVilla ? "Exclusive Villas" : "Exclusive Residence"}
+            </h2>
             <p className="text-sm md:text-xl">
               Handpicked villas in stunning locations.
             </p>
@@ -163,3 +178,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

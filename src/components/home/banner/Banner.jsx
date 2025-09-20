@@ -16,6 +16,8 @@ import bannerContent from "@/(data)/bannerContent.json";
 const Banner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const isVilla = currentSlide <= 2; // pehle 3 slides villas hain
+
   useGSAP(() => {
     if (typeof window === "undefined") return;
 
@@ -154,7 +156,9 @@ const Banner = () => {
 
         <div className="w-full font-crimson-text text-white py-6 flex flex-col md:flex-row justify-between px-4 md:px-10 absolute bottom-2 md:bottom-10 left-0 space-y-6 md:space-y-0">
           <div className="text-center md:flex-1">
-            <h2 className="text-xl md:text-3xl font-bold">Exclusive Villas</h2>
+            <h2 className="text-xl md:text-3xl font-bold">
+              {isVilla ? "Exclusive Villas" : "Exclusive Residence"}
+            </h2>{" "}
             <p className="text-sm md:text-xl">
               Handpicked villas in stunning locations.
             </p>
